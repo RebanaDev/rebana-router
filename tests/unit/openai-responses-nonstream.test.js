@@ -146,3 +146,85 @@ describe("forced-SSE JSON path for a Responses-API client behind a chat upstream
     expect(json.choices[0].message.tool_calls[0].function.name).toBe("shell");
   });
 });
+
+// Break caught: /v1/messages stream:false → oc/muse-spark-1.3-contributor-free
+// (forceStream, Responses upstream) returned a chat.completion body, so
+// Anthropic SDK clients could not parse text or tool_use.
+describe("forced-SSE JSON path for a Claude client (/v1/messages stream:false)", () => {
+  const forcedCtx = (raw, sourceFormat, targetFormat, provider) => {
+    const encoder = new TextEncoder();
+    return {
+      providerResponse: new Response(new ReadableStream({
+        start(controller) { controller.enqueue(encoder.encode(raw)); controller.close(); }
+      }), { headers: { "content-type": "text/event-stream" } }),
+      sourceFormat,
+      targetFormat,
+      provider,
+      model: "muse-spark-1.3-contributor-free",
+      body: { model: "muse-spark-1.3-contributor-free", messages: [] },
+      stream: false,
+      requestStartTime: Date.now(),
+      connectionId: "test-connection",
+      clientRawRequest: { endpoint: "/v1/messages" },
+      trackDone: vi.fn(),
+      appendLog: vi.fn()
+    };
+  };
+
+  const responsesSSE = (items) => [
+    'event: response.created\ndata: {"type":"response.created","response":{"id":"resp_1","created_at":1700000000}}',
+    ...items.map((item, i) => `event: response.output_item.done\ndata: ${JSON.stringify({ type: "response.output_item.done", output_index: i, item })}`),
+    'event: response.completed\ndata: {"type":"response.completed","response":{"usage":{"input_tokens":12,"output_tokens":7,"total_tokens":19}}}',
+    ""
+  ].join("\n\n");
+
+  const TEXT_ITEM = { type: "message", role: "assistant", content: [{ type: "output_text", text: "Paris" }] };
+  const CALL_ITEM = { type: "function_call", call_id: "call_r1", name: "read", arguments: "{\"file_path\":\"/etc/hostname\"}" };
+
+  it("Responses upstream: returns an Anthropic message with a text block", async () => {
+    const ctx = forcedCtx(responsesSSE([TEXT_ITEM]), FORMATS.CLAUDE, FORMATS.OPENAI_RESPONSES, "opencode");
+    const json = await (await handleForcedSSEToJson(ctx)).response.json();
+    expect(json).not.toHaveProperty("choices");
+    expect(json).toMatchObject({
+      type: "message",
+      role: "assistant",
+      content: [{ type: "text", text: "Paris" }],
+      stop_reason: "end_turn",
+      usage: { input_tokens: 12, output_tokens: 7 }
+    });
+  });
+
+  it("Responses upstream: function_call becomes tool_use and keeps the caller's tool spelling", async () => {
+    const ctx = forcedCtx(responsesSSE([TEXT_ITEM, CALL_ITEM]), FORMATS.CLAUDE, FORMATS.OPENAI_RESPONSES, "opencode");
+    // Fingerprint pass sent Claude Code's "Read" upstream as "read".
+    ctx.toolNameMap = new Map([["read", "Read"]]);
+    const json = await (await handleForcedSSEToJson(ctx)).response.json();
+    expect(json.stop_reason).toBe("tool_use");
+    expect(json.content).toEqual([
+      { type: "text", text: "Paris" },
+      { type: "tool_use", id: "call_r1", name: "Read", input: { file_path: "/etc/hostname" } }
+    ]);
+  });
+
+  it("Chat upstream: SSE tool_calls become a tool_use message", async () => {
+    const raw = [
+      'data: {"id":"chatcmpl-sse","object":"chat.completion.chunk","created":1700000000,"model":"gpt-x","choices":[{"delta":{"tool_calls":[{"index":0,"id":"call_9","type":"function","function":{"name":"shell","arguments":""}}]},"finish_reason":null}]}',
+      'data: {"id":"chatcmpl-sse","object":"chat.completion.chunk","created":1700000000,"model":"gpt-x","choices":[{"delta":{"tool_calls":[{"index":0,"function":{"arguments":"{\\"cmd\\":\\"pwd\\"}"}}]},"finish_reason":null}]}',
+      'data: {"id":"chatcmpl-sse","object":"chat.completion.chunk","created":1700000000,"model":"gpt-x","choices":[{"delta":{},"finish_reason":"tool_calls"}]}',
+      "data: [DONE]",
+      ""
+    ].join("\n\n");
+    const json = await (await handleForcedSSEToJson(forcedCtx(raw, FORMATS.CLAUDE, FORMATS.OPENAI, "op-test-chat"))).response.json();
+    expect(json).not.toHaveProperty("choices");
+    expect(json.type).toBe("message");
+    expect(json.stop_reason).toBe("tool_use");
+    expect(json.content).toEqual([{ type: "tool_use", id: "call_9", name: "shell", input: { cmd: "pwd" } }]);
+  });
+
+  it("Responses upstream: an OpenAI chat client still gets chat.completion", async () => {
+    const ctx = forcedCtx(responsesSSE([TEXT_ITEM]), FORMATS.OPENAI, FORMATS.OPENAI_RESPONSES, "opencode");
+    const json = await (await handleForcedSSEToJson(ctx)).response.json();
+    expect(json.object).toBe("chat.completion");
+    expect(json.choices[0].message.content).toBe("Paris");
+  });
+});
