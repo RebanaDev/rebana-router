@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { createProxyPool } from "@/models";
-import { buildRelaySanitizeSnippet } from "@/lib/network/relayHeaders";
 
 const VERCEL_API = "https://api.vercel.com";
 
@@ -21,13 +20,15 @@ export default async function handler(req) {
 
   const targetUrl = target.replace(/\\/$/, "") + relayPath;
 
-  const headers = new Headers(req.headers);
-${buildRelaySanitizeSnippet()}
-  sanitizeRelayHeaders(headers);
+  const rawHeaders = {};
+  for (const [k, v] of req.headers.entries()) rawHeaders[k] = v;
+  delete rawHeaders["x-relay-target"];
+  delete rawHeaders["x-relay-path"];
+  delete rawHeaders["host"];
 
   const response = await fetch(targetUrl, {
     method: req.method,
-    headers,
+    headers: rawHeaders,
     body: req.method !== "GET" && req.method !== "HEAD" ? req.body : undefined,
     duplex: "half",
   });

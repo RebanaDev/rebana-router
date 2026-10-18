@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { createProxyPool } from "@/models";
-import { buildRelaySanitizeSnippet } from "@/lib/network/relayHeaders";
 
 // Relay worker source code deployed to Cloudflare
 const RELAY_WORKER_CODE = `
@@ -8,7 +7,7 @@ export default {
   async fetch(request, env, ctx) {
     const target = request.headers.get("x-relay-target");
     const relayPath = request.headers.get("x-relay-path") || "/";
-
+    
     if (!target) {
       return new Response(JSON.stringify({ error: "Missing x-relay-target header" }), {
         status: 400,
@@ -17,17 +16,19 @@ export default {
     }
 
     const targetUrl = target.replace(/\\/$/, "") + relayPath;
-    const forwardHeaders = new Headers(request.headers);
-${buildRelaySanitizeSnippet()}
-    sanitizeRelayHeaders(forwardHeaders);
     const newRequestInit = {
       method: request.method,
-      headers: forwardHeaders,
+      headers: new Headers(request.headers),
     };
+
     if (request.method !== "GET" && request.method !== "HEAD") {
       newRequestInit.body = request.body;
       newRequestInit.duplex = "half";
     }
+
+    newRequestInit.headers.delete("x-relay-target");
+    newRequestInit.headers.delete("x-relay-path");
+    newRequestInit.headers.delete("host");
 
     try {
       const response = await fetch(targetUrl, newRequestInit);
