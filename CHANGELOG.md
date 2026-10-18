@@ -4,6 +4,7 @@
 - **Auth / Proxy**: support proxy pool fallback and pool exclusion for no-auth free providers (`FREE_PROVIDERS`); mark `proxy:*` virtual connections unavailable on fallbackable HTTP errors (403/429/5xx) so rotating pools seamlessly fail over to working relays
 - **OpenCode**: match `deepseek-v4.1-flash-free` in `OPENCODE_FAMILIES` regex and add `deepseek-v4.1-flash-free` to OpenCode registry models with `[openai, claude, openai-responses]` supported formats
 - **OpenCode Free**: honor the `low|high|max` reasoning efforts of `oc/deepseek-v4.1-flash-free` — the generic DeepSeek level set no longer advertises medium/xhigh, and `low` now reaches the upstream verbatim instead of collapsing to `high`
+- **OpenCode**: send `reasoning_effort` instead of the zai `thinking` object for `glm-5.3-flash-free` — OpenCode's inference service validates bodies strictly and answers `400 json: unknown field "thinking"` on both the free lane (`/inference/v1`) and Zen (`/zen/v1`)
 
 # v0.5.104 (2026-10-15)
 
