@@ -1,9 +1,9 @@
 {
-  "name": "Rebana Router",
+  "name": "rebana-router",
   "version": "0.5.104",
   "description": "Rebana Router CLI - Start and manage Rebana Router server",
   "bin": {
-    "Rebana Router": "./cli.js"
+    "rebana-router": "./cli.js"
   },
   "files": [
     "cli.js",
