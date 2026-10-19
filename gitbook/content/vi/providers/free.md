@@ -31,7 +31,7 @@ Provider free tier là **fallback** khi hết quota subscription và cheap:
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect iFlow
 ```
 
@@ -91,7 +91,7 @@ Model: if/kimi-k2-thinking
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect Qwen
 ```
 
@@ -116,15 +116,15 @@ Model: qw/qwen3-coder-plus
 
 | Model ID | Mô tả | Tốt nhất cho |
 |----------|-------------|----------|
-| `qw/qwen3-coder-plus` | Qwen3 Coder Plus | Coding nâng cao |
+| `qw/qwen3-coder-plus` | Qwen3 Coder Plus | Coding n❌ng cao |
 | `qw/qwen3-coder-flash` | Qwen3 Coder Flash | Phản hồi nhanh |
-| `qw/vision-model` | Qwen3 Vision | Phân tích ảnh |
+| `qw/vision-model` | Qwen3 Vision | Ph❌n tích ảnh |
 
 ### Mẹo Pro
 
 - **Qwen3 Coder Plus** - Khả năng coding mạnh
 - **Qwen3 Coder Flash** - Nhanh cho task nhanh
-- **Vision model** - Phân tích ảnh MIỄN PHÍ
+- **Vision model** - Ph❌n tích ảnh MIỄN PHÍ
 - **Usage không giới hạn** - Không giới hạn quota
 
 ---
@@ -144,7 +144,7 @@ Model: qw/qwen3-coder-plus
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect Kiro
 ```
 
@@ -169,7 +169,7 @@ Model: kr/claude-sonnet-4.5
 
 | Model ID | Mô tả | Tốt nhất cho |
 |----------|-------------|----------|
-| `kr/claude-sonnet-4.5` | Claude Sonnet 4.5 | Cân bằng chất lượng/tốc độ |
+| `kr/claude-sonnet-4.5` | Claude Sonnet 4.5 | C❌n bằng chất lượng/tốc độ |
 | `kr/claude-haiku-4.5` | Claude Haiku 4.5 | Phản hồi nhanh |
 
 ### Mẹo Pro
@@ -199,8 +199,8 @@ Model: kr/claude-sonnet-4.5
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [from 9router dashboard]
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [from Rebana Router dashboard]
   Model: if/kimi-k2-thinking
 ```
 
@@ -310,7 +310,7 @@ Save paid quota for:
 
 ## Ví dụ Thực tế
 
-### Ví dụ 1: Sinh viên/Người học (Ngân sách 0)
+### Ví dụ 1: Sinh viên/Người học (Ng❌n sách 0)
 
 ```
 Setup:
@@ -327,7 +327,7 @@ Perfect for:
 - Homework/assignments
 ```
 
-### Ví dụ 2: Freelancer (Tiết kiệm Ngân sách)
+### Ví dụ 2: Freelancer (Tiết kiệm Ng❌n sách)
 
 ```
 Setup:
@@ -376,13 +376,13 @@ Perfect for:
 100M × $20/1M = $2,000/month
 ```
 
-**Phương án 2: Chỉ 9Router Free Tier**
+**Phương án 2: Chỉ Rebana Router Free Tier**
 ```
 100M via free tier = $0/month
 Savings: $2,000/month (100%)
 ```
 
-**Phương án 3: Chiến lược Hoàn chỉnh 9Router**
+**Phương án 3: Chiến lược Hoàn chỉnh Rebana Router**
 ```
 60M via Gemini CLI (FREE): $0
 30M via Claude Code (subscription): $0 extra
@@ -417,13 +417,13 @@ Savings: $1,995/month (99.76%)
 - Free tier có thể có ưu tiên thấp hơn
 - Dùng trong giờ thấp điểm
 - Chuyển sang free provider khác
-- Nâng cấp lên cheap tier để tăng tốc
+- N❌ng cấp lên cheap tier để tăng tốc
 
 ---
 
 ## Giới hạn
 
-### Cân nhắc Free Tier
+### C❌n nhắc Free Tier
 
 - **Tốc độ** - Có thể chậm hơn tier trả phí
 - **Ưu tiên** - Ưu tiên thấp hơn trong giờ cao điểm

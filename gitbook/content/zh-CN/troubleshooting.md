@@ -1,6 +1,6 @@
 # 故障排除
 
-使用 9Router 时常见的问题与解决方案。
+使用 Rebana Router 时常见的问题与解决方案。
 
 ---
 
@@ -78,7 +78,7 @@
 **解决方案:**
 
 1. **自动刷新(默认):**
-   9Router 会自动刷新 token。等待 30 秒后重试。
+   Rebana Router 会自动刷新 token。等待 30 秒后重试。
 
 2. **手动重连:**
    ```
@@ -132,39 +132,39 @@
 
 ## 连接被拒绝
 
-**问题:** 出现 "ECONNREFUSED" 或 "Cannot connect to localhost:20128"。
+**问题:** 出现 "ECONNREFUSED" 或 "Cannot connect to localhost:91827"。
 
 **原因:**
-- 9Router 未运行
-- 端口 20128 被阻止
+- Rebana Router 未运行
+- 端口 91827 被阻止
 - 防火墙拦截连接
 
 **解决方案:**
 
-1. **启动 9Router:**
+1. **启动 Rebana Router:**
    ```bash
-   9router
+   Rebana Router
    ```
    仪表盘应该在 http://localhost:3000 打开。
 
-2. **检查端口 20128:**
+2. **检查端口 91827:**
    ```bash
    # 检查端口是否监听
-   lsof -i :20128
+   lsof -i :91827
    
    # Windows
-   netstat -ano | findstr :20128
+   netstat -ano | findstr :91827
    ```
 
 3. **检查防火墙:**
    - macOS: 系统设置 → 网络 → 防火墙
    - Windows: Windows Defender 防火墙 → 允许应用
-   - Linux: `sudo ufw allow 20128`
+   - Linux: `sudo ufw allow 91827`
 
 4. **使用云端 endpoint:**
    如果 localhost 不行(例如 Cursor IDE):
    ```
-   Endpoint: https://9router.com/v1
+   Endpoint: https://Rebana Router.com/v1
    ```
 
 ---
@@ -175,15 +175,15 @@
 
 **原因:**
 - 端口 3000 被占用
-- 9Router 崩溃
+- Rebana Router 崩溃
 - 浏览器缓存问题
 
 **解决方案:**
 
-1. **确认 9Router 是否运行:**
+1. **确认 Rebana Router 是否运行:**
    ```bash
    # 检查进程
-   ps aux | grep 9router
+   ps aux | grep Rebana Router
    
    # 检查端口 3000
    lsof -i :3000
@@ -199,13 +199,13 @@
    taskkill /PID <PID> /F
    ```
 
-3. **重启 9Router:**
+3. **重启 Rebana Router:**
    ```bash
    # 停止
-   pkill -f 9router
+   pkill -f Rebana Router
    
    # 启动
-   9router
+   Rebana Router
    ```
 
 4. **清除浏览器缓存:**
@@ -243,7 +243,7 @@
 
 3. **列出可用模型:**
    ```bash
-   curl http://localhost:20128/v1/models \
+   curl http://localhost:91827/v1/models \
      -H "Authorization: Bearer your-api-key"
    ```
 
@@ -338,7 +338,7 @@
 
 4. **测试 API key:**
    ```bash
-   curl http://localhost:20128/v1/models \
+   curl http://localhost:91827/v1/models \
      -H "Authorization: Bearer 9r_your_key"
    ```
 
@@ -346,6 +346,6 @@
 
 ## 需要更多帮助?
 
-- **GitHub Issues:** [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
-- **文档:** [9router.com/docs](https://9router.com/docs)
+- **GitHub Issues:** [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
+- **文档:** [Rebana Router.com/docs](https://Rebana Router.com/docs)
 - **常见问题:** [faq.md](faq.md)

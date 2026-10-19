@@ -6,7 +6,7 @@ Create custom model combinations with automatic fallback. Combos let you define 
 
 ## What Are Combos?
 
-Combos are **custom fallback chains** that you create in the dashboard. Instead of using a single model, you define a sequence of models that 9Router tries in order.
+Combos are **custom fallback chains** that you create in the dashboard. Instead of using a single model, you define a sequence of models that Rebana Router tries in order.
 
 **Example:**
 ```
@@ -22,7 +22,7 @@ Models:
 Model: premium-coding
 ```
 
-9Router automatically tries each model in sequence until one succeeds.
+Rebana Router automatically tries each model in sequence until one succeeds.
 
 ---
 
@@ -71,7 +71,7 @@ cc/claude-opus-4-5 → cx/gpt-5.2-codex → gc/gemini-3-pro
 ### Step 1: Open Dashboard
 
 ```
-http://localhost:20128
+http://localhost:91827
 → Login with your password
 ```
 
@@ -120,17 +120,17 @@ Cursor/Cline/Any tool:
 
 ## Cursor / Claude Default Combos
 
-Cursor and Claude Code send **unprefixed** model IDs (`composer-2.5`, `claude-opus-5`, `opus`), while 9Router routes with provider prefixes (`cu/composer-2.5`, `cc/claude-opus-5`). Default combo generators bridge that gap.
+Cursor and Claude Code send **unprefixed** model IDs (`composer-2.5`, `claude-opus-5`, `opus`), while Rebana Router routes with provider prefixes (`cu/composer-2.5`, `cc/claude-opus-5`). Default combo generators bridge that gap.
 
 On **Dashboard → Combos**:
 
 1. Click **Cursor Default** or **Claude Default**
 2. Confirm the preview (new vs already-existing names)
-3. 9Router creates one combo per client model ID, seeded with the matching prefixed route
+3. Rebana Router creates one combo per client model ID, seeded with the matching prefixed route
 
 **Examples:**
 
-| Combo name (what the client sends) | Seeded model (what 9Router routes) |
+| Combo name (what the client sends) | Seeded model (what Rebana Router routes) |
 |------------------------------------|------------------------------------|
 | `composer-2.5` | `cu/composer-2.5` |
 | `cursor-grok-4.6-high-fast` | `cu/cursor-grok-4.6-high-fast` |
@@ -139,7 +139,7 @@ On **Dashboard → Combos**:
 
 Existing combo names are **skipped** (not overwritten). Edit any generated combo afterward to add fallbacks. Click the button again later to pick up new catalog IDs.
 
-> These combos help when Cursor/Claude already talk to 9Router (`/v1` or `ANTHROPIC_BASE_URL`) and send their native model IDs. They do not change Cursor’s built-in Models tab by themselves.
+> These combos help when Cursor/Claude already talk to Rebana Router (`/v1` or `ANTHROPIC_BASE_URL`) and send their native model IDs. They do not change Cursor’s built-in Models tab by themselves.
 
 ---
 
@@ -207,7 +207,7 @@ Models:
 ```
 Cline:
   Provider: OpenAI Compatible
-  Base URL: http://localhost:20128/v1
+  Base URL: http://localhost:91827/v1
   Model: budget-combo
 ```
 
@@ -286,7 +286,7 @@ Models:
 **Usage:**
 ```
 Codex CLI:
-  export OPENAI_BASE_URL="http://localhost:20128"
+  export OPENAI_BASE_URL="http://localhost:91827"
   Model: quality-first
 ```
 
@@ -368,7 +368,7 @@ Models:
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
+  OpenAI API Base URL: http://localhost:91827/v1
   OpenAI API Key: [from dashboard]
   Model: premium-coding
 ```
@@ -378,8 +378,8 @@ Settings → Models → Advanced:
 Edit `~/.claude/config.json`:
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key",
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key",
   "model": "budget-combo"
 }
 ```
@@ -387,8 +387,8 @@ Edit `~/.claude/config.json`:
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex --model quality-first "your prompt"
 ```
@@ -397,7 +397,7 @@ codex --model quality-first "your prompt"
 
 ```
 Provider: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [from dashboard]
 Model: free-combo
 ```
@@ -405,7 +405,7 @@ Model: free-combo
 ### API Request
 
 ```bash
-curl http://localhost:20128/v1/chat/completions \
+curl http://localhost:91827/v1/chat/completions \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -505,7 +505,7 @@ Dashboard → Combos → Edit → Budget:
   Monthly limit: $50
 ```
 
-When limit reached, 9Router skips paid models and uses free tier only.
+When limit reached, Rebana Router skips paid models and uses free tier only.
 
 ### Enable/Disable Models in Combo
 

@@ -44,7 +44,7 @@ export default function HermesToolCard({
   const [activeProfile, setActiveProfile] = useState("default");
   const [applyingAll, setApplyingAll] = useState(false);
   const [copiedCommand, setCopiedCommand] = useState("");
-  // Audio transcription via 9router: stt.provider "openai" + base_url override points
+  // Audio transcription via Rebana Router: stt.provider "openai" + base_url override points
   // Hermes' speech-to-text at /v1/audio/transcriptions (per-profile, saved with Apply).
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [sttModel, setSttModel] = useState("");
@@ -64,7 +64,7 @@ export default function HermesToolCard({
 
   // Same three-state rule as the header badge, evaluated per profile from the list payload.
   const profileStatus = (p) => {
-    if (p.has9Router || (p.baseUrl && matchKnownEndpoint(p.baseUrl, { tunnelPublicUrl, tailscaleUrl }))) return "configured";
+    if (p.hasRebana Router || (p.baseUrl && matchKnownEndpoint(p.baseUrl, { tunnelPublicUrl, tailscaleUrl }))) return "configured";
     if (p.baseUrl) return "other";
     return "not_configured";
   };
@@ -130,8 +130,8 @@ export default function HermesToolCard({
         if (rcfg?.model) initial[role] = rcfg.model;
       }
       setRoleModels(initial);
-      setAudioEnabled(!!hermesStatus.has9RouterStt);
-      setSttModel(hermesStatus.has9RouterStt ? hermesStatus.settings?.stt?.model || "" : "");
+      setAudioEnabled(!!hermesStatus.hasRebana RouterStt);
+      setSttModel(hermesStatus.hasRebana RouterStt ? hermesStatus.settings?.stt?.model || "" : "");
     }
   }, [hermesStatus]);
 
@@ -166,7 +166,7 @@ export default function HermesToolCard({
       } else {
         setMessage({ type: "error", text: data.error || "Failed to load Hermes settings" });
         if (res.status === 404) {
-          // Profile disappeared (e.g. deleted in another tab) — fall back to default.
+          // Profile disappeared (e.g. deleted in another tab) â€” fall back to default.
           fetchProfiles();
           setActiveProfile("default");
         }
@@ -184,7 +184,7 @@ export default function HermesToolCard({
     if (typeof window !== "undefined") {
       return normalizeLocalhost(window.location.origin);
     }
-    return "http://127.0.0.1:20128";
+    return "http://127.0.0.1:91827";
   };
 
   const getEffectiveBaseUrl = () => {
@@ -195,7 +195,7 @@ export default function HermesToolCard({
   const getKeyToUse = () =>
     selectedApiKey?.trim()
       || (apiKeys?.length > 0 ? apiKeys[0].key : null)
-      || (!cloudEnabled ? "sk_9router" : null);
+      || (!cloudEnabled ? "sk_Rebana Router" : null);
 
   const profileLabel = (name) => (name === "default" ? "default profile" : `profile "${name}"`);
 
@@ -237,10 +237,10 @@ export default function HermesToolCard({
     }
   };
 
-  // Endpoint + API key across every profile. Each profile keeps its own model — only
-  // profiles already routed through 9router are refreshed, the rest are reported.
+  // Endpoint + API key across every profile. Each profile keeps its own model â€” only
+  // profiles already routed through Rebana Router are refreshed, the rest are reported.
   // The endpoint field mirrors whatever the active profile currently points at, so it can
-  // hold a foreign provider URL (openrouter, ...) — propagating that to every profile would
+  // hold a foreign provider URL (openrouter, ...) â€” propagating that to every profile would
   // be a mistake, hence the known-endpoint guard.
   const handleApplyAll = async () => {
     const endpoint = getEffectiveBaseUrl();
@@ -250,7 +250,7 @@ export default function HermesToolCard({
     if (!isKnown) {
       setMessage({
         type: "error",
-        text: `"${endpoint}" is not a 9router endpoint. Select the local, tunnel, Tailscale or a saved 9router endpoint before applying to all profiles.`,
+        text: `"${endpoint}" is not a Rebana Router endpoint. Select the local, tunnel, Tailscale or a saved Rebana Router endpoint before applying to all profiles.`,
       });
       return;
     }
@@ -275,7 +275,7 @@ export default function HermesToolCard({
         if (skipped.length === 0) {
           setMessage({ type: "success", text: `Endpoint and API key applied to ${data.updated} profile(s).` });
         } else {
-          const detail = skipped.map((r) => `${r.profile} — ${r.reason || r.status}`).join("; ");
+          const detail = skipped.map((r) => `${r.profile} â€” ${r.reason || r.status}`).join("; ");
           setMessage({
             type: data.updated > 0 ? "success" : "error",
             text: `Updated ${data.updated} profile(s), skipped ${skipped.length}: ${detail}`,
@@ -340,7 +340,7 @@ export default function HermesToolCard({
   const getManualConfigs = () => {
     const keyToUse = (selectedApiKey && selectedApiKey.trim())
       ? selectedApiKey
-      : (!cloudEnabled ? "sk_9router" : "<API_KEY_FROM_DASHBOARD>");
+      : (!cloudEnabled ? "sk_Rebana Router" : "<API_KEY_FROM_DASHBOARD>");
 
     const base = getEffectiveBaseUrl();
     const homeDir = activeProfile === "default" ? "~/.hermes" : `~/.hermes/profiles/${activeProfile}`;
@@ -431,7 +431,7 @@ export default function HermesToolCard({
                         <button
                           key={p.name}
                           onClick={() => selectProfile(p.name)}
-                          title={p.isDefault ? `Default profile — ${STATUS_LABEL[status]}` : `${p.command} — ${STATUS_LABEL[status]}`}
+                          title={p.isDefault ? `Default profile â€” ${STATUS_LABEL[status]}` : `${p.command} â€” ${STATUS_LABEL[status]}`}
                           className={`flex items-center gap-1.5 px-2 py-1 rounded border text-xs transition-colors ${
                             active
                               ? "border-primary bg-primary/10 text-primary cursor-pointer"
@@ -463,7 +463,7 @@ export default function HermesToolCard({
                         {copiedCommand === (profiles.find((p) => p.name === activeProfile)?.command || "hermes") ? "check" : "content_copy"}
                       </span>
                     </button>
-                    <span className="hidden sm:inline">— every profile runs as its own agent with its own model.</span>
+                    <span className="hidden sm:inline">â€” every profile runs as its own agent with its own model.</span>
                   </div>
                 </div>
               )}
@@ -513,9 +513,9 @@ export default function HermesToolCard({
                 <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-[8rem_auto_1fr_auto] sm:items-center sm:gap-2">
                   <span className="text-xs font-semibold text-text-main sm:text-right sm:text-sm">Audio STT</span>
                   <span className="material-symbols-outlined hidden text-text-muted text-[14px] sm:inline">arrow_forward</span>
-                  <label className="flex items-center gap-2 text-xs text-text-muted cursor-pointer" title="Route Hermes voice & audio transcription through 9router's /v1/audio/transcriptions — usage is tracked on this instance">
+                  <label className="flex items-center gap-2 text-xs text-text-muted cursor-pointer" title="Route Hermes voice & audio transcription through Rebana Router's /v1/audio/transcriptions â€” usage is tracked on this instance">
                     <input type="checkbox" checked={audioEnabled} onChange={(e) => setAudioEnabled(e.target.checked)} className="w-3.5 h-3.5 accent-primary cursor-pointer shrink-0" />
-                    <span>Transcribe voice &amp; audio via 9router (per-profile)</span>
+                    <span>Transcribe voice &amp; audio via Rebana Router (per-profile)</span>
                   </label>
                   <span />
                 </div>
@@ -591,13 +591,13 @@ export default function HermesToolCard({
                     size="sm"
                     onClick={handleApplyAll}
                     loading={applyingAll}
-                    title="Set the endpoint and API key on every profile that routes through 9router. Each profile keeps its own model."
+                    title="Set the endpoint and API key on every profile that routes through Rebana Router. Each profile keeps its own model."
                     className="w-full sm:w-auto"
                   >
                     <span className="material-symbols-outlined text-[14px] mr-1">groups</span>Apply to All Profiles
                   </Button>
                 )}
-                <Button variant="outline" size="sm" onClick={handleReset} disabled={!hermesStatus?.has9Router && !hermesStatus?.has9RouterStt} loading={restoring} className="w-full sm:w-auto">
+                <Button variant="outline" size="sm" onClick={handleReset} disabled={!hermesStatus?.hasRebana Router && !hermesStatus?.hasRebana RouterStt} loading={restoring} className="w-full sm:w-auto">
                   <span className="material-symbols-outlined text-[14px] mr-1">restore</span>Reset
                 </Button>
                 <Button variant="ghost" size="sm" onClick={() => setShowManualConfigModal(true)} className="w-full sm:w-auto">
@@ -618,7 +618,7 @@ export default function HermesToolCard({
           activeProviders={activeProviders}
           modelAliases={modelAliases}
           kindFilter={modalTarget === "stt" ? "stt" : undefined}
-          title={modalTarget === "stt" ? "Select STT Model — audio transcription via 9router" : `Select Model for Hermes Agent${modalTarget !== "default" ? ` — ${HERMES_ROLES.find((r) => r.id === modalTarget)?.label || modalTarget}` : ""}`}
+          title={modalTarget === "stt" ? "Select STT Model â€” audio transcription via Rebana Router" : `Select Model for Hermes Agent${modalTarget !== "default" ? ` â€” ${HERMES_ROLES.find((r) => r.id === modalTarget)?.label || modalTarget}` : ""}`}
         />
       )}
 

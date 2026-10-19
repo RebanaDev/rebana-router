@@ -8,14 +8,14 @@ import { createRequire } from "module";
 export const NOUS_ATTRIBUTION = {
   hostname: "inference-api.nousresearch.com",
   chatCompletionsPath: "/v1/chat/completions",
-  tags: ["product=9router", "client=9router", "user=9router"],
+  tags: ["product=Rebana Router", "client=Rebana Router", "user=Rebana Router"],
 };
 
-// === Gemini CLI === derive từ registry gemini-cli.transport
+// === Gemini CLI === derive tá»« registry gemini-cli.transport
 export const GEMINI_CLI_VERSION = PROVIDERS["gemini-cli"]?.cliVersion;
 export const GEMINI_CLI_API_CLIENT = PROVIDERS["gemini-cli"]?.apiClient;
 
-// === Codex CLI === derive từ registry codex.transport
+// === Codex CLI === derive tá»« registry codex.transport
 export const CODEX_CLI_VERSION = PROVIDERS["codex"]?.cliVersion;
 
 // Map Node arch to Gemini CLI arch string (x64/x86/arm64/...)
@@ -30,7 +30,7 @@ export function geminiCLIUserAgent(model = "unknown") {
 }
 
 // === GitHub Copilot ===
-// Derive từ registry github.transport.copilot
+// Derive tá»« registry github.transport.copilot
 const _ghCopilot = PROVIDERS.github?.copilot || {};
 export const GITHUB_COPILOT = {
   VSCODE_VERSION: _ghCopilot.vscodeVersion,
@@ -90,7 +90,7 @@ export const AG_TOOL_SUFFIX = "_ide";
 // Suffix added to client tools when forwarding to Claude provider (anti-ban cloaking)
 export const CLAUDE_TOOL_SUFFIX = "_ide";
 
-// CC native default tools — these are Claude Code's own tools, kept as decoys
+// CC native default tools â€” these are Claude Code's own tools, kept as decoys
 // Client tools matching these names are skipped (not renamed), others get _cc suffix
 export const CC_DEFAULT_TOOLS = new Set([
   "Task",
@@ -115,7 +115,7 @@ export const CC_DEFAULT_TOOLS = new Set([
   "ExitPlanMode",
 ]);
 
-// AG native default tools — kept as decoys with neutral description/properties
+// AG native default tools â€” kept as decoys with neutral description/properties
 // These names must match exactly what AG sends in the real request log
 export const AG_DEFAULT_TOOLS = new Set([
   "browser_subagent",
@@ -154,7 +154,7 @@ export const CLOUD_CODE_API = {
     loadCodeAssist: "https://cloudcode-pa.googleapis.com/v1internal:loadCodeAssist",
     onboardUser: "https://cloudcode-pa.googleapis.com/v1internal:onboardUser",
   },
-  // Project discovery (loadCodeAssist/onboardUser) stays on PROD — the daily host
+  // Project discovery (loadCodeAssist/onboardUser) stays on PROD â€” the daily host
   // rejects these auth/onboarding calls. Only chat traffic uses the daily host
   // (see transport.apiEndpoint in registry/antigravity.js, set to bypass prod 429).
   antigravity: {
@@ -170,7 +170,7 @@ export const LOAD_CODE_ASSIST_HEADERS = {
   "Client-Metadata": JSON.stringify({ ideType: IDE_TYPE.ANTIGRAVITY, platform: getPlatformEnum(), pluginType: PLUGIN_TYPE.GEMINI }),
 };
 
-// Real Antigravity IDE doesn't send X-Goog-Api-Client/Client-Metadata on loadCodeAssist/onboardUser —
+// Real Antigravity IDE doesn't send X-Goog-Api-Client/Client-Metadata on loadCodeAssist/onboardUser â€”
 // Google's backend fingerprints those and silently refuses to provision a cloudaicompanionProject.
 export const ANTIGRAVITY_LOAD_CODE_ASSIST_HEADERS = {
   "Content-Type": "application/json",
@@ -199,7 +199,7 @@ export const ANTIGRAVITY_PROMPT_REWRITES = [
 
 export const ANTIGRAVITY_DEFAULT_SYSTEM = "You are Antigravity, a powerful agentic AI coding assistant designed by the Google Deepmind team working on Advanced Agentic Coding.You are pair programming with a USER to solve their coding task. The task may require creating a new codebase, modifying or debugging an existing codebase, or simply answering a question.**Absolute paths only****Proactiveness**";
 
-// Derive từ registry oauth.refreshLeadMs
+// Derive tá»« registry oauth.refreshLeadMs
 export const REFRESH_LEAD_MS = Object.fromEntries(
   Object.entries(PROVIDER_OAUTH).filter(([, o]) => o.refreshLeadMs).map(([id, o]) => [id, o.refreshLeadMs])
 );
@@ -208,7 +208,7 @@ export const REFRESH_LEAD_MS = Object.fromEntries(
 export const OAUTH_ENDPOINTS = {
   google:    { token: "https://oauth2.googleapis.com/token", auth: "https://accounts.google.com/o/oauth2/auth" },
   openai:    { token: PROVIDER_OAUTH["codex"]?.tokenUrl, auth: PROVIDER_OAUTH["codex"]?.authorizeUrl },
-  anthropic: { token: PROVIDER_OAUTH["claude"]?.tokenUrl, auth: "https://api.anthropic.com/v1/oauth/authorize" }, // ≠ claude.authorizeUrl (claude.ai login) — keep
+  anthropic: { token: PROVIDER_OAUTH["claude"]?.tokenUrl, auth: "https://api.anthropic.com/v1/oauth/authorize" }, // â‰  claude.authorizeUrl (claude.ai login) â€” keep
   iflow:     { token: PROVIDER_OAUTH["iflow"]?.tokenUrl, auth: PROVIDER_OAUTH["iflow"]?.authorizeUrl },
   github:    { token: PROVIDER_OAUTH["github"]?.tokenUrl, auth: PROVIDER_OAUTH["github"]?.authorizeUrl, deviceCode: PROVIDER_OAUTH["github"]?.deviceCodeUrl },
 };
@@ -247,7 +247,7 @@ export function buildKimiHeaders(deviceId) {
     : `kimi-${Date.now()}`;
 
   return {
-    "X-Msh-Platform": "9router",
+    "X-Msh-Platform": "Rebana Router",
     "X-Msh-Version": getAppPackageVersion(),
     "X-Msh-Device-Name": deviceName,
     "X-Msh-Device-Model": deviceModel,

@@ -1,19 +1,19 @@
-// REAL matrix: DeepSeek OFFICIAL Responses API — direct behavior vs 9router translation.
+// REAL matrix: DeepSeek OFFICIAL Responses API â€” direct behavior vs Rebana Router translation.
 //
 // Context: DeepSeek recently shipped an OpenAI-Responses-compatible endpoint
-// (https://api.deepseek.com/responses) but the 9router registry does not declare it —
+// (https://api.deepseek.com/responses) but the Rebana Router registry does not declare it â€”
 // responses-format requests are translated to /chat/completions. This suite answers:
 //
 //   1. DIRECT: does the official /responses endpoint demand reasoning pass-back
 //      (like official /chat/completions does: "reasoning_content must be passed back")?
-//   2. 9ROUTER: when a responses-format client hits 9router, what does the translation
-//      to /chat/completions do with reasoning items — and does multi-turn survive the
+//   2. Rebana Router: when a responses-format client hits Rebana Router, what does the translation
+//      to /chat/completions do with reasoning items â€” and does multi-turn survive the
 //      pass-back requirement on the chat endpoint?
 //
 //   RUN_REAL=1 npx vitest run --config tests/vitest.config.js tests/translator/real/deepseek-official-responses.real.test.js
 //
-// Reads the DeepSeek API key from the local 9router DB (connection id
-// a91b07f2-878a-45b0-beb5-56981409ab0c). Uses handleChatCore for the 9router half.
+// Reads the DeepSeek API key from the local Rebana Router DB (connection id
+// a91b07f2-878a-45b0-beb5-56981409ab0c). Uses handleChatCore for the Rebana Router half.
 import { describe, it, expect } from "vitest";
 import { handleChatCore } from "../../../open-sse/handlers/chatCore.js";
 import { openaiResponsesToOpenAIRequest } from "../../../open-sse/translator/request/openai-responses.js";
@@ -24,11 +24,11 @@ const MODEL = "deepseek-reasoner";
 const TIMEOUT_MS = 120000;
 const CRED_ISSUE = [401, 402, 403, 429];
 
-// API key from the local DB connection (no dashboard/DB writes — read-only).
+// API key from the local DB connection (no dashboard/DB writes â€” read-only).
 function readApiKey() {
   const Database = require("better-sqlite3");
   const path = require("path");
-  const dbPath = path.join(process.env.APPDATA, "9router", "db", "data.sqlite");
+  const dbPath = path.join(process.env.APPDATA, "Rebana Router", "db", "data.sqlite");
   const db = new Database(dbPath, { readonly: true });
   const rows = db.prepare(
     "SELECT data FROM providerConnections WHERE provider = ? AND isActive = 0 ORDER BY updatedAt DESC LIMIT 1"
@@ -127,8 +127,8 @@ describe.skipIf(!RUN_REAL)("DIRECT: DeepSeek official /responses endpoint", () =
   }, TIMEOUT_MS);
 });
 
-// ---- UNIT half: what the responses→chat translator does with reasoning ----
-describe("UNIT: responses→chat translator reasoning handling", () => {
+// ---- UNIT half: what the responsesâ†’chat translator does with reasoning ----
+describe("UNIT: responsesâ†’chat translator reasoning handling", () => {
   it("attaches reasoning item text as reasoning_content on the assistant message", () => {
     const body = {
       input: [
@@ -154,7 +154,7 @@ describe("UNIT: responses→chat translator reasoning handling", () => {
   });
 });
 
-// ---- 9ROUTER half: handleChatCore with responses sourceFormat ----
+// ---- Rebana Router half: handleChatCore with responses sourceFormat ----
 async function drainSSE(response) {
   if (!response?.body) return "";
   const reader = response.body.getReader();
@@ -168,7 +168,7 @@ async function drainSSE(response) {
   return out;
 }
 
-async function via9router(body) {
+async function viaRebana Router(body) {
   const credentials = {
     apiKey: process.env.DS_KEY,
     connectionId: "a91b07f2-878a-45b0-beb5-56981409ab0c",
@@ -189,14 +189,14 @@ async function via9router(body) {
   return { ok: true, status: 200, raw: await drainSSE(result.response) };
 }
 
-describe.skipIf(!RUN_REAL)(`9ROUTER: responses-format → ${PROVIDER} translation`, () => {
+describe.skipIf(!RUN_REAL)(`Rebana Router: responses-format â†’ ${PROVIDER} translation`, () => {
   it("single-turn responses request succeeds via /chat/completions", async () => {
-    const out = await via9router({
+    const out = await viaRebana Router({
       stream: true, max_output_tokens: 128, instructions: "You are concise.",
       input: [{ type: "message", role: "user", content: [{ type: "input_text", text: "Reply with the single word: hi" }] }],
     });
     if (out.skip) return expect(true).toBe(true);
-    // 9router routes the request to /chat/completions but re-encodes the stream
+    // Rebana Router routes the request to /chat/completions but re-encodes the stream
     // back to the client's source format (Responses SSE shape).
     const isResponsesShape = /event: response\.|"type"\s*:\s*"response|"type":"response/.test(out.raw || "");
     const isChatShape = /chat\.completion\.chunk|"delta"/.test(out.raw || "");
@@ -206,7 +206,7 @@ describe.skipIf(!RUN_REAL)(`9ROUTER: responses-format → ${PROVIDER} translatio
   }, TIMEOUT_MS);
 
   it("multi-turn WITH reasoning item in history succeeds (translator attaches reasoning_content)", async () => {
-    const out = await via9router({
+    const out = await viaRebana Router({
       stream: true, max_output_tokens: 128,
       input: [
         TURN1_USER,
@@ -221,7 +221,7 @@ describe.skipIf(!RUN_REAL)(`9ROUTER: responses-format → ${PROVIDER} translatio
   }, TIMEOUT_MS);
 
   it("multi-turn WITHOUT reasoning item in history (diagnostic: chat endpoint pass-back)", async () => {
-    const out = await via9router({
+    const out = await viaRebana Router({
       stream: true, max_output_tokens: 128,
       input: [
         TURN1_USER,

@@ -5,17 +5,17 @@
 //   B-cell-1  /messages, thinking enabled + tool_use, assistant turn carries an
 //             UNSIGNED thinking placeholder  {type:"thinking", thinking:"."}
 //   B-cell-2  /messages, same, assistant turn carries a SIGNED thinking placeholder
-//             (DEFAULT_THINKING_CLAUDE_SIGNATURE) — the exact shape `prepareClaudeRequest`
+//             (DEFAULT_THINKING_CLAUDE_SIGNATURE) â€” the exact shape `prepareClaudeRequest`
 //             would inject today if opencode-go were added to `handlesThinkingBlocks`
 //             (claude.js routes non-deepseek providers through the signed branch).
-//   B-cell-3  /messages, same, assistant turn WITHOUT any thinking block — the known
+//   B-cell-3  /messages, same, assistant turn WITHOUT any thinking block â€” the known
 //             400 repro; sanity check that the cells above actually exercise the
 //             pass-back validation.
 //   C-cell-4  REAL multi-turn: turn 1 asks a thinking question on /messages and
 //             receives DeepSeek's own thinking block (no signature, as emitted by
-//             9router's response translator openai-to-claude.js:138-156); turn 2
+//             Rebana Router's response translator openai-to-claude.js:138-156); turn 2
 //             replays that unsigned thinking block verbatim. Proves the direct path
-//             accepts real unsigned thinking — the natural endpoint state for C.
+//             accepts real unsigned thinking â€” the natural endpoint state for C.
 //
 //   RUN_REAL=1 npx vitest run --config tests/vitest.config.js tests/translator/real/opencode-go-thinking-placeholder.real.test.js
 import { describe, it, expect } from "vitest";
@@ -119,7 +119,7 @@ describe.skipIf(!RUN_REAL)(`REAL thinking placeholder acceptance (${PROVIDER}/${
     const creds = await prepare();
     if (!creds) return expect(true).toBe(true);
 
-    // Turn 1: real thinking output on /messages (no tools) — establishes a
+    // Turn 1: real thinking output on /messages (no tools) â€” establishes a
     // thinking-bearing turn in history.
     const t1 = await runChat({
       stream: true,
@@ -129,7 +129,7 @@ describe.skipIf(!RUN_REAL)(`REAL thinking placeholder acceptance (${PROVIDER}/${
     }, creds);
     if (!t1.ok) { console.warn(`[skip] turn1 failed ${t1.status}: ${t1.raw}`); return expect(true).toBe(true); }
 
-    // Turn 2: replay the assistant turn WITHOUT the thinking block — the shape a
+    // Turn 2: replay the assistant turn WITHOUT the thinking block â€” the shape a
     // client whose history lost the thinking (or a gateway that dropped it) sends.
     const out = await runChat({
       stream: true,
@@ -156,7 +156,7 @@ describe.skipIf(!RUN_REAL)(`REAL thinking placeholder acceptance (${PROVIDER}/${
     const creds = await prepare();
     if (!creds) return expect(true).toBe(true);
 
-    // Turn 1: thinking enabled, no tools — capture DeepSeek's own thinking block.
+    // Turn 1: thinking enabled, no tools â€” capture DeepSeek's own thinking block.
     const t1 = await runChat({
       stream: true,
       max_tokens: 1024,
@@ -169,7 +169,7 @@ describe.skipIf(!RUN_REAL)(`REAL thinking placeholder acceptance (${PROVIDER}/${
     const noThinkingBlocks = !/type":"thinking"/.test(t1.raw);
 
     // Turn 2: replay the assistant turn with the upstream's real (unsigned) thinking
-    // block — the exact conversation state a Claude Code client would have.
+    // block â€” the exact conversation state a Claude Code client would have.
     const out = await runChat({
       stream: true,
       max_tokens: 256,

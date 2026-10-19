@@ -1,11 +1,11 @@
 ---
-name: 9router-image
-description: Generate images via 9Router /v1/images/generations using OpenAI / Gemini Imagen / DALL-E / FLUX / MiniMax / SDWebUI / ComfyUI / Codex models. Use when the user wants to create, generate, draw, or render an image, picture, or text-to-image (txt2img).
+name: Rebana Router-image
+description: Generate images via Rebana Router /v1/images/generations using OpenAI / Gemini Imagen / DALL-E / FLUX / MiniMax / SDWebUI / ComfyUI / Codex models. Use when the user wants to create, generate, draw, or render an image, picture, or text-to-image (txt2img).
 ---
 
-# 9Router — Image Generation
+# Rebana Router — Image Generation
 
-Requires `NINEROUTER_URL` (and `NINEROUTER_KEY` if auth enabled). See https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router/SKILL.md for setup.
+Requires `NINEROUTER_URL` (and `NINEROUTER_KEY` if auth enabled). See https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router/SKILL.md for setup.
 
 ## Discover
 
@@ -78,9 +78,9 @@ Common fields above work everywhere. These add/override:
 | `gemini` (nano-banana) | — | Only `prompt`; ignores `size`/`n` |
 | `codex` (gpt-5.4-image) | `image`, `images[]`, `image_detail`, `output_format`, `background` | SSE stream; **ChatGPT Plus/Pro required** |
 | `huggingface` | — | Only `prompt`; returns single image |
-| `nanobanana` | `image`, `images[]` (edit mode) | `size` → aspect ratio; async polling |
-| `fal-ai` | `image` (img2img) | `n` → `num_images`; `size` → ratio; async |
-| `stability-ai` | `style` (preset), `output_format` | `size` → `aspect_ratio` |
-| `black-forest-labs` (FLUX) | `image` (ref) | `size` → exact `width`/`height`; async |
-| `runwayml` | `image` (ref) | `size` → ratio; async; video models exist |
+| `nanobanana` | `image`, `images[]` (edit mode) | `size` →’ aspect ratio; async polling |
+| `fal-ai` | `image` (img2img) | `n` →’ `num_images`; `size` →’ ratio; async |
+| `stability-ai` | `style` (preset), `output_format` | `size` →’ `aspect_ratio` |
+| `black-forest-labs` (FLUX) | `image` (ref) | `size` →’ exact `width`/`height`; async |
+| `runwayml` | `image` (ref) | `size` →’ ratio; async; video models exist |
 | `sdwebui`, `comfyui` | — | Localhost noAuth (`:7860` / `:8188`) |

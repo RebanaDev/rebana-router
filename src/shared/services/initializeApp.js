@@ -16,6 +16,8 @@ import {
 import { getMitmStatus, startMitm, loadEncryptedPassword, initDbHooks, restoreToolDNS, removeAllDNSEntriesSync } from "@/mitm/manager";
 import { syncToJson as syncMitmAliasCache } from "@/lib/mitmAliasCache";
 import { killAllBridges } from "@/lib/mcp/stdioSseBridge";
+import { getTransform as getPxpipeTransform } from "@/lib/pxpipe/loader";
+import { findHeadroomBinary } from "@/lib/headroom/detect";
 
 // Inject correct paths and DB hooks into manager.js (CJS) from ESM context
 (function bootstrapMitm() {
@@ -105,6 +107,37 @@ async function runHeavyStartup() {
     autoStartMitm(settings);
   }
 
+  // Auto-warm PXPIPE: loads the transform module in-process (fail-open: null on
+  // any error so requests proceed uncompressed when the optional package is absent).
+  if (settings.pxpipeEnabled) {
+    getPxpipeTransform().catch(() => {});
+  }
+
+  // Headroom: pre-flight the binary check once at startup so the dashboard status
+  // badge flips to green without waiting for the first user toggle.
+  if (settings.headroomEnabled) {
+    findHeadroomBinary();
+  }
+
+  // Auto-install optional external deps in background (fail-open).
+  if (settings.pxpipeEnabled && settings.pxpipeAutoInstall) {
+    import("@/lib/pxpipe/install").then(({ installPxpipe, getInstallInfo }) => {
+      if (!getInstallInfo().installed) installPxpipe().catch(() => {});
+    }).catch(() => {});
+  }
+  if (settings.headroomEnabled) {
+    import("@/lib/headroom/process").then(({ startHeadroomProxy, installHeadroomBase, findHeadroomBinary: check }) => {
+      if (!check()) {
+        installHeadroomBase().catch(() => {});
+      } else {
+        startHeadroomProxy({
+          codeAware: settings.headroomCodeAware === true,
+          kompress: settings.headroomKompress !== false,
+        }).catch(() => {});
+      }
+    }).catch(() => {});
+  }
+
   configureTunnelMonitoring(settings);
 
   if (hasQuotaAutoPingEnabled(settings)) {
@@ -147,7 +180,7 @@ async function autoStartMitm(settings) {
     const activeKey = keys.find(k => k.isActive !== false);
 
     console.log("[InitApp] MITM was enabled, auto-starting...");
-    await startMitm(activeKey?.key || "sk_9router", password);
+    await startMitm(activeKey?.key || "sk_rebana_router", password);
     console.log("[InitApp] MITM auto-started");
     try {
       await restoreToolDNS(password);

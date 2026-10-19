@@ -94,7 +94,7 @@ describe("token savers on Cursor (pre-translate RTK)", () => {
       connectionId: "test-conn",
       rtkEnabled: true,
       headroomEnabled: true,
-      headroomUrl: "http://localhost:8787",
+      headroomUrl: "http://localhost:91828",
       cavemanEnabled: true,
       cavemanLevel: "full",
       ponytailEnabled: true,
@@ -118,7 +118,7 @@ describe("token savers on Cursor (pre-translate RTK)", () => {
     expect(blob).toMatch(/Respond like a caveman|drop filler|ACTIVE EVERY RESPONSE/i);
 
     expect(global.fetch).toHaveBeenCalledWith(
-      "http://localhost:8787/v1/compress",
+      "http://localhost:91828/v1/compress",
       expect.any(Object)
     );
 

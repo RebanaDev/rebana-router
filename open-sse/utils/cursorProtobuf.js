@@ -173,7 +173,7 @@ const FIELD = {
   THINKING_TEXT: 1
 };
 
-// Known response field numbers — used to detect unknown fields from protocol updates
+// Known response field numbers â€” used to detect unknown fields from protocol updates
 const KNOWN_RESPONSE_FIELDS = new Set([
   FIELD.TOOL_CALL,
   FIELD.RESPONSE,
@@ -241,8 +241,8 @@ function concatArrays(...arrays) {
 // ==================== MESSAGE ENCODING ====================
 
 /**
- * Format tool name: "toolName" → "mcp_custom_toolName"
- * Also handles: "mcp__server__tool" → "mcp_server_tool"
+ * Format tool name: "toolName" â†’ "mcp_custom_toolName"
+ * Also handles: "mcp__server__tool" â†’ "mcp_server_tool"
  */
 function formatToolName(name) {
   const base = typeof name === "string" && name.length > 0 ? name : "tool";
@@ -263,7 +263,7 @@ function formatToolName(name) {
 }
 
 /**
- * Parse formatted tool name: "mcp_server_tool" → { serverName, selectedTool }
+ * Parse formatted tool name: "mcp_server_tool" â†’ { serverName, selectedTool }
  */
 function parseToolName(formattedName) {
   if (typeof formattedName !== "string" || !formattedName.startsWith("mcp_")) {
@@ -606,7 +606,7 @@ export function buildToolResultRequest(toolResult) {
   // selected_tool = raw tool name (e.g. "Write", "Read") per cursor-api Rust source:
   // McpResult { selected_tool: tool_name, result } where tool_name is the mcpParams.tools[0].name
   // which is the name AFTER server prefix stripping (e.g. "custom_Write" -> name = "Write")
-  // Actually cursor-api uses: name = tool_name.slice_unchecked(d+1..) → raw name without "custom_"
+  // Actually cursor-api uses: name = tool_name.slice_unchecked(d+1..) â†’ raw name without "custom_"
   // So selected_tool = raw tool name without any prefix
   const selectedTool = rawName.startsWith("mcp_custom_")
     ? rawName.slice("mcp_custom_".length)
@@ -851,7 +851,7 @@ export function extractTextFromResponse(payload) {
   try {
     const fields = decodeMessage(payload);
 
-    // Warn about unknown field numbers — may indicate a Cursor protocol update
+    // Warn about unknown field numbers â€” may indicate a Cursor protocol update
     for (const fieldNum of fields.keys()) {
       if (!KNOWN_RESPONSE_FIELDS.has(fieldNum)) {
         log(
@@ -1013,7 +1013,7 @@ export function encodeMcpToolDefinition(tool) {
     encodeField(MTD_NAME, WIRE_TYPE.LEN, name),
     encodeField(MTD_DESCRIPTION, WIRE_TYPE.LEN, description),
     encodeField(MTD_INPUT_SCHEMA, WIRE_TYPE.LEN, encodeAgentValue(schema)),
-    encodeField(MTD_PROVIDER, WIRE_TYPE.LEN, "9router"),
+    encodeField(MTD_PROVIDER, WIRE_TYPE.LEN, "Rebana Router"),
     encodeField(MTD_TOOL_NAME, WIRE_TYPE.LEN, name),
   );
 }

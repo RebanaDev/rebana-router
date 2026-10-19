@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Các vấn đề và giải pháp phổ biến khi dùng 9Router.
+Các vấn đề và giải pháp phổ biến khi dùng Rebana Router.
 
 ---
 
@@ -8,7 +8,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Request thất bại với phản hồi rỗng hoặc thông báo lỗi.
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Hết quota provider
 - API key không hợp lệ hoặc hết hạn
 - Model không khả dụng
@@ -38,7 +38,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Lỗi "Rate limit exceeded" hoặc "Too many requests".
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Hết quota subscription (giới hạn 5h/ngày/tuần)
 - Đạt API rate limit
 - Quá nhiều request đồng thời
@@ -70,7 +70,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Lỗi "Unauthorized" hoặc "Token expired".
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - OAuth token hết hạn (auto-refresh thất bại)
 - Session provider không hợp lệ
 - Vấn đề network khi refresh
@@ -78,7 +78,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 **Giải pháp:**
 
 1. **Auto-refresh (mặc định):**
-   9Router tự refresh tokens. Đợi 30 giây rồi thử lại.
+   Rebana Router tự refresh tokens. Đợi 30 gi❌y rồi thử lại.
 
 2. **Kết nối lại thủ công:**
    ```
@@ -95,7 +95,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Sử dụng hoặc chi phí cao bất ngờ.
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Dùng model đắt không cần thiết
 - Không fallback sang tier rẻ hơn
 - Context window lớn
@@ -132,39 +132,39 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 ## Connection Refused
 
-**Vấn đề:** Lỗi "ECONNREFUSED" hoặc "Cannot connect to localhost:20128".
+**Vấn đề:** Lỗi "ECONNREFUSED" hoặc "Cannot connect to localhost:91827".
 
-**Nguyên nhân:**
-- 9Router không chạy
-- Port 20128 bị chặn
+**Nguyên nh❌n:**
+- Rebana Router không chạy
+- Port 91827 bị chặn
 - Firewall chặn kết nối
 
 **Giải pháp:**
 
-1. **Khởi động 9Router:**
+1. **Khởi động Rebana Router:**
    ```bash
-   9router
+   Rebana Router
    ```
    Dashboard sẽ mở tại http://localhost:3000
 
-2. **Xác minh port 20128:**
+2. **Xác minh port 91827:**
    ```bash
    # Check if port is listening
-   lsof -i :20128
+   lsof -i :91827
    
    # Or on Windows
-   netstat -ano | findstr :20128
+   netstat -ano | findstr :91827
    ```
 
 3. **Kiểm tra firewall:**
    - macOS: System Settings → Network → Firewall
    - Windows: Windows Defender Firewall → Allow app
-   - Linux: `sudo ufw allow 20128`
+   - Linux: `sudo ufw allow 91827`
 
 4. **Dùng cloud endpoint:**
    Nếu localhost không hoạt động (ví dụ: Cursor IDE):
    ```
-   Endpoint: https://9router.com/v1
+   Endpoint: https://Rebana Router.com/v1
    ```
 
 ---
@@ -173,17 +173,17 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Dashboard không load tại http://localhost:3000.
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Port 3000 đã được dùng
-- 9Router bị crash
+- Rebana Router bị crash
 - Vấn đề cache browser
 
 **Giải pháp:**
 
-1. **Kiểm tra 9Router có chạy không:**
+1. **Kiểm tra Rebana Router có chạy không:**
    ```bash
    # Check process
-   ps aux | grep 9router
+   ps aux | grep Rebana Router
    
    # Check port 3000
    lsof -i :3000
@@ -199,13 +199,13 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
    taskkill /PID <PID> /F
    ```
 
-3. **Khởi động lại 9Router:**
+3. **Khởi động lại Rebana Router:**
    ```bash
    # Stop
-   pkill -f 9router
+   pkill -f Rebana Router
    
    # Start
-   9router
+   Rebana Router
    ```
 
 4. **Xóa cache browser:**
@@ -221,7 +221,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Lỗi "Model not found" hoặc "Invalid model".
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Provider chưa kết nối
 - Sai chính tả model ID
 - Provider không hoạt động
@@ -243,7 +243,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 3. **Liệt kê model khả dụng:**
    ```bash
-   curl http://localhost:20128/v1/models \
+   curl http://localhost:91827/v1/models \
      -H "Authorization: Bearer your-api-key"
    ```
 
@@ -256,9 +256,9 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 ## Phản hồi chậm
 
-**Vấn đề:** Request mất quá lâu hoặc timeout.
+**Vấn đề:** Request mất quá l❌u hoặc timeout.
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Độ trễ provider
 - Vấn đề network
 - Context/response lớn
@@ -305,7 +305,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 **Vấn đề:** Lỗi "Invalid API key" hoặc "Authentication failed".
 
-**Nguyên nhân:**
+**Nguyên nh❌n:**
 - Sao chép sai API key
 - API key hết hạn
 - API key chưa được tạo
@@ -338,7 +338,7 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 4. **Test API key:**
    ```bash
-   curl http://localhost:20128/v1/models \
+   curl http://localhost:91827/v1/models \
      -H "Authorization: Bearer 9r_your_key"
    ```
 
@@ -346,6 +346,6 @@ Các vấn đề và giải pháp phổ biến khi dùng 9Router.
 
 ## Cần trợ giúp thêm?
 
-- **GitHub Issues:** [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
-- **Documentation:** [9router.com/docs](https://9router.com/docs)
+- **GitHub Issues:** [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
+- **Documentation:** [Rebana Router.com/docs](https://Rebana Router.com/docs)
 - **FAQ:** [faq.md](faq.md)

@@ -223,7 +223,7 @@ function createRequestContextResponse(execRequest) {
   return wrapExecClientMessage(id, execId, 10, requestContextResult);
 }
 
-// ExecServerMessage variant → ExecClientMessage result field (same numbers).
+// ExecServerMessage variant â†’ ExecClientMessage result field (same numbers).
 const EXEC_RESULT_FIELD = {
   2: 2, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8, 9: 9, 16: 16, 20: 20, 23: 23,
 };
@@ -233,7 +233,7 @@ function rejectExecRequest(execRequest) {
   const variant = [...(execRequest?.keys?.() || [])].find((field) => field !== 1 && field !== 15);
   const resultField = EXEC_RESULT_FIELD[variant];
   if (!resultField) return null;
-  // Diagnostics has no rejected variant — empty success unblocks the stream.
+  // Diagnostics has no rejected variant â€” empty success unblocks the stream.
   if (variant === 9) return wrapExecClientMessage(id, execId, 9, new Uint8Array());
   const rejected = agentMessage(2, agentString(2, "Tool not available in this environment. Use the MCP tools provided instead."));
   return wrapExecClientMessage(id, execId, resultField, rejected);
@@ -252,7 +252,7 @@ export function encodeKvClientMessage(kvId, resultField, resultPayload, metadata
 // regular fetch never applies here. Until h2 proxying lands (see #3276),
 // honor just the policy side: when a proxy is intended AND strict AND cannot
 // be resolved for this request, fail closed instead of silently opening a
-// direct socket that exposes the host's real IP — the exact leak strict mode
+// direct socket that exposes the host's real IP â€” the exact leak strict mode
 // exists to prevent (#4333). Non-strict callers keep today's direct behavior.
 const proxyIntentFailed = (proxyOptions) => {
   if (proxyOptions?.strictProxy !== true) return false;
@@ -395,11 +395,11 @@ const CURSOR_EMPTY_TURN_RETRY_DELAY_MS = (() => {
   return Number.isFinite(value) && value >= 0 ? Math.floor(value) : 400;
 })();
 
-/** Minimal tail for wedged long sessions — drops bulk history and tool XML. */
+/** Minimal tail for wedged long sessions â€” drops bulk history and tool XML. */
 export function tailOnlyCursorMessages(messages) {
   if (!Array.isArray(messages) || messages.length === 0) return messages || [];
   const systemMessages = messages.filter(
-    (message) => message?.role === ROLE.SYSTEM && !String(message?.content || "").includes("[9router]"),
+    (message) => message?.role === ROLE.SYSTEM && !String(message?.content || "").includes("[Rebana Router]"),
   );
   const chatMessages = messages.filter((message) => message?.role !== ROLE.SYSTEM);
   let anchor = chatMessages.length - 1;
@@ -413,7 +413,7 @@ export function tailOnlyCursorMessages(messages) {
   const tail = chatMessages.slice(Math.max(0, tailStart));
   const note = {
     role: ROLE.SYSTEM,
-    content: `[9router] Long session: ${messages.length} messages trimmed to the latest turn. Answer the current request; re-read files if needed.`,
+    content: `[Rebana Router] Long session: ${messages.length} messages trimmed to the latest turn. Answer the current request; re-read files if needed.`,
   };
   return [...systemMessages, note, ...tail];
 }
@@ -450,8 +450,8 @@ export class CursorExecutor extends BaseExecutor {
   }
 
   transformRequest(model, body, stream, credentials) {
-    // Messages are already translated by chatCore (claude→openai→cursor)
-    // Do NOT call openaiToCursorRequest again — double-translation drops tool_results
+    // Messages are already translated by chatCore (claudeâ†’openaiâ†’cursor)
+    // Do NOT call openaiToCursorRequest again â€” double-translation drops tool_results
     const messages = body.messages || [];
     const tools = body.tools || [];
     const reasoningEffort = body.reasoning_effort || null;
@@ -481,7 +481,7 @@ export class CursorExecutor extends BaseExecutor {
       throw new Error("http2 module not available");
     }
 
-    const HTTP2_TIMEOUT_MS = 60000; // 60s max — prevent hung sessions
+    const HTTP2_TIMEOUT_MS = 60000; // 60s max â€” prevent hung sessions
 
     return new Promise((resolve, reject) => {
       const urlObj = new URL(url);
@@ -537,7 +537,7 @@ export class CursorExecutor extends BaseExecutor {
 
   /**
    * AgentService (agent.api5.cursor.sh) is HTTP/2-only. Node's fetch/undici speaks
-   * HTTP/1.1 and fails with HTTPParserError on the h2 preface — use http2 duplex.
+   * HTTP/1.1 and fails with HTTPParserError on the h2 preface â€” use http2 duplex.
    */
   openAgentHttp2Stream(url, headers, signal) {
     if (!http2) {
@@ -659,14 +659,14 @@ export class CursorExecutor extends BaseExecutor {
     let workingMessages = originalMessages;
     const tools = body.tools || [];
     // "Auto (Server Picks)" / "default" is a picker alias, not an AgentService
-    // model id — sending it verbatim yields an empty turn. Resolve it to the
+    // model id â€” sending it verbatim yields an empty turn. Resolve it to the
     // account's default agent-capable model from the live catalog before Run.
     let runModel = model;
     if (model === "default" || model === "auto") {
       const catalog = await resolveCursorModels(credentials, { signal, log });
       const selection = resolveAutoModelSelection(catalog?.models);
       if (selection) {
-        log?.info?.("CURSOR", `auto model resolved: ${model} → ${selection.modelId} (${selection.matchedBy})`);
+        log?.info?.("CURSOR", `auto model resolved: ${model} â†’ ${selection.modelId} (${selection.matchedBy})`);
         runModel = selection.modelId;
       }
     }
@@ -826,7 +826,7 @@ export class CursorExecutor extends BaseExecutor {
                   onEvent({ type: "error", value: "Cursor AgentService requested an unsupported IDE tool" });
                 }
               } else {
-                // Auto/Composer often probe IDE builtins (shell/read/…). Reject
+                // Auto/Composer often probe IDE builtins (shell/read/â€¦). Reject
                 // them so the model can continue with MCP tools or a text answer
                 // instead of stalling the h2 stream.
                 const rejection = rejectExecRequest(execRequest);

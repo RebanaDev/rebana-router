@@ -6,7 +6,7 @@ Tạo các tổ hợp model tùy chỉnh với fallback tự động. Combo cho 
 
 ## Combos là gì?
 
-Combos là **chuỗi fallback tùy chỉnh** bạn tạo trong dashboard. Thay vì dùng một model duy nhất, bạn định nghĩa một chuỗi các model mà 9Router sẽ thử theo thứ tự.
+Combos là **chuỗi fallback tùy chỉnh** bạn tạo trong dashboard. Thay vì dùng một model duy nhất, bạn định nghĩa một chuỗi các model mà Rebana Router sẽ thử theo thứ tự.
 
 **Ví dụ:**
 ```
@@ -22,7 +22,7 @@ Models:
 Model: premium-coding
 ```
 
-9Router tự động thử từng model theo thứ tự cho đến khi thành công.
+Rebana Router tự động thử từng model theo thứ tự cho đến khi thành công.
 
 ---
 
@@ -71,7 +71,7 @@ cc/claude-opus-4-5 → cx/gpt-5.2-codex → gc/gemini-3-pro
 ### Bước 1: Mở Dashboard
 
 ```
-http://localhost:20128
+http://localhost:91827
 → Login with your password
 ```
 
@@ -182,7 +182,7 @@ Models:
 ```
 Cline:
   Provider: OpenAI Compatible
-  Base URL: http://localhost:20128/v1
+  Base URL: http://localhost:91827/v1
   Model: budget-combo
 ```
 
@@ -240,7 +240,7 @@ Request → if/kimi-k2-thinking
 Total: $0 forever
 ```
 
-**Use case**: Dự án cá nhân, học tập, thử nghiệm.
+**Use case**: Dự án cá nh❌n, học tập, thử nghiệm.
 
 ---
 
@@ -261,7 +261,7 @@ Models:
 **Sử dụng:**
 ```
 Codex CLI:
-  export OPENAI_BASE_URL="http://localhost:20128"
+  export OPENAI_BASE_URL="http://localhost:91827"
   Model: quality-first
 ```
 
@@ -311,7 +311,7 @@ Total: $4.80 + existing subscriptions
 
 ### Ví dụ 6: Tối ưu Reset Quota
 
-**Mục tiêu**: Phân bổ sử dụng dựa trên thời gian reset.
+**Mục tiêu**: Ph❌n bổ sử dụng dựa trên thời gian reset.
 
 ```
 Dashboard → Combos → Create New
@@ -343,7 +343,7 @@ Models:
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
+  OpenAI API Base URL: http://localhost:91827/v1
   OpenAI API Key: [from dashboard]
   Model: premium-coding
 ```
@@ -353,8 +353,8 @@ Settings → Models → Advanced:
 Sửa `~/.claude/config.json`:
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key",
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key",
   "model": "budget-combo"
 }
 ```
@@ -362,8 +362,8 @@ Sửa `~/.claude/config.json`:
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex --model quality-first "your prompt"
 ```
@@ -372,7 +372,7 @@ codex --model quality-first "your prompt"
 
 ```
 Provider: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [from dashboard]
 Model: free-combo
 ```
@@ -380,7 +380,7 @@ Model: free-combo
 ### API Request
 
 ```bash
-curl http://localhost:20128/v1/chat/completions \
+curl http://localhost:91827/v1/chat/completions \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -435,7 +435,7 @@ For experimentation:
 if/kimi-k2-thinking → qw/qwen3-coder-plus
 ```
 
-### 4. Cân nhắc Thời gian Reset Quota
+### 4. C❌n nhắc Thời gian Reset Quota
 
 ```
 Morning combo (fresh quotas):
@@ -470,9 +470,9 @@ Dashboard → Analytics → Combo Usage:
 
 ---
 
-## Cấu hình Nâng cao
+## Cấu hình N❌ng cao
 
-### Đặt Giới hạn Ngân sách cho mỗi Combo
+### Đặt Giới hạn Ng❌n sách cho mỗi Combo
 
 ```
 Dashboard → Combos → Edit → Budget:
@@ -480,7 +480,7 @@ Dashboard → Combos → Edit → Budget:
   Monthly limit: $50
 ```
 
-Khi đạt giới hạn, 9Router bỏ qua model trả phí và chỉ dùng free tier.
+Khi đạt giới hạn, Rebana Router bỏ qua model trả phí và chỉ dùng free tier.
 
 ### Bật/Tắt Model trong Combo
 
@@ -519,7 +519,7 @@ Dashboard → Combos → Clone "premium-coding"
 **Giải pháp:**
 1. Kiểm tra quota cho các model chính (Dashboard → Quota)
 2. Xác minh API keys hợp lệ (Dashboard → Providers)
-3. Kiểm tra giới hạn ngân sách không vượt quá
+3. Kiểm tra giới hạn ng❌n sách không vượt quá
 
 **Issue: Combo tốn hơn dự kiến**
 
@@ -527,7 +527,7 @@ Dashboard → Combos → Clone "premium-coding"
 1. Dashboard → Analytics → Xem usage combo
 2. Kiểm tra model chính có bị hết quota không
 3. Sắp xếp lại model (đặt rẻ hơn lên trước)
-4. Đặt giới hạn ngân sách
+4. Đặt giới hạn ng❌n sách
 
 ---
 

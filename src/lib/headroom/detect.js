@@ -4,7 +4,7 @@ import path from "path";
 // Extras that improve headroom compression quality. `proxy` is the base;
 // `code` adds tree-sitter AST compression; `ml` adds Kompress-v2 HF model.
 // Other `[all]` extras (image, voice, otel, reports, evals, ...) are not
-// useful for the 9router proxy use case, so we don't track them here.
+// useful for the rebana-router proxy use case, so we don't track them here.
 export const HEADROOM_COMPRESSION_EXTRAS = ["code", "ml"];
 
 // Marker packages that each extra pulls in. Detected from `pip list --format=json`
@@ -46,7 +46,7 @@ const MIN_VERSION = [3, 10];
 const HEADROOM_HEALTH_TIMEOUT_MS = 1500;
 const LOOPBACK_HOSTS = new Set(["localhost", "127.0.0.1", "::1", "[::1]", "0.0.0.0"]);
 
-export const DEFAULT_HEADROOM_URL = process.env.HEADROOM_URL || "http://localhost:8787";
+export const DEFAULT_HEADROOM_URL = process.env.HEADROOM_URL || "http://localhost:91828";
 
 // Detect whether the headroom CLI is installed and where its binary lives.
 export function findHeadroomBinary() {

@@ -26,14 +26,14 @@ async function bench(label, fn) {
 
 beforeAll(async () => {
   // SQLite setup
-  tempSqlite = fs.mkdtempSync(path.join(os.tmpdir(), "9router-bench-sqlite-"));
+  tempSqlite = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-bench-sqlite-"));
   process.env.DATA_DIR = tempSqlite;
   vi.resetModules();
   sqliteDb = await import("@/lib/db/index.js");
   await sqliteDb.initDb();
 
-  // Lowdb setup — direct lowdb usage (mimics legacy behavior)
-  tempLowdb = fs.mkdtempSync(path.join(os.tmpdir(), "9router-bench-lowdb-"));
+  // Lowdb setup â€” direct lowdb usage (mimics legacy behavior)
+  tempLowdb = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-bench-lowdb-"));
   const { Low } = await import("lowdb");
   const { JSONFile } = await import("lowdb/node");
   const dbFile = path.join(tempLowdb, "db.json");
@@ -49,7 +49,7 @@ afterAll(() => {
   else process.env.DATA_DIR = originalDataDir;
 });
 
-describe("DB Benchmark — SQLite vs Lowdb", () => {
+describe("DB Benchmark â€” SQLite vs Lowdb", () => {
   it(`INSERT ${N_ITEMS} provider connections`, async () => {
     console.log(`\n[INSERT ${N_ITEMS}]`);
 
@@ -74,7 +74,7 @@ describe("DB Benchmark — SQLite vs Lowdb", () => {
     });
 
     const speedup = (lowdbTime / sqliteTime).toFixed(2);
-    console.log(`  → SQLite is ${speedup}x faster`);
+    console.log(`  â†’ SQLite is ${speedup}x faster`);
   }, 60000);
 
   it(`READ ${N_QUERIES} filtered queries`, async () => {
@@ -94,7 +94,7 @@ describe("DB Benchmark — SQLite vs Lowdb", () => {
     });
 
     const speedup = (lowdbTime / sqliteTime).toFixed(2);
-    console.log(`  → SQLite is ${speedup}x faster`);
+    console.log(`  â†’ SQLite is ${speedup}x faster`);
   }, 60000);
 
   it(`READ ${N_QUERIES} by id (point lookup)`, async () => {
@@ -116,7 +116,7 @@ describe("DB Benchmark — SQLite vs Lowdb", () => {
     });
 
     const speedup = (lowdbTime / sqliteTime).toFixed(2);
-    console.log(`  → SQLite is ${speedup}x faster`);
+    console.log(`  â†’ SQLite is ${speedup}x faster`);
   }, 60000);
 
   it(`saveRequestUsage ${N_ITEMS} entries`, async () => {
@@ -145,7 +145,7 @@ describe("DB Benchmark — SQLite vs Lowdb", () => {
     });
 
     const speedup = (lowdbTime / sqliteTime).toFixed(2);
-    console.log(`  → SQLite is ${speedup}x faster`);
+    console.log(`  â†’ SQLite is ${speedup}x faster`);
   }, 120000);
 
   it(`getUsageStats(24h) repeat 50x`, async () => {
@@ -169,6 +169,6 @@ describe("DB Benchmark — SQLite vs Lowdb", () => {
     });
 
     const speedup = (lowdbTime / sqliteTime).toFixed(2);
-    console.log(`  → SQLite is ${speedup}x faster`);
+    console.log(`  â†’ SQLite is ${speedup}x faster`);
   }, 60000);
 });

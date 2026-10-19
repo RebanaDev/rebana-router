@@ -123,7 +123,7 @@ function convertMessages(messages, model) {
               const format = parsed.mimeType.split("/")[1] || parsed.mimeType;
               pendingImages.push({ format, source: { bytes: parsed.base64 } });
             } else if (url.startsWith("http://") || url.startsWith("https://")) {
-              // Kiro only supports base64 — fallback to URL text
+              // Kiro only supports base64 â€” fallback to URL text
               textParts.push(`[Image: ${url}]`);
             }
           } else if (c.type === CLAUDE_BLOCK.IMAGE) {
@@ -275,7 +275,7 @@ function convertMessages(messages, model) {
     }
   }
 
-  // When currentMessage is null (no user messages at all — edge case where
+  // When currentMessage is null (no user messages at all â€” edge case where
   // input is only assistant messages), create a minimal currentMessage so
   // tools and content can be injected.
   if (!currentMessage) {
@@ -293,9 +293,9 @@ function convertMessages(messages, model) {
 /**
  * Build Kiro payload from OpenAI format
  *
- * Two 9router-specific behaviours implemented here:
+ * Two Rebana Router-specific behaviours implemented here:
  *
- * 1. `-agentic` model suffix. Synthetic variant — same upstream model, but we
+ * 1. `-agentic` model suffix. Synthetic variant â€” same upstream model, but we
  *    inject a chunked-write system prompt to keep large file writes under
  *    Kiro's 2-3 minute server timeout. The suffix is stripped before being
  *    sent upstream.
@@ -326,11 +326,11 @@ export function openaiToKiroRequest(model, body, stream, credentials) {
   // account-specific. Injecting the shared builder-id/social *default* placeholder
   // ARN makes CodeWhisperer reject the request with 403 "bearer token invalid"
   // (the ARN doesn't belong to the key's account). So for api_key, only send a
-  // profileArn that was actually resolved for this connection — never the default.
+  // profileArn that was actually resolved for this connection â€” never the default.
   // OAuth/social keep the default fallback (their tokens accept it).
   // api_key / idc / external_idp carry an account-specific (or token-bound)
   // profile. The shared builder-id/social default ARN belongs to a different
-  // account and triggers 403 "bearer token invalid", so never fall back to it —
+  // account and triggers 403 "bearer token invalid", so never fall back to it â€”
   // send the resolved ARN, or an empty string so CodeWhisperer uses the token's
   // own default profile. Only OAuth/social keep the shared placeholder.
   const authMethod = credentials?.providerSpecificData?.authMethod;
@@ -390,7 +390,7 @@ export function openaiToKiroRequest(model, body, stream, credentials) {
   // (role:N | pair:N | id:N | spec:N | orphan:0 | current) names the offending
   // turn so the shape can be diagnosed from the log alone.
   if (!canonical.valid) {
-    console.error(`[Kiro] refusing invalid conversation (openai → kiro): ${(canonical.errors || []).join(", ") || "unknown"} | turns=${(canonical.history || []).length + 1}`);
+    console.error(`[Kiro] refusing invalid conversation (openai â†’ kiro): ${(canonical.errors || []).join(", ") || "unknown"} | turns=${(canonical.history || []).length + 1}`);
     return null;
   }
   const replayCurrent = canonical.currentMessage.userInputMessage;
@@ -436,7 +436,7 @@ export function openaiToKiroRequest(model, body, stream, credentials) {
     enumerable: false
   });
 
-  // Kiro tool specs get sanitized names (`mcp__a__b` → `mcp_a_b`); keep the
+  // Kiro tool specs get sanitized names (`mcp__a__b` â†’ `mcp_a_b`); keep the
   // reverse map so tool calls stream back under the client's own names.
   const restoredToolNames = new Map();
   for (const [original, sanitized] of nameMap) {

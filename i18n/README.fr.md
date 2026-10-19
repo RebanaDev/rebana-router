@@ -1,43 +1,43 @@
 <div align="center">
-  <img src="../images/9router.png?1" alt="Tableau de bord 9Router" width="800"/>
+  <img src="../images/Rebana Router.png?1" alt="Tableau de bord Rebana Router" width="800"/>
   
-  # 9Router - Routeur IA GRATUIT et économiseur de tokens
+  # Rebana Router - Routeur IA GRATUIT et économiseur de tokens
   
-  **N'arrêtez jamais de coder. Économisez 20 à 40 % de tokens avec RTK + bascule automatique vers des modèles d'IA GRATUITS et bon marché.**
+  **N'arrêtez jamais de coder. çconomisez 20 à 40 % de tokens avec RTK + bascule automatique vers des modèles d'IA GRATUITS et bon marché.**
   
   **Connectez tous vos outils de codage IA (Claude Code, Cursor, Antigravity, Copilot, Codex, Gemini, OpenCode, Cline, OpenClaw...) à plus de 40 fournisseurs d'IA et plus de 100 modèles.**
   
-  [![npm](https://img.shields.io/npm/v/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Downloads](https://img.shields.io/npm/dm/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Docker Pulls](https://img.shields.io/docker/pulls/decolua/9router.svg?logo=docker&label=Docker%20pulls)](https://hub.docker.com/r/decolua/9router)
-  [![GHCR](https://img.shields.io/badge/GHCR-decolua%2F9router-blue?logo=github)](https://github.com/decolua/9router/pkgs/container/9router)
-  [![License](https://img.shields.io/npm/l/9router.svg)](https://github.com/decolua/9router/blob/main/LICENSE)
+  [![npm](https://img.shields.io/npm/v/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![Downloads](https://img.shields.io/npm/dm/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![Docker Pulls](https://img.shields.io/docker/pulls/decolua/Rebana Router.svg?logo=docker&label=Docker%20pulls)](https://hub.docker.com/r/decolua/Rebana Router)
+  [![GHCR](https://img.shields.io/badge/GHCR-decolua%2FRebana Router-blue?logo=github)](https://github.com/decolua/Rebana Router/pkgs/container/Rebana Router)
+  [![License](https://img.shields.io/npm/l/Rebana Router.svg)](https://github.com/decolua/Rebana Router/blob/main/LICENSE)
 
-<a href="https://trendshift.io/repositories/22628" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22628" alt="decolua%2F9router | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/22628" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22628" alt="decolua%2FRebana Router | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-[🚀 Démarrage rapide](#-démarrage-rapide) • [💡 Fonctionnalités](#-fonctionnalités-clés) • [📖 Configuration](#-guide-dinstallation) • [🌐 Site web](https://9router.com)
+[🚀 Démarrage rapide](#-démarrage-rapide) • [💡 Fonctionnalités](#-fonctionnalités-clés) • [📖 Configuration](#-guide-dinstallation) • [🌐 Site web](https://Rebana Router.com)
 
-[🇻🇳 Tiếng Việt](./README.vi.md) • [🇨🇳 中文](./README.zh-CN.md) • [🇯🇵 日本語](./README.ja-JP.md) • [🇷🇺 Русский](./README.ru.md) • [🇹🇭 ไทย](./README.th.md) • [🇮🇷 فارسی](./README.fa_IR.md) • [🇮🇩 Indonesia](./README.id-ID.md) • [🇪🇸 Español](./README.es.md) • [🇫🇷 Français](./README.fr.md)
+[🇻🇳 Tiếng Viá»‡t](./README.vi.md) • [🇨🇳 ä¸­æ–‡](./README.zh-CN.md) • [🇯🇵 æ—¥æœ¬èªž](./README.ja-JP.md) • [🇷🇺 Ð Ñƒсский](./README.ru.md) • [🇹🇭 à¹„à¸—ย](./README.th.md) • [🇮🇷 فارسی](./README.fa_IR.md) • [🇮🇩 Indonesia](./README.id-ID.md) • [🇪🇸 Español](./README.es.md) • [🇫🇷 Français](./README.fr.md)
 
 </div>
 
 ---
 
-## 🤔 Pourquoi 9Router ?
+## 🤔 Pourquoi Rebana Router ?
 
 **Arrêtez de gaspiller de l'argent, des tokens et de buter contre les limites :**
 
-- ❌ Le quota de votre abonnement expire inutilisé chaque mois
-- ❌ Les limites de débit vous interrompent en plein codage
-- ❌ Les sorties des outils (git diff, grep, ls...) consomment vos tokens rapidement
-- ❌ Des API coûteuses (20 à 50 $/mois par fournisseur)
-- ❌ Changement manuel entre les fournisseurs
+- ❌Œ Le quota de votre abonnement expire inutilisé chaque mois
+- ❌Œ Les limites de débit vous interrompent en plein codage
+- ❌Œ Les sorties des outils (git diff, grep, ls...) consomment vos tokens rapidement
+- ❌Œ Des API coûteuses (20 à 50 $/mois par fournisseur)
+- ❌Œ Changement manuel entre les fournisseurs
 
-**9Router résout tout cela :**
+**Rebana Router résout tout cela :**
 
-- ✅ **Économiseur de tokens RTK** - Compresse automatiquement le contenu de tool_result et économise 20 à 40 % de tokens par requête
+- ✅ **çconomiseur de tokens RTK** - Compresse automatiquement le contenu de tool_result et économise 20 à 40 % de tokens par requête
 - ✅ **Maximise les abonnements** - Suit le quota et utilise chaque bit avant sa réinitialisation
-- ✅ **Bascule automatique** - Abonnement → Bon marché → Gratuit, zéro temps d'arrêt
+- ✅ **Bascule automatique** - Abonnement →’ Bon marché →’ Gratuit, zéro temps d'arrêt
 - ✅ **Multi-comptes** - Round-robin entre les comptes de chaque fournisseur
 - ✅ **Universel** - Fonctionne avec Claude Code, Codex, Cursor, Cline et tout outil CLI
 
@@ -46,51 +46,51 @@
 ## 🔄 Comment ça marche
 
 ```
-┌─────────────┐
-│  Your CLI   │  (Claude Code, Codex, OpenClaw, Cursor, Cline...)
-│   Tool      │
-└──────┬──────┘
-       │ http://localhost:20128/v1
-       ↓
-┌─────────────────────────────────────────────┐
-│           9Router (Smart Router)            │
-│  • RTK Token Saver (cut tool_result tokens) │
-│  • Format translation (OpenAI ↔ Claude)     │
-│  • Quota tracking                           │
-│  • Auto token refresh                       │
-└──────┬──────────────────────────────────────┘
-       │
-       ├─→ [Tier 1: SUBSCRIPTION] Claude Code, Codex, GitHub Copilot
-       │   ↓ quota exhausted
-       ├─→ [Tier 2: CHEAP] GLM ($0.6/1M), MiniMax ($0.2/1M)
-       │   ↓ budget limit
-       └─→ [Tier 3: FREE] Kiro, OpenCode Free, Vertex ($300 credits)
+❌”Œ❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”
+❌”‚  Your CLI   ❌”‚  (Claude Code, Codex, OpenClaw, Cursor, Cline...)
+❌”‚   Tool      ❌”‚
+❌””❌”€❌”€❌”€❌”€❌”€❌”€❌”¬❌”€❌”€❌”€❌”€❌”€❌”€❌”˜
+       ❌”‚ http://localhost:91827/v1
+       →“
+❌”Œ❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”
+❌”‚           Rebana Router (Smart Router)            ❌”‚
+❌”‚  • RTK Token Saver (cut tool_result tokens) ❌”‚
+❌”‚  • Format translation (OpenAI →” Claude)     ❌”‚
+❌”‚  • Quota tracking                           ❌”‚
+❌”‚  • Auto token refresh                       ❌”‚
+❌””❌”€❌”€❌”€❌”€❌”€❌”€❌”¬❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”˜
+       ❌”‚
+       ❌”œ❌”€→’ [Tier 1: SUBSCRIPTION] Claude Code, Codex, GitHub Copilot
+       ❌”‚   →“ quota exhausted
+       ❌”œ❌”€→’ [Tier 2: CHEAP] GLM ($0.6/1M), MiniMax ($0.2/1M)
+       ❌”‚   →“ budget limit
+       ❌””❌”€→’ [Tier 3: FREE] Kiro, OpenCode Free, Vertex ($300 credits)
 
 Result: Never stop coding, minimal cost + 20-40% token savings via RTK
 ```
 
 ---
 
-## ⚡ Démarrage rapide
+## ❌š¡ Démarrage rapide
 
 **1. Installez globalement :**
 
 ```bash
-npm install -g 9router
-9router
+npm install -g Rebana Router
+Rebana Router
 ```
 
-🎉 Le tableau de bord s'ouvre sur `http://localhost:20128`
+🎉 Le tableau de bord s'ouvre sur `http://localhost:91827`
 
 **2. Connectez un fournisseur GRATUIT (aucune inscription requise) :**
 
-Tableau de bord → Providers → Connectez **Kiro AI** (Claude gratuit et illimité) ou **OpenCode Free** (sans authentification) → C'est tout !
+Tableau de bord →’ Providers →’ Connectez **Kiro AI** (Claude gratuit et illimité) ou **OpenCode Free** (sans authentification) →’ C'est tout !
 
 **3. Utilisez-le dans votre outil CLI :**
 
 ```
 Paramètres de Claude Code/Codex/OpenClaw/Cursor/Cline :
-  Endpoint : http://localhost:20128/v1
+  Endpoint : http://localhost:91827/v1
   API Key : [copiez depuis le tableau de bord]
   Model : kr/claude-sonnet-4.5
 ```
@@ -99,29 +99,29 @@ Paramètres de Claude Code/Codex/OpenClaw/Cursor/Cline :
 
 **Alternative : exécuter depuis le code source (ce dépôt) :**
 
-Le paquet de ce dépôt est privé (`9router-app`), donc l'exécution depuis le code source/Docker est le chemin de développement local attendu.
+Le paquet de ce dépôt est privé (`Rebana Router-app`), donc l'exécution depuis le code source/Docker est le chemin de développement local attendu.
 
 ```bash
 cp .env.example .env
 npm install
-PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+PORT=91827 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run dev
 ```
 
 Mode production :
 
 ```bash
 npm run build
-PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+PORT=91827 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run start
 ```
 
 URL par défaut :
 
-- Tableau de bord : `http://localhost:20128/dashboard`
-- API compatible OpenAI : `http://localhost:20128/v1`
+- Tableau de bord : `http://localhost:91827/dashboard`
+- API compatible OpenAI : `http://localhost:91827/v1`
 
 ---
 
-## 🎥 Guides vidéo
+## ðŸŽ¥ Guides vidéo
 
 <div align="center">
 
@@ -129,34 +129,34 @@ URL par défaut :
   <tr>
   <td align="center" width="320">
   <a href="https://www.youtube.com/watch?v=X69n5Lm06Yw">
-    <img src="https://img.youtube.com/vi/X69n5Lm06Yw/maxresdefault.jpg" alt="Tiết kiệm chi phí LLM với 9Router" width="300"/>
+    <img src="https://img.youtube.com/vi/X69n5Lm06Yw/maxresdefault.jpg" alt="Tiết kiá»‡m chi phí LLM vá»›i Rebana Router" width="300"/>
   </a><br/>
-  <b>🇻🇳 Tiếng Việt</b><br/>
-  <sub>Tiết kiệm chi phí LLM cho OpenClaw với 9Router<br/>by <a href="https://www.youtube.com/c/M%C3%ACAIblog">Mì AI</a></sub>
+  <b>🇻🇳 Tiếng Viá»‡t</b><br/>
+  <sub>Tiết kiá»‡m chi phí LLM cho OpenClaw vá»›i Rebana Router<br/>by <a href="https://www.youtube.com/c/M%C3%ACAIblog">Mì AI</a></sub>
 </td>
 <td align="center" width="320">
       <a href="https://youtu.be/VQAw612S27Y">
-        <img src="https://img.youtube.com/vi/VQAw612S27Y/maxresdefault.jpg" alt="9Router + Claude Code FREE Unlimited Setup" width="300"/>
+        <img src="https://img.youtube.com/vi/VQAw612S27Y/maxresdefault.jpg" alt="Rebana Router + Claude Code FREE Unlimited Setup" width="300"/>
       </a><br/>
-      <b>🇵🇰 اردو / हिन्दी</b><br/>
-      <sub>9Router + Claude Code FREE Unlimited Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <b>🇵🇰 Ø§Ø±Ø¯Ùˆ / à¤¹à¤¿à¤¨à¥à¤¦à¥€</b><br/>
+      <sub>Rebana Router + Claude Code FREE Unlimited Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=raEyZPg5xE0">
-        <img src="https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg" alt="9Router Setup Tutorial" width="300"/>
+        <img src="https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg" alt="Rebana Router Setup Tutorial" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>9Router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <sub>Rebana Router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     
   </tr>
   <tr>
   <td align="center" width="320">
       <a href="https://youtu.be/3dF5GIYMrcQ?si=bAyfyiHbARJQAHj_">
-        <img src="https://img.youtube.com/vi/3dF5GIYMrcQ/hqdefault.jpg" alt="9Router Setup Tutorial" width="300"/>
+        <img src="https://img.youtube.com/vi/3dF5GIYMrcQ/hqdefault.jpg" alt="Rebana Router Setup Tutorial" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>9Router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <sub>Rebana Router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=o3qYCyjrFYg">
@@ -170,17 +170,17 @@ URL par défaut :
         <img src="https://img.youtube.com/vi/Ttpc26m39Dw/maxresdefault.jpg" alt="Claude CLI Free Setup" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>Claude CLI Free Setup with 9Router 🚀<br/>by <a href="https://www.youtube.com/@CodeVerseSoban">CodeVerse Soban</a></sub>
+      <sub>Claude CLI Free Setup with Rebana Router 🚀<br/>by <a href="https://www.youtube.com/@CodeVerseSoban">CodeVerse Soban</a></sub>
     </td>
     
   </tr>
   <tr>
   <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=G-5A_D5Pm6Y">
-        <img src="https://img.youtube.com/vi/G-5A_D5Pm6Y/maxresdefault.jpg" alt="Cài đặt OpenClaw Free A-Z" width="300"/>
+        <img src="https://img.youtube.com/vi/G-5A_D5Pm6Y/maxresdefault.jpg" alt="Cài Ä‘ặt OpenClaw Free A-Z" width="300"/>
       </a><br/>
-      <b>🇻🇳 Tiếng Việt</b><br/>
-      <sub>Cài Đặt OpenClaw Free Từ A-Z + 9Router<br/>by <a href="https://www.youtube.com/@maigia">Mai Gia</a></sub>
+      <b>🇻🇳 Tiếng Viá»‡t</b><br/>
+      <sub>Cài Đặt OpenClaw Free Từ A-Z + Rebana Router<br/>by <a href="https://www.youtube.com/@maigia">Mai Gia</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=JXmg8_gccgE">
@@ -194,7 +194,7 @@ URL par défaut :
         <img src="https://img.youtube.com/vi/CkVZZUSTXAI/mqdefault.jpg" alt="Claude CLI Free Setup" width="300"/>
       </a><br/>
       <b>🇮🇩 Indonesia</b><br/>
-      <sub>Koding 24 Jam Anti Rate Limit! Hemat Token AI 65% | Tutorial Quick Setup 9Router 🚀<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
+      <sub>Koding 24 Jam Anti Rate Limit! Hemat Token AI 65% | Tutorial Quick Setup Rebana Router 🚀<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
     </td>
     
   </tr>
@@ -202,10 +202,10 @@ URL par défaut :
   <tr>
   <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=TXGv4eofe1I">
-        <img src="https://img.youtube.com/vi/TXGv4eofe1I/mqdefault.jpg" alt="Cara Deploy 9Router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB" width="300"/>
+        <img src="https://img.youtube.com/vi/TXGv4eofe1I/mqdefault.jpg" alt="Cara Deploy Rebana Router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB" width="300"/>
       </a><br/>
       <b>🇮🇩 Indonesia</b><br/>
-      <sub>Cara Deploy 9Router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
+      <sub>Cara Deploy Rebana Router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
     </td>
   </tr>
 
@@ -213,13 +213,13 @@ URL par défaut :
 
 </div>
 
-> 🎬 **Vous avez réalisé une vidéo sur 9Router ?** Envoyez une [Pull Request](https://github.com/decolua/9router/pulls) en ajoutant votre vidéo à cette section — nous la fusionnerons !
+> ðŸŽ¬ **Vous avez réalisé une vidéo sur Rebana Router ?** Envoyez une [Pull Request](https://github.com/decolua/Rebana Router/pulls) en ajoutant votre vidéo à cette section — nous la fusionnerons !
 
 ---
 
 ## 🛠️ Outils CLI pris en charge
 
-9Router fonctionne parfaitement avec tous les principaux outils de codage IA :
+Rebana Router fonctionne parfaitement avec tous les principaux outils de codage IA :
 
 <div align="center">
   <table>
@@ -433,25 +433,25 @@ URL par défaut :
 
 | Fonctionnalité                                                                         | Ce qu'elle fait                                                                                      | Pourquoi c'est important                                  |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| 🚀 **Économiseur de tokens RTK** ([RTK](https://github.com/rtk-ai/rtk) ⭐40K)           | Compresse les sorties des outils (`git diff`, `grep`, `ls`, `tree`...) avant de les envoyer au LLM    | Économise **20 à 40 % de tokens d'entrée** par requête    |
-| 🧠 **Économiseur de tokens Headroom** ([Headroom](https://github.com/chopratejas/headroom)) | Proxy externe optionnel `/v1/compress` avant le routage vers le fournisseur                      | Économise plus de tokens de contexte sans changer les clients |
-| 🪨 **Mode cavernicole** ([Caveman](https://github.com/JuliusBrussee/caveman) ⭐52K)     | Injecte un prompt en langage cavernicole → le LLM répond de manière concise, le contenu technique est conservé | Économise **jusqu'à 65 % de tokens de sortie** |
-| 🐴 **Ponytail** ([Ponytail](https://github.com/DietrichGebert/ponytail))                | Injecte un prompt de "dev sénior fainéant" → le LLM écrit un code minimal, YAGNI d'abord (Lite/Full/Ultra) | **Moins de tokens de sortie, moins de refactorisation** |
-| 🎯 **Repli intelligent à 3 niveaux**                                                    | Routage automatique : Abonnement → Bon marché → Gratuit                                              | N'arrêtez jamais de coder, zéro temps d'arrêt             |
-| 📊 **Suivi de quota en temps réel**                                                     | Compteur de tokens en direct + compte à rebours de réinitialisation                                   | Maximisez la valeur de votre abonnement                   |
-| 🔄 **Traduction de formats**                                                            | OpenAI ↔ Claude ↔ Gemini ↔ Cursor ↔ Kiro ↔ Vertex                                                   | Fonctionne avec n'importe quel outil CLI                  |
-| 👥 **Prise en charge multi-comptes**                                                    | Plusieurs comptes par fournisseur                                                                    | Équilibrage de charge + redondance                        |
+| 🚀 **çconomiseur de tokens RTK** ([RTK](https://github.com/rtk-ai/rtk) ❌­40K)           | Compresse les sorties des outils (`git diff`, `grep`, `ls`, `tree`...) avant de les envoyer au LLM    | çconomise **20 à 40 % de tokens d'entrée** par requête    |
+| 🧠  **çconomiseur de tokens Headroom** ([Headroom](https://github.com/chopratejas/headroom)) | Proxy externe optionnel `/v1/compress` avant le routage vers le fournisseur                      | çconomise plus de tokens de contexte sans changer les clients |
+| 𝪨 **Mode cavernicole** ([Caveman](https://github.com/JuliusBrussee/caveman) ❌­52K)     | Injecte un prompt en langage cavernicole →’ le LLM répond de manière concise, le contenu technique est conservé | çconomise **jusqu'à 65 % de tokens de sortie** |
+| 𝐴 **Ponytail** ([Ponytail](https://github.com/DietrichGebert/ponytail))                | Injecte un prompt de "dev sénior fainéant" →’ le LLM écrit un code minimal, YAGNI d'abord (Lite/Full/Ultra) | **Moins de tokens de sortie, moins de refactorisation** |
+| 🎯 **Repli intelligent à 3 niveaux**                                                    | Routage automatique : Abonnement →’ Bon marché →’ Gratuit                                              | N'arrêtez jamais de coder, zéro temps d'arrêt             |
+| 📝Š **Suivi de quota en temps réel**                                                     | Compteur de tokens en direct + compte à rebours de réinitialisation                                   | Maximisez la valeur de votre abonnement                   |
+| 🔄 **Traduction de formats**                                                            | OpenAI →” Claude →” Gemini →” Cursor →” Kiro →” Vertex                                                   | Fonctionne avec n'importe quel outil CLI                  |
+| 👥 **Prise en charge multi-comptes**                                                    | Plusieurs comptes par fournisseur                                                                    | çquilibrage de charge + redondance                        |
 | 🔄 **Renouvellement automatique des tokens**                                            | Les tokens OAuth se renouvellent automatiquement                                                     | Plus besoin de se reconnecter manuellement                |
 | 🎨 **Combos personnalisés**                                                             | Créez des combinaisons de modèles illimitées                                                         | Adaptez le repli à vos besoins                            |
-| 📝 **Journalisation des requêtes**                                                      | Mode débogage avec journaux complets de requêtes/réponses                                            | Résolvez facilement les problèmes                         |
+| 📝 **Journalisation des requêtes**                                                      | Mode débogage avec journaux complets de requêtes/réponses                                            | Résolvez facilement les problèmes                         |
 | 💾 **Synchronisation cloud**                                                            | Synchronisez la configuration entre vos appareils                                                    | La même configuration partout                             |
-| 📊 **Analytique d'utilisation**                                                         | Suivez tokens, coûts et tendances au fil du temps                                                    | Optimisez vos dépenses                                    |
+| 📝Š **Analytique d'utilisation**                                                         | Suivez tokens, coûts et tendances au fil du temps                                                    | Optimisez vos dépenses                                    |
 | 🌐 **Déployez partout**                                                                 | Localhost, VPS, Docker, Cloudflare Workers                                                           | Options de déploiement flexibles                          |
 
 <details>
 <summary><b>📖 Détails des fonctionnalités</b></summary>
 
-### 🚀 Économiseur de tokens RTK
+### 🚀 çconomiseur de tokens RTK
 
 Les sorties des outils (`git diff`, `grep`, `find`, `ls`, `tree`, vidages de journaux...) consomment souvent 30 à 50 % de votre budget de prompt. RTK les détecte et applique une compression intelligente et sans perte **avant** que la requête n'atteigne le LLM :
 
@@ -459,48 +459,48 @@ Les sorties des outils (`git diff`, `grep`, `find`, `ls`, `tree`, vidages de jou
 - **Détection automatique :** Aucune configuration requise — RTK inspecte le premier 1 Ko de chaque `tool_result` et choisit le bon filtre.
 - **Sûr par conception :** Si un filtre échoue, génère une erreur ou rend la sortie plus volumineuse, RTK conserve silencieusement le texte original. Les erreurs ne cassent jamais votre requête.
 - **Universel :** Fonctionne dans tous les formats (OpenAI, Claude, Gemini, Cursor, Kiro, OpenAI Responses) car il s'exécute **avant** toute traduction de format.
-- **Activé par défaut :** Activez-le ou désactivez-le à tout moment dans Tableau de bord → Paramètres d'Endpoint.
+- **Activé par défaut :** Activez-le ou désactivez-le à tout moment dans Tableau de bord →’ Paramètres d'Endpoint.
 
 ```
 Sans RTK : 47K tokens envoyés au LLM
 Avec RTK :   28K tokens envoyés au LLM   (40 % économisés · même contexte · même réponse)
 ```
 
-### 🧠 Économiseur de tokens Headroom
+### 🧠  çconomiseur de tokens Headroom
 
-Headroom est optionnel et s'exécute séparément. 9Router appelle l'endpoint local `/v1/compress` de Headroom, puis conserve le routage, le repli, l'authentification et le suivi d'utilisation normaux :
+Headroom est optionnel et s'exécute séparément. Rebana Router appelle l'endpoint local `/v1/compress` de Headroom, puis conserve le routage, le repli, l'authentification et le suivi d'utilisation normaux :
 
 ```
-Client → 9Router → Headroom /v1/compress → 9Router → fournisseur
+Client →’ Rebana Router →’ Headroom /v1/compress →’ Rebana Router →’ fournisseur
 ```
 
 Configuration locale :
 
 ```bash
 pip install "headroom-ai[proxy]"
-headroom proxy --port 8787
+headroom proxy --port 91828
 ```
 
-Activez-le dans Tableau de bord → Endpoint → Token Saver → Headroom. URL par défaut : `http://localhost:8787`.
+Activez-le dans Tableau de bord →’ Endpoint →’ Token Saver →’ Headroom. URL par défaut : `http://localhost:91828`.
 
 Exemples Docker :
 
 ```bash
 # Service Headroom dans le même réseau Docker
-http://headroom:8787
+http://headroom:91828
 
 # Headroom exécuté sur la machine hôte
-http://host.docker.internal:8787
+http://host.docker.internal:91828
 ```
 
-Si Headroom est indisponible ou renvoie une erreur, 9Router bascule en mode dégradé et envoie la requête originale.
+Si Headroom est indisponible ou renvoie une erreur, Rebana Router bascule en mode dégradé et envoie la requête originale.
 
-### 🐴 Ponytail (Dev sénior fainéant)
+### 𝐴 Ponytail (Dev sénior fainéant)
 
 Ponytail injecte un prompt système de _"dev sénior fainéant"_ dans chaque requête, orientant le LLM vers un code minimal et YAGNI d'abord — la suppression plutôt que l'ajout, la bibliothèque standard plutôt que de nouvelles dépendances, une ligne plutôt que des abstractions. Adapté de [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail).
 
 - **Lite** — Construisez ce qui est demandé, nommez l'alternative plus fainéante.
-- **Full** — Hiérarchie YAGNI appliquée : stdlib → natif → dépendances existantes → une ligne → code minimal.
+- **Full** — Hiérarchie YAGNI appliquée : stdlib →’ natif →’ dépendances existantes →’ une ligne →’ code minimal.
 - **Ultra** — Extrémiste du YAGNI : suppression d'abord, livrez la solution d'une ligne, remettez en question le reste de l'exigence dans la même réponse.
 
 ```
@@ -508,7 +508,7 @@ Sans Ponytail : code verbeux, abstractions superflues, échafaudage "au cas où"
 Avec Ponytail :    diff fonctionnel le plus court, aucune abstraction non demandée, moins de tokens
 ```
 
-Ne sacrifie jamais : la validation des entrées, la gestion des erreurs qui évite la perte de données, la sécurité, l'accessibilité ni rien d'explicitement demandé. Activez-le dans Tableau de bord → Endpoint → Ponytail. Se cumule avec Caveman (concision de sortie) et RTK (compression d'entrée).
+Ne sacrifie jamais : la validation des entrées, la gestion des erreurs qui évite la perte de données, la sécurité, l'accessibilité ni rien d'explicitement demandé. Activez-le dans Tableau de bord →’ Endpoint →’ Ponytail. Se cumule avec Caveman (concision de sortie) et RTK (compression d'entrée).
 
 ### 🎯 Repli intelligent à 3 niveaux
 
@@ -520,10 +520,10 @@ Combo : "my-coding-stack"
   2. glm/glm-4.7               (sauvegarde économique, $0.6/1M)
   3. if/kimi-k2-thinking       (repli gratuit)
 
-→ Bascule automatiquement quand le quota est épuisé ou en cas d'erreur
+→’ Bascule automatiquement quand le quota est épuisé ou en cas d'erreur
 ```
 
-### 📊 Suivi de quota en temps réel
+### 📝Š Suivi de quota en temps réel
 
 - Consommation de tokens par fournisseur
 - Compte à rebours de réinitialisation (5 heures, quotidien, hebdomadaire)
@@ -534,8 +534,8 @@ Combo : "my-coding-stack"
 
 Traduction transparente entre les formats :
 
-- **OpenAI** ↔ **Claude** ↔ **Gemini** ↔ **Cursor** ↔ **Kiro** ↔ **Vertex** ↔ **Antigravity** ↔ **Ollama** ↔ **OpenAI Responses**
-- Votre outil CLI envoie le format OpenAI → 9Router le traduit → Le fournisseur reçoit le format natif
+- **OpenAI** →” **Claude** →” **Gemini** →” **Cursor** →” **Kiro** →” **Vertex** →” **Antigravity** →” **Ollama** →” **OpenAI Responses**
+- Votre outil CLI envoie le format OpenAI →’ Rebana Router le traduit →’ Le fournisseur reçoit le format natif
 - Fonctionne avec tout outil prenant en charge les endpoints OpenAI personnalisés
 
 ### 👥 Prise en charge multi-comptes
@@ -557,7 +557,7 @@ Traduction transparente entre les formats :
 - Nommez vos combos pour un accès facile
 - Partagez vos combos entre appareils grâce à la Synchronisation cloud
 
-### 📝 Journalisation des requêtes
+### 📝 Journalisation des requêtes
 
 - Activez le mode débogage pour des journaux complets de requêtes/réponses
 - Suivez les appels API, les en-têtes et les charges utiles
@@ -579,7 +579,7 @@ Traduction transparente entre les formats :
 - `NEXT_PUBLIC_BASE_URL` et `NEXT_PUBLIC_CLOUD_URL` restent prises en charge pour la compatibilité/UI, mais le runtime serveur privilégie désormais `BASE_URL`/`CLOUD_URL`.
 - Les requêtes de synchronisation cloud utilisent désormais un délai d'expiration + un comportement de défaillance rapide pour éviter que l'UI ne se bloque quand le DNS/réseau cloud est indisponible.
 
-### 📊 Analytique d'utilisation
+### 📝Š Analytique d'utilisation
 
 - Suivez l'utilisation des tokens par fournisseur et modèle
 - Estimation des coûts et tendances de dépenses
@@ -589,35 +589,35 @@ Traduction transparente entre les formats :
 > **💡 IMPORTANT - Comprendre les coûts du tableau de bord :**
 >
 > Le "coût" affiché dans l'Analytique d'utilisation est **uniquement à des fins de suivi et de comparaison**.
-> 9Router lui-même **ne vous facture jamais** quoi que ce soit. Vous ne payez que les fournisseurs directement (si vous utilisez des services payants).
+> Rebana Router lui-même **ne vous facture jamais** quoi que ce soit. Vous ne payez que les fournisseurs directement (si vous utilisez des services payants).
 >
 > **Exemple :** Si votre tableau de bord affiche "coût total de 290 $" alors que vous utilisez les modèles iFlow, cela représente
 > ce que vous auriez payé en utilisant des API payantes directement. Votre coût réel = **0 $** (iFlow est gratuit et illimité).
 >
 > Considérez-le comme un "suivi d'économies" qui montre combien vous économisez en utilisant des modèles gratuits ou
-> en routant via 9Router !
+> en routant via Rebana Router !
 
 ### 🌐 Déployez partout
 
 - 💻 **Localhost** - Par défaut, fonctionne hors ligne
-- ☁️ **VPS/Cloud** - Partagez entre appareils
-- 🐳 **Docker** - Déploiement en une commande
+- ❌˜ï¸ **VPS/Cloud** - Partagez entre appareils
+- 𝐳 **Docker** - Déploiement en une commande
 - 🚀 **Cloudflare Workers** - Réseau mondial de périphérie
 
 </details>
 
 ---
 
-## 💰 Tarifs en un coup d'œil
+## 💰 Tarifs en un coup d'Å“il
 
 | Niveau                 | Fournisseur           | Coût            | Réinitialisation du quota | Idéal pour                                |
 | ---------------------- | --------------------- | --------------- | ------------------------- | ----------------------------------------- |
-| **🚀 ÉCONOMIE DE TOKENS** | **RTK (intégré)**     | **GRATUIT**     | Toujours actif            | **Économisez 20 à 40 % de tokens sur CHAQUE requête** |
+| **🚀 çCONOMIE DE TOKENS** | **RTK (intégré)**     | **GRATUIT**     | Toujours actif            | **çconomisez 20 à 40 % de tokens sur CHAQUE requête** |
 | **💳 ABONNEMENT**      | Claude Code (Pro/Max) | 20 à 200 $/mois | 5 h + hebdomadaire        | Déjà abonné                                |
 |                        | Codex (Plus/Pro)      | 20 à 200 $/mois | 5 h + hebdomadaire        | Utilisateurs d'OpenAI                      |
 |                        | GitHub Copilot        | 10 à 19 $/mois  | Mensuelle                 | Utilisateurs de GitHub                     |
 |                        | Cursor IDE            | 20 $/mois       | Mensuelle                 | Utilisateurs de Cursor                     |
-| **💰 BON MARCHÉ**     | GLM-5.1 / GLM-4.7     | 0,6 $/1M        | Quotidienne 10 h          | Sauvegarde économique                      |
+| **💰 BON MARCHç**     | GLM-5.1 / GLM-4.7     | 0,6 $/1M        | Quotidienne 10 h          | Sauvegarde économique                      |
 |                        | MiniMax M2.7          | 0,2 $/1M        | Fenêtre de 5 heures       | L'option la moins chère                    |
 |                        | Kimi K2.5             | 9 $/mois forfait | 10M tokens/mois          | Coût prévisible                            |
 | **🆓 GRATUIT**         | Kiro AI               | 0 $             | Illimité                  | Claude 4.5 + GLM-5 + MiniMax gratuits      |
@@ -628,15 +628,15 @@ Traduction transparente entre les formats :
 
 ---
 
-### 📊 Comprendre les coûts et la facturation de 9Router
+### 📝Š Comprendre les coûts et la facturation de Rebana Router
 
-**La réalité de la facturation de 9Router :**
+**La réalité de la facturation de Rebana Router :**
 
-✅ **Le logiciel 9Router = GRATUIT pour toujours** (open source, ne facture jamais)  
+✅ **Le logiciel Rebana Router = GRATUIT pour toujours** (open source, ne facture jamais)  
 ✅ **Les "coûts" du tableau de bord = Affichage/suivi uniquement** (pas de vraies factures)  
 ✅ **Vous payez les fournisseurs directement** (abonnements ou frais d'API)  
 ✅ **Les fournisseurs GRATUITS restent GRATUITS** (iFlow, Kiro, Qwen = 0 $ illimité)  
-❌ **9Router n'envoie jamais de factures** et ne débite pas votre carte
+❌Œ **Rebana Router n'envoie jamais de factures** et ne débite pas votre carte
 
 **Comment fonctionne l'affichage des coûts :**
 
@@ -653,15 +653,15 @@ Affichage du tableau de bord :
 Vérification de la réalité :
 • Fournisseur : iFlow (GRATUIT illimité)
 • Paiement réel : 0,00 $
-• Ce que signifie 290 $ : Le montant que vous avez ÉCONOMISÉ en utilisant des modèles gratuits !
+• Ce que signifie 290 $ : Le montant que vous avez çCONOMISç en utilisant des modèles gratuits !
 ```
 
 **Règles de paiement :**
 
 - **Fournisseurs par abonnement** (Claude Code, Codex) : Payez-les directement via leurs sites web
-- **Fournisseurs bon marché** (GLM, MiniMax) : Payez-les directement, 9Router se contente de router
+- **Fournisseurs bon marché** (GLM, MiniMax) : Payez-les directement, Rebana Router se contente de router
 - **Fournisseurs GRATUITS** (iFlow, Kiro, Qwen) : Vraiment gratuits pour toujours, sans frais cachés
-- **9Router** : Ne facture jamais rien, jamais
+- **Rebana Router** : Ne facture jamais rien, jamais
 
 ---
 
@@ -735,12 +735,12 @@ Accès via : WhatsApp, Telegram, Slack, Discord, iMessage, Signal...
 
 ---
 
-## ❓ Questions fréquemment posées
+## ❌“ Questions fréquemment posées
 
 <details>
-<summary><b>📊 Pourquoi mon tableau de bord affiche-t-il des coûts élevés ?</b></summary>
+<summary><b>📝Š Pourquoi mon tableau de bord affiche-t-il des coûts élevés ?</b></summary>
 
-Le tableau de bord suit votre utilisation de tokens et affiche des **coûts estimés** comme si vous utilisiez des API payantes directement. Ce n'est **pas une facturation réelle** — c'est une référence pour montrer combien vous économisez en utilisant des modèles gratuits ou des abonnements existants via 9Router.
+Le tableau de bord suit votre utilisation de tokens et affiche des **coûts estimés** comme si vous utilisiez des API payantes directement. Ce n'est **pas une facturation réelle** — c'est une référence pour montrer combien vous économisez en utilisant des modèles gratuits ou des abonnements existants via Rebana Router.
 
 **Exemple :**
 
@@ -754,17 +754,17 @@ L'affichage des coûts est un "suivi d'économies" qui vous aide à comprendre v
 </details>
 
 <details>
-<summary><b>💳 9Router me facturera-t-il ?</b></summary>
+<summary><b>💳 Rebana Router me facturera-t-il ?</b></summary>
 
-**Non.** 9Router est un logiciel gratuit et open source qui s'exécute sur votre propre ordinateur. Il ne vous facture jamais rien.
+**Non.** Rebana Router est un logiciel gratuit et open source qui s'exécute sur votre propre ordinateur. Il ne vous facture jamais rien.
 
 **Vous ne payez que :**
 
-- ✅ **Fournisseurs par abonnement** (Claude Code 20 $/mois, Codex 20 à 200 $/mois) → Payez-les directement sur leurs sites web
-- ✅ **Fournisseurs bon marché** (GLM, MiniMax) → Payez-les directement, 9Router route simplement vos requêtes
-- ❌ **9Router lui-même** → **Ne facture jamais rien, jamais**
+- ✅ **Fournisseurs par abonnement** (Claude Code 20 $/mois, Codex 20 à 200 $/mois) →’ Payez-les directement sur leurs sites web
+- ✅ **Fournisseurs bon marché** (GLM, MiniMax) →’ Payez-les directement, Rebana Router route simplement vos requêtes
+- ❌Œ **Rebana Router lui-même** →’ **Ne facture jamais rien, jamais**
 
-9Router est un proxy/routeur local. Il n'a pas votre carte bancaire, ne peut pas envoyer de factures et ne possède aucun système de facturation. C'est un logiciel entièrement gratuit.
+Rebana Router est un proxy/routeur local. Il n'a pas votre carte bancaire, ne peut pas envoyer de factures et ne possède aucun système de facturation. C'est un logiciel entièrement gratuit.
 
 </details>
 
@@ -779,13 +779,13 @@ Ce sont des services gratuits offerts par ces entreprises respectives :
 - **OpenCode Free** : Proxy de passage sans authentification, modèles récupérés automatiquement depuis `opencode.ai/zen/v1/models`
 - **Vertex AI** : 300 $ de crédit gratuit pour les nouveaux comptes Google Cloud (90 jours)
 
-9Router se contente de router vos requêtes vers eux — il n'y a pas de "piège" ni de facturation future. Ce sont de véritables services gratuits, et 9Router les rend faciles à utiliser avec le support du repli.
+Rebana Router se contente de router vos requêtes vers eux — il n'y a pas de "piège" ni de facturation future. Ce sont de véritables services gratuits, et Rebana Router les rend faciles à utiliser avec le support du repli.
 
 **Niveaux gratuits interrompus (non recommandés) :**
 
-- ❌ **iFlow** : Était gratuit et illimité, désormais payant (2026)
-- ❌ **Qwen Code** : Le niveau gratuit OAuth a été interrompu par Alibaba le 15/04/2026
-- ❌ **Gemini CLI** : Fonctionne toujours, mais l'utiliser avec des outils non-CLI (Claude, Codex, Cursor...) peut entraîner des bannissements de compte — utilisez-le uniquement si vous restez sur le Gemini CLI lui-même
+- ❌Œ **iFlow** : çtait gratuit et illimité, désormais payant (2026)
+- ❌Œ **Qwen Code** : Le niveau gratuit OAuth a été interrompu par Alibaba le 15/04/2026
+- ❌Œ **Gemini CLI** : Fonctionne toujours, mais l'utiliser avec des outils non-CLI (Claude, Codex, Cursor...) peut entraîner des bannissements de compte — utilisez-le uniquement si vous restez sur le Gemini CLI lui-même
 
 </details>
 
@@ -814,7 +814,7 @@ Ce sont des services gratuits offerts par ces entreprises respectives :
 
 3. **Utilisez les fournisseurs par abonnement en dernier :**
    - Uniquement si vous les possédez déjà
-   - 9Router vous aide à maximiser leur valeur grâce au suivi de quota
+   - Rebana Router vous aide à maximiser leur valeur grâce au suivi de quota
 
 **Résultat :** La plupart des utilisateurs peuvent fonctionner à 0 $/mois en utilisant uniquement les niveaux gratuits !
 
@@ -823,22 +823,22 @@ Ce sont des services gratuits offerts par ces entreprises respectives :
 <details>
 <summary><b>📈 Et si mon utilisation explose soudainement ?</b></summary>
 
-Le repli intelligent de 9Router évite les frais surprises :
+Le repli intelligent de Rebana Router évite les frais surprises :
 
 **Scénario :** Vous êtes en sprint de codage et vous épuisez vos quotas
 
-**Sans 9Router :**
+**Sans Rebana Router :**
 
-- ❌ Limite de débit atteinte → Le travail s'arrête → Frustration
-- ❌ Ou : Vous accumulez accidentellement d'énormes factures d'API
+- ❌Œ Limite de débit atteinte →’ Le travail s'arrête →’ Frustration
+- ❌Œ Ou : Vous accumulez accidentellement d'énormes factures d'API
 
-**Avec 9Router :**
+**Avec Rebana Router :**
 
-- ✅ L'abonnement atteint sa limite → Repli automatique vers le niveau économique
-- ✅ Le niveau économique devient coûteux → Repli automatique vers le niveau gratuit
-- ✅ N'arrêtez jamais de coder → Coûts prévisibles
+- ✅ L'abonnement atteint sa limite →’ Repli automatique vers le niveau économique
+- ✅ Le niveau économique devient coûteux →’ Repli automatique vers le niveau gratuit
+- ✅ N'arrêtez jamais de coder →’ Coûts prévisibles
 
-**Vous gardez le contrôle :** Définissez des limites de dépenses par fournisseur dans le tableau de bord, et 9Router les respecte.
+**Vous gardez le contrôle :** Définissez des limites de dépenses par fournisseur dans le tableau de bord, et Rebana Router les respecte.
 
 </details>
 
@@ -852,9 +852,9 @@ Le repli intelligent de 9Router évite les frais surprises :
 ### Claude Code (Pro/Max)
 
 ```bash
-Tableau de bord → Providers → Connectez Claude Code
-→ Connexion OAuth → Renouvellement automatique des tokens
-→ Suivi de quota de 5 heures + hebdomadaire
+Tableau de bord →’ Providers →’ Connectez Claude Code
+→’ Connexion OAuth →’ Renouvellement automatique des tokens
+→’ Suivi de quota de 5 heures + hebdomadaire
 
 Modèles :
   cc/claude-opus-4-7
@@ -863,14 +863,14 @@ Modèles :
   cc/claude-haiku-4-5-20251001
 ```
 
-**Astuce pro :** Utilisez Opus pour les tâches complexes et Sonnet pour la vitesse. 9Router suit le quota par modèle !
+**Astuce pro :** Utilisez Opus pour les tâches complexes et Sonnet pour la vitesse. Rebana Router suit le quota par modèle !
 
 ### OpenAI Codex (Plus/Pro)
 
 ```bash
-Tableau de bord → Providers → Connectez Codex
-→ Connexion OAuth (port 1455)
-→ Réinitialisation de 5 heures + hebdomadaire
+Tableau de bord →’ Providers →’ Connectez Codex
+→’ Connexion OAuth (port 1455)
+→’ Réinitialisation de 5 heures + hebdomadaire
 
 Modèles :
   cx/gpt-5.5
@@ -882,9 +882,9 @@ Modèles :
 ### GitHub Copilot
 
 ```bash
-Tableau de bord → Providers → Connectez GitHub
-→ OAuth via GitHub
-→ Réinitialisation mensuelle (le 1er du mois)
+Tableau de bord →’ Providers →’ Connectez GitHub
+→’ OAuth via GitHub
+→’ Réinitialisation mensuelle (le 1er du mois)
 
 Modèles :
   gh/gpt-5.4
@@ -897,9 +897,9 @@ Modèles :
 ### Cursor IDE
 
 ```bash
-Tableau de bord → Providers → Connectez Cursor
-→ Connexion OAuth
-→ Abonnement mensuel
+Tableau de bord →’ Providers →’ Connectez Cursor
+→’ Connexion OAuth
+→’ Abonnement mensuel
 
 Modèles :
   cu/claude-4.6-opus-max
@@ -916,7 +916,7 @@ Modèles :
 
 1. Inscrivez-vous : [Zhipu AI](https://open.bigmodel.cn/)
 2. Obtenez la clé API depuis le Coding Plan
-3. Tableau de bord → Add API Key :
+3. Tableau de bord →’ Add API Key :
    - Fournisseur : `glm`
    - API Key : `votre-clé`
 
@@ -928,7 +928,7 @@ Modèles :
 
 1. Inscrivez-vous : [MiniMax](https://www.minimax.io/)
 2. Obtenez la clé API
-3. Tableau de bord → Add API Key
+3. Tableau de bord →’ Add API Key
 
 **Utilisation :** `minimax/MiniMax-M2.7`, `minimax/MiniMax-M2.5`
 
@@ -938,7 +938,7 @@ Modèles :
 
 1. Abonnez-vous : [Moonshot AI](https://platform.moonshot.ai/)
 2. Obtenez la clé API
-3. Tableau de bord → Add API Key
+3. Tableau de bord →’ Add API Key
 
 **Utilisation :** `kimi/kimi-k2.5`, `kimi/kimi-k2.5-thinking`
 
@@ -952,9 +952,9 @@ Modèles :
 ### Kiro AI (Claude 4.5 + GLM-5 + MiniMax GRATUIT)
 
 ```bash
-Tableau de bord → Connectez Kiro
-→ AWS Builder ID, AWS IAM Identity Center, Google ou GitHub
-→ Utilisation illimitée
+Tableau de bord →’ Connectez Kiro
+→’ AWS Builder ID, AWS IAM Identity Center, Google ou GitHub
+→’ Utilisation illimitée
 
 Modèles :
   kr/claude-sonnet-4.5
@@ -970,9 +970,9 @@ Modèles :
 ### OpenCode Free (sans authentification, modèles automatiques)
 
 ```bash
-Tableau de bord → Connectez OpenCode Free
-→ Aucune connexion requise (proxy de passage)
-→ Modèles récupérés automatiquement depuis opencode.ai/zen/v1/models
+Tableau de bord →’ Connectez OpenCode Free
+→’ Aucune connexion requise (proxy de passage)
+→’ Modèles récupérés automatiquement depuis opencode.ai/zen/v1/models
 ```
 
 **Astuce pro :** La configuration la plus rapide. Connectez-vous et commencez à coder.
@@ -980,9 +980,9 @@ Tableau de bord → Connectez OpenCode Free
 ### Vertex AI (300 $ de crédit gratuit pour les nouveaux comptes GCP)
 
 ```bash
-Tableau de bord → Connectez Vertex AI
-→ Importez le JSON du compte de service Google Cloud
-→ Activez l'API Vertex AI dans votre projet GCP
+Tableau de bord →’ Connectez Vertex AI
+→’ Importez le JSON du compte de service Google Cloud
+→’ Activez l'API Vertex AI dans votre projet GCP
 
 Modèles :
   vertex/gemini-3.1-pro-preview
@@ -1002,10 +1002,10 @@ Vertex Partner (Anthropic / DeepSeek / GLM / Qwen via Vertex) :
 <details>
 <summary><b>🎨 Créez des combos</b></summary>
 
-### Exemple 1 : Maximisez l'abonnement → Sauvegarde économique
+### Exemple 1 : Maximisez l'abonnement →’ Sauvegarde économique
 
 ```
-Tableau de bord → Combos → Create New
+Tableau de bord →’ Combos →’ Create New
 
 Nom : premium-coding
 Modèles :
@@ -1042,9 +1042,9 @@ Coût : 0 $ pour toujours (+ 20 à 40 % d'économie de tokens via RTK) !
 ### Cursor IDE
 
 ```
-Settings → Models → Advanced :
-  OpenAI API Base URL : http://localhost:20128/v1
-  OpenAI API Key : [depuis le tableau de bord 9router]
+Settings →’ Models →’ Advanced :
+  OpenAI API Base URL : http://localhost:91827/v1
+  OpenAI API Key : [depuis le tableau de bord Rebana Router]
   Model : cc/claude-opus-4-7
 ```
 
@@ -1056,16 +1056,16 @@ Modifiez `~/.claude/config.json` :
 
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "votre-clé-api-9router"
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "votre-clé-api-Rebana Router"
 }
 ```
 
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="votre-clé-api-9router"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="votre-clé-api-Rebana Router"
 
 codex "votre prompt"
 ```
@@ -1075,7 +1075,7 @@ codex "votre prompt"
 **Option 1 — Tableau de bord (recommandée) :**
 
 ```
-Tableau de bord → CLI Tools → OpenClaw → Sélectionnez le modèle → Appliquer
+Tableau de bord →’ CLI Tools →’ OpenClaw →’ Sélectionnez le modèle →’ Appliquer
 ```
 
 **Option 2 — Manuel :** Modifiez `~/.openclaw/openclaw.json` :
@@ -1085,15 +1085,15 @@ Tableau de bord → CLI Tools → OpenClaw → Sélectionnez le modèle → Appl
   "agents": {
     "defaults": {
       "model": {
-        "primary": "9router/kr/claude-sonnet-4.5"
+        "primary": "Rebana Router/kr/claude-sonnet-4.5"
       }
     }
   },
   "models": {
     "providers": {
-      "9router": {
-        "baseUrl": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router",
+      "Rebana Router": {
+        "baseUrl": "http://127.0.0.1:91827/v1",
+        "apiKey": "sk_Rebana Router",
         "api": "openai-completions",
         "models": [
           {
@@ -1107,13 +1107,13 @@ Tableau de bord → CLI Tools → OpenClaw → Sélectionnez le modèle → Appl
 }
 ```
 
-> **Remarque :** OpenClaw ne fonctionne qu'avec un 9Router local. Utilisez `127.0.0.1` au lieu de `localhost` pour éviter les problèmes de résolution IPv6.
+> **Remarque :** OpenClaw ne fonctionne qu'avec un Rebana Router local. Utilisez `127.0.0.1` au lieu de `localhost` pour éviter les problèmes de résolution IPv6.
 
 ### Cline / Continue / RooCode
 
 ```
 Provider : OpenAI Compatible
-Base URL : http://localhost:20128/v1
+Base URL : http://localhost:91827/v1
 API Key : [depuis le tableau de bord]
 Model : cc/claude-opus-4-7
 ```
@@ -1127,20 +1127,20 @@ Model : cc/claude-opus-4-7
 
 ```bash
 # Clonez et installez
-git clone https://github.com/decolua/9router.git
-cd 9router
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router
 npm install
 npm run build
 
 # Configuration
 export JWT_SECRET="votre-secret-sécurisé-changez-le"
 export INITIAL_PASSWORD="votre-mot-de-passe"
-export DATA_DIR="/var/lib/9router"
-export PORT="20128"
+export DATA_DIR="/var/lib/Rebana Router"
+export PORT="91827"
 export HOSTNAME="0.0.0.0"
 export NODE_ENV="production"
-export NEXT_PUBLIC_BASE_URL="http://localhost:20128"
-export NEXT_PUBLIC_CLOUD_URL="https://9router.com"
+export NEXT_PUBLIC_BASE_URL="http://localhost:91827"
+export NEXT_PUBLIC_CLOUD_URL="https://Rebana Router.com"
 export API_KEY_SECRET="endpoint-proxy-api-key-secret"
 export MACHINE_ID_SALT="endpoint-proxy-salt"
 
@@ -1149,7 +1149,7 @@ npm run start
 
 # Ou utilisez PM2
 npm install -g pm2
-pm2 start npm --name 9router -- start
+pm2 start npm --name Rebana Router -- start
 pm2 save
 pm2 startup
 ```
@@ -1158,62 +1158,62 @@ pm2 startup
 
 Images publiées (multi-plateformes `linux/amd64` + `linux/arm64`) :
 
-- Docker Hub : [`decolua/9router`](https://hub.docker.com/r/decolua/9router)
-- GHCR : [`ghcr.io/decolua/9router`](https://github.com/decolua/9router/pkgs/container/9router)
+- Docker Hub : [`decolua/Rebana Router`](https://hub.docker.com/r/decolua/Rebana Router)
+- GHCR : [`ghcr.io/decolua/Rebana Router`](https://github.com/decolua/Rebana Router/pkgs/container/Rebana Router)
 
 **Démarrage rapide (utilisez l'image publiée) :**
 
 ```bash
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
-  -v "$HOME/.9router:/app/data" \
+  --name Rebana Router \
+  -p 91827:91827 \
+  -v "$HOME/.Rebana Router:/app/data" \
   -e DATA_DIR=/app/data \
-  decolua/9router:latest
+  decolua/Rebana Router:latest
 ```
 
-→ Ouvrez http://localhost:20128
+→’ Ouvrez http://localhost:91827
 
 **Compiler depuis le code source (dev) :**
 
 ```bash
-git clone https://github.com/decolua/9router.git
-cd 9router/app
-docker build -t 9router .
-docker run -d --name 9router -p 20128:20128 \
-  -v "$HOME/.9router:/app/data" -e DATA_DIR=/app/data 9router
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router/app
+docker build -t Rebana Router .
+docker run -d --name Rebana Router -p 91827:91827 \
+  -v "$HOME/.Rebana Router:/app/data" -e DATA_DIR=/app/data Rebana Router
 ```
 
 **Valeurs par défaut du conteneur :**
 
-- `PORT=20128`
+- `PORT=91827`
 - `HOSTNAME=0.0.0.0`
 
 **Commandes utiles :**
 
 ```bash
-docker logs -f 9router
-docker restart 9router
-docker stop 9router && docker rm 9router
-docker pull decolua/9router:latest   # mise à jour vers la dernière version
+docker logs -f Rebana Router
+docker restart Rebana Router
+docker stop Rebana Router && docker rm Rebana Router
+docker pull decolua/Rebana Router:latest   # mise à jour vers la dernière version
 ```
 
-**Persistance des données :** `$HOME/.9router/db/data.sqlite` sur l'hôte ↔ `/app/data/db/data.sqlite` dans le conteneur.
+**Persistance des données :** `$HOME/.Rebana Router/db/data.sqlite` sur l'hôte →” `/app/data/db/data.sqlite` dans le conteneur.
 
 ### Variables d'environnement
 
 | Variable                                             | Par défaut                                  | Description                                                                                  |
 | ---------------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `JWT_SECRET`                                         | Généré automatiquement (`~/.9router/jwt-secret`) | Secret de signature JWT pour le cookie d'authentification du tableau de bord (remplacez-le pour partager entre instances) |
+| `JWT_SECRET`                                         | Généré automatiquement (`~/.Rebana Router/jwt-secret`) | Secret de signature JWT pour le cookie d'authentification du tableau de bord (remplacez-le pour partager entre instances) |
 | `INITIAL_PASSWORD`                                   | `123456`                                    | Mot de passe de première connexion quand aucun hash n'est enregistré                          |
-| `DATA_DIR`                                           | `~/.9router`                                | Emplacement principal des données de l'app (SQLite dans `$DATA_DIR/db/data.sqlite`)          |
-| `PORT`                                               | défaut du framework                         | Port du service (`20128` dans les exemples)                                                   |
+| `DATA_DIR`                                           | `~/.Rebana Router`                                | Emplacement principal des données de l'app (SQLite dans `$DATA_DIR/db/data.sqlite`)          |
+| `PORT`                                               | défaut du framework                         | Port du service (`91827` dans les exemples)                                                   |
 | `HOSTNAME`                                           | défaut du framework                         | Hôte de liaison (Docker utilise `0.0.0.0` par défaut)                                         |
 | `NODE_ENV`                                           | défaut du runtime                           | Définissez `production` pour le déploiement                                                   |
-| `BASE_URL`                                           | `http://localhost:20128`                    | URL de base interne côté serveur utilisée par les tâches de synchronisation cloud             |
-| `CLOUD_URL`                                          | `https://9router.com`                       | URL de base de l'endpoint de synchronisation cloud côté serveur                               |
+| `BASE_URL`                                           | `http://localhost:91827`                    | URL de base interne côté serveur utilisée par les tâches de synchronisation cloud             |
+| `CLOUD_URL`                                          | `https://Rebana Router.com`                       | URL de base de l'endpoint de synchronisation cloud côté serveur                               |
 | `NEXT_PUBLIC_BASE_URL`                               | `http://localhost:3000`                     | URL de base publique/rétrocompatible (préférez `BASE_URL` pour le runtime serveur)            |
-| `NEXT_PUBLIC_CLOUD_URL`                              | `https://9router.com`                       | URL cloud publique/rétrocompatible (préférez `CLOUD_URL` pour le runtime serveur)             |
+| `NEXT_PUBLIC_CLOUD_URL`                              | `https://Rebana Router.com`                       | URL cloud publique/rétrocompatible (préférez `CLOUD_URL` pour le runtime serveur)             |
 | `API_KEY_SECRET`                                     | `endpoint-proxy-api-key-secret`             | Secret HMAC pour les clés API générées                                                         |
 | `MACHINE_ID_SALT`                                    | `endpoint-proxy-salt`                       | Sel pour le hachage stable de l'ID machine                                                    |
 | `ENABLE_REQUEST_LOGS`                                | `false`                                     | Active les journaux de requêtes/réponses dans `logs/`                                         |
@@ -1231,16 +1231,16 @@ Remarques :
 
 ### Fichiers d'exécution et stockage
 
-- État principal de l'app : `${DATA_DIR}/db/data.sqlite` (SQLite — fournisseurs, combos, alias, clés, paramètres, historique d'utilisation)
+- çtat principal de l'app : `${DATA_DIR}/db/data.sqlite` (SQLite — fournisseurs, combos, alias, clés, paramètres, historique d'utilisation)
 - Sauvegardes automatiques : `${DATA_DIR}/db/backups/`
 - Journaux optionnels de requêtes/translator : `<repo>/logs/...` quand `ENABLE_REQUEST_LOGS=true`
-- `${DATA_DIR}` et `~/.9router` résolvent tous deux le même emplacement dans un conteneur Docker — le lien symbolique `/root/.9router -> /app/data` est créé au moment de la compilation.
+- `${DATA_DIR}` et `~/.Rebana Router` résolvent tous deux le même emplacement dans un conteneur Docker — le lien symbolique `/root/.Rebana Router -> /app/data` est créé au moment de la compilation.
 
 </details>
 
 ---
 
-## 📊 Modèles disponibles
+## 📝Š Modèles disponibles
 
 <details>
 <summary><b>Afficher tous les modèles disponibles</b></summary>
@@ -1317,33 +1317,33 @@ Remarques :
 
 ---
 
-## 🐛 Dépannage
+## ðŸ› Dépannage
 
 **"Language model did not provide messages"**
 
-- Quota du fournisseur épuisé → Consultez le suivi de quota du tableau de bord
+- Quota du fournisseur épuisé →’ Consultez le suivi de quota du tableau de bord
 - Solution : utilisez le repli du combo ou passez à un niveau moins cher
 
 **Limites de débit**
 
-- Quota d'abonnement épuisé → Repli vers GLM/MiniMax
-- Ajoutez le combo : `cc/claude-opus-4-7 → glm/glm-5.1 → kr/claude-sonnet-4.5`
+- Quota d'abonnement épuisé →’ Repli vers GLM/MiniMax
+- Ajoutez le combo : `cc/claude-opus-4-7 →’ glm/glm-5.1 →’ kr/claude-sonnet-4.5`
 
 **Token OAuth expiré**
 
-- Renouvelé automatiquement par 9Router
-- Si les problèmes persistent : Tableau de bord → Provider → Reconnecter
+- Renouvelé automatiquement par Rebana Router
+- Si les problèmes persistent : Tableau de bord →’ Provider →’ Reconnecter
 
 **Coûts élevés**
 
-- Activez RTK dans Tableau de bord → Paramètres d'Endpoint (activé par défaut, économise 20 à 40 % de tokens)
+- Activez RTK dans Tableau de bord →’ Paramètres d'Endpoint (activé par défaut, économise 20 à 40 % de tokens)
 - Consultez les statistiques d'utilisation dans le tableau de bord
 - Changez le modèle principal pour GLM/MiniMax
 - Utilisez le niveau gratuit (Kiro, OpenCode Free, Vertex) pour les tâches non critiques
 
 **Le tableau de bord s'ouvre sur le mauvais port**
 
-- Définissez `PORT=20128` et `NEXT_PUBLIC_BASE_URL=http://localhost:20128`
+- Définissez `PORT=91827` et `NEXT_PUBLIC_BASE_URL=http://localhost:91827`
 
 **La première connexion ne fonctionne pas**
 
@@ -1367,19 +1367,19 @@ Remarques :
 
 ---
 
-## 📝 Référence de l'API
+## 📝 Référence de l'API
 
 ### Chat Completions
 
 ```bash
-POST http://localhost:20128/v1/chat/completions
+POST http://localhost:91827/v1/chat/completions
 Authorization: Bearer votre-clé-api
 Content-Type: application/json
 
 {
   "model": "cc/claude-opus-4-6",
   "messages": [
-    {"role": "user", "content": "Écrivez une fonction pour..."}
+    {"role": "user", "content": "çcrivez une fonction pour..."}
   ],
   "stream": true
 }
@@ -1388,48 +1388,48 @@ Content-Type: application/json
 ### Lister les modèles
 
 ```bash
-GET http://localhost:20128/v1/models
+GET http://localhost:91827/v1/models
 Authorization: Bearer votre-clé-api
 
-→ Renvoie tous les modèles et combos au format OpenAI
+→’ Renvoie tous les modèles et combos au format OpenAI
 ```
 
 ## 📧 Support
 
-- **Site web** : [9router.com](https://9router.com)
-- **GitHub** : [github.com/decolua/9router](https://github.com/decolua/9router)
-- **Problèmes** : [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **Site web** : [Rebana Router.com](https://Rebana Router.com)
+- **GitHub** : [github.com/decolua/Rebana Router](https://github.com/decolua/Rebana Router)
+- **Problèmes** : [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
 
 ---
 
 ## 👥 Contributeurs
 
-Merci à tous les contributeurs qui ont contribué à améliorer 9Router !
+Merci à tous les contributeurs qui ont contribué à améliorer Rebana Router !
 
-[![Contributors](https://contrib.rocks/image?repo=decolua/9router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/9router/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=decolua/Rebana Router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/Rebana Router/graphs/contributors)
 
 ---
 
-## 📊 Graphique d'étoiles
+## 📝Š Graphique d'étoiles
 
-[![Star Chart](https://starchart.cc/decolua/9router.svg?variant=adaptive)](https://starchart.cc/decolua/9router)
+[![Star Chart](https://starchart.cc/decolua/Rebana Router.svg?variant=adaptive)](https://starchart.cc/decolua/Rebana Router)
 
 ## 🔀 Forks
 
-**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — Un fork TypeScript complet de 9Router. Ajoute plus de 36 fournisseurs, un repli automatique à 4 niveaux, des API multimodales (images, embeddings, audio, TTS), un disjoncteur, un cache sémantique, des évaluations de LLM et un tableau de bord soigné. Plus de 368 tests unitaires. Disponible via npm et Docker.
+**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — Un fork TypeScript complet de Rebana Router. Ajoute plus de 36 fournisseurs, un repli automatique à 4 niveaux, des API multimodales (images, embeddings, audio, TTS), un disjoncteur, un cache sémantique, des évaluations de LLM et un tableau de bord soigné. Plus de 368 tests unitaires. Disponible via npm et Docker.
 
 ---
 
-## 🙏 Remerciements
+## ðŸ™ Remerciements
 
 Construit sur les épaules de géants :
 
 - **[CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)** — implémentation originale en Go qui a inspiré ce port JavaScript.
-- **[RTK](https://github.com/rtk-ai/rtk)** ![Stars](https://img.shields.io/github/stars/rtk-ai/rtk?style=flat&color=yellow) — économiseur de tokens en Rust. 9Router porte son pipeline de compression en JS → **−20 à 40 % de tokens d'entrée** sur chaque requête.
-- **[Caveman](https://github.com/JuliusBrussee/caveman)** ![Stars](https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow) par **[@JuliusBrussee](https://github.com/JuliusBrussee)** — viral _"why use many token when few token do trick"_. 9Router adapte son prompt → **−65 % de tokens de sortie**.
-- **[Ponytail](https://github.com/DietrichGebert/ponytail)** ![Stars](https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat&color=yellow) par **[@DietrichGebert](https://github.com/DietrichGebert)** — compétence de _"dev sénior fainéant"_. 9Router injecte sa hiérarchie YAGNI-d'abord → **moins de tokens, moins de code, des diffs plus courts**.
+- **[RTK](https://github.com/rtk-ai/rtk)** ![Stars](https://img.shields.io/github/stars/rtk-ai/rtk?style=flat&color=yellow) — économiseur de tokens en Rust. Rebana Router porte son pipeline de compression en JS →’ **❌ˆ’20 à 40 % de tokens d'entrée** sur chaque requête.
+- **[Caveman](https://github.com/JuliusBrussee/caveman)** ![Stars](https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow) par **[@JuliusBrussee](https://github.com/JuliusBrussee)** — viral _"why use many token when few token do trick"_. Rebana Router adapte son prompt →’ **❌ˆ’65 % de tokens de sortie**.
+- **[Ponytail](https://github.com/DietrichGebert/ponytail)** ![Stars](https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat&color=yellow) par **[@DietrichGebert](https://github.com/DietrichGebert)** — compétence de _"dev sénior fainéant"_. Rebana Router injecte sa hiérarchie YAGNI-d'abord →’ **moins de tokens, moins de code, des diffs plus courts**.
 
-Un immense merci à ces auteurs — sans leur travail, les fonctionnalités d'économie de tokens de 9Router n'existeraient pas. Mettez-leur une ⭐ sur GitHub !
+Un immense merci à ces auteurs — sans leur travail, les fonctionnalités d'économie de tokens de Rebana Router n'existeraient pas. Mettez-leur une ❌­ sur GitHub !
 
 ---
 
@@ -1440,6 +1440,6 @@ Licence MIT - voir [LICENSE](LICENSE) pour plus de détails.
 ---
 
 <div align="center">
-  <sub>Conçu avec ❤️ pour les développeurs qui codent 24h/24 et 7j/7</sub>
+  <sub>Conçu avec ❌¤ï¸ pour les développeurs qui codent 24h/24 et 7j/7</sub>
 </div>
 

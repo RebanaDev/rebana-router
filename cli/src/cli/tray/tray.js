@@ -6,7 +6,7 @@ let trayInstance = null;
 let isWinTray = false;
 
 /**
- * Get icon base64 from file — used for systray (mac/linux)
+ * Get icon base64 from file â€” used for systray (mac/linux)
  */
 function getIconBase64() {
   const isWin = process.platform === "win32";
@@ -58,10 +58,10 @@ function initTray(options) {
  */
 function buildMenuItems(port, autostartEnabled) {
   return [
-    { title: `9Router (Port ${port})`, tooltip: "Server is running", enabled: false },
+    { title: `Rebana Router (Port ${port})`, tooltip: "Server is running", enabled: false },
     { title: "Open Dashboard", tooltip: "Open in browser", enabled: true },
     {
-      title: autostartEnabled ? "✓ Auto-start Enabled" : "Enable Auto-start",
+      title: autostartEnabled ? "âœ“ Auto-start Enabled" : "Enable Auto-start",
       tooltip: "Run on OS startup",
       enabled: true
     },
@@ -101,7 +101,7 @@ function handleClick(index, options, onAutostartToggle) {
       onAutostartToggle(!enabled);
     } catch (e) {}
   } else if (index === MENU_INDEX.QUIT) {
-    console.log("\n👋 Shutting down...");
+    console.log("\nðŸ‘‹ Shutting down...");
     if (onQuit) onQuit();
     killTray();
     setTimeout(() => process.exit(0), 500);
@@ -121,11 +121,11 @@ function initWindowsTray(options) {
 
     trayInstance = initWinTray({
       iconPath,
-      tooltip: `9Router - Port ${port}`,
+      tooltip: `Rebana Router - Port ${port}`,
       items,
       onClick: (index) => {
         handleClick(index, options, (newEnabled) => {
-          const newTitle = newEnabled ? "✓ Auto-start Enabled" : "Enable Auto-start";
+          const newTitle = newEnabled ? "âœ“ Auto-start Enabled" : "Enable Auto-start";
           trayInstance.updateItem(MENU_INDEX.AUTOSTART, newTitle, true);
         });
       }
@@ -207,7 +207,7 @@ function initUnixTray(options) {
       // because template mode only uses the alpha channel.
       isTemplateIcon: false,
       title: "",
-      tooltip: `9Router - Port ${port}`,
+      tooltip: `Rebana Router - Port ${port}`,
       items
     };
 
@@ -219,7 +219,7 @@ function initUnixTray(options) {
         trayInstance.sendAction({
           type: "update-item",
           item: {
-            title: newEnabled ? "✓ Auto-start Enabled" : "Enable Auto-start",
+            title: newEnabled ? "âœ“ Auto-start Enabled" : "Enable Auto-start",
             tooltip: "Run on OS startup",
             enabled: true
           },
@@ -233,7 +233,7 @@ function initUnixTray(options) {
       // failures (binary crash, EACCES, etc.) so users can see why the icon
       // didn't appear instead of getting a misleading "running in tray" log.
       trayInstance.ready().catch((err) => {
-        process.stderr.write(`[9router] tray failed to start: ${err && err.message ? err.message : err}\n`);
+        process.stderr.write(`[Rebana Router] tray failed to start: ${err && err.message ? err.message : err}\n`);
       });
     } else {
       trayInstance.onReady(() => {});
@@ -242,7 +242,7 @@ function initUnixTray(options) {
 
     return trayInstance;
   } catch (err) {
-    process.stderr.write(`[9router] tray init error: ${err.message}\n`);
+    process.stderr.write(`[Rebana Router] tray init error: ${err.message}\n`);
     return null;
   }
 }

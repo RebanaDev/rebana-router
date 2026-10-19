@@ -1,17 +1,17 @@
 /**
- * Claude → Kiro Request Translator (DIRECT route, no OpenAI pivot)
+ * Claude â†’ Kiro Request Translator (DIRECT route, no OpenAI pivot)
  *
  * Converts Anthropic Messages API requests straight to Kiro / AWS
  * CodeWhisperer `GenerateAssistantResponse` payloads. This is the function the
  * direct `claude:kiro` route in ../index.js uses; it is NOT reached through the
- * claude→openai→kiro pivot.
+ * claudeâ†’openaiâ†’kiro pivot.
  *
  * After session replay it delegates to the shared Kiro conversation
  * canonicalizer. That layer enforces adjacent one-to-one tool use/results,
  * repairs partial parallel calls, and flattens compacted structured references
  * that can no longer be represented safely.
  *
- * It also handles the 9router-synthetic `-agentic` / `-thinking` suffixes and
+ * It also handles the Rebana Router-synthetic `-agentic` / `-thinking` suffixes and
  * the `<thinking_mode>enabled</thinking_mode>` reasoning trigger, matching
  * buildKiroPayload.
  */
@@ -246,7 +246,7 @@ export function claudeToKiroRequest(model, body, stream, credentials) {
   const { history, currentMessage } = convertClaudeMessagesToKiro(messages, upstreamModel);
 
   // api_key / idc / external_idp must never use the shared default ARN (belongs
-  // to another account → 403 "bearer token invalid"); OAuth/social fall back to it.
+  // to another account â†’ 403 "bearer token invalid"); OAuth/social fall back to it.
   const authMethod = credentials?.providerSpecificData?.authMethod;
   const accountBoundAuth =
     authMethod === "api_key" || authMethod === "idc" || authMethod === "external_idp";
@@ -308,7 +308,7 @@ export function claudeToKiroRequest(model, body, stream, credentials) {
   // (role:N | pair:N | id:N | spec:N | orphan:0 | current) names the offending
   // turn so the shape can be diagnosed from the log alone.
   if (!canonical.valid) {
-    console.error(`[Kiro] refusing invalid conversation (claude → kiro): ${(canonical.errors || []).join(", ") || "unknown"} | turns=${(canonical.history || []).length + 1}`);
+    console.error(`[Kiro] refusing invalid conversation (claude â†’ kiro): ${(canonical.errors || []).join(", ") || "unknown"} | turns=${(canonical.history || []).length + 1}`);
     return null;
   }
   const replayCurrent = canonical.currentMessage.userInputMessage;
@@ -353,7 +353,7 @@ export function claudeToKiroRequest(model, body, stream, credentials) {
     enumerable: false,
   });
 
-  // Kiro tool specs get sanitized names (`mcp__a__b` → `mcp_a_b`); keep the
+  // Kiro tool specs get sanitized names (`mcp__a__b` â†’ `mcp_a_b`); keep the
   // reverse map so tool calls stream back under the client's own names.
   const restoredToolNames = new Map();
   for (const [original, sanitized] of nameMap) {

@@ -1,4 +1,4 @@
-docker stop 9router
-docker rm 9router
-docker build -t 9router .
-docker run -d --name 9router -p 20128:20128 --env-file .env -v 9router-data:/app/data 9router
+docker stop Rebana Router
+docker rm Rebana Router
+docker build -t Rebana Router .
+docker run -d --name Rebana Router -p 91827:91827 --env-file .env -v Rebana Router-data:/app/data Rebana Router

@@ -20,7 +20,7 @@ const CLAUDE_MODEL_TYPES = [
   { id: "haiku",  name: "Haiku",  envKey: "ANTHROPIC_DEFAULT_HAIKU_MODEL",  defaultValue: "cc/claude-haiku-4-5-20251001" },
 ];
 
-// ─── Shared helpers ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Shared helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Get first available API key from server
@@ -32,7 +32,7 @@ async function getFirstApiKey() {
   return keys.length > 0 ? keys[0].key : null;
 }
 
-// ─── Claude Code ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Claude Code â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Build header showing current Claude config status
@@ -48,13 +48,13 @@ async function buildClaudeHeader() {
   const lines = [];
 
   if (currentUrl) {
-    lines.push(`Status:   ${COLORS.green}✓ Configured${COLORS.reset}`);
+    lines.push(`Status:   ${COLORS.green}âœ“ Configured${COLORS.reset}`);
     lines.push(`Endpoint: ${COLORS.cyan}${currentUrl}${COLORS.reset}`);
     if (currentKey) {
       lines.push(`API Key:  ${COLORS.dim}${currentKey.substring(0, 10)}...${COLORS.reset}`);
     }
   } else {
-    lines.push(`Status:   ${COLORS.red}✗ Not configured${COLORS.reset}`);
+    lines.push(`Status:   ${COLORS.red}âœ— Not configured${COLORS.reset}`);
     lines.push(`${COLORS.dim}Run "Quick Setup" to configure${COLORS.reset}`);
   }
 
@@ -72,7 +72,7 @@ async function getClaudeModel(envKey) {
 }
 
 /**
- * Quick setup for Claude Code — sets endpoint, key, and all default models
+ * Quick setup for Claude Code â€” sets endpoint, key, and all default models
  * @param {number} port
  */
 async function claudeQuickSetup(port) {
@@ -116,7 +116,7 @@ async function claudeSelectModel(modelType, port) {
   }
 
   const result = await api.applyCliToolSettings("claude", { env });
-  showStatus(result.success ? `${modelType.name} → ${selected} saved!` : `Failed: ${result.error}`, result.success ? "success" : "error");
+  showStatus(result.success ? `${modelType.name} â†’ ${selected} saved!` : `Failed: ${result.error}`, result.success ? "success" : "error");
   await pause();
 }
 
@@ -136,7 +136,7 @@ async function claudeReset() {
  */
 async function showClaudeCodeMenu(port, breadcrumb = []) {
   await showMenuWithBack({
-    title: "🔧 Claude Code Settings",
+    title: "ðŸ”§ Claude Code Settings",
     breadcrumb,
     headerContent: buildClaudeHeader,
     refresh: async () => ({
@@ -146,19 +146,19 @@ async function showClaudeCodeMenu(port, breadcrumb = []) {
     }),
     items: [
       {
-        label: "⚡ Quick Setup (recommended)",
+        label: "âš¡ Quick Setup (recommended)",
         action: async () => { await claudeQuickSetup(port); return true; }
       },
       {
-        label: (d) => `Sonnet → ${d.sonnet}`,
+        label: (d) => `Sonnet â†’ ${d.sonnet}`,
         action: async () => { await claudeSelectModel(CLAUDE_MODEL_TYPES[0], port); return true; }
       },
       {
-        label: (d) => `Opus → ${d.opus}`,
+        label: (d) => `Opus â†’ ${d.opus}`,
         action: async () => { await claudeSelectModel(CLAUDE_MODEL_TYPES[1], port); return true; }
       },
       {
-        label: (d) => `Haiku → ${d.haiku}`,
+        label: (d) => `Haiku â†’ ${d.haiku}`,
         action: async () => { await claudeSelectModel(CLAUDE_MODEL_TYPES[2], port); return true; }
       },
       {
@@ -169,7 +169,7 @@ async function showClaudeCodeMenu(port, breadcrumb = []) {
   });
 }
 
-// ─── Codex CLI ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Codex CLI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Build header showing current Codex config status
@@ -179,12 +179,12 @@ async function buildCodexHeader() {
   const result = await api.getCliToolSettings("codex");
   if (!result.success) return `  ${COLORS.red}Failed to load settings${COLORS.reset}`;
 
-  const { installed, has9Router, config } = result.data;
-  if (!installed) return `Status:   ${COLORS.red}✗ Codex CLI not installed${COLORS.reset}`;
+  const { installed, hasRebana Router, config } = result.data;
+  if (!installed) return `Status:   ${COLORS.red}âœ— Codex CLI not installed${COLORS.reset}`;
 
-  if (!has9Router) {
+  if (!hasRebana Router) {
     return [
-      `Status:   ${COLORS.red}✗ Not configured${COLORS.reset}`,
+      `Status:   ${COLORS.red}âœ— Not configured${COLORS.reset}`,
       `${COLORS.dim}Run "Quick Setup" to configure${COLORS.reset}`
     ].join("\n");
   }
@@ -195,7 +195,7 @@ async function buildCodexHeader() {
   const baseUrl = baseUrlMatch ? baseUrlMatch[1] : "";
   const model = modelMatch ? modelMatch[1] : "";
 
-  const lines = [`Status:   ${COLORS.green}✓ Configured${COLORS.reset}`];
+  const lines = [`Status:   ${COLORS.green}âœ“ Configured${COLORS.reset}`];
   if (baseUrl) lines.push(`Endpoint: ${COLORS.cyan}${baseUrl}${COLORS.reset}`);
   if (model)   lines.push(`Model:    ${COLORS.dim}${model}${COLORS.reset}`);
   return lines.join("\n");
@@ -240,13 +240,13 @@ async function codexReset() {
  */
 async function showCodexMenu(port, breadcrumb = []) {
   await showMenuWithBack({
-    title: "🤖 Codex CLI Settings",
+    title: "ðŸ¤– Codex CLI Settings",
     breadcrumb,
     headerContent: buildCodexHeader,
     refresh: async () => ({}),
     items: [
       {
-        label: "⚡ Quick Setup",
+        label: "âš¡ Quick Setup",
         action: async () => { await codexQuickSetup(port); return true; }
       },
       {
@@ -257,7 +257,7 @@ async function showCodexMenu(port, breadcrumb = []) {
   });
 }
 
-// ─── Factory Droid ────────────────────────────────────────────────────────────
+// â”€â”€â”€ Factory Droid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Build header showing current Droid config status
@@ -267,19 +267,19 @@ async function buildDroidHeader() {
   const result = await api.getCliToolSettings("droid");
   if (!result.success) return `  ${COLORS.red}Failed to load settings${COLORS.reset}`;
 
-  const { installed, has9Router, settings } = result.data;
-  if (!installed) return `Status:   ${COLORS.red}✗ Factory Droid not installed${COLORS.reset}`;
+  const { installed, hasRebana Router, settings } = result.data;
+  if (!installed) return `Status:   ${COLORS.red}âœ— Factory Droid not installed${COLORS.reset}`;
 
-  if (!has9Router) {
+  if (!hasRebana Router) {
     return [
-      `Status:   ${COLORS.red}✗ Not configured${COLORS.reset}`,
+      `Status:   ${COLORS.red}âœ— Not configured${COLORS.reset}`,
       `${COLORS.dim}Run "Quick Setup" to configure${COLORS.reset}`
     ].join("\n");
   }
 
-  // Extract 9Router custom model config
-  const custom = settings?.customModels?.find(m => m.id === "custom:9Router-0");
-  const lines = [`Status:   ${COLORS.green}✓ Configured${COLORS.reset}`];
+  // Extract Rebana Router custom model config
+  const custom = settings?.customModels?.find(m => m.id === "custom:Rebana Router-0");
+  const lines = [`Status:   ${COLORS.green}âœ“ Configured${COLORS.reset}`];
   if (custom?.baseUrl) lines.push(`Endpoint: ${COLORS.cyan}${custom.baseUrl}${COLORS.reset}`);
   if (custom?.model)   lines.push(`Model:    ${COLORS.dim}${custom.model}${COLORS.reset}`);
   return lines.join("\n");
@@ -323,13 +323,13 @@ async function droidReset() {
  */
 async function showDroidMenu(port, breadcrumb = []) {
   await showMenuWithBack({
-    title: "🤖 Factory Droid Settings",
+    title: "ðŸ¤– Factory Droid Settings",
     breadcrumb,
     headerContent: buildDroidHeader,
     refresh: async () => ({}),
     items: [
       {
-        label: "⚡ Quick Setup",
+        label: "âš¡ Quick Setup",
         action: async () => { await droidQuickSetup(port); return true; }
       },
       {
@@ -340,7 +340,7 @@ async function showDroidMenu(port, breadcrumb = []) {
   });
 }
 
-// ─── Open Claw ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Open Claw â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Build header showing current OpenClaw config status
@@ -350,21 +350,21 @@ async function buildOpenClawHeader() {
   const result = await api.getCliToolSettings("openclaw");
   if (!result.success) return `  ${COLORS.red}Failed to load settings${COLORS.reset}`;
 
-  const { installed, has9Router, settings } = result.data;
-  if (!installed) return `Status:   ${COLORS.red}✗ Open Claw not installed${COLORS.reset}`;
+  const { installed, hasRebana Router, settings } = result.data;
+  if (!installed) return `Status:   ${COLORS.red}âœ— Open Claw not installed${COLORS.reset}`;
 
-  if (!has9Router) {
+  if (!hasRebana Router) {
     return [
-      `Status:   ${COLORS.red}✗ Not configured${COLORS.reset}`,
+      `Status:   ${COLORS.red}âœ— Not configured${COLORS.reset}`,
       `${COLORS.dim}Run "Quick Setup" to configure${COLORS.reset}`
     ].join("\n");
   }
 
-  // Extract 9Router provider config
-  const provider = settings?.models?.providers?.["9router"];
+  // Extract Rebana Router provider config
+  const provider = settings?.models?.providers?.["Rebana Router"];
   const primary = settings?.agents?.defaults?.model?.primary || "";
-  const model = primary.startsWith("9router/") ? primary.replace("9router/", "") : (provider?.models?.[0]?.id || "");
-  const lines = [`Status:   ${COLORS.green}✓ Configured${COLORS.reset}`];
+  const model = primary.startsWith("Rebana Router/") ? primary.replace("Rebana Router/", "") : (provider?.models?.[0]?.id || "");
+  const lines = [`Status:   ${COLORS.green}âœ“ Configured${COLORS.reset}`];
   if (provider?.baseUrl) lines.push(`Endpoint: ${COLORS.cyan}${provider.baseUrl}${COLORS.reset}`);
   if (model)             lines.push(`Model:    ${COLORS.dim}${model}${COLORS.reset}`);
   return lines.join("\n");
@@ -408,13 +408,13 @@ async function openClawReset() {
  */
 async function showOpenClawMenu(port, breadcrumb = []) {
   await showMenuWithBack({
-    title: "🦞 Open Claw Settings",
+    title: "ðŸ¦ž Open Claw Settings",
     breadcrumb,
     headerContent: buildOpenClawHeader,
     refresh: async () => ({}),
     items: [
       {
-        label: "⚡ Quick Setup",
+        label: "âš¡ Quick Setup",
         action: async () => { await openClawQuickSetup(port); return true; }
       },
       {
@@ -425,23 +425,23 @@ async function showOpenClawMenu(port, breadcrumb = []) {
   });
 }
 
-// ─── OpenCode CLI ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ OpenCode CLI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function buildOpenCodeHeader() {
   const result = await api.getCliToolSettings("opencode");
   if (!result.success) return `  ${COLORS.red}Failed to load settings${COLORS.reset}`;
 
-  const { installed, has9Router, opencode } = result.data;
-  if (!installed) return `Status:   ${COLORS.red}✗ OpenCode CLI not installed${COLORS.reset}`;
+  const { installed, hasRebana Router, opencode } = result.data;
+  if (!installed) return `Status:   ${COLORS.red}âœ— OpenCode CLI not installed${COLORS.reset}`;
 
-  if (!has9Router) {
+  if (!hasRebana Router) {
     return [
-      `Status:   ${COLORS.red}✗ Not configured${COLORS.reset}`,
+      `Status:   ${COLORS.red}âœ— Not configured${COLORS.reset}`,
       `${COLORS.dim}Run "Quick Setup" to configure${COLORS.reset}`
     ].join("\n");
   }
 
-  const lines = [`Status:   ${COLORS.green}✓ Configured${COLORS.reset}`];
+  const lines = [`Status:   ${COLORS.green}âœ“ Configured${COLORS.reset}`];
   if (opencode?.baseURL) lines.push(`Endpoint: ${COLORS.cyan}${opencode.baseURL}${COLORS.reset}`);
   if (opencode?.activeModel) lines.push(`Active:   ${COLORS.dim}${opencode.activeModel}${COLORS.reset}`);
   if (Array.isArray(opencode?.models) && opencode.models.length > 0) {
@@ -502,21 +502,21 @@ async function openCodeReset() {
 
 async function showOpenCodeMenu(port, breadcrumb = []) {
   await showMenuWithBack({
-    title: "💻 OpenCode CLI Settings",
+    title: "ðŸ’» OpenCode CLI Settings",
     breadcrumb,
     headerContent: buildOpenCodeHeader,
     refresh: async () => ({}),
     items: [
-      { label: "⚡ Quick Setup", action: async () => { await openCodeQuickSetup(port); return true; } },
+      { label: "âš¡ Quick Setup", action: async () => { await openCodeQuickSetup(port); return true; } },
       { label: "Reset to Default", action: async () => { await openCodeReset(); return true; } }
     ]
   });
 }
 
-// ─── Hermes Agent ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ Hermes Agent â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 // Profile targeted by Quick Setup / Reset. The menu rebuilds through `refresh()` on every
-// loop, so the pick has to live outside the render — module state, like the menu itself.
+// loop, so the pick has to live outside the render â€” module state, like the menu itself.
 let hermesActiveProfile = "default";
 
 async function fetchHermesProfiles() {
@@ -527,13 +527,13 @@ async function fetchHermesProfiles() {
 
 const hermesProfileLine = (p) => {
   const name = p.displayName && !p.isDefault ? `${p.name} (${p.displayName})` : p.name;
-  const state = p.has9Router
-    ? `${COLORS.green}✓ 9router${COLORS.reset}`
+  const state = p.hasRebana Router
+    ? `${COLORS.green}âœ“ Rebana Router${COLORS.reset}`
     : p.baseUrl
       ? `${COLORS.red}other: ${p.baseUrl}${COLORS.reset}`
-      : `${COLORS.red}✗ not configured${COLORS.reset}`;
-  const model = p.model ? ` ${COLORS.dim}· ${p.model}${COLORS.reset}` : "";
-  return `${name} — ${state}${model}`;
+      : `${COLORS.red}âœ— not configured${COLORS.reset}`;
+  const model = p.model ? ` ${COLORS.dim}Â· ${p.model}${COLORS.reset}` : "";
+  return `${name} â€” ${state}${model}`;
 };
 
 async function buildHermesHeader(profiles) {
@@ -541,15 +541,15 @@ async function buildHermesHeader(profiles) {
   const result = await api.getCliToolSettings("hermes", hermesActiveProfile);
   if (!result.success) return `  ${COLORS.red}Failed to load settings${COLORS.reset}`;
 
-  const { installed, has9Router, settings, profile } = result.data;
-  if (!installed) return `Status:   ${COLORS.red}✗ Hermes Agent not installed${COLORS.reset}`;
+  const { installed, hasRebana Router, settings, profile } = result.data;
+  if (!installed) return `Status:   ${COLORS.red}âœ— Hermes Agent not installed${COLORS.reset}`;
 
   const name = profile?.name || hermesActiveProfile;
   const lines = [];
-  if (has9Router) {
-    lines.push(`Status:   ${COLORS.green}✓ Configured${COLORS.reset} (${name})`);
+  if (hasRebana Router) {
+    lines.push(`Status:   ${COLORS.green}âœ“ Configured${COLORS.reset} (${name})`);
   } else {
-    lines.push(`Status:   ${COLORS.red}✗ Not configured${COLORS.reset} (${name})`);
+    lines.push(`Status:   ${COLORS.red}âœ— Not configured${COLORS.reset} (${name})`);
     lines.push(`${COLORS.dim}Run "Quick Setup" to configure${COLORS.reset}`);
   }
 
@@ -559,7 +559,7 @@ async function buildHermesHeader(profiles) {
 
   if (list.length > 1) {
     const summary = list
-      .map((p) => `${p.name}${p.has9Router ? `${COLORS.green}✓` : `${COLORS.red}✗`}`)
+      .map((p) => `${p.name}${p.hasRebana Router ? `${COLORS.green}âœ“` : `${COLORS.red}âœ—`}`)
       .join(`${COLORS.reset} `);
     lines.push(`Profiles:  ${summary}${COLORS.reset}`);
   }
@@ -606,8 +606,8 @@ async function hermesQuickSetup(port) {
   await pause();
 }
 
-// Endpoint + API key across every profile. Each profile keeps its own model — profiles
-// already routed through 9router are refreshed, anything else is reported as skipped.
+// Endpoint + API key across every profile. Each profile keeps its own model â€” profiles
+// already routed through Rebana Router are refreshed, anything else is reported as skipped.
 async function hermesApplyAll(port) {
   const { endpoint } = await getEndpoint(port);
   const apiKey = await getFirstApiKey();
@@ -652,7 +652,7 @@ async function hermesReset() {
 
 async function showHermesMenu(port, breadcrumb = []) {
   await showMenuWithBack({
-    title: "⚡ Hermes Agent Settings",
+    title: "âš¡ Hermes Agent Settings",
     breadcrumb,
     refresh: async () => {
       const profiles = await fetchHermesProfiles();
@@ -664,15 +664,15 @@ async function showHermesMenu(port, breadcrumb = []) {
     },
     headerContent: buildHermesHeader,
     items: [
-      { label: () => `🎯 Profile: ${hermesActiveProfile}`, action: async () => { await selectHermesProfile(); return true; } },
-      { label: "⚡ Quick Setup", action: async () => { await hermesQuickSetup(port); return true; } },
-      { label: "🔁 Apply to All Profiles", action: async () => { await hermesApplyAll(port); return true; } },
-      { label: () => `↺ Reset Profile: ${hermesActiveProfile}`, action: async () => { await hermesReset(); return true; } }
+      { label: () => `ðŸŽ¯ Profile: ${hermesActiveProfile}`, action: async () => { await selectHermesProfile(); return true; } },
+      { label: "âš¡ Quick Setup", action: async () => { await hermesQuickSetup(port); return true; } },
+      { label: "ðŸ” Apply to All Profiles", action: async () => { await hermesApplyAll(port); return true; } },
+      { label: () => `â†º Reset Profile: ${hermesActiveProfile}`, action: async () => { await hermesReset(); return true; } }
     ]
   });
 }
 
-// ─── Main CLI Tools Menu ──────────────────────────────────────────────────────
+// â”€â”€â”€ Main CLI Tools Menu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Main CLI Tools menu
@@ -682,9 +682,9 @@ async function showHermesMenu(port, breadcrumb = []) {
 async function showCliToolsMenu(port, breadcrumb = []) {
   const { endpoint } = await getEndpoint(port);
   await showMenuWithBack({
-    title: "🔧 CLI Tools",
+    title: "ðŸ”§ CLI Tools",
     breadcrumb,
-    headerContent: `Configure CLI tools to use 9Router\nEndpoint: ${endpoint}`,
+    headerContent: `Configure CLI tools to use Rebana Router\nEndpoint: ${endpoint}`,
     items: [
       {
         label: "Claude Code",

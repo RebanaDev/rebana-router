@@ -2,7 +2,7 @@
  * Qoder context-window tiers + routable model listing.
  *
  * The Qoder IDE lets a user pick 200K / 400K / 1M for a model; qodercli-style
- * requests (what 9router sends) only carry the default max_input_tokens. These
+ * requests (what Rebana Router sends) only carry the default max_input_tokens. These
  * tests pin the escalation policy and the payload fields the IDE writes.
  */
 import { describe, it, expect } from "vitest";
@@ -83,7 +83,7 @@ describe("getQoderContextTiers", () => {
 describe("estimateQoderPromptTokens", () => {
   it("counts CJK characters as ~1 token each instead of chars/4", () => {
     const ascii = estimateQoderPromptTokens({ messages: [{ role: "user", content: "a".repeat(4000) }] });
-    const cjk = estimateQoderPromptTokens({ messages: [{ role: "user", content: "中".repeat(4000) }] });
+    const cjk = estimateQoderPromptTokens({ messages: [{ role: "user", content: "ä¸­".repeat(4000) }] });
     expect(ascii).toBeLessThan(1_200);
     expect(cjk).toBeGreaterThan(4_000);
   });
@@ -109,9 +109,9 @@ describe("resolveQoderContextTier (auto)", () => {
   });
 
   it("applies headroom so a prompt just under the limit still escalates", () => {
-    // 170K estimated * 1.15 = 195.5K > 180K current → smallest tier above the current limit (200K)
+    // 170K estimated * 1.15 = 195.5K > 180K current â†’ smallest tier above the current limit (200K)
     expect(resolveQoderContextTier(MODEL_CONFIG, promptOfTokens(170_000))?.tier.name).toBe("200K");
-    // 190K * 1.15 = 218.5K → 200K no longer fits → 400K
+    // 190K * 1.15 = 218.5K â†’ 200K no longer fits â†’ 400K
     expect(resolveQoderContextTier(MODEL_CONFIG, promptOfTokens(190_000))?.tier.name).toBe("400K");
   });
 

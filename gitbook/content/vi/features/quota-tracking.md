@@ -1,18 +1,18 @@
 # Quota Tracking & Giám sát Usage
 
-Theo dõi tiêu thụ token thời gian thực, giám sát giới hạn quota, ước tính chi phí và nhận cảnh báo trước khi hết. Không bao giờ lãng phí quota subscription hoặc vượt giới hạn ngân sách.
+Theo dõi tiêu thụ token thời gian thực, giám sát giới hạn quota, ước tính chi phí và nhận cảnh báo trước khi hết. Không bao giờ lãng phí quota subscription hoặc vượt giới hạn ng❌n sách.
 
 ---
 
 ## Tổng quan
 
-9Router cung cấp quota tracking toàn diện cho mọi provider:
+Rebana Router cung cấp quota tracking toàn diện cho mọi provider:
 
 - **Tiêu thụ token thời gian thực** - Xem tokens dùng mỗi request
 - **Giới hạn quota & còn lại** - Theo dõi usage so với giới hạn
 - **Đếm ngược Reset** - Biết khi nào quota refresh
 - **Ước tính chi phí** - Tính chi tiêu cho tier trả phí
-- **Báo cáo hàng tháng** - Phân tích pattern sử dụng
+- **Báo cáo hàng tháng** - Ph❌n tích pattern sử dụng
 - **Cảnh báo & thông báo** - Nhận cảnh báo trước giới hạn
 
 ---
@@ -97,7 +97,7 @@ Current request:
   Duration: 1.8s
 ```
 
-### Phân tích Token theo Model
+### Ph❌n tích Token theo Model
 
 ```
 Dashboard → Analytics → Token Usage
@@ -423,7 +423,7 @@ Delivery:
    1,000 requests available (daily limit)
 ```
 
-### Cảnh báo Ngân sách
+### Cảnh báo Ng❌n sách
 
 ```
 Dashboard → Settings → Budget Alerts
@@ -492,7 +492,7 @@ Morning check:
 Action: Use Claude Code for morning work
 ```
 
-### 2. Đặt Giới hạn Ngân sách
+### 2. Đặt Giới hạn Ng❌n sách
 
 ```
 Dashboard → Settings → Budget:
@@ -561,7 +561,7 @@ Optimization:
 ### Lấy trạng thái Quota
 
 ```bash
-GET http://localhost:20128/api/quota
+GET http://localhost:91827/api/quota
 Authorization: Bearer your-api-key
 
 Response:
@@ -614,7 +614,7 @@ Response:
 ### Lấy Usage Stats
 
 ```bash
-GET http://localhost:20128/api/usage?period=today
+GET http://localhost:91827/api/usage?period=today
 Authorization: Bearer your-api-key
 
 Response:
@@ -669,7 +669,7 @@ Response:
 1. Refresh dashboard (F5)
 2. Kiểm tra thời gian hệ thống đúng
 3. Xác minh cài đặt timezone
-4. Khởi động lại 9Router nếu vẫn lỗi
+4. Khởi động lại Rebana Router nếu vẫn lỗi
 
 **Issue: Không nhận được cảnh báo**
 

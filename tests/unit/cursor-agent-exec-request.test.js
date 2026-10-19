@@ -11,7 +11,7 @@ function execRequestFrame(execField) {
   return Buffer.from(wrapConnectRPCFrame(encodeField(2, LEN, execServerMessage)));
 }
 
-// agent.v1.AgentServerMessage.interaction_update (field 1) → text delta.
+// agent.v1.AgentServerMessage.interaction_update (field 1) â†’ text delta.
 function textFrame(text) {
   const textPart = Buffer.from(encodeField(1, LEN, text));
   const update = Buffer.from(encodeField(1, LEN, textPart));
@@ -216,15 +216,15 @@ describe("CursorExecutor AgentService exec_request handling", () => {
 });
 
 describe("Cursor long-session empty-turn recovery", () => {
-  // agent.v1.AgentClientMessage.run_request → conversation_action (2) →
-  // user_action (1) → conversation_history (7). Present = full replay frame.
+  // agent.v1.AgentClientMessage.run_request â†’ conversation_action (2) â†’
+  // user_action (1) â†’ conversation_history (7). Present = full replay frame.
   function runFrameHasHistory(frame) {
     const run = decodeMessage(decodeMessage(frame.subarray(5)).get(1)[0].value);
     const userAction = decodeMessage(decodeMessage(run.get(2)[0].value).get(1)[0].value);
     return userAction.has(7);
   }
 
-  // 79 filler turns + the live user turn → threshold met by default (80).
+  // 79 filler turns + the live user turn â†’ threshold met by default (80).
   const longBody = {
     messages: [
       ...Array.from({ length: 79 }, (_, i) => ({ role: "user", content: `m${i}` })),
@@ -294,7 +294,7 @@ describe("Cursor long-session empty-turn recovery", () => {
     expect(payload.choices[0].message.content).toBe("ok");
   });
 
-  it("does not retry a short session — first-message empty stays an error", async () => {
+  it("does not retry a short session â€” first-message empty stays an error", async () => {
     const executor = new CursorExecutor();
     const writtenPerAttempt = stubSequentialAgentSessions(executor, [[]]);
     const result = await executor.executeAgent({
@@ -341,8 +341,8 @@ describe("Cursor long-session empty-turn recovery", () => {
     expect(trimmed[1].content).toContain("94 messages trimmed");
     expect(trimmed[2].content).toBe("final ask");
 
-    // Idempotent: prior [9router] notes are stripped on re-trim.
+    // Idempotent: prior [Rebana Router] notes are stripped on re-trim.
     const again = tailOnlyCursorMessages(trimmed);
-    expect(again.filter((m) => String(m.content).includes("[9router]"))).toHaveLength(1);
+    expect(again.filter((m) => String(m.content).includes("[Rebana Router]"))).toHaveLength(1);
   });
 });

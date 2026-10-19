@@ -12,12 +12,12 @@ import {
 /**
  * AWS credential resolution for Bedrock, in two modes.
  *
- * static  — the connection carries the keys: `apiKey` is the AWS secret access key,
+ * static  â€” the connection carries the keys: `apiKey` is the AWS secret access key,
  *           `providerSpecificData.accessKeyId` the key id, and `providerSpecificData.sessionToken`
  *           is set when they came from STS. Nothing is refreshable; when temporary keys expire the
  *           user must paste new ones.
  *
- * profile — the connection names a local AWS profile and nothing else. Credentials are resolved
+ * profile â€” the connection names a local AWS profile and nothing else. Credentials are resolved
  *           through the AWS SDK, which is what makes `aws sso login --profile X` work: the SDK
  *           reads ~/.aws/config, follows `sso_session`, reads the token from ~/.aws/sso/cache,
  *           calls GetRoleCredentials, and handles source_profile/role chaining. Re-resolving
@@ -27,7 +27,7 @@ import {
  * dependency produces an actionable error instead of breaking module load for every provider.
  */
 
-// profile → { promise } while resolving, then { credentials, expiresAt }.
+// profile â†’ { promise } while resolving, then { credentials, expiresAt }.
 // Only profile mode is cached: static resolution is pure object reads, and caching it meant a
 // rotated secret was served from cache long after the user fixed it.
 const credentialCache = new Map();
@@ -49,7 +49,7 @@ export function detectCredentialMode(credentials) {
 
 /**
  * Region precedence: explicit connection setting, then the usual AWS env vars, then Bedrock's
- * default. Deliberately does not read the profile's own region — the SDK credential providers
+ * default. Deliberately does not read the profile's own region â€” the SDK credential providers
  * do not surface it, and silently sending traffic to a region the user did not choose is worse
  * than making them state it.
  *
@@ -95,11 +95,11 @@ function readStaticCredentials(credentials) {
     );
   }
 
-  // Temporary keys (ASIA…) are useless without their session token; catching it here turns a
+  // Temporary keys (ASIAâ€¦) are useless without their session token; catching it here turns a
   // confusing upstream SignatureDoesNotMatch into a fixable message.
   if (accessKeyId.startsWith("ASIA") && !psd.sessionToken) {
     throw new Error(
-      "This looks like a temporary AWS access key (ASIA…) but no sessionToken was provided. " +
+      "This looks like a temporary AWS access key (ASIAâ€¦) but no sessionToken was provided. " +
         "Add providerSpecificData.sessionToken, or use providerSpecificData.profile so " +
         "credentials are resolved and refreshed automatically.",
     );
@@ -225,7 +225,7 @@ function present(resolved, region, mode, expiresAt) {
 /**
  * Resolve usable AWS credentials plus the region to sign for.
  *
- * @param {object} credentials - 9router connection credentials.
+ * @param {object} credentials - Rebana Router connection credentials.
  * @param {object} [opts]
  * @param {object} [opts.log]
  * @param {function} [opts.loadCredentialProviders] - Test seam for the lazy SDK import.

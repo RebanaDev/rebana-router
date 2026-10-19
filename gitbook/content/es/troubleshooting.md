@@ -1,6 +1,6 @@
 # Solución de problemas
 
-Problemas comunes y soluciones al usar 9Router.
+Problemas comunes y soluciones al usar Rebana Router.
 
 ---
 
@@ -78,7 +78,7 @@ Problemas comunes y soluciones al usar 9Router.
 **Soluciones:**
 
 1. **Refresh automático (por defecto):**
-   9Router refresca automáticamente los tokens. Espera 30 segundos y reintenta.
+   Rebana Router refresca automáticamente los tokens. Espera 30 segundos y reintenta.
 
 2. **Reconexión manual:**
    ```
@@ -132,39 +132,39 @@ Problemas comunes y soluciones al usar 9Router.
 
 ## Connection Refused
 
-**Problema:** "ECONNREFUSED" o "Cannot connect to localhost:20128".
+**Problema:** "ECONNREFUSED" o "Cannot connect to localhost:91827".
 
 **Causas:**
-- 9Router no está ejecutándose
-- Puerto 20128 bloqueado
+- Rebana Router no está ejecutándose
+- Puerto 91827 bloqueado
 - Firewall bloqueando la conexión
 
 **Soluciones:**
 
-1. **Inicia 9Router:**
+1. **Inicia Rebana Router:**
    ```bash
-   9router
+   Rebana Router
    ```
    El dashboard debe abrir en http://localhost:3000
 
-2. **Verifica el puerto 20128:**
+2. **Verifica el puerto 91827:**
    ```bash
    # Verifica si el puerto está escuchando
-   lsof -i :20128
+   lsof -i :91827
    
    # O en Windows
-   netstat -ano | findstr :20128
+   netstat -ano | findstr :91827
    ```
 
 3. **Revisa el firewall:**
    - macOS: System Settings → Network → Firewall
    - Windows: Windows Defender Firewall → Allow app
-   - Linux: `sudo ufw allow 20128`
+   - Linux: `sudo ufw allow 91827`
 
 4. **Usa el endpoint en la nube:**
    Si localhost no funciona (ej. Cursor IDE):
    ```
-   Endpoint: https://9router.com/v1
+   Endpoint: https://Rebana Router.com/v1
    ```
 
 ---
@@ -175,15 +175,15 @@ Problemas comunes y soluciones al usar 9Router.
 
 **Causas:**
 - Puerto 3000 ya en uso
-- 9Router crasheó
+- Rebana Router crasheó
 - Problemas de caché del navegador
 
 **Soluciones:**
 
-1. **Verifica si 9Router está ejecutándose:**
+1. **Verifica si Rebana Router está ejecutándose:**
    ```bash
    # Verifica el proceso
-   ps aux | grep 9router
+   ps aux | grep Rebana Router
    
    # Verifica el puerto 3000
    lsof -i :3000
@@ -199,13 +199,13 @@ Problemas comunes y soluciones al usar 9Router.
    taskkill /PID <PID> /F
    ```
 
-3. **Reinicia 9Router:**
+3. **Reinicia Rebana Router:**
    ```bash
    # Detener
-   pkill -f 9router
+   pkill -f Rebana Router
    
    # Iniciar
-   9router
+   Rebana Router
    ```
 
 4. **Limpia la caché del navegador:**
@@ -243,7 +243,7 @@ Problemas comunes y soluciones al usar 9Router.
 
 3. **Lista los modelos disponibles:**
    ```bash
-   curl http://localhost:20128/v1/models \
+   curl http://localhost:91827/v1/models \
      -H "Authorization: Bearer your-api-key"
    ```
 
@@ -338,7 +338,7 @@ Problemas comunes y soluciones al usar 9Router.
 
 4. **Prueba la API key:**
    ```bash
-   curl http://localhost:20128/v1/models \
+   curl http://localhost:91827/v1/models \
      -H "Authorization: Bearer 9r_your_key"
    ```
 
@@ -346,6 +346,6 @@ Problemas comunes y soluciones al usar 9Router.
 
 ## ¿Necesitas más ayuda?
 
-- **GitHub Issues:** [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
-- **Documentación:** [9router.com/docs](https://9router.com/docs)
+- **GitHub Issues:** [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
+- **Documentación:** [Rebana Router.com/docs](https://Rebana Router.com/docs)
 - **FAQ:** [faq.md](faq.md)

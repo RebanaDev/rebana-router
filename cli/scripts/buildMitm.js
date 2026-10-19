@@ -2,21 +2,21 @@ const esbuild = require("esbuild");
 const fs = require("fs");
 const path = require("path");
 
-// ── Build config ─────────────────────────────────────────
+// â”€â”€ Build config â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const BUILD_CONFIG = {
   bundle: true,
   minify: true,
   cleanPlainFiles: true,
 };
-// ─────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const cliDir = path.resolve(__dirname, "..");
 const appDir = path.resolve(cliDir, "..");
 const cliAppDir = process.env.NINEROUTER_CLI_APP_DIR || path.join(cliDir, "app");
 const cliMitmDir = path.join(cliAppDir, "src", "mitm");
-// Bundle everything — no externals. This keeps MITM runtime self-contained so
+// Bundle everything â€” no externals. This keeps MITM runtime self-contained so
 // it can be copied to DATA_DIR/runtime/ and spawned from there (escapes
-// node_modules file locks that block `npm i -g 9router@latest` on Windows).
+// node_modules file locks that block `npm i -g Rebana Router@latest` on Windows).
 const EXTERNALS = [];
 const ENTRIES = ["server.js"];
 
@@ -50,12 +50,12 @@ async function buildEntry(entry) {
     if (BUILD_CONFIG.minify) steps.push("minified");
   }
 
-  console.log(`✅ ${steps.join(" + ")} → ${output}`);
+  console.log(`âœ… ${steps.join(" + ")} â†’ ${output}`);
 }
 
 async function run() {
   const flags = Object.entries(BUILD_CONFIG).filter(([, v]) => v).map(([k]) => k).join(", ");
-  console.log(`⚙️  Config: ${flags}`);
+  console.log(`âš™ï¸  Config: ${flags}`);
 
   for (const entry of ENTRIES) await buildEntry(entry);
 
@@ -64,7 +64,7 @@ async function run() {
     for (const name of fs.readdirSync(cliMitmDir)) {
       if (!keep.has(name)) fs.rmSync(path.join(cliMitmDir, name), { recursive: true, force: true });
     }
-    console.log("✅ Removed plain MITM files from CLI bundle");
+    console.log("âœ… Removed plain MITM files from CLI bundle");
   }
 }
 

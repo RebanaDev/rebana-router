@@ -9,11 +9,11 @@
 //   delegation: { ... }         # top-level, subagent model
 //   auxiliary: { <task>: { provider, model, base_url, api_key } }
 
-// Top-level "model:" mapping block — key on its own line, indented children.
+// Top-level "model:" mapping block â€” key on its own line, indented children.
 // NOTE: does NOT match the scalar sentinel `model: ""` (no newline right after `model:`).
 export const MODEL_BLOCK_RE = /^model:[ \t]*\r?\n((?:[ \t]+.*\r?\n?|[ \t]*\r?\n)*)/m;
 // Single-line form: `model: ""`, `model: ''`, `model:` at EOF. Anchored without indent so
-// only the top-level key matches (`model_aliases:` never does — `:` must follow "model").
+// only the top-level key matches (`model_aliases:` never does â€” `:` must follow "model").
 export const MODEL_SCALAR_RE = /^model:[ \t]*[^\r\n]*\r?\n?/m;
 // Match top-level "delegation:" block (until next non-indented, non-empty line)
 export const DELEGATION_BLOCK_RE = /^delegation:[ \t]*\r?\n((?:[ \t]+.*\r?\n?|[ \t]*\r?\n)*)/m;
@@ -39,7 +39,7 @@ const parseKeyValues = (body) => {
 };
 
 // Parse current model block back to fields (best-effort, simple key:value).
-// Returns null when there is no mapping block — i.e. unset or the `model: ""` sentinel.
+// Returns null when there is no mapping block â€” i.e. unset or the `model: ""` sentinel.
 export const parseModelBlock = (yaml) => {
   const match = yaml.match(MODEL_BLOCK_RE);
   if (!match) return null;
@@ -55,7 +55,7 @@ export const parseModelBlock = (yaml) => {
 export const upsertModelBlock = (yaml, newBlock) => {
   if (MODEL_BLOCK_RE.test(yaml)) return yaml.replace(MODEL_BLOCK_RE, newBlock);
   // Scalar sentinel would otherwise survive the upsert and produce a duplicate `model:` key
-  // (last-wins in most YAML loaders → the 9router block is silently ignored).
+  // (last-wins in most YAML loaders â†’ the Rebana Router block is silently ignored).
   if (MODEL_SCALAR_RE.test(yaml)) return yaml.replace(MODEL_SCALAR_RE, newBlock);
   return yaml.length > 0 ? `${newBlock}\n${yaml}` : newBlock;
 };
@@ -113,7 +113,7 @@ export const removeModelBlock = (yaml) => {
   return yaml;
 };
 
-// .env helpers — upsert/remove single KEY=VALUE line
+// .env helpers â€” upsert/remove single KEY=VALUE line
 export const upsertEnvVar = (envText, key, value) => {
   const re = new RegExp(`^${key}=.*$`, "m");
   const line = `${key}=${value}`;
@@ -126,32 +126,32 @@ export const removeEnvVar = (envText, key) => {
   return envText.replace(re, "");
 };
 
-// Detect 9router by base_url containing localhost/127.0.0.1 or matching tunnel URL
-export const has9RouterConfig = (modelCfg) => {
+// Detect Rebana Router by base_url containing localhost/127.0.0.1 or matching tunnel URL
+export const hasRebana RouterConfig = (modelCfg) => {
   if (!modelCfg?.base_url) return false;
   return modelCfg.provider === "custom" && /localhost|127\.0\.0\.1|0\.0\.0\.0/.test(modelCfg.base_url);
 };
 
-// A block 9router wrote (provider "custom") regardless of endpoint — covers tunnel URLs,
+// A block Rebana Router wrote (provider "custom") regardless of endpoint â€” covers tunnel URLs,
 // so reset/bulk logic can find them even when base_url is not localhost.
 export const isCustomBlock = (cfg) => cfg?.provider === "custom";
 
-// ── stt: audio transcription via 9router ─────────────────────────────────────────────
+// â”€â”€ stt: audio transcription via Rebana Router â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Hermes runs voice messages / audio attachments through `stt.provider`; the "openai"
 // backend is OpenAI-SDK-shaped and honours stt.openai.base_url + stt.openai.api_key as
 // endpoint overrides (tools/transcription_cloud.py `_direct_openai_credentials`), and
 // load_config() expands the ${OPENAI_API_KEY} reference from the profile's .env. Pointing
-// it at 9router's /v1/audio/transcriptions routes every transcription through the proxy:
+// it at Rebana Router's /v1/audio/transcriptions routes every transcription through the proxy:
 //
 //   stt:
 //     enabled: true
 //     provider: "openai"
 //     openai:
-//       model: "groq/whisper-large-v3"   # provider-qualified — 9router routes on it
-//       base_url: "http://127.0.0.1:20128/v1"
+//       model: "groq/whisper-large-v3"   # provider-qualified â€” Rebana Router routes on it
+//       base_url: "http://127.0.0.1:91827/v1"
 //       api_key: ${OPENAI_API_KEY}
 
-// Top-level "stt:" block — same capture shape as delegation. Children are 2-space
+// Top-level "stt:" block â€” same capture shape as delegation. Children are 2-space
 // indented; the "openai" sub-block carries 4-space fields.
 export const STT_BLOCK_RE = /^stt:[ \t]*\r?\n((?:[ \t]+.*\r?\n?|[ \t]*\r?\n)*)/m;
 const sttSubRe = (name) =>
@@ -161,7 +161,7 @@ const stripYamlQuotes = (value) => value.replace(/^[ \t]*["']|["'][ \t]*$/g, "")
 
 // Current stt wiring back to fields (best-effort, simple key:value). Returns null when
 // there is no top-level stt block. `model`/`base_url`/`api_key` read the "openai" sub-block
-// — the backend our override targets; sibling settings (language, local, ...) are ignored.
+// â€” the backend our override targets; sibling settings (language, local, ...) are ignored.
 export const parseSttBlock = (yaml) => {
   const match = yaml.match(STT_BLOCK_RE);
   if (!match) return null;
@@ -190,10 +190,10 @@ export const parseSttBlock = (yaml) => {
 };
 
 // The stt wiring this card wrote: openai backend + the profile key reference. The api_key
-// reference is the fingerprint — a user's own OpenAI audio setup keeps their own key (or
+// reference is the fingerprint â€” a user's own OpenAI audio setup keeps their own key (or
 // none), while ours always points at the OPENAI_API_KEY line we upsert in .env. base_url
 // may be a tunnel URL, so no localhost test here (same reasoning as isCustomBlock).
-export const is9RouterStt = (cfg) =>
+export const isRebana RouterStt = (cfg) =>
   cfg?.provider === "openai" && !!cfg?.base_url && cfg?.api_key === STT_API_KEY_REF;
 
 export const buildSttBlock = (model, baseUrl) =>
@@ -225,9 +225,9 @@ const upsertSttOpenai = (body, key, value) => {
   return body.replace(sttSubRe("openai"), `  openai:\n${subBody}`);
 };
 
-// Write the 9router STT wiring, preserving every sibling setting the user already has
+// Write the Rebana Router STT wiring, preserving every sibling setting the user already has
 // (language, local model, echo_transcripts, ...). Upserts the openai backend keys only.
-export const upsertStt9Router = (yaml, model, baseUrl) => {
+export const upsertSttRebana Router = (yaml, model, baseUrl) => {
   let body = yaml.match(STT_BLOCK_RE)?.[1] ?? null;
   if (body === null) {
     const prefix = yaml.length === 0 ? "" : yaml.endsWith("\n") ? yaml : `${yaml}\n`;
@@ -241,12 +241,12 @@ export const upsertStt9Router = (yaml, model, baseUrl) => {
   return yaml.replace(STT_BLOCK_RE, `stt:\n${body}`);
 };
 
-// Drop only the keys the wiring above writes — enabled (only when true, the default),
+// Drop only the keys the wiring above writes â€” enabled (only when true, the default),
 // provider (only when "openai") and the openai model/base_url/api_key trio. Anything the
 // user owns (language, local, an explicit provider choice) survives. Returns to Hermes'
 // STT autodetect ladder rather than remembering a pre-existing provider: the original
 // api_key line was already replaced by the upsert, so there is nothing to restore.
-export const removeStt9Router = (yaml) => {
+export const removeSttRebana Router = (yaml) => {
   const match = yaml.match(STT_BLOCK_RE);
   if (!match) return yaml;
   let body = match[1] || "";

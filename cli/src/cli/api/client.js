@@ -9,13 +9,13 @@ const { machineIdSync } = require("node-machine-id");
 // Default configuration
 const DEFAULT_CONFIG = {
   host: "localhost",
-  port: 20128,
+  port: 91827,
   protocol: "http:",
 };
 
 const CLI_TOKEN_HEADER = "x-9r-cli-token";
 const CLI_TOKEN_SALT = "9r-cli-auth";
-const APP_NAME = "9router";
+const APP_NAME = "Rebana Router";
 
 function getDataDir() {
   if (process.env.DATA_DIR) return process.env.DATA_DIR;
@@ -33,7 +33,7 @@ let config = { ...DEFAULT_CONFIG };
 let cachedCliToken = null;
 let cachedCliSecret = null;
 
-// Read raw machineId from shared file (written by server) → guarantees token match
+// Read raw machineId from shared file (written by server) â†’ guarantees token match
 function loadRawMachineId() {
   try {
     const raw = fs.readFileSync(MACHINE_ID_FILE, "utf8").trim();
@@ -42,7 +42,7 @@ function loadRawMachineId() {
   try { return machineIdSync(); } catch { return ""; }
 }
 
-// Random secret shared with server via file → token unpredictable from machineId alone.
+// Random secret shared with server via file â†’ token unpredictable from machineId alone.
 function loadCliSecret() {
   if (cachedCliSecret) return cachedCliSecret;
   try {
@@ -226,7 +226,7 @@ async function getOAuthAuthUrl(provider) {
   // Codex requires fixed port 1455 and path /auth/callback
   const redirectUri = provider === "codex" 
     ? "http://localhost:1455/auth/callback"
-    : "http://localhost:20128/callback";
+    : "http://localhost:91827/callback";
   return makeRequest("GET", `/api/oauth/${provider}/authorize?redirect_uri=${encodeURIComponent(redirectUri)}`);
 }
 
@@ -365,7 +365,7 @@ async function deleteCombo(id) {
  * Get CLI tool settings
  * @param {string} tool - Tool name: claude | codex | droid | openclaw
  * @param {string} [profile] - Hermes profile name (defaults to the default profile)
- * @returns {Promise<Object>} { success, data: { installed, has9Router, ... } }
+ * @returns {Promise<Object>} { success, data: { installed, hasRebana Router, ... } }
  */
 async function getCliToolSettings(tool, profile) {
   const qs = profile ? `?profile=${encodeURIComponent(profile)}` : "";

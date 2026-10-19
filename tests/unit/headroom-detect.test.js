@@ -74,7 +74,7 @@ describe("headroom detect", () => {
       throw new Error(`unexpected execFileSync: ${py} ${args.join(" ")}`);
     });
 
-    const status = await getHeadroomStatus("http://localhost:8787");
+    const status = await getHeadroomStatus("http://localhost:91828");
 
     expect(status.installed).toBe(true);
     expect(status.version).toBe("0.26.0");
@@ -89,19 +89,19 @@ describe("headroom detect", () => {
     });
     mocks.execFileSync.mockImplementation(() => { throw new Error("pip unavailable"); });
 
-    const status = await getHeadroomStatus("http://headroom:8787");
+    const status = await getHeadroomStatus("http://headroom:91828");
 
     expect(status.installed).toBe(false);
     expect(status.running).toBe(true);
     expect(status.localUrl).toBe(false);
     expect(status.canStart).toBe(false);
-    expect(global.fetch).toHaveBeenCalledWith("http://headroom:8787/health", expect.any(Object));
+    expect(global.fetch).toHaveBeenCalledWith("http://headroom:91828/health", expect.any(Object));
   });
 
   it("recognizes loopback URLs for managed local mode", () => {
-    expect(isLoopbackHeadroomUrl("http://localhost:8787")).toBe(true);
-    expect(isLoopbackHeadroomUrl("http://127.0.0.1:8787")).toBe(true);
-    expect(isLoopbackHeadroomUrl("http://headroom:8787")).toBe(false);
+    expect(isLoopbackHeadroomUrl("http://localhost:91828")).toBe(true);
+    expect(isLoopbackHeadroomUrl("http://127.0.0.1:91828")).toBe(true);
+    expect(isLoopbackHeadroomUrl("http://headroom:91828")).toBe(false);
     expect(isLoopbackHeadroomUrl("not-a-url")).toBe(false);
   });
 });

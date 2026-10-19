@@ -1,9 +1,9 @@
 /**
- * Per-tool config writers for `9router connect`. File layout and keys mirror
+ * Per-tool config writers for `Rebana Router connect`. File layout and keys mirror
  * the dashboard routes in src/app/api/cli-tools/<tool>-settings/route.js so a
  * tool configured here looks identical to one applied from the dashboard.
  *
- * Each tool: { id, name, paths(), apply(ctx) → string[] written, reset() → string[] touched }
+ * Each tool: { id, name, paths(), apply(ctx) â†’ string[] written, reset() â†’ string[] touched }
  * Optional: route + serverModel(data) to inherit the server's model; needsModel: false
  * for tools that discover models themselves (omp).
  * ctx: { baseUrl (origin, no /v1), apiKey, model, claudeModels: { envKey: model } }
@@ -31,7 +31,7 @@ function readJson(file) {
   }
 }
 
-// Files hold the API key → owner-only (0600) on POSIX; no-op on Windows.
+// Files hold the API key â†’ owner-only (0600) on POSIX; no-op on Windows.
 const SECRET_MODE = 0o600;
 
 // Rewrite an existing file on reset (no backup, existing mode kept).
@@ -39,10 +39,10 @@ function rewriteFile(file, content) {
   fs.writeFileSync(file, content, { mode: SECRET_MODE });
 }
 
-// One-time backup of the user's pre-9router file, then write.
+// One-time backup of the user's pre-Rebana Router file, then write.
 function writeFile(file, content) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  const backup = `${file}.bak-9router`;
+  const backup = `${file}.bak-Rebana Router`;
   if (fs.existsSync(file) && !fs.existsSync(backup)) {
     fs.copyFileSync(file, backup);
     fs.chmodSync(backup, SECRET_MODE);
@@ -58,7 +58,7 @@ async function toml() {
   return import("confbox");
 }
 
-// ── Claude Code ─────────────────────────────────────────────────────────────
+// â”€â”€ Claude Code â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const CLAUDE_MODELS = [
   { flag: "fable", envKey: "ANTHROPIC_DEFAULT_FABLE_MODEL" },
   { flag: "opus", envKey: "ANTHROPIC_DEFAULT_OPUS_MODEL" },
@@ -106,7 +106,7 @@ const claude = {
   },
 };
 
-// ── OpenAI Codex CLI ────────────────────────────────────────────────────────
+// â”€â”€ OpenAI Codex CLI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const codexPath = () => path.join(home(), ".codex", "config.toml");
 
 const codex = {
@@ -114,12 +114,12 @@ const codex = {
   name: "OpenAI Codex CLI",
   paths: () => [codexPath()],
   route: "codex-settings",
-  // GET returns raw TOML text; only trust `model` when the provider is 9router.
+  // GET returns raw TOML text; only trust `model` when the provider is Rebana Router.
   async serverModel(data) {
     if (!isStr(data?.config)) return null;
     const { parseTOML } = await toml();
     const cfg = parseTOML(data.config) || {};
-    return cfg.model_provider === "9router" && isStr(cfg.model) ? cfg.model : null;
+    return cfg.model_provider === "Rebana Router" && isStr(cfg.model) ? cfg.model : null;
   },
   async apply({ baseUrl, apiKey, model }) {
     const { parseTOML, stringifyTOML } = await toml();
@@ -127,11 +127,11 @@ const codex = {
     let cfg = {};
     try { cfg = parseTOML(fs.readFileSync(file, "utf8")) || {}; } catch (err) { if (err.code !== "ENOENT") throw err; }
     cfg.model = model;
-    cfg.model_provider = "9router";
+    cfg.model_provider = "Rebana Router";
     cfg.model_providers = cfg.model_providers || {};
-    // Custom providers ignore auth.json — key must travel as a static header.
-    cfg.model_providers["9router"] = {
-      name: "9Router",
+    // Custom providers ignore auth.json â€” key must travel as a static header.
+    cfg.model_providers["Rebana Router"] = {
+      name: "Rebana Router",
       base_url: v1(baseUrl),
       wire_api: "responses",
       http_headers: { Authorization: `Bearer ${apiKey}` },
@@ -151,7 +151,7 @@ const codex = {
       if (err.code === "ENOENT") return {};
       throw new Error(`Cannot parse ${codexPath()}: ${err.message}`);
     }
-    const p = cfg.model_providers?.["9router"];
+    const p = cfg.model_providers?.["Rebana Router"];
     const auth = p?.http_headers?.Authorization;
     return {
       baseUrl: p?.base_url,
@@ -160,8 +160,8 @@ const codex = {
         ...(isStr(cfg.model) ? { main: cfg.model } : {}),
         ...(isStr(cfg.agents?.default_subagent_model) ? { subagent: cfg.agents.default_subagent_model } : {}),
       },
-      // Codex only routes through 9router when this provider is the active one.
-      active: cfg.model_provider === "9router",
+      // Codex only routes through Rebana Router when this provider is the active one.
+      active: cfg.model_provider === "Rebana Router",
     };
   },
   async reset() {
@@ -169,8 +169,8 @@ const codex = {
     const file = codexPath();
     let cfg;
     try { cfg = parseTOML(fs.readFileSync(file, "utf8")) || {}; } catch (err) { if (err.code === "ENOENT") return []; throw err; }
-    if (cfg.model_provider === "9router") { delete cfg.model; delete cfg.model_provider; }
-    if (cfg.model_providers) delete cfg.model_providers["9router"];
+    if (cfg.model_provider === "Rebana Router") { delete cfg.model; delete cfg.model_provider; }
+    if (cfg.model_providers) delete cfg.model_providers["Rebana Router"];
     if (cfg.agents) { delete cfg.agents.default_subagent_model; delete cfg.agents.subagent; }
     for (const k of ["model_providers", "agents"]) {
       if (cfg[k] && Object.keys(cfg[k]).length === 0) delete cfg[k];
@@ -180,7 +180,7 @@ const codex = {
   },
 };
 
-// ── OpenCode ────────────────────────────────────────────────────────────────
+// â”€â”€ OpenCode â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const opencodePath = () => path.join(home(), ".config", "opencode", "opencode.json");
 
 const opencode = {
@@ -190,44 +190,44 @@ const opencode = {
   route: "opencode-settings",
   serverModel(data) {
     const m = data?.config?.model;
-    return isStr(m) && m.startsWith("9router/") ? m.slice("9router/".length) : null;
+    return isStr(m) && m.startsWith("Rebana Router/") ? m.slice("Rebana Router/".length) : null;
   },
   async apply({ baseUrl, apiKey, model }) {
     const file = opencodePath();
     const cfg = readJson(file) || {};
     cfg.provider = cfg.provider || {};
-    const p = cfg.provider["9router"] || { npm: "@ai-sdk/openai-compatible", options: {}, models: {} };
+    const p = cfg.provider["Rebana Router"] || { npm: "@ai-sdk/openai-compatible", options: {}, models: {} };
     p.options = { ...p.options, baseURL: v1(baseUrl), apiKey };
     p.models = p.models || {};
     p.models[model] = { name: model, modalities: { input: ["text", "image"], output: ["text"] } };
-    cfg.provider["9router"] = p;
-    cfg.model = `9router/${model}`;
+    cfg.provider["Rebana Router"] = p;
+    cfg.model = `Rebana Router/${model}`;
     cfg.agent = cfg.agent || {};
     cfg.agent.explorer = {
       description: "Fast explorer subagent for codebase exploration",
       mode: "subagent",
-      model: `9router/${model}`,
+      model: `Rebana Router/${model}`,
     };
     writeJson(file, cfg);
     return [file];
   },
   async show() {
     const cfg = readJson(opencodePath()) || {};
-    const p = cfg.provider?.["9router"];
+    const p = cfg.provider?.["Rebana Router"];
     const models = {};
     if (isStr(cfg.model)) models.main = cfg.model;
     if (isStr(cfg.agent?.explorer?.model)) models.explorer = cfg.agent.explorer.model;
     const listed = Object.keys(p?.models || {});
     if (listed.length) models.available = listed.join(", ");
-    return { baseUrl: p?.options?.baseURL, apiKey: p?.options?.apiKey, models, active: !!cfg.model?.startsWith("9router/") };
+    return { baseUrl: p?.options?.baseURL, apiKey: p?.options?.apiKey, models, active: !!cfg.model?.startsWith("Rebana Router/") };
   },
   async reset() {
     const file = opencodePath();
     const cfg = readJson(file);
     if (!cfg) return [];
-    if (cfg.provider) delete cfg.provider["9router"];
-    if (cfg.model?.startsWith("9router/")) delete cfg.model;
-    if (cfg.agent?.explorer?.model?.startsWith("9router/")) {
+    if (cfg.provider) delete cfg.provider["Rebana Router"];
+    if (cfg.model?.startsWith("Rebana Router/")) delete cfg.model;
+    if (cfg.agent?.explorer?.model?.startsWith("Rebana Router/")) {
       delete cfg.agent.explorer;
       if (Object.keys(cfg.agent).length === 0) delete cfg.agent;
     }
@@ -236,9 +236,9 @@ const opencode = {
   },
 };
 
-// ── Factory Droid ───────────────────────────────────────────────────────────
+// â”€â”€ Factory Droid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const droidPath = () => path.join(home(), ".factory", "settings.json");
-const isDroid9r = (m) => m.id?.startsWith("custom:9Router");
+const isDroid9r = (m) => m.id?.startsWith("custom:Rebana Router");
 
 const droid = {
   id: "droid",
@@ -256,7 +256,7 @@ const droid = {
     cfg.customModels = [
       {
         model,
-        id: "custom:9Router-0",
+        id: "custom:Rebana Router-0",
         index: 0,
         baseUrl: v1(baseUrl),
         apiKey,
@@ -292,7 +292,7 @@ const droid = {
   },
 };
 
-// ── Crush ───────────────────────────────────────────────────────────────────
+// â”€â”€ Crush â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const crushPath = () => path.join(process.env.XDG_CONFIG_HOME || path.join(home(), ".config"), "crush", "crush.json");
 
 const crush = {
@@ -301,14 +301,14 @@ const crush = {
   paths: () => [crushPath()],
   route: "crush-settings",
   serverModel(data) {
-    const m = data?.config?.providers?.["9router"]?.models?.[0]?.id;
+    const m = data?.config?.providers?.["Rebana Router"]?.models?.[0]?.id;
     return isStr(m) ? m : null;
   },
   async apply({ baseUrl, apiKey, model }) {
     const file = crushPath();
     const cfg = readJson(file) || {};
     cfg.providers = cfg.providers || {};
-    cfg.providers["9router"] = {
+    cfg.providers["Rebana Router"] = {
       type: "openai-compat",
       base_url: v1(baseUrl),
       api_key: apiKey,
@@ -318,22 +318,22 @@ const crush = {
     return [file];
   },
   async show() {
-    const p = readJson(crushPath())?.providers?.["9router"];
+    const p = readJson(crushPath())?.providers?.["Rebana Router"];
     const ids = (p?.models || []).map((m) => m.id).filter(isStr);
     return { baseUrl: p?.base_url, apiKey: p?.api_key, models: ids.length ? { main: ids[0] } : {} };
   },
   async reset() {
     const file = crushPath();
     const cfg = readJson(file);
-    if (!cfg?.providers?.["9router"]) return [];
-    delete cfg.providers["9router"];
+    if (!cfg?.providers?.["Rebana Router"]) return [];
+    delete cfg.providers["Rebana Router"];
     if (Object.keys(cfg.providers).length === 0) delete cfg.providers;
     rewriteFile(file, JSON.stringify(cfg, null, 2));
     return [file];
   },
 };
 
-// ── Kilo Code (CLI auth only; VS Code settings left to the dashboard) ───────
+// â”€â”€ Kilo Code (CLI auth only; VS Code settings left to the dashboard) â”€â”€â”€â”€â”€â”€â”€
 const kiloPath = () => path.join(home(), ".local", "share", "kilo", "auth.json");
 
 const kilo = {
@@ -358,13 +358,13 @@ const kilo = {
     const auth = readJson(file);
     if (!auth) return [];
     delete auth["openai-compatible"];
-    delete auth["9router"];
+    delete auth["Rebana Router"];
     rewriteFile(file, JSON.stringify(auth, null, 2));
     return [file];
   },
 };
 
-// ── Cline CLI ───────────────────────────────────────────────────────────────
+// â”€â”€ Cline CLI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const clineDir = () => path.join(home(), ".cline", "data");
 const clineState = () => path.join(clineDir(), "globalState.json");
 const clineSecrets = () => path.join(clineDir(), "secrets.json");
@@ -425,7 +425,7 @@ const cline = {
   },
 };
 
-// ── Pi (pi-coding-agent) ────────────────────────────────────────────────────
+// â”€â”€ Pi (pi-coding-agent) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Prefers ~/.pi/agent/models.json; an existing legacy ~/.pi/models.json is used instead.
 const piPath = () => {
   const agent = path.join(home(), ".pi", "agent", "models.json");
@@ -439,7 +439,7 @@ const pi = {
   paths: () => [piPath()],
   route: "pi-settings",
   serverModel(data) {
-    const m = data?.config?.providers?.["9router"]?.models?.[0];
+    const m = data?.config?.providers?.["Rebana Router"]?.models?.[0];
     const id = typeof m === "string" ? m : m?.id;
     return isStr(id) ? id : null;
   },
@@ -447,8 +447,8 @@ const pi = {
     const file = piPath();
     const cfg = readJson(file) || {};
     cfg.providers = cfg.providers || {};
-    cfg.providers["9router"] = {
-      ...(cfg.providers["9router"] || {}),
+    cfg.providers["Rebana Router"] = {
+      ...(cfg.providers["Rebana Router"] || {}),
       baseUrl: v1(baseUrl),
       apiKey,
       api: "openai-completions",
@@ -458,7 +458,7 @@ const pi = {
     return [file];
   },
   async show() {
-    const p = readJson(piPath())?.providers?.["9router"];
+    const p = readJson(piPath())?.providers?.["Rebana Router"];
     const ids = (p?.models || []).map((m) => (typeof m === "string" ? m : m?.id)).filter(isStr);
     return {
       baseUrl: p?.baseUrl,
@@ -469,15 +469,15 @@ const pi = {
   async reset() {
     const file = piPath();
     const cfg = readJson(file);
-    if (!cfg?.providers?.["9router"]) return [];
-    delete cfg.providers["9router"];
+    if (!cfg?.providers?.["Rebana Router"]) return [];
+    delete cfg.providers["Rebana Router"];
     if (Object.keys(cfg.providers).length === 0) delete cfg.providers;
     rewriteFile(file, JSON.stringify(cfg, null, 2));
     return [file];
   },
 };
 
-// ── Oh My Pi ────────────────────────────────────────────────────────────────
+// â”€â”€ Oh My Pi â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Proxy discovery lists every server model under /model, so no model is written.
 // The dashboard also mirrors the key into agent.db; models.yml is the primary
 // source, so that best-effort sqlite write is skipped here.
@@ -504,7 +504,7 @@ const omp = {
     const file = ompPath();
     const cfg = (await readYaml(file)) || {};
     cfg.providers = cfg.providers || {};
-    cfg.providers["9router"] = {
+    cfg.providers["Rebana Router"] = {
       baseUrl: v1(baseUrl),
       apiKey,
       api: "openai-completions",
@@ -516,7 +516,7 @@ const omp = {
     return [file];
   },
   async show() {
-    const p = (await readYaml(ompPath()))?.providers?.["9router"];
+    const p = (await readYaml(ompPath()))?.providers?.["Rebana Router"];
     return {
       baseUrl: p?.baseUrl,
       apiKey: p?.apiKey,
@@ -527,8 +527,8 @@ const omp = {
     const { stringifyYAML } = await toml();
     const file = ompPath();
     const cfg = await readYaml(file);
-    if (!cfg?.providers?.["9router"]) return [];
-    delete cfg.providers["9router"];
+    if (!cfg?.providers?.["Rebana Router"]) return [];
+    delete cfg.providers["Rebana Router"];
     if (Object.keys(cfg.providers).length === 0) delete cfg.providers;
     rewriteFile(file, Object.keys(cfg).length ? stringifyYAML(cfg) : "");
     return [file];

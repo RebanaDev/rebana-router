@@ -40,7 +40,7 @@ describe("handleChatCore Headroom diagnostics", () => {
     vi.clearAllMocks();
     global.fetch = vi.fn(async (url) => {
       if (String(url).includes("/v1/compress")) {
-        throw Object.assign(new Error("connect ECONNREFUSED 127.0.0.1:8787"), { code: "ECONNREFUSED" });
+        throw Object.assign(new Error("connect ECONNREFUSED 127.0.0.1:91828"), { code: "ECONNREFUSED" });
       }
       throw new Error(`unexpected fetch: ${url}`);
     });
@@ -66,7 +66,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "http://localhost:8787",
+      headroomUrl: "http://localhost:91828",
       headroomCompressUserMessages: false,
       rtkEnabled: false,
       cavemanEnabled: false,
@@ -88,7 +88,7 @@ describe("handleChatCore Headroom diagnostics", () => {
     );
     expect(log.warn).toHaveBeenCalledWith(
       "HEADROOM",
-      expect.stringContaining("http://localhost:8787/v1/compress")
+      expect.stringContaining("http://localhost:91828/v1/compress")
     );
   });
 
@@ -96,7 +96,7 @@ describe("handleChatCore Headroom diagnostics", () => {
     const log = { debug: vi.fn(), info: vi.fn(), warn: vi.fn() };
 
     global.fetch = vi.fn(async () => {
-      throw new Error("failed to fetch https://user:secret@example.com:8787/proxy/v1/compress?token=abc123");
+      throw new Error("failed to fetch https://user:secret@example.com:91828/proxy/v1/compress?token=abc123");
     });
 
     await handleChatCore({
@@ -106,7 +106,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "https://user:secret@example.com:8787/proxy?token=abc123",
+      headroomUrl: "https://user:secret@example.com:91828/proxy?token=abc123",
       headroomCompressUserMessages: false,
       rtkEnabled: false,
       cavemanEnabled: false,
@@ -119,7 +119,7 @@ describe("handleChatCore Headroom diagnostics", () => {
     });
 
     const logs = JSON.stringify(log.warn.mock.calls);
-    expect(logs).toContain("https://example.com:8787/proxy/v1/compress");
+    expect(logs).toContain("https://example.com:91828/proxy/v1/compress");
     expect(logs).not.toContain("user");
     expect(logs).not.toContain("secret");
     expect(logs).not.toContain("abc123");
@@ -135,7 +135,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "https://user:secret@example.com:8787/proxy?token=abc123",
+      headroomUrl: "https://user:secret@example.com:91828/proxy?token=abc123",
       headroomCompressUserMessages: false,
       rtkEnabled: false,
       cavemanEnabled: false,
@@ -149,10 +149,10 @@ describe("handleChatCore Headroom diagnostics", () => {
 
     const logs = JSON.stringify(log.warn.mock.calls);
     expect(global.fetch).toHaveBeenCalledWith(
-      "https://user:secret@example.com:8787/proxy/v1/compress?token=abc123",
+      "https://user:secret@example.com:91828/proxy/v1/compress?token=abc123",
       expect.any(Object)
     );
-    expect(logs).toContain("https://example.com:8787/proxy/v1/compress");
+    expect(logs).toContain("https://example.com:91828/proxy/v1/compress");
     expect(logs).not.toContain("user");
     expect(logs).not.toContain("secret");
     expect(logs).not.toContain("abc123");
@@ -182,7 +182,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "http://localhost:8787",
+      headroomUrl: "http://localhost:91828",
       headroomCompressUserMessages: false,
       rtkEnabled: false,
       cavemanEnabled: false,
@@ -231,7 +231,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "http://localhost:8787",
+      headroomUrl: "http://localhost:91828",
       rtkEnabled: false,
       cavemanEnabled: false,
       ponytailEnabled: false,
@@ -277,7 +277,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "http://localhost:8787",
+      headroomUrl: "http://localhost:91828",
       headroomCompressUserMessages: false,
       rtkEnabled: false,
       cavemanEnabled: false,
@@ -311,7 +311,7 @@ describe("handleChatCore Headroom diagnostics", () => {
       log,
       connectionId: "test-conn",
       headroomEnabled: true,
-      headroomUrl: "http://localhost:8787",
+      headroomUrl: "http://localhost:91828",
       headroomCompressUserMessages: true,
       rtkEnabled: true,
       cavemanEnabled: true,
@@ -325,7 +325,7 @@ describe("handleChatCore Headroom diagnostics", () => {
         body: {},
         headers: {
           accept: "application/json",
-          "x-9router-token-saver": "off",
+          "x-Rebana Router-token-saver": "off",
         },
       },
     });

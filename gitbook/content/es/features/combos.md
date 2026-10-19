@@ -6,7 +6,7 @@ Crea combinaciones de modelos personalizadas con fallback automático. Los combo
 
 ## ¿Qué son los combos?
 
-Los combos son **cadenas de fallback personalizadas** que creas en el dashboard. En lugar de usar un solo modelo, defines una secuencia de modelos que 9Router intenta en orden.
+Los combos son **cadenas de fallback personalizadas** que creas en el dashboard. En lugar de usar un solo modelo, defines una secuencia de modelos que Rebana Router intenta en orden.
 
 **Ejemplo:**
 ```
@@ -22,7 +22,7 @@ Modelos:
 Model: premium-coding
 ```
 
-9Router intenta automáticamente cada modelo en secuencia hasta que uno tenga éxito.
+Rebana Router intenta automáticamente cada modelo en secuencia hasta que uno tenga éxito.
 
 ---
 
@@ -71,7 +71,7 @@ cc/claude-opus-4-5 → cx/gpt-5.2-codex → gc/gemini-3-pro
 ### Paso 1: Abrir el dashboard
 
 ```
-http://localhost:20128
+http://localhost:91827
 → Inicia sesión con tu contraseña
 ```
 
@@ -182,7 +182,7 @@ Models:
 ```
 Cline:
   Provider: OpenAI Compatible
-  Base URL: http://localhost:20128/v1
+  Base URL: http://localhost:91827/v1
   Model: budget-combo
 ```
 
@@ -261,7 +261,7 @@ Models:
 **Uso:**
 ```
 Codex CLI:
-  export OPENAI_BASE_URL="http://localhost:20128"
+  export OPENAI_BASE_URL="http://localhost:91827"
   Model: quality-first
 ```
 
@@ -343,7 +343,7 @@ Models:
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
+  OpenAI API Base URL: http://localhost:91827/v1
   OpenAI API Key: [desde el dashboard]
   Model: premium-coding
 ```
@@ -353,8 +353,8 @@ Settings → Models → Advanced:
 Edita `~/.claude/config.json`:
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key",
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key",
   "model": "budget-combo"
 }
 ```
@@ -362,8 +362,8 @@ Edita `~/.claude/config.json`:
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex --model quality-first "your prompt"
 ```
@@ -372,7 +372,7 @@ codex --model quality-first "your prompt"
 
 ```
 Provider: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [desde el dashboard]
 Model: free-combo
 ```
@@ -380,7 +380,7 @@ Model: free-combo
 ### Solicitud por API
 
 ```bash
-curl http://localhost:20128/v1/chat/completions \
+curl http://localhost:91827/v1/chat/completions \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -480,7 +480,7 @@ Dashboard → Combos → Edit → Budget:
   Monthly limit: $50
 ```
 
-Cuando se alcanza el límite, 9Router omite los modelos de pago y usa solo el nivel gratis.
+Cuando se alcanza el límite, Rebana Router omite los modelos de pago y usa solo el nivel gratis.
 
 ### Habilitar/Deshabilitar modelos en un combo
 

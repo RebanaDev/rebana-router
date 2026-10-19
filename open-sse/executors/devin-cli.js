@@ -1,11 +1,11 @@
 /**
- * DevinCliExecutor — routes completions through the official Devin CLI binary
+ * DevinCliExecutor â€” routes completions through the official Devin CLI binary
  * via the Agent Client Protocol (ACP) JSON-RPC 2.0 over stdio.
  *
  * Protocol flow:
  *   1. Spawn `devin acp` (default agent = full built-in tools: fs/shell/search).
  *      Set CLI_DEVIN_AGENT_TYPE=summarizer for a tool-less, text-only mode.
- *   2. Send: initialize → session/new (with model + cwd + mcpServers) → session/prompt.
+ *   2. Send: initialize â†’ session/new (with model + cwd + mcpServers) â†’ session/prompt.
  *   3. Receive: session/update notifications (agent_message_chunk = reply text,
  *      tool_call/tool_call_update = built-in tool invocations, surfaced as text).
  *      When devin calls a client-tool from the exposed MCP ("Calling mcp_X from
@@ -13,10 +13,10 @@
  *   4. Emit deltas as OpenAI-compatible SSE chunks.
  *   5. Kill subprocess on _cognition.ai/agent_stopped or error.
  *
- * Auth: noAuth — the subprocess inherits the parent env and uses credentials
+ * Auth: noAuth â€” the subprocess inherits the parent env and uses credentials
  * stored by `devin auth login` (~/.local/share/devin/credentials.toml).
  *
- * Binary discovery: CLI_DEVIN_BIN env → PATH lookup → platform installer paths.
+ * Binary discovery: CLI_DEVIN_BIN env â†’ PATH lookup â†’ platform installer paths.
  */
 
 import { spawn } from "node:child_process";
@@ -25,7 +25,7 @@ import os from "node:os";
 import fs from "node:fs";
 import { BaseExecutor } from "./base.js";
 
-// ─── Binary discovery ────────────────────────────────────────────────────────
+// â”€â”€â”€ Binary discovery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function resolveDevinBin() {
   // 1. Explicit override
@@ -38,7 +38,7 @@ function resolveDevinBin() {
   // 2. Known installer / package-manager locations. spawn uses shell:false on
   //    macOS/Linux, so process.env.PATH alone may miss ~/.local/bin, Homebrew,
   //    Scoop, etc. when the server runs detached (tray/daemon/launchd) without
-  //    a login shell — probe these explicitly before falling back to PATH.
+  //    a login shell â€” probe these explicitly before falling back to PATH.
   const candidates = isWin
     ? [
       // Official installer: %LOCALAPPDATA%\devin\cli\bin\devin.exe
@@ -59,11 +59,11 @@ function resolveDevinBin() {
     if (fs.existsSync(candidate)) return candidate;
   }
 
-  // 3. Fallback — rely on process.env.PATH
+  // 3. Fallback â€” rely on process.env.PATH
   return isWin ? "devin.exe" : "devin";
 }
 
-// ─── ACP JSON-RPC helper ────────────────────────────────────────────────────
+// â”€â”€â”€ ACP JSON-RPC helper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function rpc(method, params, id) {
   const msg = { jsonrpc: "2.0", method, params };
@@ -71,7 +71,7 @@ function rpc(method, params, id) {
   return JSON.stringify(msg) + "\n";
 }
 
-// ─── Client-tools → MCP bridge ───────────────────────────────────────────────
+// â”€â”€â”€ Client-tools â†’ MCP bridge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // devin only invokes built-in + MCP tools, not OpenAI function-calling schemas.
 // body.tools are exposed as a stdio MCP server "clientTools" so devin can call
 // them. When devin calls one, we emit OpenAI tool_use and end the turn; the
@@ -105,7 +105,7 @@ rl.on("line", (line) => {
 `.trimStart();
 
 function ensureClientToolsScript() {
-  const scriptPath = path.join(os.tmpdir(), "9router-devin-client-tools.mjs");
+  const scriptPath = path.join(os.tmpdir(), "Rebana Router-devin-client-tools.mjs");
   // Always rewrite so script upgrades land without a process restart.
   fs.writeFileSync(scriptPath, CLIENT_TOOLS_MCP_SCRIPT);
   return scriptPath;
@@ -148,7 +148,7 @@ function buildClientToolsMcp(tools, resultMap) {
 }
 
 // Extract tool_result content keyed by MCP tool name (mcp_<original>).
-// Walks messages: assistant.tool_calls id→name, role=tool tool_call_id→content.
+// Walks messages: assistant.tool_calls idâ†’name, role=tool tool_call_idâ†’content.
 function extractClientToolResults(messages) {
   const idToMcpName = new Map();
   const results = {};
@@ -247,7 +247,7 @@ function resolveWorkspaceCwd(body) {
   return os.tmpdir();
 }
 
-// ─── Multi-turn message → single prompt builder ─────────────────────────────
+// â”€â”€â”€ Multi-turn message â†’ single prompt builder â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function buildPromptText(messages) {
   // Inline the whole conversation so the model has full context, including
@@ -300,7 +300,7 @@ function buildPromptText(messages) {
   return lines.join("\n\n") || "(empty)";
 }
 
-// ─── DevinCliExecutor ─────────────────────────────────────────────────────────
+// â”€â”€â”€ DevinCliExecutor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export class DevinCliExecutor extends BaseExecutor {
   constructor() {
@@ -332,16 +332,16 @@ export class DevinCliExecutor extends BaseExecutor {
 
     log?.info?.(
       "DEVIN",
-      `devin acp → model=${model}, bin=${devinBin}, cwd=${workspaceCwd}`
+      `devin acp â†’ model=${model}, bin=${devinBin}, cwd=${workspaceCwd}`
     );
 
     // Optional MCP servers via DEVIN_MCP_SERVERS (JSON object, devin config format):
     //   {"echo":{"command":"/abs/node","args":["/srv/echo.js"],"env":{"K":"V"}}}
-    // Plus body.tools (OpenAI schema) → exposed as a "clientTools" MCP
+    // Plus body.tools (OpenAI schema) â†’ exposed as a "clientTools" MCP
     // server so devin can invoke client-defined tools (bridged back in Phase 2).
     // When any are present, a throwaway XDG_CONFIG_HOME holds devin/config.json so
     // the agent auto-connects them (session/new mcpServers alone doesn't spawn
-    // them — see ACP mcp/connect, still unstable). Cleaned up on finish.
+    // them â€” see ACP mcp/connect, still unstable). Cleaned up on finish.
     // NOTE: this replaces the user's global devin MCP config for the subprocess.
     let mcpConfigDir = null;
     const mcpServers = {};
@@ -375,7 +375,7 @@ export class DevinCliExecutor extends BaseExecutor {
           path.join(cfgDev, "config.json"),
           JSON.stringify({ mcpServers })
         );
-        log?.info?.("DEVIN", `mcp config written → ${mcpConfigDir}`);
+        log?.info?.("DEVIN", `mcp config written â†’ ${mcpConfigDir}`);
       } catch (e) {
         log?.info?.("DEVIN", `mcp config write failed: ${e.message}`);
         mcpConfigDir = null;
@@ -404,7 +404,7 @@ export class DevinCliExecutor extends BaseExecutor {
         // Auto-approve tool execution so the agent doesn't block waiting for a
         // session/request_permission response we never send (default mode would
         // hang the stream on the first shell/exec tool call). Override via env.
-        // WARNING: bypass lets the agent run shell/modify FS unattended — local only.
+        // WARNING: bypass lets the agent run shell/modify FS unattended â€” local only.
         env.DEVIN_PERMISSION_MODE = process.env.DEVIN_PERMISSION_MODE || "bypass";
         if (mcpConfigDir) env.XDG_CONFIG_HOME = mcpConfigDir;
 
@@ -412,7 +412,7 @@ export class DevinCliExecutor extends BaseExecutor {
         // (fs/shell/search) so the model can actually perform tasks. Override to
         // `summarizer` (no tools, text-only) via CLI_DEVIN_AGENT_TYPE for a safer,
         // tool-less mode. WARNING: the default agent can run shell commands and
-        // modify the filesystem on the host running 9router — only expose locally.
+        // modify the filesystem on the host running Rebana Router â€” only expose locally.
         const agentType = process.env.CLI_DEVIN_AGENT_TYPE?.trim();
         const acpArgs = ["acp"];
         if (agentType) acpArgs.push("--agent-type", agentType);
@@ -450,7 +450,7 @@ export class DevinCliExecutor extends BaseExecutor {
           });
         }
 
-        // ── JSON-RPC state machine ──────────────────────────────────────────
+        // â”€â”€ JSON-RPC state machine â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         let idCounter = 1;
         let sessionId = null;
         let initDone = false;
@@ -505,7 +505,7 @@ export class DevinCliExecutor extends BaseExecutor {
         let toolUseEmitted = false;
         // ACP tool_call is upsert-by-id: the first event has title, a later update
         // may only carry rawInput (title omitted). Track pending client-tool calls.
-        const pendingClientTools = new Map(); // toolCallId → original tool name
+        const pendingClientTools = new Map(); // toolCallId â†’ original tool name
         const emitToolUse = (toolName, args, toolCallId) => {
           const argsStr = typeof args === "string" ? args : JSON.stringify(args ?? {});
           if (!roleEmitted) {
@@ -574,7 +574,7 @@ export class DevinCliExecutor extends BaseExecutor {
           }
           emit("data: [DONE]\n\n");
 
-          // Gracefully close stdin → devin will exit
+          // Gracefully close stdin â†’ devin will exit
           try {
             if (!stdinClosed) {
               stdinClosed = true;
@@ -594,7 +594,7 @@ export class DevinCliExecutor extends BaseExecutor {
           cleanupMcp();
         };
 
-        // ── stdout reader (NDJSON) ──────────────────────────────────────────
+        // â”€â”€ stdout reader (NDJSON) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         let buffer = "";
 
         child.stdout.on("data", (chunk) => {
@@ -613,7 +613,7 @@ export class DevinCliExecutor extends BaseExecutor {
               continue; // ignore non-JSON lines (banner text, etc.)
             }
 
-            // ── Initialize response ───────────────────────────────────────
+            // â”€â”€ Initialize response â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (!initDone && msg.result !== undefined && !msg.method) {
               initDone = true;
               // Create session with the client workspace cwd so agent file tools
@@ -628,7 +628,7 @@ export class DevinCliExecutor extends BaseExecutor {
               continue;
             }
 
-            // ── session/new response → get sessionId ──────────────────────
+            // â”€â”€ session/new response â†’ get sessionId â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (initDone && !sessionCreated && msg.result !== undefined && !msg.method) {
               const res = msg.result || {};
               sessionId = res.sessionId || null;
@@ -638,7 +638,7 @@ export class DevinCliExecutor extends BaseExecutor {
               }
               sessionCreated = true;
               // Send the prompt. devin 3000.2.x expects `prompt` (a sequence),
-              // not `content` — using `content` returns -32602 "missing field prompt".
+              // not `content` â€” using `content` returns -32602 "missing field prompt".
               promptSent = true;
               sendRpc("session/prompt", {
                 sessionId,
@@ -647,7 +647,7 @@ export class DevinCliExecutor extends BaseExecutor {
               continue;
             }
 
-            // ── session/prompt response (ack / final result) ────────────
+            // â”€â”€ session/prompt response (ack / final result) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (sessionCreated && promptSent && msg.result !== undefined && !msg.method) {
               // Devin 3000.2.x only resolves session/prompt with the final result
               // (stopReason) after streaming completes. Streaming notifications are
@@ -668,7 +668,7 @@ export class DevinCliExecutor extends BaseExecutor {
               continue;
             }
 
-            // ── Permission requests → auto-approve the first allow option ──
+            // â”€â”€ Permission requests â†’ auto-approve the first allow option â”€â”€
             // Devi asks before running shell/exec tools; as a headless proxy we
             // grant once. (DEVIN_PERMISSION_MODE=bypass usually prevents these,
             // but some tool kinds still prompt, so handle them here too.)
@@ -688,7 +688,7 @@ export class DevinCliExecutor extends BaseExecutor {
               continue;
             }
 
-            // ── Agent stopped notification (devin 3000.2.x stop signal) ───
+            // â”€â”€ Agent stopped notification (devin 3000.2.x stop signal) â”€â”€â”€
             if (msg.method === "_cognition.ai/agent_stopped" || msg.method === "$/agent_stopped") {
               const cause = msg.params?.cause;
               if (cause === "error") {
@@ -705,7 +705,7 @@ export class DevinCliExecutor extends BaseExecutor {
               return;
             }
 
-            // ── Streaming notifications (session/update) ──────────────────
+            // â”€â”€ Streaming notifications (session/update) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (msg.method === "session/update" || msg.method === "$/update") {
               const params = msg.params;
               if (!params) continue;
@@ -720,7 +720,7 @@ export class DevinCliExecutor extends BaseExecutor {
                   ? contentField
                   : contentField?.text ?? params.delta ?? params.text ?? "";
 
-              // ── Client-tool bridge: devin calling a tool from our exposed MCP ──
+              // â”€â”€ Client-tool bridge: devin calling a tool from our exposed MCP â”€â”€
               // ACP title shape: "Calling mcp_<name> from clientTools".
               // tool_call is upsert-by-id: title may only appear on the first event,
               // rawInput on a later tool_call_update. Track pending ids so we don't
@@ -751,7 +751,7 @@ export class DevinCliExecutor extends BaseExecutor {
               if (type === "agent_message_chunk" || type === "message_delta" || type === "text_delta" || type === "content_delta") {
                 if (deltaText) emitDelta(deltaText);
               } else if (type === "agent_thought_chunk") {
-                // Internal reasoning — not surfaced to the client.
+                // Internal reasoning â€” not surfaced to the client.
               } else if (type === "message_stop" || type === "stop" || type === "done") {
                 finish();
                 return;
@@ -762,7 +762,7 @@ export class DevinCliExecutor extends BaseExecutor {
               continue;
             }
 
-            // ── Error responses ───────────────────────────────────────────
+            // â”€â”€ Error responses â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (msg.error) {
               finish(`Devin ACP error ${msg.error.code}: ${msg.error.message}`);
               return;
@@ -786,10 +786,10 @@ export class DevinCliExecutor extends BaseExecutor {
           }
         });
 
-        // ── Send initialize ───────────────────────────────────────────────
+        // â”€â”€ Send initialize â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         sendRpc("initialize", {
           protocolVersion: "0.3",
-          clientInfo: { name: "9router", version: "1.0" },
+          clientInfo: { name: "Rebana Router", version: "1.0" },
           capabilities: {},
         });
       },
@@ -822,7 +822,7 @@ export class DevinCliExecutor extends BaseExecutor {
   }
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 // Extract text from a final ACP session/prompt result object across common shapes.
 function extractResultText(result) {

@@ -1,11 +1,11 @@
 ---
-name: 9router-web-search
-description: Web and X search via 9Router /v1/search using Tavily / Exa / Brave / Serper / SearXNG / Google PSE / Linkup / SearchAPI / You.com / Perplexity / Xquik. Use when the user wants to search the web, find articles, or search public X posts.
+name: Rebana Router-web-search
+description: Web and X search via Rebana Router /v1/search using Tavily / Exa / Brave / Serper / SearXNG / Google PSE / Linkup / SearchAPI / You.com / Perplexity / Xquik. Use when the user wants to search the web, find articles, or search public X posts.
 ---
 
-# 9Router — Web Search
+# Rebana Router — Web Search
 
-Requires `NINEROUTER_URL` (and `NINEROUTER_KEY` if auth enabled). See https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router/SKILL.md for setup.
+Requires `NINEROUTER_URL` (and `NINEROUTER_KEY` if auth enabled). See https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router/SKILL.md for setup.
 
 ## Discover
 
@@ -35,7 +35,7 @@ IDs end in `/search` (e.g. `tavily/search`). Combos (`owned_by:"combo"`) chain p
 curl -X POST $NINEROUTER_URL/v1/search \
   -H "Authorization: Bearer $NINEROUTER_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"model":"tavily","query":"9Router open source","max_results":5}'
+  -d '{"model":"tavily","query":"Rebana Router open source","max_results":5}'
 ```
 
 JS:
@@ -58,7 +58,7 @@ curl -X POST $NINEROUTER_URL/v1/search \
   -d '{"model":"xquik","query":"from:github release","max_results":10,"provider_options":{"queryType":"Latest"}}'
 ```
 
-Add the Xquik API key in 9Router's provider settings. Xquik charges 1 credit per returned post. Continue a search by passing `pagination.next_cursor` as `provider_options.cursor`.
+Add the Xquik API key in Rebana Router's provider settings. Xquik charges 1 credit per returned post. Continue a search by passing `pagination.next_cursor` as `provider_options.cursor`.
 
 Xquik responses include provider pagination and credit usage:
 
@@ -74,7 +74,7 @@ Xquik responses include provider pagination and credit usage:
 ```json
 {
   "provider": "tavily",
-  "query": "9Router open source",
+  "query": "Rebana Router open source",
   "results": [
     {
       "title": "...", "url": "https://...", "display_url": "github.com/...",
@@ -109,4 +109,4 @@ All accept `query` + `max_results`. Optional fields vary:
 | `searxng` | language, time_range | Self-hosted, **noAuth** |
 | `xquik` | X/Twitter search operators, language, cursor pagination | `queryType: Latest/Top`, `cursor` (options) |
 
-Provider IS the model — `"provider":"tavily" ≡ "model":"tavily"`.
+Provider IS the model — `"provider":"tavily" ❌‰¡ "model":"tavily"`.

@@ -8,7 +8,7 @@ let tempDir;
 const originalDataDir = process.env.DATA_DIR;
 
 beforeEach(() => {
-  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "9router-mig-"));
+  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-mig-"));
   process.env.DATA_DIR = tempDir;
   // Reset global singleton so each test gets fresh adapter pointed at tempDir
   delete global._dbAdapter;
@@ -25,7 +25,7 @@ afterEach(() => {
 });
 
 describe("Schema migrations", () => {
-  it("fresh DB → applies migrations & stamps schemaVersion", async () => {
+  it("fresh DB â†’ applies migrations & stamps schemaVersion", async () => {
     const { getAdapter } = await import("@/lib/db/driver.js");
     const { latestVersion } = await import("@/lib/db/migrations/index.js");
     const db = await getAdapter();
@@ -39,7 +39,7 @@ describe("Schema migrations", () => {
     ]));
   });
 
-  it("existing DB at older schemaVersion → re-applies pending migrations on restart", async () => {
+  it("existing DB at older schemaVersion â†’ re-applies pending migrations on restart", async () => {
     // 1st boot
     const { getAdapter } = await import("@/lib/db/driver.js");
     const db = await getAdapter();
@@ -60,7 +60,7 @@ describe("Schema migrations", () => {
     expect(JSON.parse(settings.data)).toEqual({ foo: "bar" });
   });
 
-  it("fresh DB + legacy db.json → imports data automatically", async () => {
+  it("fresh DB + legacy db.json â†’ imports data automatically", async () => {
     // Simulate user upgrading: place legacy JSON in DATA_DIR before first boot
     const legacy = {
       settings: { foo: "legacy-value" },

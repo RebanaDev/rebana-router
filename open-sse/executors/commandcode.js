@@ -5,15 +5,15 @@ import { commandCodeToOpenAIResponse } from "../translator/response/commandcode-
 import { SSE_DONE } from "../utils/sseConstants.js";
 
 /**
- * CommandCodeExecutor — talks to https://api.commandcode.ai/alpha/generate
+ * CommandCodeExecutor â€” talks to https://api.commandcode.ai/alpha/generate
  *
  * Auth: Bearer <user_xxx> API key (stored as the connection's apiKey).
  * Adds the per-request `x-session-id` header expected by CommandCode upstream.
  *
  * Upstream returns AI SDK v5 NDJSON (one JSON event per line, no `data:` prefix).
  * We translate each event to an OpenAI chat.completion.chunk and emit it as SSE so
- * both the streaming and non-streaming (forced SSE → JSON) downstream handlers in
- * 9router can consume it without further format translation.
+ * both the streaming and non-streaming (forced SSE â†’ JSON) downstream handlers in
+ * Rebana Router can consume it without further format translation.
  */
 export class CommandCodeExecutor extends BaseExecutor {
   constructor() {

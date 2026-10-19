@@ -45,10 +45,10 @@ Dashboard → API Keys → Create New
 → Copy API key (starts with "zhipu-")
 ```
 
-**Bước 3: Thêm vào 9Router**
+**Bước 3: Thêm vào Rebana Router**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Add API Key
 
 Provider: glm
@@ -67,7 +67,7 @@ Model: glm/glm-4.7
 | Model ID | Mô tả | Context | Tốt nhất cho |
 |----------|-------------|---------|----------|
 | `glm/glm-4.7` | GLM 4.7 | 128K | Coding, task chung |
-| `glm/glm-4.6v` | GLM 4.6V Vision | 128K | Phân tích ảnh |
+| `glm/glm-4.6v` | GLM 4.6V Vision | 128K | Ph❌n tích ảnh |
 
 ### Mẹo Pro
 
@@ -117,10 +117,10 @@ Dashboard → API Management → Create Key
 → Copy API key
 ```
 
-**Bước 3: Thêm vào 9Router**
+**Bước 3: Thêm vào Rebana Router**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Add API Key
 
 Provider: minimax
@@ -190,10 +190,10 @@ Dashboard → API Keys → Create New
 → Copy API key
 ```
 
-**Bước 3: Thêm vào 9Router**
+**Bước 3: Thêm vào Rebana Router**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Add API Key
 
 Provider: kimi
@@ -254,8 +254,8 @@ Total: 10M tokens = $9 flat
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [from 9router dashboard]
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [from Rebana Router dashboard]
   Model: glm/glm-4.7
 ```
 
@@ -297,7 +297,7 @@ Night: Free tier (iFlow)
 → Zero cost emergency backup
 ```
 
-### Chiến lược 2: Ưu tiên Ngân sách
+### Chiến lược 2: Ưu tiên Ng❌n sách
 
 ```
 Set monthly budget: $20
@@ -347,7 +347,7 @@ vs $2000 on ChatGPT API!
 Savings: 99% cheaper!
 ```
 
-### Ví dụ 2: Coder Ngân sách ($10/tháng)
+### Ví dụ 2: Coder Ng❌n sách ($10/tháng)
 
 ```
 Strategy:
@@ -414,7 +414,7 @@ Combo:
 Result: Minimize costs, maximize uptime
 ```
 
-### 4. Đặt Cảnh báo Ngân sách
+### 4. Đặt Cảnh báo Ng❌n sách
 
 ```
 Dashboard → Settings → Budget Alerts
@@ -449,7 +449,7 @@ Monthly: $30 limit
 
 **Giải pháp:**
 - Kiểm tra usage stats trong Dashboard
-- Đặt cảnh báo ngân sách
+- Đặt cảnh báo ng❌n sách
 - Chuyển sang MiniMax ($0.2/1M rẻ nhất)
 - Dùng free tier cho task không quan trọng
 

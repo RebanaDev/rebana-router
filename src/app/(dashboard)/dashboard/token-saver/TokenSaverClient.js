@@ -13,7 +13,7 @@ import {
 export default function TokenSaverClient() {
   const [rtkEnabled, setRtkEnabledState] = useState(true);
   const [headroomEnabled, setHeadroomEnabled] = useState(false);
-  const [headroomUrl, setHeadroomUrl] = useState("http://localhost:8787");
+  const [headroomUrl, setHeadroomUrl] = useState("http://localhost:91828");
   const [headroomTimeoutMs, setHeadroomTimeoutMs] = useState(3000);
   const [headroomStatus, setHeadroomStatus] = useState({
     installed: false,
@@ -111,14 +111,14 @@ export default function TokenSaverClient() {
   };
 
   const handleHeadroomEnabled = (value) => {
-    const nextUrl = headroomUrl.trim() || "http://localhost:8787";
+    const nextUrl = headroomUrl.trim() || "http://localhost:91828";
     setHeadroomUrl(nextUrl);
     setHeadroomEnabled(value);
     patchSetting({ headroomEnabled: value, headroomUrl: nextUrl });
   };
 
   const handleHeadroomUrlBlur = async () => {
-    const next = headroomUrl.trim() || "http://localhost:8787";
+    const next = headroomUrl.trim() || "http://localhost:91828";
     setHeadroomUrl(next);
     await patchSetting({ headroomUrl: next });
     refreshHeadroomStatus();
@@ -422,7 +422,7 @@ export default function TokenSaverClient() {
           const data = await res.json();
           setRtkEnabledState(data.rtkEnabled !== false);
           setHeadroomEnabled(!!data.headroomEnabled);
-          setHeadroomUrl(data.headroomUrl || "http://localhost:8787");
+          setHeadroomUrl(data.headroomUrl || "http://localhost:91828");
           if (typeof data.headroomTimeoutMs === "number") setHeadroomTimeoutMs(data.headroomTimeoutMs);
           setCodeAware(data.headroomCodeAware === true);
           setKompress(data.headroomKompress !== false);
@@ -819,12 +819,12 @@ export default function TokenSaverClient() {
               value={headroomUrl}
               onChange={(e) => setHeadroomUrl(e.target.value)}
               onBlur={handleHeadroomUrlBlur}
-              placeholder="http://localhost:8787"
+              placeholder="http://localhost:91828"
               className="font-mono text-sm"
             />
             <p className="text-xs text-text-muted">
               Use a local proxy for Start/Stop, or an external Docker sidecar
-              like http://headroom:8787.
+              like http://headroom:91828.
             </p>
           </div>
           <div className="flex flex-col gap-1">
@@ -957,7 +957,7 @@ export default function TokenSaverClient() {
               </Button>
               <p className="text-xs text-text-muted">
                 Installs the npm package <code className="font-mono">pxpipe-proxy</code> into
-                the 9Router data directory. May take a few minutes.
+                the Rebana Router data directory. May take a few minutes.
               </p>
             </div>
           ) : (

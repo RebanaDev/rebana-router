@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="../images/9router.png?1" alt="Панель управления 9Router" width="800"/>
+  <img src="../images/Rebana Router.png?1" alt="Панель управления Rebana Router" width="800"/>
   
-  # 9Router - Free AI Router
+  # Rebana Router - Free AI Router
   
   **Никогда не прекращайте кодить. Автоматическая маршрутизация к БЕСПЛАТНЫМ и дешёвым AI-моделям с умным механизмом резервирования.**
   
@@ -11,16 +11,16 @@
     <img src="../public/providers/openclaw.png" alt="OpenClaw" width="80"/>
   </p>
   
-  [![npm](https://img.shields.io/npm/v/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Downloads](https://img.shields.io/npm/dm/9router.svg)](https://www.npmjs.com/package/9router)
-  [![License](https://img.shields.io/npm/l/9router.svg)](https://github.com/decolua/9router/blob/main/LICENSE)
+  [![npm](https://img.shields.io/npm/v/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![Downloads](https://img.shields.io/npm/dm/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![License](https://img.shields.io/npm/l/Rebana Router.svg)](https://github.com/decolua/Rebana Router/blob/main/LICENSE)
   
-  [🚀 Быстрый старт](#-quick-start) • [💡 Возможности](#-key-features) • [📖 Установка](#-setup-guide) • [🌐 Сайт](https://9router.com)
+  [🚀 Быстрый старт](#-quick-start)  [💡 Возможности](#-key-features)  [📖 Установка](#-setup-guide)  [🌐 Сайт](https://Rebana Router.com)
 </div>
 
 ---
 
-## 🤔 Почему 9Router?
+## 🤔 Почему Rebana Router?
 
 **Перестаньте тратить деньги и упираться в лимиты:**
 
@@ -29,52 +29,52 @@
 - ❌ Дорогие API ($20-50/мес за каждого провайдера)
 - ❌ Приходится вручную переключаться между провайдерами
 
-**9Router решает это:**
+**Rebana Router решает это:**
 
-- ✅ **Максимум из подписки** — Отслеживает квоту, использует каждый бит до сброса
-- ✅ **Автоматическое резервирование** — Подписка → Дёшево → Бесплатно, нулевой простой
-- ✅ **Несколько аккаунтов** — Round-robin по аккаунтам каждого провайдера
-- ✅ **Универсальность** — Работает с Claude Code, Codex, Gemini CLI, Cursor, Cline, любым CLI-инструментом
+- ✅ **Максимум из подписки**  Отслеживает квоту, использует каждый бит до сброса
+- ✅ **Автоматическое резервирование**  Подписка → Дёшево → Бесплатно, нулевой простой
+- ✅ **Несколько аккаунтов**  Round-robin по аккаунтам каждого провайдера
+- ✅ **Универсальность**  Работает с Claude Code, Codex, Gemini CLI, Cursor, Cline, любым CLI-инструментом
 
 ---
 
 ## 🔄 Как это работает
 
 ```
-┌─────────────┐
-│  Your CLI   │  (Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Cline...)
-│   Tool      │
-└──────┬──────┘
-       │ http://localhost:20128/v1
-       ↓
-┌────────────────────────────────────────┐
-│           9Router (Smart Router)        │
-│  • Format translation (OpenAI ↔ Claude) │
-│  • Quota tracking                       │
-│  • Auto token refresh                   │
-└──────┬──────────────────────────────────┘
-       │
-       ├─→ [Tier 1: SUBSCRIPTION] Claude Code, Codex, Gemini CLI
-       │   ↓ quota exhausted
-       ├─→ [Tier 2: CHEAP] GLM ($0.6/1M), MiniMax ($0.2/1M)
-       │   budget limit
-       └─→ [Tier 3: FREE] iFlow, Qwen, Kiro (unlimited)
+❌┌❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┐
+❌│  Your CLI   ❌│  (Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Cline...)
+❌│   Tool      ❌│
+❌└❌─❌─❌─❌─❌─❌─❌┬❌─❌─❌─❌─❌─❌─❌┘
+       ❌│ http://localhost:91827/v1
+       →
+❌┌❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┐
+❌│           Rebana Router (Smart Router)        ❌│
+❌│   Format translation (OpenAI → Claude) ❌│
+❌│   Quota tracking                       ❌│
+❌│   Auto token refresh                   ❌│
+❌└❌─❌─❌─❌─❌─❌─❌┬❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┘
+       ❌│
+       ❌├❌─→ [Tier 1: SUBSCRIPTION] Claude Code, Codex, Gemini CLI
+       ❌│   → quota exhausted
+       ❌├❌─→ [Tier 2: CHEAP] GLM ($0.6/1M), MiniMax ($0.2/1M)
+       ❌│   budget limit
+       ❌└❌─→ [Tier 3: FREE] iFlow, Qwen, Kiro (unlimited)
 
 Result: Never stop coding, minimal cost
 ```
 
 ---
 
-## ⚡ Быстрый старт
+## ❌⚡ Быстрый старт
 
 **1. Глобальная установка:**
 
 ```bash
-npm install -g 9router
-9router
+npm install -g Rebana Router
+Rebana Router
 ```
 
-🎉 Панель управления откроется на `http://localhost:20128`
+🎉 Панель управления откроется на `http://localhost:91827`
 
 **2. Подключите БЕСПЛАТНОГО провайдера (без подписки):**
 
@@ -84,7 +84,7 @@ npm install -g 9router
 
 ```
 Настройки Claude Code/Codex/Gemini CLI/OpenClaw/Cursor/Cline:
-  Endpoint: http://localhost:20128/v1
+  Endpoint: http://localhost:91827/v1
   API Key: [скопируйте из панели управления]
   Model: if/kimi-k2-thinking
 ```
@@ -93,24 +93,24 @@ npm install -g 9router
 
 **Альтернатива: запуск из исходников (этот репозиторий):**
 
-Пакет этого репозитория приватный (`9router-app`), поэтому запуск из исходников/Docker — это ожидаемый путь локальной разработки.
+Пакет этого репозитория приватный (`Rebana Router-app`), поэтому запуск из исходников/Docker  это ожидаемый путь локальной разработки.
 
 ```bash
 cp .env.example .env
 npm install
-PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+PORT=91827 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run dev
 ```
 
 Режим Production:
 
 ```bash
 npm run build
-PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+PORT=91827 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run start
 ```
 
 URL по умолчанию:
-- Панель управления: `http://localhost:20128/dashboard`
-- OpenAI-совместимый API: `http://localhost:20128/v1`
+- Панель управления: `http://localhost:91827/dashboard`
+- OpenAI-совместимый API: `http://localhost:91827/v1`
 
 ---
 
@@ -118,19 +118,19 @@ URL по умолчанию:
 
 <div align="center">
   
-### 📺 Полное руководство по настройке - 9Router + Claude Code БЕСПЛАТНО
+### 📝 Полное руководство по настройке - Rebana Router + Claude Code БЕСПЛАТНО
   
-[![Настройка 9Router + Claude Code](https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg)](https://www.youtube.com/watch?v=raEyZPg5xE0)
+[![Настройка Rebana Router + Claude Code](https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg)](https://www.youtube.com/watch?v=raEyZPg5xE0)
 
 **🎬 Полное пошаговое руководство:**
-- ✅ Установка и настройка 9Router
+- ✅ Установка и настройка Rebana Router
 - ✅ Настройка Claude Sonnet 4.5 БЕСПЛАТНО
 - ✅ Интеграция с Claude Code
 - ✅ Тестирование кода вживую
 
-**⏱️ Длительность:** 20 минут | **👥 Автор:** Сообщество разработчиков
+**❌⏱️ Длительность:** 20 минут | **👥 Автор:** Сообщество разработчиков
 
-[▶️ Смотреть на YouTube](https://www.youtube.com/watch?v=o3qYCyjrFYg)
+[❌▶️ Смотреть на YouTube](https://www.youtube.com/watch?v=o3qYCyjrFYg)
 
 </div>
 
@@ -138,7 +138,7 @@ URL по умолчанию:
 
 ## 🛠️ Поддерживаемые CLI-инструменты
 
-9Router бесшовно работает со всеми основными AI-инструментами для кодинга:
+Rebana Router бесшовно работает со всеми основными AI-инструментами для кодинга:
 
 <div align="center">
   <table>
@@ -238,12 +238,12 @@ URL по умолчанию:
       <td align="center" width="150">
         <img src="../public/providers/iflow.png" width="70" alt="iFlow"/><br/>
         <b>iFlow AI</b><br/>
-        <sub>8+ моделей • Без ограничений</sub>
+        <sub>8+ моделей  Без ограничений</sub>
       </td>
       <td align="center" width="150">
         <img src="../public/providers/qwen.png" width="70" alt="Qwen"/><br/>
         <b>Qwen Code</b><br/>
-        <sub>3+ моделей • Без ограничений</sub>
+        <sub>3+ моделей  Без ограничений</sub>
       </td>
       <td align="center" width="150">
         <img src="../public/providers/gemini-cli.png" width="70" alt="Gemini CLI"/><br/>
@@ -253,7 +253,7 @@ URL по умолчанию:
       <td align="center" width="150">
         <img src="../public/providers/kiro.png" width="70" alt="Kiro"/><br/>
         <b>Kiro AI</b><br/>
-        <sub>Claude • Без ограничений</sub>
+        <sub>Claude  Без ограничений</sub>
       </td>
     </tr>
   </table>
@@ -352,14 +352,14 @@ URL по умолчанию:
 | Возможность | Что делает | Почему это важно |
 |---------|--------------|----------------|
 | 🎯 **Smart 3-Tier Fallback** | Авто-маршрутизация: Подписка → Дёшево → Бесплатно | Никогда не прекращайте кодить, нулевой простой |
-| 📊 **Отслеживание квоты в реальном времени** | Живой подсчёт токенов + обратный отсчёт до сброса | Максимум ценности из подписки |
-| 🔄 **Трансляция форматов** | OpenAI ↔ Claude ↔ Gemini бесшовно | Работает с любым CLI-инструментом |
+| 📝 **Отслеживание квоты в реальном времени** | Живой подсчёт токенов + обратный отсчёт до сброса | Максимум ценности из подписки |
+| 🔄 **Трансляция форматов** | OpenAI → Claude → Gemini бесшовно | Работает с любым CLI-инструментом |
 | 👥 **Поддержка нескольких аккаунтов** | Несколько аккаунтов на каждого провайдера | Балансировка нагрузки + резервирование |
 | 🔄 **Авто-обновление токена** | OAuth-токены обновляются автоматически | Не нужно входить вручную заново |
 | 🎨 **Пользовательские комбо** | Создавайте безграничные комбинации моделей | Настройте резервирование под себя |
 | 📝 **Логирование запросов** | Режим отладки с полным логом запросов/ответов | Лёгкая диагностика проблем |
 | 💾 **Облачная синхронизация** | Синхронизация конфигурации между устройствами | Одинаковые настройки везде |
-| 📊 **Аналитика использования** | Отслеживание токенов, затрат, трендов во времени | Оптимизация расходов |
+| 📝 **Аналитика использования** | Отслеживание токенов, затрат, трендов во времени | Оптимизация расходов |
 | 🌐 **Развёртывание где угодно** | Localhost, VPS, Docker, Cloudflare Workers | Гибкие варианты развёртывания |
 
 <details>
@@ -378,7 +378,7 @@ Combo: "my-coding-stack"
 → Автопереключение при исчерпании квоты или ошибке
 ```
 
-### 📊 Отслеживание квоты в реальном времени
+### 📝 Отслеживание квоты в реальном времени
 
 - Потребление токенов по каждому провайдеру
 - Обратный отсчёт до сброса (5 часов, ежедневно, еженедельно)
@@ -388,8 +388,8 @@ Combo: "my-coding-stack"
 ### 🔄 Трансляция форматов
 
 Бесшовная трансляция между форматами:
-- **OpenAI** ↔ **Claude** ↔ **Gemini** ↔ **OpenAI Responses**
-- Ваш CLI-инструмент отправляет формат OpenAI → 9Router транслирует → Провайдер получает родной формат
+- **OpenAI** → **Claude** → **Gemini** → **OpenAI Responses**
+- Ваш CLI-инструмент отправляет формат OpenAI → Rebana Router транслирует → Провайдер получает родной формат
 - Работает с любым инструментом, поддерживающим пользовательский эндпоинт OpenAI
 
 ### 👥 Поддержка нескольких аккаунтов
@@ -433,30 +433,30 @@ Combo: "my-coding-stack"
 - `NEXT_PUBLIC_BASE_URL` и `NEXT_PUBLIC_CLOUD_URL` по-прежнему поддерживаются для совместимости/UI, но серверный рантайм теперь приоритезирует `BASE_URL`/`CLOUD_URL`.
 - Запросы облачной синхронизации теперь используют тайм-аут + fail-fast поведение, чтобы избежать зависания UI при недоступности DNS/облачной сети.
 
-### 📊 Аналитика использования
+### 📝 Аналитика использования
 
 - Отслеживание использования токенов по провайдеру и модели
 - Оценка затрат и тренды расходов
 - Ежемесячные отчёты и инсайты
 - Оптимизация ваших AI-расходов
 
-> **💡 ВАЖНО - Понимание «Затрат» на панели управления:**
+> **💡 ВАЖНО - Понимание Затрат на панели управления:**
 > 
-> «Затраты», показанные в Аналитике использования, предназначены **только для отслеживания и сравнения**. 
-> Сам 9Router **никогда ничего не взимает** с вас. Вы платите напрямую провайдерам (если используете платные сервисы).
+> Затраты, показанные в Аналитике использования, предназначены **только для отслеживания и сравнения**. 
+> Сам Rebana Router **никогда ничего не взимает** с вас. Вы платите напрямую провайдерам (если используете платные сервисы).
 > 
-> **Пример:** Если на панели показано «общие затраты $290» при использовании моделей iFlow, это представляет 
+> **Пример:** Если на панели показано общие затраты $290 при использовании моделей iFlow, это представляет 
 > сумму, которую вы заплатили бы при прямом использовании платного API. Ваши фактические затраты = **$0** (iFlow бесплатен без ограничений).
 > 
-> Считайте это «трекером экономии», показывающим, сколько вы экономите, используя бесплатные модели или 
-> маршрутизацию через 9Router!
+> Считайте это трекером экономии, показывающим, сколько вы экономите, используя бесплатные модели или 
+> маршрутизацию через Rebana Router!
 
 ### 🌐 Развёртывание где угодно
 
-- 💻 **Localhost** — По умолчанию, работает офлайн
-- ☁️ **VPS/Cloud** — Общий доступ между устройствами
-- 🐳 **Docker** — Развёртывание одной командой
-- 🚀 **Cloudflare Workers** — Глобальная edge-сеть
+- 💻 **Localhost**  По умолчанию, работает офлайн
+- ❌☁️ **VPS/Cloud**  Общий доступ между устройствами
+- 🐳 **Docker**  Развёртывание одной командой
+- 🚀 **Cloudflare Workers**  Глобальная edge-сеть
 
 </details>
 
@@ -481,44 +481,44 @@ Combo: "my-coding-stack"
 
 ---
 
-### 📊 Понимание затрат и оплаты в 9Router
+### 📝 Понимание затрат и оплаты в Rebana Router
 
-**Реальность оплаты 9Router:**
+**Реальность оплаты Rebana Router:**
 
-✅ **Софт 9Router = БЕСПЛАТНО навсегда** (открытый код, никогда не взимает плату)  
-✅ **«Затраты» на панели = Только для отображения/отслеживания** (не реальный счёт)  
+✅ **Софт Rebana Router = БЕСПЛАТНО навсегда** (открытый код, никогда не взимает плату)  
+✅ **Затраты на панели = Только для отображения/отслеживания** (не реальный счёт)  
 ✅ **Вы платите напрямую провайдерам** (подписка или плата за API)  
 ✅ **БЕСПЛАТНЫЕ провайдеры остаются БЕСПЛАТНЫМИ** (iFlow, Kiro, Qwen = $0 без ограничений)  
-❌ **9Router никогда не выставляет счёт** и не списывает с вашей карты
+❌ **Rebana Router никогда не выставляет счёт** и не списывает с вашей карты
 
 **Как работает отображение затрат:**
 
-Панель показывает **оценочные затраты**, как если бы вы напрямую использовали платный API. Это **не оплата** — это инструмент сравнения, показывающий вашу экономию.
+Панель показывает **оценочные затраты**, как если бы вы напрямую использовали платный API. Это **не оплата**  это инструмент сравнения, показывающий вашу экономию.
 
 **Пример сценария:**
 ```
 Показано на панели:
-• Всего запросов: 1,662
-• Всего токенов: 47M
-• Отображаемые затраты: $290
+ Всего запросов: 1,662
+ Всего токенов: 47M
+ Отображаемые затраты: $290
 
 Реальная проверка:
-• Провайдер: iFlow (БЕСПЛАТНО без ограничений)
-• Фактическая оплата: $0.00
-• Значение $290: Сумма, которую вы СЭКОНОМИЛИ, используя бесплатные модели!
+ Провайдер: iFlow (БЕСПЛАТНО без ограничений)
+ Фактическая оплата: $0.00
+ Значение $290: Сумма, которую вы СЭКОНОМИЛИ, используя бесплатные модели!
 ```
 
 **Правила оплаты:**
 - **Провайдеры подписки** (Claude Code, Codex): Платите им напрямую через их сайт
-- **Дешёвые провайдеры** (GLM, MiniMax): Платите им напрямую, 9Router только маршрутизирует
+- **Дешёвые провайдеры** (GLM, MiniMax): Платите им напрямую, Rebana Router только маршрутизирует
 - **БЕСПЛАТНЫЕ провайдеры** (iFlow, Kiro, Qwen): Действительно бесплатны навсегда, без скрытых платежей
-- **9Router**: Никогда ничего не взимает, никогда
+- **Rebana Router**: Никогда ничего не взимает, никогда
 
 ---
 
 ## 🎯 Сценарии использования
 
-### Сценарий 1: «У меня подписка Claude Pro»
+### Сценарий 1: У меня подписка Claude Pro
 
 **Проблема:** Квота сгорает неиспользованной, rate limit при интенсивной работе
 
@@ -533,7 +533,7 @@ Combo: "maximize-claude"
 против $20 + упирание в лимит = разочарование
 ```
 
-### Сценарий 2: «Хочу нулевые затраты»
+### Сценарий 2: Хочу нулевые затраты
 
 **Проблема:** Не могу позволить подписку, нужен надёжный AI-кодинг
 
@@ -548,7 +548,7 @@ Combo: "free-forever"
 Качество: Production-ready модели
 ```
 
-### Сценарий 3: «Нужно кодить 24/7, без перерывов»
+### Сценарий 3: Нужно кодить 24/7, без перерывов
 
 **Проблема:** Дедлайны, нельзя допустить простоя
 
@@ -565,7 +565,7 @@ Combo: "always-on"
 Месячная стоимость: $20-200 (подписки) + $10-20 (бэкап)
 ```
 
-### Сценарий 4: «Хочу БЕСПЛАТНЫЙ AI в OpenClaw»
+### Сценарий 4: Хочу БЕСПЛАТНЫЙ AI в OpenClaw
 
 **Проблема:** Нужен AI-ассистент в мессенджерах (WhatsApp, Telegram, Slack...), полностью бесплатно
 
@@ -582,34 +582,34 @@ Combo: "openclaw-free"
 
 ---
 
-## ❓ Часто задаваемые вопросы
+## ❌❓ Часто задаваемые вопросы
 
 <details>
-<summary><b>📊 Почему моя панель показывает высокие затраты?</b></summary>
+<summary><b>📝 Почему моя панель показывает высокие затраты?</b></summary>
 
-Панель отслеживает ваше использование токенов и показывает **оценочные затраты**, как если бы вы напрямую использовали платный API. Это **не реальная оплата** — это справка, показывающая, сколько вы экономите, используя бесплатные модели или существующие подписки через 9Router.
+Панель отслеживает ваше использование токенов и показывает **оценочные затраты**, как если бы вы напрямую использовали платный API. Это **не реальная оплата**  это справка, показывающая, сколько вы экономите, используя бесплатные модели или существующие подписки через Rebana Router.
 
 **Пример:**
-- **Панель показывает:** «Общие затраты $290»
+- **Панель показывает:** Общие затраты $290
 - **Реальность:** Вы используете iFlow (БЕСПЛАТНО без ограничений)
 - **Ваши фактические затраты:** **$0.00**
 - **Значение $290:** Сумма, которую вы **экономите**, используя бесплатные модели вместо платного API!
 
-Отображение затрат — это «трекер экономии», помогающий понять паттерны использования и возможности оптимизации.
+Отображение затрат  это трекер экономии, помогающий понять паттерны использования и возможности оптимизации.
 
 </details>
 
 <details>
-<summary><b>💳 Взимает ли с меня плату 9Router?</b></summary>
+<summary><b>💳 Взимает ли с меня плату Rebana Router?</b></summary>
 
-**Нет.** 9Router — это бесплатное ПО с открытым кодом, работающее на вашем собственном компьютере. Оно никогда ничего с вас не взимает.
+**Нет.** Rebana Router  это бесплатное ПО с открытым кодом, работающее на вашем собственном компьютере. Оно никогда ничего с вас не взимает.
 
 **Вы платите только:**
 - ✅ **Провайдерам подписки** (Claude Code $20/мес, Codex $20-200/мес) → Платите им напрямую на их сайте
-- ✅ **Дешёвым провайдерам** (GLM, MiniMax) → Платите им напрямую, 9Router только маршрутизирует ваши запросы
-- ❌ **Самому 9Router** → **Никогда ничего не взимает, никогда**
+- ✅ **Дешёвым провайдерам** (GLM, MiniMax) → Платите им напрямую, Rebana Router только маршрутизирует ваши запросы
+- ❌ **Самому Rebana Router** → **Никогда ничего не взимает, никогда**
 
-9Router — это локальный прокси/роутер. У него нет вашей кредитной карты, он не может выставлять счета и не имеет платёжной системы. Это полностью бесплатное ПО.
+Rebana Router  это локальный прокси/роутер. У него нет вашей кредитной карты, он не может выставлять счета и не имеет платёжной системы. Это полностью бесплатное ПО.
 
 </details>
 
@@ -623,16 +623,16 @@ Combo: "openclaw-free"
 - **Kiro**: Бесплатные безлимитные модели Claude через AWS Builder ID  
 - **Qwen**: Бесплатный безлимитный доступ к моделям Qwen через аутентификацию устройства
 
-9Router только маршрутизирует ваши запросы к ним — никаких «ловушек» или будущих платежей. Это действительно бесплатные сервисы, а 9Router облегчает их использование с поддержкой резервирования.
+Rebana Router только маршрутизирует ваши запросы к ним  никаких ловушек или будущих платежей. Это действительно бесплатные сервисы, а Rebana Router облегчает их использование с поддержкой резервирования.
 
-**Примечание:** Некоторые провайдеры подписки (Antigravity, GitHub Copilot) могут иметь бесплатные пробные периоды, которые позже становятся платными, но об этом чётко уведомляют сами провайдеры, а не 9Router.
+**Примечание:** Некоторые провайдеры подписки (Antigravity, GitHub Copilot) могут иметь бесплатные пробные периоды, которые позже становятся платными, но об этом чётко уведомляют сами провайдеры, а не Rebana Router.
 
 </details>
 
 <details>
 <summary><b>💰 Как минимизировать мои реальные AI-затраты?</b></summary>
 
-**Стратегия «Бесплатное в приоритете»:**
+**Стратегия Бесплатное в приоритете:**
 
 1. **Начните со 100% бесплатного комбо:**
    ```
@@ -650,7 +650,7 @@ Combo: "openclaw-free"
 
 3. **Используйте провайдеров подписки в последнюю очередь:**
    - Только если они у вас уже есть
-   - 9Router помогает максимизировать их ценность через отслеживание квоты
+   - Rebana Router помогает максимизировать их ценность через отслеживание квоты
 
 **Результат:** Большинство пользователей могут работать за $0/мес, используя только бесплатные уровни!
 
@@ -659,20 +659,20 @@ Combo: "openclaw-free"
 <details>
 <summary><b>📈 Что если моё использование внезапно вырастет?</b></summary>
 
-Умный механизм резервирования 9Router предотвращает неожиданные расходы:
+Умный механизм резервирования Rebana Router предотвращает неожиданные расходы:
 
 **Сценарий:** Вы в спринте кодинга и превышаете квоты
 
-**Без 9Router:**
+**Без Rebana Router:**
 - ❌ Упёрлись в rate limit → Работа остановилась → Разочарование
 - ❌ Или: Случайно накопили огромный счёт за API
 
-**С 9Router:**
+**С Rebana Router:**
 - ✅ Подписка упёрлась в лимит → Авторезервирование на дешёвый уровень
 - ✅ Дешёвый уровень становится дорогим → Авторезервирование на бесплатный уровень
 - ✅ Никогда не прекращаете кодить → Предсказуемая стоимость
 
-**Вы контролируете:** Установите лимиты расходов на каждого провайдера в панели, и 9Router будет их соблюдать.
+**Вы контролируете:** Установите лимиты расходов на каждого провайдера в панели, и Rebana Router будет их соблюдать.
 
 </details>
 
@@ -696,7 +696,7 @@ Combo: "openclaw-free"
   cc/claude-haiku-4-5-20251001
 ```
 
-**Профи-совет:** Используйте Opus для сложных задач, Sonnet для скорости. 9Router отслеживает квоту для каждой модели!
+**Профи-совет:** Используйте Opus для сложных задач, Sonnet для скорости. Rebana Router отслеживает квоту для каждой модели!
 
 ### OpenAI Codex (Plus/Pro)
 
@@ -864,8 +864,8 @@ Combo: "openclaw-free"
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [из панели управления 9router]
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [из панели управления Rebana Router]
   Model: cc/claude-opus-4-6
 ```
 
@@ -877,44 +877,44 @@ Settings → Models → Advanced:
 
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key"
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key"
 }
 ```
 
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex "ваш промпт"
 ```
 
 ### OpenClaw
 
-**Вариант 1 — Панель управления (рекомендуется):**
+**Вариант 1  Панель управления (рекомендуется):**
 
 ```
 Панель управления → CLI Tools → OpenClaw → Выбрать модель → Применить
 ```
 
-**Вариант 2 — Вручную:** Отредактируйте `~/.openclaw/openclaw.json`:
+**Вариант 2  Вручную:** Отредактируйте `~/.openclaw/openclaw.json`:
 
 ```json
 {
   "agents": {
     "defaults": {
       "model": {
-        "primary": "9router/if/glm-4.7"
+        "primary": "Rebana Router/if/glm-4.7"
       }
     }
   },
   "models": {
     "providers": {
-      "9router": {
-        "baseUrl": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router",
+      "Rebana Router": {
+        "baseUrl": "http://127.0.0.1:91827/v1",
+        "apiKey": "sk_Rebana Router",
         "api": "openai-completions",
         "models": [
           {
@@ -928,13 +928,13 @@ codex "ваш промпт"
 }
 ```
 
-> **Примечание:** OpenClaw работает только с локальным 9Router. Используйте `127.0.0.1` вместо `localhost`, чтобы избежать проблем с разрешением имён.
+> **Примечание:** OpenClaw работает только с локальным Rebana Router. Используйте `127.0.0.1` вместо `localhost`, чтобы избежать проблем с разрешением имён.
 
 ### Cline / Continue / RooCode
 
 ```
 Provider: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [из панели управления]
 Model: cc/claude-opus-4-6
 ```
@@ -948,20 +948,20 @@ Model: cc/claude-opus-4-6
 
 ```bash
 # Clone and install
-git clone https://github.com/decolua/9router.git
-cd 9router
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router
 npm install
 npm run build
 
 # Configure
 export JWT="your-secure-secret-change-this"
 export INITIAL_PASSWORD="your-password"
-export DATA_DIR="/var/lib/9router"
-export PORT="20128"
+export DATA_DIR="/var/lib/Rebana Router"
+export PORT="91827"
 export HOSTNAME="0.0.0.0"
 export NODE_ENV="production"
-export NEXT_PUBLIC_BASE_URL="http://localhost:20128"
-export NEXT_PUBLIC_CLOUD_URL="https://9router.com"
+export NEXT_PUBLIC_BASE_URL="http://localhost:91827"
+export NEXT_PUBLIC_CLOUD_URL="https://Rebana Router.com"
 export API_KEY_SECRET="endpoint-proxy-api-key-secret"
 export MACHINE_ID_SALT="endpoint-proxy-salt"
 
@@ -970,7 +970,7 @@ npm run start
 
 # Or use PM2
 npm install -g pm2
-pm2 start --name 9router -- start
+pm2 start --name Rebana Router -- start
 pm2 save
 pm2 startup
 ```
@@ -979,56 +979,56 @@ pm2 startup
 
 ```bash
 # Build image (from repository root)
-docker build -t 9router .
+docker build -t Rebana Router .
 
 # Run container (command used in current setup)
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
-  --env-file /root/dev/9router/.env \
-  -v 9router-data:/app/data \
-  -v 9router-usage:/root/.9router \
-  9router
+  --name Rebana Router \
+  -p 91827:91827 \
+  --env-file /root/dev/Rebana Router/.env \
+  -v Rebana Router-data:/app/data \
+  -v Rebana Router-usage:/root/.Rebana Router \
+  Rebana Router
 ```
 
 Портативная команда (если вы уже в корне репозитория):
 
 ```bash
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
+  --name Rebana Router \
+  -p 91827:91827 \
   --env-file ./.env \
-  -v 9router-data:/app/data \
-  -v 9router-usage:/root/.9router \
-  9router
+  -v Rebana Router-data:/app/data \
+  -v Rebana Router-usage:/root/.Rebana Router \
+  Rebana Router
 ```
 
 Значения по умолчанию контейнера:
-- `PORT=20128`
+- `PORT=91827`
 - `HOSTNAME=0.0.0.0`
 
 Полезные команды:
 
 ```bash
-docker logs -f 9router
-docker restart 9router
-docker stop 9router && docker rm 9router
+docker logs -f Rebana Router
+docker restart Rebana Router
+docker stop Rebana Router && docker rm Rebana Router
 ```
 
 ### Переменные окружения
 
 | Переменная | По умолчанию | Описание |
 |----------|---------|-------------|
-| `JWT_SECRET` | Автогенерация (`~/.9router/jwt-secret`) | Секрет подписи JWT для cookie аутентификации панели (задайте для общего доступа между инстансами) |
+| `JWT_SECRET` | Автогенерация (`~/.Rebana Router/jwt-secret`) | Секрет подписи JWT для cookie аутентификации панели (задайте для общего доступа между инстансами) |
 | `INITIAL_PASSWORD` | `123456` | Пароль первого входа при отсутствии сохранённого хеша |
-| `DATA_DIR` | `~/.9router` | Расположение основной БД приложения (`db.json`) |
-| `PORT` | framework default | Порт сервиса (`20128` в примерах) |
+| `DATA_DIR` | `~/.Rebana Router` | Расположение основной БД приложения (`db.json`) |
+| `PORT` | framework default | Порт сервиса (`91827` в примерах) |
 | `HOSTNAME` | framework default | Bind host (Docker по умолчанию `0.0.0.0`) |
 | `NODE_ENV` | runtime default | Установите `production` для развёртывания |
-| `BASE_URL` | `http://localhost:20128` | Внутренний серверный базовый URL для задач облачной синхронизации |
-| `CLOUD_URL` | `https://9router.com` | Серверный базовый URL эндпоинта облачной синхронизации |
+| `BASE_URL` | `http://localhost:91827` | Внутренний серверный базовый URL для задач облачной синхронизации |
+| `CLOUD_URL` | `https://Rebana Router.com` | Серверный базовый URL эндпоинта облачной синхронизации |
 | `NEXT_PUBLIC_BASE_URL` | `http://localhost:3000` | Обратно совместимый/публичный базовый URL (приоритет `BASE_URL` для серверного рантайма) |
-| `NEXT_PUBLIC_CLOUD_URL` | `https://9router.com` | Обратно совместимый/публичный облачный URL (приоритет `CLOUD_URL` для серверного рантайма) |
+| `NEXT_PUBLIC_CLOUD_URL` | `https://Rebana Router.com` | Обратно совместимый/публичный облачный URL (приоритет `CLOUD_URL` для серверного рантайма) |
 | `API_KEY_SECRET` | `endpoint-proxy-api-key-secret` | HMAC-секрет для генерируемых API-ключей |
 | `MACHINE_ID_SALT` | `endpoint-proxy-salt` | Соль для стабильного хеширования ID машины |
 | `ENABLE_REQUEST_LOGS` | `false` | Включить лог запросов/ответов в `logs/` |
@@ -1045,15 +1045,15 @@ docker stop 9router && docker rm 9router
 ### Runtime-файлы и хранилище
 
 - Основное состояние приложения: `${DATA_DIR}/db.json` (провайдеры, комбо, alias, ключи, настройки), управляется `src/lib/localDb.js`.
-- История использования и логи: `~/.9router/usage.json` и `~/.9router/log.txt`, управляется `src/lib/usageDb.js`.
+- История использования и логи: `~/.Rebana Router/usage.json` и `~/.Rebana Router/log.txt`, управляется `src/lib/usageDb.js`.
 - Опциональные логи запросов/транслятора: `<repo>/logs/...` при `ENABLE_REQUEST_LOGS=true`.
-- Хранилище использования следует логике пути `~/.9router` и независимо от `DATA_DIR`.
+- Хранилище использования следует логике пути `~/.Rebana Router` и независимо от `DATA_DIR`.
 
 </details>
 
 ---
 
-## 📊 Доступные модели
+## 📝 Доступные модели
 
 <details>
 <summary><b>Показать все доступные модели</b></summary>
@@ -1109,7 +1109,7 @@ docker stop 9router && docker rm 9router
 - Добавьте комбо: `cc/claude-opus-4-6 → glm/glm-4.7 → if/kimi-k2-thinking`
 
 **OAuth-токен истёк**
-- Автообновление 9Router
+- Автообновление Rebana Router
 - Если проблема сохраняется: Панель управления → Провайдеры → Переподключить
 
 **Высокие затраты**
@@ -1118,18 +1118,18 @@ docker stop 9router && docker rm 9router
 - Используйте бесплатные уровни (Gemini CLI, iFlow) для некритичных задач
 
 **Панель открывается на неверном порту**
-- Установите `PORT=20128` и `NEXT_PUBLIC_BASE_URL=http://localhost:20128`
+- Установите `PORT=91827` и `NEXT_PUBLIC_BASE_URL=http://localhost:91827`
 
 **Ошибки облачной синхронизации**
-- Убедитесь, что `BASE_URL` указывает на ваш работающий инстанс (например, `http://localhost:20128`)
-- Убедитесь, что `CLOUD_URL` указывает на ожидаемый облачный эндпоинт (например, `https://9router.com`)
+- Убедитесь, что `BASE_URL` указывает на ваш работающий инстанс (например, `http://localhost:91827`)
+- Убедитесь, что `CLOUD_URL` указывает на ожидаемый облачный эндпоинт (например, `https://Rebana Router.com`)
 - По возможности держите значения `NEXT_PUBLIC_*` согласованными с серверными значениями.
 
 **Облачный эндпоинт `stream=false` возвращает 500 (`Unexpected token 'd'...`)**
-- Симптом обычно появляется на публичном облачном эндпоинте (`https://9router.com/v1`) для непотоковых (non-streaming) вызовов.
+- Симптом обычно появляется на публичном облачном эндпоинте (`https://Rebana Router.com/v1`) для непотоковых (non-streaming) вызовов.
 - Корневая причина: upstream возвращает SSE-payload (`data: ...`), тогда как клиент ожидает JSON.
 - Обходное решение: используйте `stream=true` для прямых вызовов в облако.
-- Локальный рантайм 9Router включает резервирование SSE→JSON для непотоковых вызовов, когда upstream возвращает `text/event-stream`.
+- Локальный рантайм Rebana Router включает резервирование SSE→JSON для непотоковых вызовов, когда upstream возвращает `text/event-stream`.
 
 **Облако сообщает о подключении, но запрос всё равно падает с `Invalid API key`**
 - Создайте новый ключ в локальной панели (`/api/keys`) и запустите облачную синхронизацию (`Enable Cloud`, затем `Sync Now`).
@@ -1137,7 +1137,7 @@ docker stop 9router && docker rm 9router
 
 **Первый вход не работает**
 - Проверьте `INITIAL_PASSWORD` в `.env`
-- Если не задан, резервный пароль — `123456`
+- Если не задан, резервный пароль  `123456`
 
 **Нет логов запросов в `logs/`**
 - Установите `ENABLE_REQUEST_LOGS=true`
@@ -1160,7 +1160,7 @@ docker stop 9router && docker rm 9router
 ### Chat Completions
 
 ```bash
-POST http://localhost:20128/v1/chat/completions
+POST http://localhost:91827/v1/chat/completions
 Authorization: Bearer your-api-key
 Content-Type: application/json
 
@@ -1176,7 +1176,7 @@ Content-Type: application/json
 ### Список моделей
 
 ```bash
-GET http://localhost:20128/v1/models
+GET http://localhost:91827/v1/models
 Authorization: Bearer your-api-key
 
 → Возвращает все модели + комбо в формате OpenAI
@@ -1200,7 +1200,7 @@ Authorization: Bearer your-api-key
 - `tester/security/test-docker-hardening.sh`
   - Собирает Docker-образ и проверяет hardening-проверки (`/api/cloud/auth` auth guard, `REQUIRE_API_KEY`, безопасное поведение cookie аутентификации).
 - `tester/security/test-cloud-openai-compatible.sh`
-  - Отправляет OpenAI-совместимый запрос напрямую на облачный эндпоинт (`https://9router.com/v1/chat/completions`) с указанной моделью/ключом.
+  - Отправляет OpenAI-совместимый запрос напрямую на облачный эндпоинт (`https://Rebana Router.com/v1/chat/completions`) с указанной моделью/ключом.
 - `tester/security/test-cloud-sync-and-call.sh`
   - End-to-end процесс: создание локального ключа → включение/синхронизация облака → вызов облачного эндпоинта с повтором.
   - Включает резервную проверку с `stream=true`, чтобы отличить ошибки аутентификации от проблем разбора потока.
@@ -1218,9 +1218,9 @@ OPENAI_API_KEY="your-cloud-key" bash tester/security/test-cloud-openai-compatibl
 
 Ожидаемое поведение по результатам недавней проверки:
 
-- Локально (`http://127.0.0.1:20128/v1/chat/completions`): работает с `stream=false` и `stream=true`.
+- Локально (`http://127.0.0.1:91827/v1/chat/completions`): работает с `stream=false` и `stream=true`.
 - Docker-рантайм (тот же API-путь, экспонируемый контейнером): hardening-проверки проходят, cloud auth guard работает, строгий режим API-ключа работает при включении.
-- Публичный облачный эндпоинт (`https://9router.com/v1/chat/completions`):
+- Публичный облачный эндпоинт (`https://Rebana Router.com/v1/chat/completions`):
   - `stream=true`: ожидается успех (возвращает SSE-чанки).
   - `stream=false`: может падать с `500` + ошибкой разбора (`Unexpected token 'd'`), когда upstream возвращает SSE-контент для непотокового клиентского пути.
 
@@ -1258,23 +1258,23 @@ OPENAI_API_KEY="your-cloud-key" bash tester/security/test-cloud-openai-compatibl
 
 ## 📧 Поддержка
 
-- **Сайт**: [9router.com](https://9router.com)
-- **GitHub**: [github.com/decolua/9router](https://github.com/decolua/9router)
-- **Issues**: [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **Сайт**: [Rebana Router.com](https://Rebana Router.com)
+- **GitHub**: [github.com/decolua/Rebana Router](https://github.com/decolua/Rebana Router)
+- **Issues**: [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
 
 ---
 
 ## 👥 Контрибьюторы
 
-Спасибо всем, кто помогает делать 9Router лучше!
+Спасибо всем, кто помогает делать Rebana Router лучше!
 
-[![Contributors](https://contrib.rocks/image?repo=decolua/9router&max=100&columns=20&anon=1)](https://github.com/decolua/9router/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=decolua/Rebana Router&max=100&columns=20&anon=1)](https://github.com/decolua/Rebana Router/graphs/contributors)
 
 ---
 
-## 📊 Star Chart
+## 📝 Star Chart
 
-[![Star Chart](https://starchart.cc/decolua/9router.svg?variant=adaptive)](https://starchart.cc/decolua/9router)
+[![Star Chart](https://starchart.cc/decolua/Rebana Router.svg?variant=adaptive)](https://starchart.cc/decolua/Rebana Router)
 
 ### Как внести вклад
 
@@ -1284,28 +1284,28 @@ OPENAI_API_KEY="your-cloud-key" bash tester/security/test-cloud-openai-compatibl
 4. Запушьте в ветку (`git push origin feature/amazing-feature`)
 5. Откройте Pull Request
 
-См. [Pull Requests](https://github.com/decolua/9router/pulls) для подробных инструкций.
+См. [Pull Requests](https://github.com/decolua/Rebana Router/pulls) для подробных инструкций.
 
 ---
 
 ## 🔀 Форки
 
-**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — Полнофункциональный TypeScript-форк 9Router. Добавляет 36+ провайдеров, авторезервирование на 4 уровнях, мультимодальный API (изображения, embedding, аудио, TTS), circuit breaker, семантическое кеширование, оценку LLM и доработанную панель. 368+ юнит-тестов. Доступен через npm.
+**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)**  Полнофункциональный TypeScript-форк Rebana Router. Добавляет 36+ провайдеров, авторезервирование на 4 уровнях, мультимодальный API (изображения, embedding, аудио, TTS), circuit breaker, семантическое кеширование, оценку LLM и доработанную панель. 368+ юнит-тестов. Доступен через npm.
 
 ---
 
 ## 🙏 Благодарности
 
-Особая благодарность **CLIProxyAPI** — оригинальной Go-реализации, вдохновившей этот JavaScript-порт.
+Особая благодарность **CLIProxyAPI**  оригинальной Go-реализации, вдохновившей этот JavaScript-порт.
 
 ---
 
 ## 📄 Лицензия
 
-Лицензия MIT — см. [LICENSE](../LICENSE) для деталей.
+Лицензия MIT  см. [LICENSE](../LICENSE) для деталей.
 
 ---
 
 <div align="center">
-  <sub>Создано с ❤️ для разработчиков, которые кодят 24/7</sub>
+  <sub>Создано с ❌❤️ для разработчиков, которые кодят 24/7</sub>
 </div>

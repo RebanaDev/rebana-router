@@ -1,4 +1,4 @@
-// Verify 3-tier driver fallback: better-sqlite3 → node:sqlite → sql.js
+// Verify 3-tier driver fallback: better-sqlite3 â†’ node:sqlite â†’ sql.js
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -8,7 +8,7 @@ let tempDir;
 const originalDataDir = process.env.DATA_DIR;
 
 beforeEach(() => {
-  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "9router-chain-"));
+  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-chain-"));
   process.env.DATA_DIR = tempDir;
   delete global._dbAdapter;
   vi.resetModules();
@@ -23,7 +23,7 @@ afterEach(() => {
 });
 
 describe("Driver fallback chain", () => {
-  it("default → picks better-sqlite3 when available", async () => {
+  it("default â†’ picks better-sqlite3 when available", async () => {
     const { getAdapter } = await import("@/lib/db/driver.js");
     const db = await getAdapter();
     expect(["better-sqlite3", "node:sqlite", "sql.js"]).toContain(db.driver);

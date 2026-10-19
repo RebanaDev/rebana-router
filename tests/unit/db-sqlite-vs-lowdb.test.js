@@ -10,7 +10,7 @@ let tempDir;
 let sqliteDb;
 
 beforeAll(async () => {
-  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "9router-db-compare-"));
+  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-db-compare-"));
   process.env.DATA_DIR = tempDir;
   vi.resetModules();
   sqliteDb = await import("@/lib/db/index.js");
@@ -23,8 +23,8 @@ afterAll(() => {
   else process.env.DATA_DIR = originalDataDir;
 });
 
-describe("DB SQLite layer — public API parity", () => {
-  it("settings: get → defaults; update → merge", async () => {
+describe("DB SQLite layer â€” public API parity", () => {
+  it("settings: get â†’ defaults; update â†’ merge", async () => {
     const s = await sqliteDb.getSettings();
     expect(s).toBeDefined();
     expect(s.cloudEnabled).toBe(false);
@@ -319,7 +319,7 @@ describe("DB SQLite layer — public API parity", () => {
     expect(global._pendingRequests.byModel["gpt-4 (openai)"]).toBeUndefined();
   });
 
-  it("requestDetails: save → query with paging", async () => {
+  it("requestDetails: save â†’ query with paging", async () => {
     // Enable observability first
     await sqliteDb.updateSettings({ enableObservability: true, observabilityBatchSize: 1 });
 

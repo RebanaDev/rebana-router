@@ -1,27 +1,27 @@
 
 <div align="center">
-  <img src="./images/9router.png?1" alt="9Router Dashboard" width="800"/>
+  <img src="./images/Rebana Router.png?1" alt="Rebana Router Dashboard" width="800"/>
   
-  # 9Router - 免费 AI 路由器与 Token 节省器
+  # Rebana Router - 免费 AI 路由器与 Token 节省器
   
   **编程永不停歇。使用 RTK + 自动切换到免费/低价 AI 模型，节省 20-40% 的 tokens。**
   
   **将所有 AI 编程工具（Claude Code、Cursor、Antigravity、Copilot、Codex、Gemini、OpenCode、Cline、OpenClaw...）连接到 40+ AI 提供商和 100+ 模型。**
   
-  [![npm](https://img.shields.io/npm/v/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Downloads](https://img.shields.io/npm/dm/9router.svg)](https://www.npmjs.com/package/9router)
-  [![License](https://img.shields.io/npm/l/9router.svg)](https://github.com/decolua/9router/blob/main/LICENSE)
+  [![npm](https://img.shields.io/npm/v/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![Downloads](https://img.shields.io/npm/dm/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![License](https://img.shields.io/npm/l/Rebana Router.svg)](https://github.com/decolua/Rebana Router/blob/main/LICENSE)
 
-  <a href="https://trendshift.io/repositories/22628" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22628" alt="decolua%2F9router | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/22628" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22628" alt="decolua%2FRebana Router | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
   
-  [🚀 快速开始](#-快速开始) • [💡 功能特点](#-主要功能) • [📖 设置指南](#-设置指南) • [🌐 网站](https://9router.com)
+  [🚀 快速开始](#-快速开始)  [💡 功能特点](#-主要功能)  [📖 设置指南](#-设置指南)  [🌐 网站](https://Rebana Router.com)
 
-  [🇻🇳 Tiếng Việt](./i18n/README.vi.md) • [🇨🇳 中文](./i18n/README.zh-CN.md) • [🇯🇵 日本語](./i18n/README.ja-JP.md)
+  [🇻🇳 Tiếng Việt](./i18n/README.vi.md)  [🇨🇳 中文](./i18n/README.zh-CN.md)  [🇯🇵 日本語](./i18n/README.ja-JP.md)
 </div>
 
 ---
 
-## 🤔 为什么选择 9Router？
+## 🤔 为什么选择 Rebana Router？
 
 **告别浪费金钱、tokens 和触碰限制的困扰：**
 
@@ -31,7 +31,7 @@
 - ❌ 昂贵的 API（每个提供商 $20-50/月）
 - ❌ 需要手动在提供商之间切换
 
-**9Router 解决这一切：**
+**Rebana Router 解决这一切：**
 
 - ✅ **RTK Token 节省器** - 自动压缩 tool_result 内容，每次请求节省 20-40% tokens
 - ✅ **充分利用订阅** - 追踪配额，在重置前用尽每一分额度
@@ -44,41 +44,41 @@
 ## 🔄 工作原理
 
 ```
-┌─────────────┐
-│  你的 CLI   │  (Claude Code、Codex、OpenClaw、Cursor、Cline...)
-│   工具      │
-└──────┬──────┘
-       │ http://localhost:20128/v1
-       ↓
-┌─────────────────────────────────────────────┐
-│           9Router（智能路由器）              │
-│  • RTK Token 节省器（减少 tool_result tokens）│
-│  • 格式转换（OpenAI ↔ Claude）              │
-│  • 配额追踪                                  │
-│  • 自动刷新 token                           │
-└──────┬──────────────────────────────────────┘
-       │
-       ├─→ [第一层：订阅] Claude Code、Codex、GitHub Copilot
-       │   ↓ 配额耗尽
-       ├─→ [第二层：低价] GLM ($0.6/1M)、MiniMax ($0.2/1M)
-       │   ↓ 预算超限
-       └─→ [第三层：免费] Kiro、OpenCode Free、Vertex ($300 额度)
+❌┌❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┐
+❌│  你的 CLI   ❌│  (Claude Code、Codex、OpenClaw、Cursor、Cline...)
+❌│   工具      ❌│
+❌└❌─❌─❌─❌─❌─❌─❌┬❌─❌─❌─❌─❌─❌─❌┘
+       ❌│ http://localhost:91827/v1
+       →
+❌┌❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┐
+❌│           Rebana Router（智能路由器）              ❌│
+❌│   RTK Token 节省器（减少 tool_result tokens）❌│
+❌│   格式转换（OpenAI → Claude）              ❌│
+❌│   配额追踪                                  ❌│
+❌│   自动刷新 token                           ❌│
+❌└❌─❌─❌─❌─❌─❌─❌┬❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┘
+       ❌│
+       ❌├❌─→ [第一层：订阅] Claude Code、Codex、GitHub Copilot
+       ❌│   → 配额耗尽
+       ❌├❌─→ [第二层：低价] GLM ($0.6/1M)、MiniMax ($0.2/1M)
+       ❌│   → 预算超限
+       ❌└❌─→ [第三层：免费] Kiro、OpenCode Free、Vertex ($300 额度)
 
 结果：编程永不停歇，最小成本 + 通过 RTK 节省 20-40% tokens
 ```
 
 ---
 
-## ⚡ 快速开始
+## ❌⚡ 快速开始
 
 **1. 全局安装：**
 
 ```bash
-npm install -g 9router
-9router
+npm install -g Rebana Router
+Rebana Router
 ```
 
-🎉 控制面板在 `http://localhost:20128` 打开
+🎉 控制面板在 `http://localhost:91827` 打开
 
 **2. 连接免费提供商（无需注册）：**
 
@@ -88,7 +88,7 @@ npm install -g 9router
 
 ```
 Claude Code/Codex/OpenClaw/Cursor/Cline 设置：
-  Endpoint: http://localhost:20128/v1
+  Endpoint: http://localhost:91827/v1
   API Key: [从控制面板复制]
   Model: kr/claude-sonnet-4.5
 ```
@@ -97,24 +97,24 @@ Claude Code/Codex/OpenClaw/Cursor/Cline 设置：
 
 **替代方案：从源码运行（本仓库）：**
 
-本仓库的包是私有的（`9router-app`），所以源码/Docker 执行是预期的本地开发方式。
+本仓库的包是私有的（`Rebana Router-app`），所以源码/Docker 执行是预期的本地开发方式。
 
 ```bash
 cp .env.example .env
 npm install
-PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+PORT=91827 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run dev
 ```
 
 生产模式：
 
 ```bash
 npm run build
-PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+PORT=91827 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run start
 ```
 
 默认 URL：
-- 控制面板：`http://localhost:20128/dashboard`
-- OpenAI 兼容 API：`http://localhost:20128/v1`
+- 控制面板：`http://localhost:91827/dashboard`
+- OpenAI 兼容 API：`http://localhost:91827/v1`
 
 ---
 
@@ -126,24 +126,24 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
   <tr>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=raEyZPg5xE0">
-        <img src="https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg" alt="9Router Setup Tutorial" width="300"/>
+        <img src="https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg" alt="Rebana Router Setup Tutorial" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>9Router + Claude Code 免费设置<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <sub>Rebana Router + Claude Code 免费设置<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=X69n5Lm06Yw">
-        <img src="https://img.youtube.com/vi/X69n5Lm06Yw/maxresdefault.jpg" alt="Tiết kiệm chi phí LLM với 9Router" width="300"/>
+        <img src="https://img.youtube.com/vi/X69n5Lm06Yw/maxresdefault.jpg" alt="Tiết kiệm chi ph LLM với Rebana Router" width="300"/>
       </a><br/>
       <b>🇻🇳 Tiếng Việt</b><br/>
-      <sub>使用 9Router 节省 OpenClaw 的 LLM 成本<br/>by <a href="https://www.youtube.com/c/M%C3%ACAIblog">Mì AI</a></sub>
+      <sub>使用 Rebana Router 节省 OpenClaw 的 LLM 成本<br/>by <a href="https://www.youtube.com/c/M%C3%ACAIblog">M AI</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=o3qYCyjrFYg">
         <img src="https://img.youtube.com/vi/o3qYCyjrFYg/maxresdefault.jpg" alt="Claude Code FREE Forever" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>Claude Code 免费永久使用 — 无限模型<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <sub>Claude Code 免费永久使用  无限模型<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
   </tr>
   <tr>
@@ -152,14 +152,14 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
         <img src="https://img.youtube.com/vi/Ttpc26m39Dw/maxresdefault.jpg" alt="Claude CLI Free Setup" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>使用 9Router 免费设置 Claude CLI 🚀<br/>by <a href="https://www.youtube.com/@CodeVerseSoban">CodeVerse Soban</a></sub>
+      <sub>使用 Rebana Router 免费设置 Claude CLI 🚀<br/>by <a href="https://www.youtube.com/@CodeVerseSoban">CodeVerse Soban</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=G-5A_D5Pm6Y">
-        <img src="https://img.youtube.com/vi/G-5A_D5Pm6Y/maxresdefault.jpg" alt="Cài đặt OpenClaw Free A-Z" width="300"/>
+        <img src="https://img.youtube.com/vi/G-5A_D5Pm6Y/maxresdefault.jpg" alt="Ci đặt OpenClaw Free A-Z" width="300"/>
       </a><br/>
       <b>🇻🇳 Tiếng Việt</b><br/>
-      <sub>从零开始安装 OpenClaw 免费版 + 9Router<br/>by <a href="https://www.youtube.com/@maigia">Mai Gia</a></sub>
+      <sub>从零开始安装 OpenClaw 免费版 + Rebana Router<br/>by <a href="https://www.youtube.com/@maigia">Mai Gia</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=JXmg8_gccgE">
@@ -173,13 +173,13 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 </div>
 
-> 🎬 **制作了关于 9Router 的视频？** 提交 [Pull Request](https://github.com/decolua/9router/pulls)，将你的视频添加到此部分 — 我们会合并它！
+> 🎬 **制作了关于 Rebana Router 的视频？** 提交 [Pull Request](https://github.com/decolua/Rebana Router/pulls)，将你的视频添加到此部分  我们会合并它！
 
 ---
 
 ## 🛠️ 支持的 CLI 工具
 
-9Router 与所有主流 AI 编程工具无缝协作：
+Rebana Router 与所有主流 AI 编程工具无缝协作：
 
 <div align="center">
   <table>
@@ -284,7 +284,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
       <td align="center" width="150">
         <img src="./public/providers/opencode.png" width="70" alt="OpenCode Free"/><br/>
         <b>OpenCode Free</b><br/>
-        <sub>无需认证 • 自动获取模型<br/>免费（模型列表会变）</sub>
+        <sub>无需认证  自动获取模型<br/>免费（模型列表会变）</sub>
       </td>
       <td align="center" width="150">
         <img src="./public/providers/gemini.png" width="70" alt="Vertex AI"/><br/>
@@ -297,9 +297,9 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 > **注意：** iFlow、Qwen Code 和 Gemini CLI 的免费等级已于 2026 年停止。请改用 Kiro / OpenCode Free / Vertex。
 >
-> **Kiro AI** 于 2025 年 9 月转为付费模式 — 免费等级现在上限为**每月 50 积分**（新账户前 30 天另加 500 试用积分）。付费档位：Pro $20/月（1,000 积分）、Pro+ $40/月（2,000）、Pro Max $100/月（5,000）、Power $200/月（10,000）。
-> **OpenCode Free** 的模型列表会随时间变化（部分模型仅限时免费）— 可能随时变更，恕不另行通知。
-> **Vertex AI**：新 GCP 账户的 $300 免费额度仍然有效，但自 2026 年 3 月起 **Gemini API 端点不再消耗这些额度** — 请改用 **Vertex AI Studio** 端点。
+> **Kiro AI** 于 2025 年 9 月转为付费模式  免费等级现在上限为**每月 50 积分**（新账户前 30 天另加 500 试用积分）。付费档位：Pro $20/月（1,000 积分）、Pro+ $40/月（2,000）、Pro Max $100/月（5,000）、Power $200/月（10,000）。
+> **OpenCode Free** 的模型列表会随时间变化（部分模型仅限时免费） 可能随时变更，恕不另行通知。
+> **Vertex AI**：新 GCP 账户的 $300 免费额度仍然有效，但自 2026 年 3 月起 **Gemini API 端点不再消耗这些额度**  请改用 **Vertex AI Studio** 端点。
 
 ### 🔑 API Key 提供商（40+）
 
@@ -393,17 +393,17 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 | 功能 | 作用 | 为什么重要 |
 |---------|--------------|----------------|
-| 🚀 **RTK Token 节省器**（[RTK](https://github.com/rtk-ai/rtk) ⭐40K） | 压缩工具输出（`git diff`、`grep`、`ls`、`tree`...）后再发送给 LLM | 每次请求节省 **20-40% 输入 tokens** |
-| 🪨 **Caveman 模式**（[Caveman](https://github.com/JuliusBrussee/caveman) ⭐52K） | 注入 caveman 风格提示词 → LLM 回复简洁，保留技术实质 | 节省 **高达 65% 输出 tokens** |
+| 🚀 **RTK Token 节省器**（[RTK](https://github.com/rtk-ai/rtk) ❌⭐40K） | 压缩工具输出（`git diff`、`grep`、`ls`、`tree`...）后再发送给 LLM | 每次请求节省 **20-40% 输入 tokens** |
+| 🪨 **Caveman 模式**（[Caveman](https://github.com/JuliusBrussee/caveman) ❌⭐52K） | 注入 caveman 风格提示词 → LLM 回复简洁，保留技术实质 | 节省 **高达 65% 输出 tokens** |
 | 🎯 **智能三层切换** | 自动路由：订阅 → 低价 → 免费 | 编程永不停歇，零停机时间 |
-| 📊 **实时配额追踪** | 实时 token 计数 + 重置倒计时 | 充分利用订阅价值 |
-| 🔄 **格式转换** | OpenAI ↔ Claude ↔ Gemini ↔ Cursor ↔ Kiro ↔ Vertex | 兼容任何 CLI 工具 |
+| 📝 **实时配额追踪** | 实时 token 计数 + 重置倒计时 | 充分利用订阅价值 |
+| 🔄 **格式转换** | OpenAI → Claude → Gemini → Cursor → Kiro → Vertex | 兼容任何 CLI 工具 |
 | 👥 **多账户支持** | 每个提供商支持多个账户 | 负载均衡 + 冗余备份 |
 | 🔄 **自动 Token 刷新** | OAuth token 自动刷新 | 无需手动重新登录 |
 | 🎨 **自定义组合** | 创建无限模型组合 | 自定义适合你的切换策略 |
 | 📝 **请求日志** | 调试模式下的完整请求/响应日志 | 轻松排查问题 |
 | 💾 **云同步** | 跨设备同步配置 | 处处相同设置 |
-| 📊 **使用分析** | 追踪 tokens、成本、趋势 | 优化开支 |
+| 📝 **使用分析** | 追踪 tokens、成本、趋势 | 优化开支 |
 | 🌐 **任意部署** | 本地、VPS、Docker、Cloudflare Workers | 灵活部署选项 |
 
 <details>
@@ -414,14 +414,14 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 工具输出（`git diff`、`grep`、`find`、`ls`、`tree`、日志转储...）通常占用 30-50% 的提示词预算。RTK 在请求到达 LLM 之前检测并应用智能、无损压缩：
 
 - **过滤器：** `git-diff`、`git-status`、`grep`、`find`、`ls`、`tree`、`dedup-log`、`smart-truncate`、`read-numbered`、`search-list`
-- **自动检测：** 无需配置 — RTK 检查每个 `tool_result` 的前 1KB，选择合适的过滤器。
+- **自动检测：** 无需配置  RTK 检查每个 `tool_result` 的前 1KB，选择合适的过滤器。
 - **安全设计：** 如果过滤器失败、抛出异常或使输出变大，RTK 会静默保留原始文本。错误永远不会中断你的请求。
 - **通用兼容：** 适用于所有格式（OpenAI、Claude、Gemini、Cursor、Kiro、OpenAI Responses），因为它在任何格式转换**之前**运行。
 - **默认开启：** 可随时在控制面板 → 端点设置中切换。
 
 ```
 不使用 RTK：47K tokens 发送给 LLM
-使用 RTK：    28K tokens 发送给 LLM   (节省 40% · 相同上下文 · 相同答案)
+使用 RTK：    28K tokens 发送给 LLM   (节省 40%  相同上下文  相同答案)
 ```
 
 ### 🎯 智能三层切换
@@ -437,7 +437,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 → 配额用完或出错时自动切换
 ```
 
-### 📊 实时配额追踪
+### 📝 实时配额追踪
 
 - 每个提供商的 token 消耗
 - 重置倒计时（5小时、每日、每周）
@@ -447,8 +447,8 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 ### 🔄 格式转换
 
 格式间无缝转换：
-- **OpenAI** ↔ **Claude** ↔ **Gemini** ↔ **Cursor** ↔ **Kiro** ↔ **Vertex** ↔ **Antigravity** ↔ **Ollama** ↔ **OpenAI Responses**
-- 你的 CLI 工具发送 OpenAI 格式 → 9Router 转换 → 提供商接收原生格式
+- **OpenAI** → **Claude** → **Gemini** → **Cursor** → **Kiro** → **Vertex** → **Antigravity** → **Ollama** → **OpenAI Responses**
+- 你的 CLI 工具发送 OpenAI 格式 → Rebana Router 转换 → 提供商接收原生格式
 - 适用于任何支持自定义 OpenAI 端点的工具
 
 ### 👥 多账户支持
@@ -492,7 +492,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 - `NEXT_PUBLIC_BASE_URL` 和 `NEXT_PUBLIC_CLOUD_URL` 仍用于兼容性/UI，但服务端运行时现在优先使用 `BASE_URL`/`CLOUD_URL`。
 - 云同步请求现在使用超时 + 快速失败行为，以避免云 DNS/网络不可用时 UI 挂起。
 
-### 📊 使用分析
+### 📝 使用分析
 
 - 追踪每个提供商和模型的 token 使用量
 - 成本估算和支出趋势
@@ -502,16 +502,16 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 > **💡 重要 - 了解控制面板成本：**
 > 
 > 使用分析中显示的"成本"**仅用于追踪和比较目的**。
-> 9Router 本身**永远不会向你收费**。你只直接向提供商付款（如果使用付费服务）。
+> Rebana Router 本身**永远不会向你收费**。你只直接向提供商付款（如果使用付费服务）。
 > 
 > **示例：** 如果你的控制面板显示使用 Kiro 免费模型时"总成本 $290"，这代表你如果直接使用付费 API 需要支付的金额。你的实际成本 = **$0**（Kiro 免费等级：约 50 积分/月）。
 > 
-> 把它想象成一个"节省追踪器"，展示你通过使用免费模型或通过 9Router 路由节省了多少钱！
+> 把它想象成一个"节省追踪器"，展示你通过使用免费模型或通过 Rebana Router 路由节省了多少钱！
 
 ### 🌐 任意部署
 
 - 💻 **本地** - 默认，离线可用
-- ☁️ **VPS/云** - 跨设备共享
+- ❌☁️ **VPS/云** - 跨设备共享
 - 🐳 **Docker** - 一键部署
 - 🚀 **Cloudflare Workers** - 全球边缘网络
 
@@ -539,38 +539,38 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 ---
 
-### 📊 理解 9Router 成本与计费
+### 📝 理解 Rebana Router 成本与计费
 
-**9Router 计费真相：**
+**Rebana Router 计费真相：**
 
-✅ **9Router 软件 = 永久免费**（开源，绝不收费）  
+✅ **Rebana Router 软件 = 永久免费**（开源，绝不收费）  
 ✅ **控制面板"成本" = 仅用于显示/追踪**（不是实际账单）  
 ✅ **你直接向提供商付款**（订阅或 API 费用）  
-✅ **免费提供商保持免费**（Kiro 约 50 积分/月、OpenCode Free、Vertex $300 额度 = 在免费额度内 $0）— 注意 iFlow/Qwen/Gemini CLI 免费等级已于 2026 年停止
-❌ **9Router 永不发送发票** 或扣款
+✅ **免费提供商保持免费**（Kiro 约 50 积分/月、OpenCode Free、Vertex $300 额度 = 在免费额度内 $0） 注意 iFlow/Qwen/Gemini CLI 免费等级已于 2026 年停止
+❌ **Rebana Router 永不发送发票** 或扣款
 
 **成本显示如何工作：**
 
-控制面板显示**估算成本**，如同你直接使用付费 API。这**不是计费** — 它是一个比较工具，展示你的节省。
+控制面板显示**估算成本**，如同你直接使用付费 API。这**不是计费**  它是一个比较工具，展示你的节省。
 
 **示例场景：**
 ```
 控制面板显示：
-• 总请求数：1,662
-• 总 Tokens：47M
-• 显示成本：$290
+ 总请求数：1,662
+ 总 Tokens：47M
+ 显示成本：$290
 
 实际检查：
-• 提供商：Kiro（免费等级：约 50 积分/月）
-• 实际支付：$0.00
-• $290 意味着什么：通过使用免费模型节省的金额！
+ 提供商：Kiro（免费等级：约 50 积分/月）
+ 实际支付：$0.00
+ $290 意味着什么：通过使用免费模型节省的金额！
 ```
 
 **付款规则：**
 - **订阅提供商**（Claude Code、Codex）：通过他们的网站直接付款
-- **低价提供商**（GLM、MiniMax）：直接付款，9Router 只做路由
+- **低价提供商**（GLM、MiniMax）：直接付款，Rebana Router 只做路由
 - **免费提供商**（Kiro、OpenCode Free、Vertex）：真正的免费，在免费额度内无隐藏费用
-- **9Router**：从不收取任何费用，永远不会
+- **Rebana Router**：从不收取任何费用，永远不会
 
 ---
 
@@ -640,12 +640,12 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 ---
 
-## ❓ 常见问题
+## ❌❓ 常见问题
 
 <details>
-<summary><b>📊 为什么我的控制面板显示高成本？</b></summary>
+<summary><b>📝 为什么我的控制面板显示高成本？</b></summary>
 
-控制面板追踪你的 token 使用情况，并显示**估算成本**，如同你直接使用付费 API。这**不是实际计费** — 它是一个参考，展示你通过使用免费模型或通过 9Router 路由现有订阅节省了多少钱。
+控制面板追踪你的 token 使用情况，并显示**估算成本**，如同你直接使用付费 API。这**不是实际计费**  它是一个参考，展示你通过使用免费模型或通过 Rebana Router 路由现有订阅节省了多少钱。
 
 **示例：**
 - **控制面板显示：** "$290 总成本"
@@ -658,16 +658,16 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 </details>
 
 <details>
-<summary><b>💳 9Router 会扣我的钱吗？</b></summary>
+<summary><b>💳 Rebana Router 会扣我的钱吗？</b></summary>
 
-**不会。** 9Router 是在你自己的电脑上运行的开源软件。它永远不会向你收取任何费用。
+**不会。** Rebana Router 是在你自己的电脑上运行的开源软件。它永远不会向你收取任何费用。
 
 **你只需支付：**
 - ✅ **订阅提供商**（Claude Code $20/月、Codex $20-200/月）→ 在他们的网站上直接付款
-- ✅ **低价提供商**（GLM、MiniMax）→ 直接付款，9Router 只是路由你的请求
-- ❌ **9Router 本身** → **永不收费，永远不会**
+- ✅ **低价提供商**（GLM、MiniMax）→ 直接付款，Rebana Router 只是路由你的请求
+- ❌ **Rebana Router 本身** → **永不收费，永远不会**
 
-9Router 是一个本地代理/路由器。它没有你的信用卡，不能发送发票，也没有计费系统。它是完全免费的软件。
+Rebana Router 是一个本地代理/路由器。它没有你的信用卡，不能发送发票，也没有计费系统。它是完全免费的软件。
 
 </details>
 
@@ -678,15 +678,15 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 这些是各公司提供的免费服务：
 - **Kiro AI**：通过 AWS Builder ID / Google / GitHub OAuth 使用，免费等级约**每月 50 积分**（新账户前 30 天另加 500 试用积分）。之上提供付费档位。
-- **OpenCode Free**：无认证直连代理，模型从 `opencode.ai/zen/v1/models` 自动获取。免费模型列表会随时间变化（部分模型仅限时免费）— 可能随时变更。
-- **Vertex AI**：新 Google Cloud 账户可获得 $300 免费额度（90 天）。自 2026 年 3 月起 Gemini API 端点不再消耗这些额度 — 请改用 **Vertex AI Studio** 端点。
+- **OpenCode Free**：无认证直连代理，模型从 `opencode.ai/zen/v1/models` 自动获取。免费模型列表会随时间变化（部分模型仅限时免费） 可能随时变更。
+- **Vertex AI**：新 Google Cloud 账户可获得 $300 免费额度（90 天）。自 2026 年 3 月起 Gemini API 端点不再消耗这些额度  请改用 **Vertex AI Studio** 端点。
 
-9Router 只是路由你的请求到它们 — 没有"陷阱"或未来的计费。它们是真正的免费服务，9Router 让它们易于使用并支持切换。
+Rebana Router 只是路由你的请求到它们  没有"陷阱"或未来的计费。它们是真正的免费服务，Rebana Router 让它们易于使用并支持切换。
 
 **已停止的免费等级（不再推荐）：**
 - ❌ **iFlow**：曾是免费无限量，现在改为付费（2026）
 - ❌ **Qwen Code**：阿里巴巴于 2026-04-15 完全停止免费 OAuth 等级
-- ❌ **Gemini CLI**：Google 已于 2026-06-18 完全停止服务（由闭源的 Antigravity CLI 取代）。已停止 — 请勿使用。
+- ❌ **Gemini CLI**：Google 已于 2026-06-18 完全停止服务（由闭源的 Antigravity CLI 取代）。已停止  请勿使用。
 
 </details>
 
@@ -711,7 +711,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 3. **最后使用订阅提供商：**
    - 仅当你已有订阅时
-   - 9Router 通过配额追踪帮助最大化其价值
+   - Rebana Router 通过配额追踪帮助最大化其价值
 
 **结果：** 大多数用户可以仅使用免费等级以 $0/月运行！
 
@@ -720,20 +720,20 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 <details>
 <summary><b>📈 如果我的使用量突然激增怎么办？</b></summary>
 
-9Router 的智能切换可以防止意外费用：
+Rebana Router 的智能切换可以防止意外费用：
 
 **场景：** 你正在进行编码冲刺，用尽了配额
 
-**没有 9Router：**
+**没有 Rebana Router：**
 - ❌ 达到速率限制 → 工作停止 → 沮丧
 - ❌ 或者：不慎累积大量 API 账单
 
-**有 9Router：**
+**有 Rebana Router：**
 - ✅ 订阅达到限制 → 自动切换到低价等级
 - ✅ 低价等级变得昂贵 → 自动切换到免费等级
 - ✅ 编程永不停歇 → 可预测的成本
 
-**你掌控一切：** 在控制面板中设置每个提供商的支出限制，9Router 会遵守它们。
+**你掌控一切：** 在控制面板中设置每个提供商的支出限制，Rebana Router 会遵守它们。
 
 </details>
 
@@ -758,7 +758,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
   cc/claude-haiku-4-5-20251001
 ```
 
-**专业提示：** 复杂任务使用 Opus，追求速度使用 Sonnet。9Router 按模型追踪配额！
+**专业提示：** 复杂任务使用 Opus，追求速度使用 Sonnet。Rebana Router 按模型追踪配额！
 
 ### OpenAI Codex (Plus/Pro)
 
@@ -938,8 +938,8 @@ Vertex 合作伙伴（通过 Vertex 提供 Anthropic / DeepSeek / GLM / Qwen）�
 
 ```
 设置 → 模型 → 高级：
-  OpenAI API Base URL：http://localhost:20128/v1
-  OpenAI API Key：[来自 9router 控制面板]
+  OpenAI API Base URL：http://localhost:91827/v1
+  OpenAI API Key：[来自 Rebana Router 控制面板]
   Model：cc/claude-opus-4-7
 ```
 
@@ -951,44 +951,44 @@ Vertex 合作伙伴（通过 Vertex 提供 Anthropic / DeepSeek / GLM / Qwen）�
 
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key"
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key"
 }
 ```
 
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex "your prompt"
 ```
 
 ### OpenClaw
 
-**选项 1 — 控制面板（推荐）：**
+**选项 1  控制面板（推荐）：**
 
 ```
 控制面板 → CLI 工具 → OpenClaw → 选择模型 → 应用
 ```
 
-**选项 2 — 手动：** 编辑 `~/.openclaw/openclaw.json`：
+**选项 2  手动：** 编辑 `~/.openclaw/openclaw.json`：
 
 ```json
 {
   "agents": {
     "defaults": {
       "model": {
-        "primary": "9router/kr/claude-sonnet-4.5"
+        "primary": "Rebana Router/kr/claude-sonnet-4.5"
       }
     }
   },
   "models": {
     "providers": {
-      "9router": {
-        "baseUrl": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router",
+      "Rebana Router": {
+        "baseUrl": "http://127.0.0.1:91827/v1",
+        "apiKey": "sk_Rebana Router",
         "api": "openai-completions",
         "models": [
           {
@@ -1002,13 +1002,13 @@ codex "your prompt"
 }
 ```
 
-> **注意：** OpenClaw 仅适用于本地 9Router。使用 `127.0.0.1` 而不是 `localhost` 以避免 IPv6 解析问题。
+> **注意：** OpenClaw 仅适用于本地 Rebana Router。使用 `127.0.0.1` 而不是 `localhost` 以避免 IPv6 解析问题。
 
 ### Cline / Continue / RooCode
 
 ```
 Provider：OpenAI 兼容
-Base URL：http://localhost:20128/v1
+Base URL：http://localhost:91827/v1
 API Key：[来自控制面板]
 Model：cc/claude-opus-4-7
 ```
@@ -1022,20 +1022,20 @@ Model：cc/claude-opus-4-7
 
 ```bash
 # 克隆并安装
-git clone https://github.com/decolua/9router.git
-cd 9router
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router
 npm install
 npm run build
 
 # 配置
 export JWT_SECRET="your-secure-secret-change-this"
 export INITIAL_PASSWORD="your-password"
-export DATA_DIR="/var/lib/9router"
-export PORT="20128"
+export DATA_DIR="/var/lib/Rebana Router"
+export PORT="91827"
 export HOSTNAME="0.0.0.0"
 export NODE_ENV="production"
-export NEXT_PUBLIC_BASE_URL="http://localhost:20128"
-export NEXT_PUBLIC_CLOUD_URL="https://9router.com"
+export NEXT_PUBLIC_BASE_URL="http://localhost:91827"
+export NEXT_PUBLIC_CLOUD_URL="https://Rebana Router.com"
 export API_KEY_SECRET="endpoint-proxy-api-key-secret"
 export MACHINE_ID_SALT="endpoint-proxy-salt"
 
@@ -1044,7 +1044,7 @@ npm run start
 
 # 或使用 PM2
 npm install -g pm2
-pm2 start npm --name 9router -- start
+pm2 start npm --name Rebana Router -- start
 pm2 save
 pm2 startup
 ```
@@ -1053,56 +1053,56 @@ pm2 startup
 
 ```bash
 # 构建镜像（从仓库根目录）
-docker build -t 9router .
+docker build -t Rebana Router .
 
 # 运行容器（当前设置使用的命令）
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
-  --env-file /root/dev/9router/.env \
-  -v 9router-data:/app/data \
-  -v 9router-usage:/root/.9router \
-  9router
+  --name Rebana Router \
+  -p 91827:91827 \
+  --env-file /root/dev/Rebana Router/.env \
+  -v Rebana Router-data:/app/data \
+  -v Rebana Router-usage:/root/.Rebana Router \
+  Rebana Router
 ```
 
 便携命令（如果你已经在仓库根目录）：
 
 ```bash
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
+  --name Rebana Router \
+  -p 91827:91827 \
   --env-file ./.env \
-  -v 9router-data:/app/data \
-  -v 9router-usage:/root/.9router \
-  9router
+  -v Rebana Router-data:/app/data \
+  -v Rebana Router-usage:/root/.Rebana Router \
+  Rebana Router
 ```
 
 容器默认值：
-- `PORT=20128`
+- `PORT=91827`
 - `HOSTNAME=0.0.0.0`
 
 常用命令：
 
 ```bash
-docker logs -f 9router
-docker restart 9router
-docker stop 9router && docker rm 9router
+docker logs -f Rebana Router
+docker restart Rebana Router
+docker stop Rebana Router && docker rm Rebana Router
 ```
 
 ### 环境变量
 
 | 变量 | 默认值 | 描述 |
 |----------|---------|-------------|
-| `JWT_SECRET` | 自动生成（`~/.9router/jwt-secret`） | 用于控制面板 auth cookie 的 JWT 签名密钥（设置可在多实例间共享） |
+| `JWT_SECRET` | 自动生成（`~/.Rebana Router/jwt-secret`） | 用于控制面板 auth cookie 的 JWT 签名密钥（设置可在多实例间共享） |
 | `INITIAL_PASSWORD` | `123456` | 当没有保存的哈希时首次登录的密码 |
-| `DATA_DIR` | `~/.9router` | 主应用数据库位置（`db.json`） |
-| `PORT` | 框架默认值 | 服务端口（示例中为 `20128`） |
+| `DATA_DIR` | `~/.Rebana Router` | 主应用数据库位置（`db.json`） |
+| `PORT` | 框架默认值 | 服务端口（示例中为 `91827`） |
 | `HOSTNAME` | 框架默认值 | 绑定主机（Docker 默认为 `0.0.0.0`） |
 | `NODE_ENV` | 运行时默认值 | 设置 `production` 用于部署 |
-| `BASE_URL` | `http://localhost:20128` | 云同步任务使用的服务端内部基础 URL |
-| `CLOUD_URL` | `https://9router.com` | 服务端云同步端点基础 URL |
+| `BASE_URL` | `http://localhost:91827` | 云同步任务使用的服务端内部基础 URL |
+| `CLOUD_URL` | `https://Rebana Router.com` | 服务端云同步端点基础 URL |
 | `NEXT_PUBLIC_BASE_URL` | `http://localhost:3000` | 向后兼容/公开基础 URL（服务端运行时优先使用 `BASE_URL`） |
-| `NEXT_PUBLIC_CLOUD_URL` | `https://9router.com` | 向后兼容/公开云 URL（服务端运行时优先使用 `CLOUD_URL`） |
+| `NEXT_PUBLIC_CLOUD_URL` | `https://Rebana Router.com` | 向后兼容/公开云 URL（服务端运行时优先使用 `CLOUD_URL`） |
 | `API_KEY_SECRET` | `endpoint-proxy-api-key-secret` | 生成 API key 的 HMAC 密钥 |
 | `MACHINE_ID_SALT` | `endpoint-proxy-salt` | 稳定机器 ID 哈希的盐值 |
 | `ENABLE_REQUEST_LOGS` | `false` | 在 `logs/` 下启用请求/响应日志 |
@@ -1121,13 +1121,13 @@ docker stop 9router && docker rm 9router
 - 主应用状态：`${DATA_DIR}/db.json`（提供商、组合、别名、密钥、设置），由 `src/lib/localDb.js` 管理。
 - 使用历史和日志：`${DATA_DIR}/usage.json` 和 `${DATA_DIR}/log.txt`，由 `src/lib/usageDb.js` 管理。
 - 可选的请求/翻译器日志：`ENABLE_REQUEST_LOGS=true` 时位于 `<repo>/logs/...`。
-- `${DATA_DIR}` 和 `~/.9router` 在 Docker 容器中解析到同一位置 — 符号链接 `/root/.9router -> /app/data` 在构建时创建。
+- `${DATA_DIR}` 和 `~/.Rebana Router` 在 Docker 容器中解析到同一位置  符号链接 `/root/.Rebana Router -> /app/data` 在构建时创建。
 
 </details>
 
 ---
 
-## 📊 可用模型
+## 📝 可用模型
 
 <details>
 <summary><b>查看所有可用模型</b></summary>
@@ -1205,7 +1205,7 @@ docker stop 9router && docker rm 9router
 - 添加组合：`cc/claude-opus-4-7 → glm/glm-5.1 → kr/claude-sonnet-4.5`
 
 **OAuth token 已过期**
-- 9Router 自动刷新
+- Rebana Router 自动刷新
 - 如果问题持续：控制面板 → 提供商 → 重新连接
 
 **高成本**
@@ -1215,7 +1215,7 @@ docker stop 9router && docker rm 9router
 - 对于非关键任务使用免费等级（Kiro、OpenCode Free、Vertex）
 
 **控制面板在错误端口打开**
-- 设置 `PORT=20128` 和 `NEXT_PUBLIC_BASE_URL=http://localhost:20128`
+- 设置 `PORT=91827` 和 `NEXT_PUBLIC_BASE_URL=http://localhost:91827`
 
 **首次登录不工作**
 - 检查 `.env` 中的 `INITIAL_PASSWORD`
@@ -1242,7 +1242,7 @@ docker stop 9router && docker rm 9router
 ### 聊天补全
 
 ```bash
-POST http://localhost:20128/v1/chat/completions
+POST http://localhost:91827/v1/chat/completions
 Authorization: Bearer your-api-key
 Content-Type: application/json
 
@@ -1258,7 +1258,7 @@ Content-Type: application/json
 ### 列出模型
 
 ```bash
-GET http://localhost:20128/v1/models
+GET http://localhost:91827/v1/models
 Authorization: Bearer your-api-key
 
 → 以 OpenAI 格式返回所有模型和组合
@@ -1266,29 +1266,29 @@ Authorization: Bearer your-api-key
 
 ## 📧 支持
 
-- **网站**：[9router.com](https://9router.com)
-- **GitHub**：[github.com/decolua/9router](https://github.com/decolua/9router)
-- **问题**：[github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **网站**：[Rebana Router.com](https://Rebana Router.com)
+- **GitHub**：[github.com/decolua/Rebana Router](https://github.com/decolua/Rebana Router)
+- **问题**：[github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
 
 ---
 
 ## 👥 贡献者
 
-感谢所有帮助改进 9Router 的贡献者！
+感谢所有帮助改进 Rebana Router 的贡献者！
 
-[![Contributors](https://contrib.rocks/image?repo=decolua/9router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/9router/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=decolua/Rebana Router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/Rebana Router/graphs/contributors)
 
 ---
 
-## 📊 Star 图表
+## 📝 Star 图表
 
-[![Star Chart](https://starchart.cc/decolua/9router.svg?variant=adaptive)](https://starchart.cc/decolua/9router)
+[![Star Chart](https://starchart.cc/decolua/Rebana Router.svg?variant=adaptive)](https://starchart.cc/decolua/Rebana Router)
 
 
 
 ## 🔀 分支
 
-**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — 9Router 的全功能 TypeScript 分支。增加了 36+ 提供商、4 层自动切换、多模态 API（图像、嵌入、音频、TTS）、断路器、语义缓存、LLM 评估和精美的控制面板。368+ 单元测试。可通过 npm 和 Docker 使用。
+**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)**  Rebana Router 的全功能 TypeScript 分支。增加了 36+ 提供商、4 层自动切换、多模态 API（图像、嵌入、音频、TTS）、断路器、语义缓存、LLM 评估和精美的控制面板。368+ 单元测试。可通过 npm 和 Docker 使用。
 
 ---
 
@@ -1296,20 +1296,20 @@ Authorization: Bearer your-api-key
 
 站在巨人的肩膀上构建：
 
-- **CLIProxyAPI** — 启发了这个 JavaScript 移植的原始 Go 实现。
-- **[RTK](https://github.com/rtk-ai/rtk)** ![Stars](https://img.shields.io/github/stars/rtk-ai/rtk?style=flat&color=yellow) — Rust token 节省器。9Router 将其压缩管道移植到 JS → 每次请求 **减少 20-40% 输入 tokens**。
-- **[Caveman](https://github.com/JuliusBrussee/caveman)** ![Stars](https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow) by **[@JuliusBrussee](https://github.com/JuliusBrussee)** — 病毒式传播的 *"为什么用很多 token 当少的 token 就能搞定"*。9Router 适配其提示词 → **减少 65% 输出 tokens**。
+- **CLIProxyAPI**  启发了这个 JavaScript 移植的原始 Go 实现。
+- **[RTK](https://github.com/rtk-ai/rtk)** ![Stars](https://img.shields.io/github/stars/rtk-ai/rtk?style=flat&color=yellow)  Rust token 节省器。Rebana Router 将其压缩管道移植到 JS → 每次请求 **减少 20-40% 输入 tokens**。
+- **[Caveman](https://github.com/JuliusBrussee/caveman)** ![Stars](https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow) by **[@JuliusBrussee](https://github.com/JuliusBrussee)**  病毒式传播的 *"为什么用很多 token 当少的 token 就能搞定"*。Rebana Router 适配其提示词 → **减少 65% 输出 tokens**。
 
-非常感谢这些作者 — 没有他们的工作，9Router 的 token 节省功能就不会存在。在 GitHub 上给他们加星！
+非常感谢这些作者  没有他们的工作，Rebana Router 的 token 节省功能就不会存在。在 GitHub 上给他们加星！
 
 ---
 
 ## 📄 许可证
 
-MIT 许可证 — 详见 [LICENSE](LICENSE)。
+MIT 许可证  详见 [LICENSE](LICENSE)。
 
 ---
 
 <div align="center">
-  <sub>用 ❤️ 为 24/7 编程的开发者构建</sub>
+  <sub>用 ❌❤️ 为 24/7 编程的开发者构建</sub>
 </div>

@@ -1,5 +1,5 @@
-// End-to-end: a cache-bearing request flows through canonicalizeUsage →
-// saveRequestUsage → getUsageStats, proving cached tokens are persisted,
+// End-to-end: a cache-bearing request flows through canonicalizeUsage â†’
+// saveRequestUsage â†’ getUsageStats, proving cached tokens are persisted,
 // aggregated, and cost is computed correctly (the bug this branch fixes).
 import fs from "node:fs";
 import os from "node:os";
@@ -12,7 +12,7 @@ let tempDir;
 let db;
 
 beforeAll(async () => {
-  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "9router-cached-e2e-"));
+  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-cached-e2e-"));
   process.env.DATA_DIR = tempDir;
   vi.resetModules();
   db = await import("@/lib/db/index.js");

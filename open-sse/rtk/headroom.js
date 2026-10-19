@@ -244,7 +244,7 @@ async function callCompress(url, messages, model, timeoutMs, compressUserMessage
 
 // Compress request body via Headroom proxy. Fail-open: returns null on any error.
 // /v1/compress only understands OpenAI shape, so Claude bodies are translated
-// to OpenAI, compressed, then translated back using 9Router's own translators.
+// to OpenAI, compressed, then translated back using Rebana Router's own translators.
 export async function compressWithHeadroom(body, { enabled, url, model, format, compressUserMessages, timeoutMs = DEFAULT_TIMEOUT_MS, diagnostics = null } = {}) {
   timeoutMs = normalizeTimeout(timeoutMs);
   if (!enabled) {
@@ -263,7 +263,7 @@ export async function compressWithHeadroom(body, { enabled, url, model, format, 
   try {
     if (diagnostics) diagnostics.before = captureSizeSnapshot(body);
 
-    // Claude shape: translate → OpenAI → compress → translate back.
+    // Claude shape: translate â†’ OpenAI â†’ compress â†’ translate back.
     if (format === "claude") {
       const oai = claudeToOpenAIRequest(model, body, false);
       if (!Array.isArray(oai?.messages)) {
@@ -357,7 +357,7 @@ export function formatHeadroomSizeLog(diagnostics) {
   const effective = before.bodyBytes > 0
     ? (((before.bodyBytes - after.bodyBytes) / before.bodyBytes) * 100).toFixed(1)
     : "0.0";
-  return `body=${before.bodyBytes}B→${after.bodyBytes}B messages=${before.messageBytes}B→${after.messageBytes}B tools=${before.toolSchemaBytes || 0}B→${after.toolSchemaBytes || 0}B toolHistory=${before.toolHistoryBytes || 0}B→${after.toolHistoryBytes || 0}B effective=${effective}%`;
+  return `body=${before.bodyBytes}Bâ†’${after.bodyBytes}B messages=${before.messageBytes}Bâ†’${after.messageBytes}B tools=${before.toolSchemaBytes || 0}Bâ†’${after.toolSchemaBytes || 0}B toolHistory=${before.toolHistoryBytes || 0}Bâ†’${after.toolHistoryBytes || 0}B effective=${effective}%`;
 }
 
 export function isHeadroomPhantomSavings(stats, diagnostics, minShrinkRatio = 0.05) {

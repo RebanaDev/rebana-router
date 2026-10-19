@@ -1,9 +1,9 @@
 /**
- * `9router xai video` — generate a Grok Imagine video through the local
- * 9router gateway and save the result as an MP4 file.
+ * `Rebana Router xai video` â€” generate a Grok Imagine video through the local
+ * Rebana Router gateway and save the result as an MP4 file.
  *
- * Flow: POST /v1/videos/generations → poll GET /v1/videos/{request_id}
- * until done/failed/timeout → download video.url → atomic rename.
+ * Flow: POST /v1/videos/generations â†’ poll GET /v1/videos/{request_id}
+ * until done/failed/timeout â†’ download video.url â†’ atomic rename.
  *
  * No OAuth tokens or Authorization headers are ever printed.
  */
@@ -13,7 +13,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 
-const DEFAULT_PORT = 20128;
+const DEFAULT_PORT = 91827;
 const DEFAULT_HOST = "127.0.0.1";
 const DEFAULT_MODEL = "xai/grok-imagine-video";
 const DEFAULT_TIMEOUT_SEC = 600;
@@ -23,10 +23,10 @@ const TERMINAL_STATUSES = new Set(["done", "failed", "completed", "error", "expi
 const FAILED_STATUSES = new Set(["failed", "error", "expired", "cancelled"]);
 
 const HELP = `
-Usage: 9router xai video --prompt "..." [options]
+Usage: Rebana Router xai video --prompt "..." [options]
 
-Generate a Grok Imagine video via your local 9router gateway
-(requires a connected xAI account — Grok Build OAuth or API key).
+Generate a Grok Imagine video via your local Rebana Router gateway
+(requires a connected xAI account â€” Grok Build OAuth or API key).
 
 Options:
   --prompt <text>         Video description (required)
@@ -39,7 +39,7 @@ Options:
   --timeout <seconds>     Max wait for the job (default: ${DEFAULT_TIMEOUT_SEC})
   --port <port>           Gateway port (default: ${DEFAULT_PORT})
   --host <host>           Gateway host (default: ${DEFAULT_HOST})
-  --api-key <key>         9router API key (or env NINE_ROUTER_API_KEY)
+  --api-key <key>         Rebana Router API key (or env NINE_ROUTER_API_KEY)
   -h, --help              Show this help
 `;
 
@@ -80,7 +80,7 @@ function parseArgs(argv) {
   return opts;
 }
 
-/** Local file path → base64 data URL; URLs pass through untouched. */
+/** Local file path â†’ base64 data URL; URLs pass through untouched. */
 function imageInputToUrl(input) {
   if (/^(https?:|data:)/i.test(input)) return input;
   const buf = fs.readFileSync(input);
@@ -123,7 +123,7 @@ const sleep = (ms, signal) =>
 
 /**
  * Poll GET /v1/videos/{id} until a terminal status or deadline.
- * @returns {Promise<object>} final poll body (status done) — throws on failed/timeout.
+ * @returns {Promise<object>} final poll body (status done) â€” throws on failed/timeout.
  */
 async function pollUntilDone({ host, port, apiKey, requestId, connectionId, timeoutSec, pollIntervalMs, signal, onProgress }) {
   const deadline = Date.now() + timeoutSec * 1000;
@@ -211,7 +211,7 @@ async function run(argv) {
   try {
     opts = parseArgs(argv);
   } catch (err) {
-    console.error(`❌ ${err.message}`);
+    console.error(`âŒ ${err.message}`);
     console.log(HELP);
     return 1;
   }
@@ -220,7 +220,7 @@ async function run(argv) {
     return 0;
   }
   if (!opts.prompt) {
-    console.error("❌ --prompt is required");
+    console.error("âŒ --prompt is required");
     console.log(HELP);
     return 1;
   }
@@ -230,7 +230,7 @@ async function run(argv) {
   const onSigint = () => {
     controller.abort();
     try { fs.unlinkSync(partPath); } catch { /* absent */ }
-    console.error("\n✋ Cancelled");
+    console.error("\nâœ‹ Cancelled");
     process.exit(130);
   };
   process.on("SIGINT", onSigint);
@@ -242,7 +242,7 @@ async function run(argv) {
     if (opts.resolution) body.resolution = opts.resolution;
     if (opts.image) body.image = { url: imageInputToUrl(opts.image) };
 
-    console.log(`🎬 Requesting video (${opts.model})…`);
+    console.log(`ðŸŽ¬ Requesting video (${opts.model})â€¦`);
     const create = await gatewayRequest({
       host: opts.host, port: opts.port, apiKey: opts.apiKey,
       method: "POST", reqPath: "/v1/videos/generations", body, signal: controller.signal,
@@ -250,16 +250,16 @@ async function run(argv) {
 
     if (create.status !== 200 || !create.body?.request_id) {
       const detail = create.body?.error?.message || create.body?.error || create.raw || `HTTP ${create.status}`;
-      console.error(`❌ Create failed: ${sanitizeText(typeof detail === "string" ? detail : JSON.stringify(detail)).slice(0, 500)}`);
+      console.error(`âŒ Create failed: ${sanitizeText(typeof detail === "string" ? detail : JSON.stringify(detail)).slice(0, 500)}`);
       if (create.status === 400 && /No credentials/i.test(String(detail))) {
-        console.error("   Connect an xAI account first: dashboard → Providers → xAI (Grok).");
+        console.error("   Connect an xAI account first: dashboard â†’ Providers â†’ xAI (Grok).");
       }
       return 1;
     }
 
     const requestId = create.body.request_id;
-    const connectionId = create.headers["x-9router-connection-id"] || null;
-    console.log(`📋 Job accepted: ${requestId}`);
+    const connectionId = create.headers["x-Rebana Router-connection-id"] || null;
+    console.log(`ðŸ“‹ Job accepted: ${requestId}`);
 
     let lastLine = "";
     const result = await pollUntilDone({
@@ -268,7 +268,7 @@ async function run(argv) {
       timeoutSec: opts.timeoutSec, pollIntervalMs: opts.pollIntervalMs,
       signal: controller.signal,
       onProgress: (status, progress) => {
-        const line = `⏳ ${status}${Number.isFinite(progress) ? ` ${progress}%` : ""}`;
+        const line = `â³ ${status}${Number.isFinite(progress) ? ` ${progress}%` : ""}`;
         if (line !== lastLine) {
           lastLine = line;
           if (process.stdout.isTTY) process.stdout.write(`\r\x1b[K${line}`);
@@ -280,17 +280,17 @@ async function run(argv) {
 
     const videoUrl = result.video?.url || result.video?.file_output?.public_url;
     if (!videoUrl) {
-      console.error("❌ Job finished but no video URL was returned");
+      console.error("âŒ Job finished but no video URL was returned");
       return 1;
     }
 
-    console.log("⬇️  Downloading…");
+    console.log("â¬‡ï¸  Downloadingâ€¦");
     await downloadToFile(videoUrl, opts.output, { signal: controller.signal });
-    console.log(`✅ Saved ${opts.output}`);
+    console.log(`âœ… Saved ${opts.output}`);
     return 0;
   } catch (err) {
     if (process.stdout.isTTY) process.stdout.write("\n");
-    console.error(`❌ ${sanitizeText(err?.message || String(err))}`);
+    console.error(`âŒ ${sanitizeText(err?.message || String(err))}`);
     return 1;
   } finally {
     process.removeListener("SIGINT", onSigint);

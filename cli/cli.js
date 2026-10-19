@@ -7,7 +7,7 @@ const https = require("https");
 const net = require("net");
 const os = require("os");
 
-// Poll until the server accepts TCP connections on port, or timeout — avoids blind fixed waits.
+// Poll until the server accepts TCP connections on port, or timeout â€” avoids blind fixed waits.
 function waitServerReady(port, { timeoutMs = 15000, intervalMs = 150 } = {}) {
   const deadline = Date.now() + timeoutMs;
   return new Promise((resolve) => {
@@ -28,7 +28,7 @@ function waitServerReady(port, { timeoutMs = 15000, intervalMs = 150 } = {}) {
 
 // Native spinner - no external dependency
 function createSpinner(text) {
-  const frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
+  const frames = ["â ‹", "â ™", "â ¹", "â ¸", "â ¼", "â ´", "â ¦", "â §", "â ‡", "â "];
   let i = 0;
   let interval = null;
   let currentText = text;
@@ -53,11 +53,11 @@ function createSpinner(text) {
     },
     succeed(msg) {
       this.stop();
-      console.log(`✅ ${msg}`);
+      console.log(`âœ… ${msg}`);
     },
     fail(msg) {
       this.stop();
-      console.log(`❌ ${msg}`);
+      console.log(`âŒ ${msg}`);
     }
   };
 }
@@ -67,35 +67,35 @@ const { ensureSqliteRuntime, buildEnvWithRuntime } = require("./hooks/sqliteRunt
 const { ensureTrayRuntime } = require("./hooks/trayRuntime");
 const args = process.argv.slice(2);
 
-// Subcommands (`9router xai video …`) run against an already-running gateway
+// Subcommands (`Rebana Router xai video â€¦`) run against an already-running gateway
 // and bypass the launcher flow (no runtime self-heal, no server spawn).
 if (args[0] === "xai" && args[1] === "video") {
   const { run } = require("./src/cli/commands/xaiVideo");
   run(args.slice(2))
     .then((code) => process.exit(code))
     .catch((err) => {
-      console.error(`❌ ${err?.message || err}`);
+      console.error(`âŒ ${err?.message || err}`);
       process.exit(1);
     });
   return;
 }
 
-// `9router connect <url>` configures local CLI tools against a remote server, and
-// `9router show` prints what they're currently set to — no local server, no
-// runtime deps. Usable via `npx 9router …`.
+// `Rebana Router connect <url>` configures local CLI tools against a remote server, and
+// `Rebana Router show` prints what they're currently set to â€” no local server, no
+// runtime deps. Usable via `npx Rebana Router â€¦`.
 if (args[0] === "connect" || args[0] === "show") {
   const { run } = require(args[0] === "show" ? "./src/cli/commands/show" : "./src/cli/commands/connect");
   run(args.slice(1))
     .then((code) => process.exit(code))
     .catch((err) => {
-      console.error(`❌ ${err?.message || err}`);
+      console.error(`âŒ ${err?.message || err}`);
       process.exit(1);
     });
   return;
 }
 
-// Self-heal SQLite runtime deps (sql.js + better-sqlite3) into ~/.9router/runtime
-// so the server can resolve them via NODE_PATH. Best-effort — sql.js is required,
+// Self-heal SQLite runtime deps (sql.js + better-sqlite3) into ~/.Rebana Router/runtime
+// so the server can resolve them via NODE_PATH. Best-effort â€” sql.js is required,
 // better-sqlite3 is optional. Logs to stderr only on failure.
 try { ensureSqliteRuntime({ silent: true }); } catch {}
 
@@ -106,10 +106,10 @@ try { ensureTrayRuntime({ silent: true }); } catch {}
 const APP_NAME = pkg.name; // Use from package.json
 const INSTALL_CMD_LATEST = `npm i -g ${APP_NAME}@latest --prefer-online`;
 
-const DEFAULT_PORT = 20128;
+const DEFAULT_PORT = 91827;
 const DEFAULT_HOST = "0.0.0.0";
 
-// First non-internal IPv4 — the address remote peers actually reach when bound to 0.0.0.0.
+// First non-internal IPv4 â€” the address remote peers actually reach when bound to 0.0.0.0.
 function getLanIp() {
   for (const ifaces of Object.values(os.networkInterfaces())) {
     for (const i of ifaces || []) {
@@ -124,9 +124,9 @@ function getDisplayHost() {
   return host === DEFAULT_HOST ? "localhost" : host;
 }
 const MAX_PORT_ATTEMPTS = 10;
-// Identifiers for killAllAppProcesses - only kill 9router specifically
+// Identifiers for killAllAppProcesses - only kill Rebana Router specifically
 const PROCESS_IDENTIFIERS = [
-  '9router'  // Only package name - avoid killing other apps
+  'Rebana Router'  // Only package name - avoid killing other apps
 ];
 
 // Parse arguments
@@ -168,10 +168,10 @@ Options:
   -v, --version       Show version
 
 Commands:
-  connect <server-url> Configure Claude Code for a remote 9router server
-                      (npx 9router connect http://host:20128 — no install needed)
-  show [tool…]        Show each CLI tool's current 9router config and models
-                      (e.g. 9router show claude)
+  connect <server-url> Configure Claude Code for a remote Rebana Router server
+                      (npx Rebana Router connect http://host:91827 â€” no install needed)
+  show [toolâ€¦]        Show each CLI tool's current Rebana Router config and models
+                      (e.g. Rebana Router show claude)
   xai video --prompt "..." --output video.mp4
                       Generate a Grok Imagine video via the running gateway
                       (see: ${APP_NAME} xai video --help)
@@ -183,7 +183,7 @@ Commands:
   }
 }
 
-// Auto-relaunch after update: detached process has no TTY → fallback to tray
+// Auto-relaunch after update: detached process has no TTY â†’ fallback to tray
 if (skipUpdate && !trayMode && !process.stdin.isTTY) {
   trayMode = true;
   process.env.TRAY_MODE = "1";
@@ -206,8 +206,8 @@ function compareVersions(a, b) {
 // Get app data dir (matches app/src/lib/dataDir.js convention)
 function getAppDataDir() {
   return process.platform === "win32"
-    ? path.join(process.env.APPDATA || "", "9router")
-    : path.join(os.homedir(), ".9router");
+    ? path.join(process.env.APPDATA || "", "Rebana Router")
+    : path.join(os.homedir(), ".Rebana Router");
 }
 
 // Kill PID from file (best-effort, removes file after)
@@ -264,11 +264,11 @@ function killCloudflaredByAppPort(appPort) {
   return pids;
 }
 
-// Kill all 9router processes
+// Kill all Rebana Router processes
 function killAllAppProcesses(appPort) {
   return new Promise((resolve) => {
     try {
-      // Background: MITM + tunnel/cloudflared run on separate ports/processes —
+      // Background: MITM + tunnel/cloudflared run on separate ports/processes â€”
       // killing them doesn't free the app port, so don't block the critical path.
       // Server-side MITM manager has stale-lock recovery and starts deferred (~3s).
       setImmediate(() => {
@@ -291,11 +291,11 @@ function killAllAppProcesses(appPort) {
           });
           const lines = output.split("\n").slice(1).filter(l => l.trim());
           lines.forEach(line => {
-            // Whitelist: real node process running 9router/cli.js, or next-server.
-            // Avoids killing editors/grep/strace/cursor that just have "9router" in cmdline.
+            // Whitelist: real node process running Rebana Router/cli.js, or next-server.
+            // Avoids killing editors/grep/strace/cursor that just have "Rebana Router" in cmdline.
             const cmd = line.toLowerCase();
             const isAppProcess =
-              (cmd.includes("node") && cmd.includes("9router") && (cmd.includes("cli.js") || cmd.includes("\\9router") || cmd.includes("/9router")))
+              (cmd.includes("node") && cmd.includes("Rebana Router") && (cmd.includes("cli.js") || cmd.includes("\\Rebana Router") || cmd.includes("/Rebana Router")))
               || cmd.includes("next-server");
             if (isAppProcess) {
               const match = line.match(/^"(\d+)"/);
@@ -317,11 +317,11 @@ function killAllAppProcesses(appPort) {
           const lines = output.split('\n');
 
           lines.forEach(line => {
-            // Whitelist: real node process running 9router/cli.js, or next-server.
-            // Avoids killing grep/strace/editors/cursor that incidentally match "9router".
+            // Whitelist: real node process running Rebana Router/cli.js, or next-server.
+            // Avoids killing grep/strace/editors/cursor that incidentally match "Rebana Router".
             const cmd = line.toLowerCase();
             const isAppProcess =
-              (cmd.includes("node") && cmd.includes("9router") && (cmd.includes("cli.js") || cmd.includes("/9router")))
+              (cmd.includes("node") && cmd.includes("Rebana Router") && (cmd.includes("cli.js") || cmd.includes("/Rebana Router")))
               || cmd.includes("next-server");
             if (isAppProcess) {
               const parts = line.trim().split(/\s+/);
@@ -581,19 +581,19 @@ async function showInterfaceMenu(latestVersion) {
     serverUrl = `http://${displayHost}:${port}`;
   }
 
-  const subtitle = `🚀 Server: \x1b[32m${serverUrl}\x1b[0m`;
+  const subtitle = `ðŸš€ Server: \x1b[32m${serverUrl}\x1b[0m`;
 
   const menuItems = [];
 
   if (latestVersion) {
-    menuItems.push({ label: `Update to v${latestVersion} (current: v${pkg.version})`, icon: "⬆" });
+    menuItems.push({ label: `Update to v${latestVersion} (current: v${pkg.version})`, icon: "â¬†" });
   }
 
   menuItems.push(
-    { label: "Web UI (Open in Browser)", icon: "🌐" },
-    { label: "Terminal UI (Interactive CLI)", icon: "💻" },
-    { label: "Hide to Tray (Background)", icon: "🔔" },
-    { label: "Exit", icon: "🚪" }
+    { label: "Web UI (Open in Browser)", icon: "ðŸŒ" },
+    { label: "Terminal UI (Interactive CLI)", icon: "ðŸ’»" },
+    { label: "Hide to Tray (Background)", icon: "ðŸ””" },
+    { label: "Exit", icon: "ðŸšª" }
   );
 
   const selected = await selectMenu(`Choose Interface (v${pkg.version})`, menuItems, 0, subtitle);
@@ -618,7 +618,7 @@ function startServer(updatePromise) {
   // Surface real network exposure when bound to all interfaces (default 0.0.0.0).
   if (host === DEFAULT_HOST) {
     const lanIp = getLanIp();
-    if (lanIp) console.log(`\x1b[33m⚠ Network-exposed: reachable at http://${lanIp}:${port} (bound 0.0.0.0). Use --host 127.0.0.1 for local-only.\x1b[0m`);
+    if (lanIp) console.log(`\x1b[33mâš  Network-exposed: reachable at http://${lanIp}:${port} (bound 0.0.0.0). Use --host 127.0.0.1 for local-only.\x1b[0m`);
   }
 
   let restartCount = 0;
@@ -713,7 +713,7 @@ function startServer(updatePromise) {
         port,
         onQuit: () => {
           isShuttingDown = true;
-          console.log("\n👋 Shutting down from tray...");
+          console.log("\nðŸ‘‹ Shutting down from tray...");
           cleanup();
           setTimeout(() => process.exit(0), 100);
         },
@@ -730,12 +730,12 @@ function startServer(updatePromise) {
     process.removeAllListeners("SIGHUP");
     process.on("SIGHUP", () => {});
 
-    console.log(`\n🚀 ${pkg.name} v${pkg.version}`);
+    console.log(`\nðŸš€ ${pkg.name} v${pkg.version}`);
     console.log(`Server: http://${displayHost}:${port}`);
 
     waitServerReady(port).then(() => {
       initTrayIcon();
-      console.log("\n💡 Router is now running in system tray. Close this terminal if you want.");
+      console.log("\nðŸ’¡ Router is now running in system tray. Close this terminal if you want.");
       console.log("   Right-click tray icon to open dashboard or quit.\n");
     });
 
@@ -757,7 +757,7 @@ function startServer(updatePromise) {
           isShuttingDown = true;
           const { clearScreen } = require("./src/cli/utils/display");
           clearScreen();
-          console.log(`\n⬆  Update v${pkg.version} → v${latestVersion}\n`);
+          console.log(`\nâ¬†  Update v${pkg.version} â†’ v${latestVersion}\n`);
           console.log(`Run this after exit:\n`);
           console.log(`   \x1b[33m${INSTALL_CMD_LATEST}\x1b[0m\n`);
           cleanup();
@@ -786,22 +786,22 @@ function startServer(updatePromise) {
           } catch (e) { }
 
           if (process.platform === "darwin") {
-            // macOS: keep current process alive — spawning a detached child puts
+            // macOS: keep current process alive â€” spawning a detached child puts
             // it outside the login session so NSStatusItem silently fails.
             process.removeAllListeners("SIGHUP");
             process.on("SIGHUP", () => {});
 
-            console.log(`\n⏳ Switching to tray mode... (icon already visible in menu bar)`);
-            console.log(`🔔 9Router is running in tray (PID: ${process.pid})`);
+            console.log(`\nâ³ Switching to tray mode... (icon already visible in menu bar)`);
+            console.log(`ðŸ”” Rebana Router is running in tray (PID: ${process.pid})`);
             console.log(`   Server: http://${displayHost}:${port}`);
-            console.log(`\n💡 You can close this terminal. Right-click tray icon to quit.\n`);
+            console.log(`\nðŸ’¡ You can close this terminal. Right-click tray icon to quit.\n`);
 
-            // Tray already init'd at startup — just keep event loop alive.
+            // Tray already init'd at startup â€” just keep event loop alive.
             return;
           }
 
           // Windows/Linux: spawn detached bgProcess (systray works fine in child)
-          console.log(`\n⏳ Starting background process... (tray icon will appear in ~3s)`);
+          console.log(`\nâ³ Starting background process... (tray icon will appear in ~3s)`);
 
           const bgProcess = spawn(process.execPath, ["--dns-result-order=ipv4first", __filename, "--tray", "--skip-update", "-p", port.toString()], {
             detached: true,
@@ -811,9 +811,9 @@ function startServer(updatePromise) {
           });
           bgProcess.unref();
 
-          console.log(`🔔 9Router is now running in background (PID: ${bgProcess.pid})`);
+          console.log(`ðŸ”” Rebana Router is now running in background (PID: ${bgProcess.pid})`);
           console.log(`   Server: http://${displayHost}:${port}`);
-          console.log(`\n💡 You can close this terminal. Right-click tray icon to quit.\n`);
+          console.log(`\nðŸ’¡ You can close this terminal. Right-click tray icon to quit.\n`);
 
           // cleanup() kills server so bgProcess can claim the port fresh
           cleanup();
@@ -854,9 +854,9 @@ function startServer(updatePromise) {
     if (aliveMs >= RESTART_RESET_MS) restartCount = 0;
 
     if (restartCount >= MAX_RESTARTS) {
-      console.error(`\n⚠️  Server crashed ${MAX_RESTARTS} times. Disabling MIT and restarting...`);
+      console.error(`\nâš ï¸  Server crashed ${MAX_RESTARTS} times. Disabling MIT and restarting...`);
       try {
-        const dbPath = path.join(os.homedir(), process.platform === "win32" ? path.join("AppData", "Roaming", "9router", "db.json") : path.join(".9router", "db.json"));
+        const dbPath = path.join(os.homedir(), process.platform === "win32" ? path.join("AppData", "Roaming", "Rebana Router", "db.json") : path.join(".Rebana Router", "db.json"));
         if (fs.existsSync(dbPath)) {
           const db = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
           if (db.settings) db.settings.mitmEnabled = false;
@@ -871,7 +871,7 @@ function startServer(updatePromise) {
 
     restartCount++;
     const delay = Math.min(1000 * restartCount, 10000);
-    console.error(`\n⚠️  Server exited (code=${code ?? "unknown"}). Restarting in ${delay / 1000}s... (${restartCount}/${MAX_RESTARTS})`);
+    console.error(`\nâš ï¸  Server exited (code=${code ?? "unknown"}). Restarting in ${delay / 1000}s... (${restartCount}/${MAX_RESTARTS})`);
     if (crashLog.length) {
       console.error("\n--- Server crash log ---");
       crashLog.forEach(l => console.error(l));

@@ -1,5 +1,5 @@
 /**
- * CommandCode → OpenAI response translator
+ * CommandCode â†’ OpenAI response translator
  *
  * CommandCode upstream emits NDJSON-style AI SDK v5 stream events:
  *   {"type":"start"} {"type":"start-step", ...}
@@ -12,8 +12,8 @@
  *   {"type":"finish-step","finishReason","usage": {...}, ...}
  *   {"type":"finish",...}
  *
- * Each upstream "event" arrives as one JSON object per line — we receive it as a string chunk
- * already split per line by the upstream SSE/JSON-line reader in 9router.
+ * Each upstream "event" arrives as one JSON object per line â€” we receive it as a string chunk
+ * already split per line by the upstream SSE/JSON-line reader in Rebana Router.
  */
 import { register } from "../index.js";
 import { FORMATS } from "../formats.js";
@@ -131,7 +131,7 @@ export function commandCodeToOpenAIResponse(chunk, state) {
       break;
     }
     case "tool-call": {
-      // Final consolidated tool call — only emit if we never saw tool-input-* deltas.
+      // Final consolidated tool call â€” only emit if we never saw tool-input-* deltas.
       const id = event.toolCallId;
       if (state.toolIndexById.has(id)) break;
       const idx = state.toolIndex++;

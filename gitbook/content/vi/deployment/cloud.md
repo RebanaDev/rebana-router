@@ -1,6 +1,6 @@
 # ☁️ Triển khai Cloud
 
-Triển khai 9Router trên VPS hoặc Docker để truy cập từ xa và dùng trong production.
+Triển khai Rebana Router trên VPS hoặc Docker để truy cập từ xa và dùng trong production.
 
 ---
 
@@ -16,8 +16,8 @@ Triển khai 9Router trên VPS hoặc Docker để truy cập từ xa và dùng 
 ### Bước 1: Clone Repository
 
 ```bash
-git clone https://github.com/decolua/9router.git
-cd 9router/app
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router/app
 ```
 
 ### Bước 2: Cài đặt Dependencies
@@ -39,7 +39,7 @@ Tạo file `.env` hoặc export biến:
 ```bash
 export JWT_SECRET="your-secure-secret-change-this-to-random-string"
 export INITIAL_PASSWORD="your-secure-password"
-export DATA_DIR="/var/lib/9router"
+export DATA_DIR="/var/lib/Rebana Router"
 export NODE_ENV="production"
 ```
 
@@ -49,15 +49,15 @@ export NODE_ENV="production"
 |----------|---------|-------------|
 | `JWT_SECRET` | Auto-generated | **PHẢI đổi trong production!** Dùng để ký JWT token |
 | `INITIAL_PASSWORD` | `123456` | Mật khẩu đăng nhập Dashboard |
-| `DATA_DIR` | `~/.9router` | Đường dẫn lưu database và data |
+| `DATA_DIR` | `~/.Rebana Router` | Đường dẫn lưu database và data |
 | `NODE_ENV` | `development` | Đặt `production` cho deployment |
 | `ENABLE_REQUEST_LOGS` | `false` | Bật debug request/response logs |
 
 ### Bước 5: Tạo Data Directory
 
 ```bash
-sudo mkdir -p /var/lib/9router
-sudo chown $USER:$USER /var/lib/9router
+sudo mkdir -p /var/lib/Rebana Router
+sudo chown $USER:$USER /var/lib/Rebana Router
 ```
 
 ### Bước 6: Khởi động Application
@@ -74,8 +74,8 @@ PM2 giữ application chạy và tự khởi động lại khi crash:
 # Install PM2 globally
 npm install -g pm2
 
-# Start 9Router with PM2
-pm2 start npm --name 9router -- start
+# Start Rebana Router with PM2
+pm2 start npm --name Rebana Router -- start
 
 # Save PM2 configuration
 pm2 save
@@ -89,13 +89,13 @@ pm2 startup
 
 ```bash
 # View logs
-pm2 logs 9router
+pm2 logs Rebana Router
 
 # Restart application
-pm2 restart 9router
+pm2 restart Rebana Router
 
 # Stop application
-pm2 stop 9router
+pm2 stop Rebana Router
 
 # View status
 pm2 status
@@ -130,7 +130,7 @@ COPY . .
 RUN npm run build
 
 # Expose ports
-EXPOSE 3000 20128
+EXPOSE 3000 91827
 
 # Set environment variables
 ENV NODE_ENV=production
@@ -147,17 +147,17 @@ CMD ["npm", "run", "start"]
 
 ```bash
 # Build image
-docker build -t 9router .
+docker build -t Rebana Router .
 
 # Run container
 docker run -d \
-  --name 9router \
+  --name Rebana Router \
   -p 3000:3000 \
-  -p 20128:20128 \
+  -p 91827:91827 \
   -e JWT_SECRET="your-secure-secret-change-this" \
   -e INITIAL_PASSWORD="your-secure-password" \
-  -v 9router-data:/app/data \
-  9router
+  -v Rebana Router-data:/app/data \
+  Rebana Router
 ```
 
 ### Cách 2: Docker Compose
@@ -168,23 +168,23 @@ Tạo `docker-compose.yml`:
 version: '3.8'
 
 services:
-  9router:
+  Rebana Router:
     build: .
-    container_name: 9router
+    container_name: Rebana Router
     ports:
       - "3000:3000"
-      - "20128:20128"
+      - "91827:91827"
     environment:
       - NODE_ENV=production
       - JWT_SECRET=your-secure-secret-change-this
       - INITIAL_PASSWORD=your-secure-password
       - DATA_DIR=/app/data
     volumes:
-      - 9router-data:/app/data
+      - Rebana Router-data:/app/data
     restart: unless-stopped
 
 volumes:
-  9router-data:
+  Rebana Router-data:
 ```
 
 **Chạy với Docker Compose:**
@@ -223,7 +223,7 @@ sudo apt install nginx
 
 ### Bước 2: Cấu hình Nginx
 
-Tạo `/etc/nginx/sites-available/9router`:
+Tạo `/etc/nginx/sites-available/Rebana Router`:
 
 ```nginx
 server {
@@ -247,7 +247,7 @@ server {
     ssl_ciphers HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers on;
 
-    # Proxy to 9Router
+    # Proxy to Rebana Router
     location / {
         proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
@@ -266,7 +266,7 @@ server {
 
     # API endpoint
     location /v1 {
-        proxy_pass http://localhost:20128;
+        proxy_pass http://localhost:91827;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -284,7 +284,7 @@ server {
 
 ```bash
 # Create symbolic link
-sudo ln -s /etc/nginx/sites-available/9router /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/Rebana Router /etc/nginx/sites-enabled/
 
 # Test configuration
 sudo nginx -t
@@ -309,7 +309,7 @@ sudo certbot renew --dry-run
 
 ---
 
-## 🔒 Cân nhắc về Bảo mật
+## 🔒 C❌n nhắc về Bảo mật
 
 ### 1. Đổi credentials mặc định
 
@@ -333,9 +333,9 @@ sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 
-# If NOT using reverse proxy, allow 9Router ports
+# If NOT using reverse proxy, allow Rebana Router ports
 sudo ufw allow 3000/tcp
-sudo ufw allow 20128/tcp
+sudo ufw allow 91827/tcp
 
 # Enable firewall
 sudo ufw enable
@@ -363,22 +363,22 @@ ssh -L 3000:localhost:3000 user@your-server.com
 # Update system packages
 sudo apt update && sudo apt upgrade -y
 
-# Update 9Router
-cd /path/to/9router/app
+# Update Rebana Router
+cd /path/to/Rebana Router/app
 git pull
 npm install
 npm run build
-pm2 restart 9router
+pm2 restart Rebana Router
 ```
 
 ### 5. Chiến lược Backup
 
 ```bash
 # Backup data directory
-tar -czf 9router-backup-$(date +%Y%m%d).tar.gz /var/lib/9router
+tar -czf Rebana Router-backup-$(date +%Y%m%d).tar.gz /var/lib/Rebana Router
 
 # Automated daily backup (add to crontab)
-0 2 * * * tar -czf /backups/9router-$(date +\%Y\%m\%d).tar.gz /var/lib/9router
+0 2 * * * tar -czf /backups/Rebana Router-$(date +\%Y\%m\%d).tar.gz /var/lib/Rebana Router
 ```
 
 ---
@@ -392,7 +392,7 @@ tar -czf 9router-backup-$(date +%Y%m%d).tar.gz /var/lib/9router
 pm2 status
 
 # View logs
-pm2 logs 9router --lines 100
+pm2 logs Rebana Router --lines 100
 
 # Monitor resources
 pm2 monit
@@ -418,7 +418,7 @@ htop
 df -h
 
 # Network connections
-netstat -tulpn | grep -E '3000|20128'
+netstat -tulpn | grep -E '3000|91827'
 ```
 
 ---
@@ -429,20 +429,20 @@ netstat -tulpn | grep -E '3000|20128'
 
 ```bash
 # Check logs
-pm2 logs 9router
+pm2 logs Rebana Router
 
 # Check if ports are in use
 sudo lsof -i :3000
-sudo lsof -i :20128
+sudo lsof -i :91827
 
 # Check environment variables
-pm2 env 9router
+pm2 env Rebana Router
 ```
 
 ### Nginx 502 Bad Gateway
 
 ```bash
-# Check if 9Router is running
+# Check if Rebana Router is running
 pm2 status
 
 # Check Nginx error logs
@@ -460,8 +460,8 @@ sudo nginx -t
 
 ```bash
 # Fix data directory permissions
-sudo chown -R $USER:$USER /var/lib/9router
-chmod 755 /var/lib/9router
+sudo chown -R $USER:$USER /var/lib/Rebana Router
+chmod 755 /var/lib/Rebana Router
 ```
 
 ---

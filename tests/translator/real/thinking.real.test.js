@@ -80,7 +80,7 @@ describe.skipIf(!RUN_REAL).concurrent("REAL thinking normalization", () => {
         });
 
         if (!result.success) {
-          // 400 = our thinking payload was rejected → real bug. Other codes = credential/quota.
+          // 400 = our thinking payload was rejected â†’ real bug. Other codes = credential/quota.
           const credIssue = [401, 402, 403, 429].includes(Number(result.status));
           if (credIssue) {
             console.warn(`[skip] ${providerId}: ${result.status} (credential/quota)`);
@@ -109,7 +109,7 @@ function targetProviders() {
     const path = require("path");
     const dbPath = process.env.DATA_DIR
       ? path.join(process.env.DATA_DIR, "db", "data.sqlite")
-      : path.join(os.homedir(), ".9router", "db", "data.sqlite");
+      : path.join(os.homedir(), ".Rebana Router", "db", "data.sqlite");
     const db = new Database(dbPath, { readonly: true });
     const rows = db.prepare("SELECT DISTINCT provider FROM providerConnections WHERE isActive = 1").all();
     db.close();

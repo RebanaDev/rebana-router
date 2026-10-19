@@ -28,7 +28,7 @@ export function isMuseSparkModel(modelId) {
   return /^muse[-_]?spark(?:$|[-_:.\s])/i.test(base);
 }
 
-// "model(level)" is a 9router thinking override; strip before matching.
+// "model(level)" is a Rebana Router thinking override; strip before matching.
 // Accepts both bare ids ("deepseek-v4-pro(max)") and provider-prefixed ones.
 export function isDeepSeekModel(modelId) {
   if (!modelId || typeof modelId !== "string") return false;
@@ -49,7 +49,7 @@ export function isOpencodeFreeTierModel(modelId) {
 }
 
 // Endpoint families for OpenCode models outside the curated registry (modelsFetcher /
-// passthrough ids) — regex keeps auto-fetched models on the right endpoint:
+// passthrough ids) â€” regex keeps auto-fetched models on the right endpoint:
 // /responses (gpt/grok/muse-spark), /messages (minimax/qwen), /chat/completions (rest).
 // Curated registry entries always win; this is the unknown-id fallback only.
 const OPENCODE_FAMILIES = [

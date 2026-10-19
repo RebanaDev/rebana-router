@@ -4,7 +4,7 @@
  * Each Qoder model_config ships a `context_config` list (e.g. 200K / 400K / 1M for
  * qmodel_38max) while `max_input_tokens` only carries the tier the IDE currently has
  * selected (~180K by default). The Qoder IDE lets the user switch tiers from the model
- * picker; a qodercli-style client (which is what 9router impersonates) has no picker,
+ * picker; a qodercli-style client (which is what Rebana Router impersonates) has no picker,
  * so a long Claude-Code / Codex session that grew past the default tier is rejected
  * upstream even though the model itself supports 1M.
  *
@@ -16,14 +16,14 @@
  *   model_config.max_input_tokens
  *
  * Override with QODER_CONTEXT_TIER = auto (default) | max | default | <tier name, e.g. 1M>.
- * Pure functions, no I/O — the executor wires them into buildQoderRequestBody.
+ * Pure functions, no I/O â€” the executor wires them into buildQoderRequestBody.
  */
 
 import { QODER_CONTEXT_TIER_HEADROOM, QODER_CONTEXT_TIER_MODES } from "./constants.js";
 
 const UNIT = { K: 1_000, M: 1_000_000 };
 
-/** "200K" | "1M" | "204800" | 204800 → integer token count (0 when unparseable). */
+/** "200K" | "1M" | "204800" | 204800 â†’ integer token count (0 when unparseable). */
 export function parseTierTokenCount(value) {
   if (typeof value === "number") return Number.isFinite(value) && value > 0 ? Math.floor(value) : 0;
   if (typeof value !== "string") return 0;
@@ -70,7 +70,7 @@ const CJK_RE = /[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\ufaff\uff00-\uff
 
 /**
  * Rough prompt-size estimate in tokens. CJK characters count ~1 token each, everything
- * else ~4 chars/token — the plain chars/4 rule underestimates Chinese/Japanese by up to
+ * else ~4 chars/token â€” the plain chars/4 rule underestimates Chinese/Japanese by up to
  * 4x, which is exactly when a tier decision matters.
  */
 export function estimateQoderPromptTokens({ system, messages, tools } = {}) {
@@ -102,7 +102,7 @@ function findNamedTier(tiers, name) {
  * @param {{system?: string, messages?: any[], tools?: any[]}} prompt  what will be sent
  * @param {{preference?: string, headroom?: number}} [options]
  * @returns {{ tier: {name, tokenCount, isDefault}, estimatedTokens: number, reason: string } | null}
- *   null → leave the payload exactly as before (no tiers, or the default already fits).
+ *   null â†’ leave the payload exactly as before (no tiers, or the default already fits).
  */
 export function resolveQoderContextTier(modelConfig, prompt, options = {}) {
   const tiers = getQoderContextTiers(modelConfig);
@@ -124,7 +124,7 @@ export function resolveQoderContextTier(modelConfig, prompt, options = {}) {
   if (mode.toLowerCase() !== QODER_CONTEXT_TIER_MODES.AUTO) {
     const named = findNamedTier(tiers, mode);
     if (named) return { tier: named, estimatedTokens, reason: `forced:${named.name}` };
-    // Unknown tier name → fall through to auto rather than silently breaking requests.
+    // Unknown tier name â†’ fall through to auto rather than silently breaking requests.
   }
 
   // auto: keep the upstream default (current behaviour) while the prompt fits in it.

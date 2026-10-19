@@ -1,15 +1,15 @@
 /**
- * Tests for the `9router xai video` CLI command (cli/src/cli/commands/xaiVideo.js)
+ * Tests for the `Rebana Router xai video` CLI command (cli/src/cli/commands/xaiVideo.js)
  *
- * Uses a real local HTTP server standing in for the 9router gateway + video CDN.
+ * Uses a real local HTTP server standing in for the Rebana Router gateway + video CDN.
  * No real credentials or upstream calls.
  *
  * Covers:
  *  - arg parsing (defaults, flags, unknown flag rejection)
- *  - full happy path: create → poll (pending → done) → MP4 download → atomic rename
+ *  - full happy path: create â†’ poll (pending â†’ done) â†’ MP4 download â†’ atomic rename
  *  - x-connection-id pinning from the create response header
- *  - failed job → non-zero exit, no output file, no stray .part
- *  - poll timeout → non-zero exit
+ *  - failed job â†’ non-zero exit, no output file, no stray .part
+ *  - poll timeout â†’ non-zero exit
  *  - download failure cleans up the .part file
  *  - no Authorization/token material in output
  */
@@ -57,7 +57,7 @@ describe("parseArgs", () => {
     expect(opts.prompt).toBe("hi");
     expect(opts.model).toBe("xai/grok-imagine-video");
     expect(opts.output).toBe("video.mp4");
-    expect(opts.port).toBe(20128);
+    expect(opts.port).toBe(91827);
   });
 
   it("parses all documented flags", () => {
@@ -109,7 +109,7 @@ describe("run (against a mock gateway)", () => {
         req.on("data", (c) => (body += c));
         req.on("end", () => {
           seen.createBody = JSON.parse(body);
-          res.writeHead(200, { "Content-Type": "application/json", "x-9router-connection-id": "conn-42" });
+          res.writeHead(200, { "Content-Type": "application/json", "x-Rebana Router-connection-id": "conn-42" });
           res.end(JSON.stringify({ request_id: "job-1" }));
         });
         return;

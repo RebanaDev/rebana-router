@@ -1,6 +1,6 @@
 # Bắt đầu
 
-Khởi chạy 9Router trong 5 phút và bắt đầu định tuyến các request AI một cách thông minh.
+Khởi chạy Rebana Router trong 5 phút và bắt đầu định tuyến các request AI một cách thông minh.
 
 ---
 
@@ -9,7 +9,7 @@ Khởi chạy 9Router trong 5 phút và bắt đầu định tuyến các reques
 ### 1. Cài đặt
 
 ```bash
-npm install -g 9router
+npm install -g Rebana Router
 ```
 
 **Yêu cầu:** Node.js 20+ ([Chi tiết cài đặt](getting-started/installation.md))
@@ -17,10 +17,10 @@ npm install -g 9router
 ### 2. Khởi chạy
 
 ```bash
-9router
+Rebana Router
 ```
 
-🎉 **Dashboard tự động mở** tại `http://localhost:20128`
+🎉 **Dashboard tự động mở** tại `http://localhost:91827`
 
 - Mật khẩu mặc định: `123456` (đổi trong dashboard)
 - API key được tạo tự động
@@ -43,7 +43,7 @@ Dashboard → Providers → Connect [Provider]
 **Ví dụ: Claude Code**
 1. Click "Connect Claude Code"
 2. Đăng nhập tài khoản Claude
-3. Cho phép 9Router
+3. Cho phép Rebana Router
 4. ✅ Xong! Dùng model: `cc/claude-opus-4-5-20251101`
 
 #### Cách B: API Key (Cheap Provider)
@@ -83,14 +83,14 @@ Dashboard → Providers → Connect [Free Provider]
 
 ## 4. Dùng trong CLI Tools
 
-Trỏ công cụ code của bạn tới 9Router:
+Trỏ công cụ code của bạn tới Rebana Router:
 
 ### Cursor IDE
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [from 9router dashboard]
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [from Rebana Router dashboard]
   Model: cc/claude-opus-4-5-20251101
 ```
 
@@ -100,8 +100,8 @@ Sửa `~/.claude/config.json`:
 
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key"
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key"
 }
 ```
 
@@ -109,7 +109,7 @@ Sửa `~/.claude/config.json`:
 
 ```
 Provider: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [from dashboard]
 Model: cc/claude-opus-4-5-20251101
 ```
@@ -117,8 +117,8 @@ Model: cc/claude-opus-4-5-20251101
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex "your prompt"
 ```
@@ -201,7 +201,7 @@ Use in CLI: premium-coding
 
 ## Chiến lược Tối ưu Chi phí
 
-### Ngân sách hàng tháng: $10-20/tháng
+### Ng❌n sách hàng tháng: $10-20/tháng
 
 ```
 1. Use Gemini CLI free tier (180K/month) for quick tasks
@@ -235,13 +235,13 @@ Daily routine:
 
 - [Chi tiết cài đặt](getting-started/installation.md) - Yêu cầu, troubleshooting
 - [Tính năng](features/) - Khám phá quota tracking, combos, deployment
-- [FAQ](faq.md) - Câu hỏi thường gặp
+- [FAQ](faq.md) - C❌u hỏi thường gặp
 - [Troubleshooting](troubleshooting.md) - Sửa các vấn đề phổ biến
 
 ---
 
 ## Cần trợ giúp?
 
-- **Website**: [9router.com](https://9router.com)
-- **GitHub**: [github.com/decolua/9router](https://github.com/decolua/9router)
-- **Issues**: [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **Website**: [Rebana Router.com](https://Rebana Router.com)
+- **GitHub**: [github.com/decolua/Rebana Router](https://github.com/decolua/Rebana Router)
+- **Issues**: [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)

@@ -1,8 +1,8 @@
 // REAL multi-turn thinking pass-back matrix for opencode-go DeepSeek.
 //
 // Question under test: does the /responses endpoint have the same "cc problem"
-// as /messages — i.e. DeepSeek rejects a follow-up turn whose assistant history
-// lacks reasoning content, because 9router does not inject a placeholder on that
+// as /messages â€” i.e. DeepSeek rejects a follow-up turn whose assistant history
+// lacks reasoning content, because Rebana Router does not inject a placeholder on that
 // path (injectReasoningContent only rewrites body.messages, not the responses
 // `input` array)?
 //
@@ -16,8 +16,8 @@
 // Cells:
 //   - openai-responses: assistant turn WITHOUT reasoning item (plain client replay)
 //   - openai-responses: assistant turn WITH reasoning item (Codex-style store=false replay)
-//   - openai: control — known-good (injectReasoningContent covers chat path)
-//   - claude: control — known-broken (handlesThinkingBlocks excludes opencode-go)
+//   - openai: control â€” known-good (injectReasoningContent covers chat path)
+//   - claude: control â€” known-broken (handlesThinkingBlocks excludes opencode-go)
 import { describe, it, expect } from "vitest";
 import { getProviderCredentials } from "../../../src/sse/services/auth.js";
 import { checkAndRefreshToken } from "../../../src/sse/services/tokenRefresh.js";
@@ -49,7 +49,7 @@ async function credentials() {
   return checkAndRefreshToken(PROVIDER, creds);
 }
 
-// Fire one request; returns { ok, status, raw } — never throws on upstream 4xx.
+// Fire one request; returns { ok, status, raw } â€” never throws on upstream 4xx.
 async function send(body, sourceFormat, creds) {
   const result = await handleChatCore({
     body: { ...body, model: `${PROVIDER}/${MODEL}` },
@@ -67,7 +67,7 @@ async function send(body, sourceFormat, creds) {
   return { ok: true, status: 200, raw: await drainSSE(result.response) };
 }
 
-// Non-stream responses-format turn 1 — returns the full JSON response object.
+// Non-stream responses-format turn 1 â€” returns the full JSON response object.
 async function responsesTurn1(creds, retries = 2) {
   const body = {
     stream: false,
@@ -81,7 +81,7 @@ async function responsesTurn1(creds, retries = 2) {
       try { return { ok: true, json: JSON.parse(out.raw) }; } catch { return { ok: true, json: null, raw: out.raw }; }
     }
     if (!out.skip && out.status) return out; // real upstream rejection, don't retry
-    if (i < retries) await new Promise((r) => setTimeout(r, 2000)); // transient 429 → back off
+    if (i < retries) await new Promise((r) => setTimeout(r, 2000)); // transient 429 â†’ back off
   }
   return { ok: false, skip: true };
 }
@@ -114,7 +114,7 @@ describe.skipIf(!RUN_REAL)(`REAL opencode-go thinking pass-back (${PROVIDER}/${M
     };
     const out = await send(body, "openai-responses", creds);
     console.log(`[responses no-reasoning] status=${out.status} raw=${out.raw?.slice?.(0, 200)}`);
-    // Diagnostic only — a 400 here is the "cc problem" on the responses path.
+    // Diagnostic only â€” a 400 here is the "cc problem" on the responses path.
     expect(out.skip).not.toBe(true);
   }, TIMEOUT_MS);
 
@@ -158,7 +158,7 @@ describe.skipIf(!RUN_REAL)(`REAL opencode-go thinking pass-back (${PROVIDER}/${M
     if (!t1.ok) { console.warn(`[skip] turn1 failed ${t1.status}: ${t1.raw}`); return expect(true).toBe(true); }
     console.log(`[responses stream turn1] bytes=${t1.raw.length} marker=${/response\.|"type":"response/.test(t1.raw)}`);
 
-    // Client replays the assistant turn WITHOUT any reasoning content (9router does
+    // Client replays the assistant turn WITHOUT any reasoning content (Rebana Router does
     // not inject reasoning_content on the input[] path).
     const turn2Body = {
       stream: true,
@@ -215,7 +215,7 @@ describe.skipIf(!RUN_REAL)(`REAL opencode-go thinking pass-back (${PROVIDER}/${M
     }
     console.log(`[claude control] status=${out.status} raw=${out.raw?.slice?.(0, 200)}`);
     // Known-broken on master (handlesThinkingBlocks excludes opencode-go): we record,
-    // not assert — the pass-back fix should flip this to ok.
+    // not assert â€” the pass-back fix should flip this to ok.
     expect(out.skip).not.toBe(true);
   }, TIMEOUT_MS);
 });

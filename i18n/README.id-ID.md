@@ -1,36 +1,36 @@
 <div align="center">
-  <img src="../images/9router.png?1" alt="9Router Dashboard" width="800"/>
+  <img src="../images/Rebana Router.png?1" alt="Rebana Router Dashboard" width="800"/>
 
-  # 9Router - Router AI Gratis
+  # Rebana Router - Router AI Gratis
 
   **Jangan berhenti ngoding. Otomatis dialihkan ke model AI gratis & murah dengan smart fallback.**
 
   **Hubungkan semua tool AI coding (Claude Code, Cursor, Antigravity, Copilot, Codex, Gemini, OpenCode, Cline, OpenClaw...) ke 40+ provider AI dan 100+ model.**
 
-  [![npm](https://img.shields.io/npm/v/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Downloads](https://img.shields.io/npm/dm/9router.svg)](https://www.npmjs.com/package/9router)
-  [![License](https://img.shields.io/npm/l/9router.svg)](https://github.com/decolua/9router/blob/main/LICENSE)
+  [![npm](https://img.shields.io/npm/v/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![Downloads](https://img.shields.io/npm/dm/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![License](https://img.shields.io/npm/l/Rebana Router.svg)](https://github.com/decolua/Rebana Router/blob/main/LICENSE)
 
-  [🚀 Mulai Cepat](#-mulai-cepat) • [💡 Fitur](#-fitur-utama) • [📖 Setup](#-panduan-setup) • [🌐 Website](https://9router.com)
+  [🚀 Mulai Cepat](#-mulai-cepat) • [💡 Fitur](#-fitur-utama) • [📖 Setup](#-panduan-setup) • [🌐 Website](https://Rebana Router.com)
 
-  [🇻🇳 Tiếng Việt](./README.vi.md) • [🇨🇳 中文](./README.zh-CN.md) • [🇯🇵 日本語](./README.ja-JP.md) • [🇮🇩 Bahasa Indonesia](./README.id-ID.md)
+  [🇻🇳 Tiáº¿ng Viá»‡t](./README.vi.md) • [🇨🇳 ä¸­æ–‡](./README.zh-CN.md) • [🇯🇵 æ—¥æœ¬èªž](./README.ja-JP.md) • [🇮🇩 Bahasa Indonesia](./README.id-ID.md)
 </div>
 
 ---
 
-## 🤔 Kenapa 9Router?
+## 🤔 Kenapa Rebana Router?
 
 **Berhenti buang-buang uang dan terhambat limit:**
 
-- ❌ Kuota langganan hangus tiap bulan tanpa terpakai
-- ❌ Rate limit bikin ngoding berhenti di tengah jalan
-- ❌ API mahal ($20–50/bulan per provider)
-- ❌ Harus gonta-ganti provider secara manual
+- ❌Œ Kuota langganan hangus tiap bulan tanpa terpakai
+- ❌Œ Rate limit bikin ngoding berhenti di tengah jalan
+- ❌Œ API mahal ($20❌€“50/bulan per provider)
+- ❌Œ Harus gonta-ganti provider secara manual
 
-**9Router menyelesaikan itu semua:**
+**Rebana Router menyelesaikan itu semua:**
 
 - ✅ **Maksimalkan langganan** - lacak kuota dan habiskan sebelum reset
-- ✅ **Fallback otomatis** - langganan → murah → gratis, tanpa downtime
+- ✅ **Fallback otomatis** - langganan →’ murah →’ gratis, tanpa downtime
 - ✅ **Multi-akun** - round-robin antar akun untuk tiap provider
 - ✅ **Universal** - mendukung Claude Code, Codex, Gemini CLI, Cursor, Cline, dan tool CLI apa pun
 
@@ -39,50 +39,50 @@
 ## 🔄 Cara Kerja
 
 ```
-┌─────────────┐
-│   Tool CLI  │  (Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Cline...)
-│    kamu     │
-└──────┬──────┘
-       │ http://localhost:20128/v1
-       ↓
-┌─────────────────────────────────────────┐
-│         9Router (Smart Router)          │
-│  • Konversi format (OpenAI ↔ Claude)    │
-│  • Pelacakan kuota                      │
-│  • Refresh token otomatis               │
-└──────┬──────────────────────────────────┘
-       │
-       ├─→ [Tier 1: Langganan] Claude Code, Codex, Gemini CLI
-       │   ↓ kuota habis
-       ├─→ [Tier 2: Murah] GLM ($0.6/1M), MiniMax ($0.2/1M)
-       │   ↓ batas budget tercapai
-       └─→ [Tier 3: Gratis] iFlow, Qwen, Kiro (unlimited)
+❌”Œ❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”
+❌”‚   Tool CLI  ❌”‚  (Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Cline...)
+❌”‚    kamu     ❌”‚
+❌””❌”€❌”€❌”€❌”€❌”€❌”€❌”¬❌”€❌”€❌”€❌”€❌”€❌”€❌”˜
+       ❌”‚ http://localhost:91827/v1
+       →“
+❌”Œ❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”
+❌”‚         Rebana Router (Smart Router)          ❌”‚
+❌”‚  • Konversi format (OpenAI →” Claude)    ❌”‚
+❌”‚  • Pelacakan kuota                      ❌”‚
+❌”‚  • Refresh token otomatis               ❌”‚
+❌””❌”€❌”€❌”€❌”€❌”€❌”€❌”¬❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”˜
+       ❌”‚
+       ❌”œ❌”€→’ [Tier 1: Langganan] Claude Code, Codex, Gemini CLI
+       ❌”‚   →“ kuota habis
+       ❌”œ❌”€→’ [Tier 2: Murah] GLM ($0.6/1M), MiniMax ($0.2/1M)
+       ❌”‚   →“ batas budget tercapai
+       ❌””❌”€→’ [Tier 3: Gratis] iFlow, Qwen, Kiro (unlimited)
 
 Hasil: ngoding tanpa berhenti, biaya minimum
 ```
 
 ---
 
-## ⚡ Mulai Cepat
+## ❌š¡ Mulai Cepat
 
 **1. Install secara global:**
 
 ```bash
-npm install -g 9router
-9router
+npm install -g Rebana Router
+Rebana Router
 ```
 
-🎉 Dashboard terbuka di `http://localhost:20128`
+🎉 Dashboard terbuka di `http://localhost:91827`
 
 **2. Hubungkan provider gratis (tanpa perlu daftar):**
 
-Dashboard → Providers → hubungkan **Claude Code** atau **Antigravity** → login OAuth → selesai!
+Dashboard →’ Providers →’ hubungkan **Claude Code** atau **Antigravity** →’ login OAuth →’ selesai!
 
 **3. Pakai di tool CLI kamu:**
 
 ```
 Konfigurasi Claude Code/Codex/Gemini CLI/OpenClaw/Cursor/Cline:
-  Endpoint: http://localhost:20128/v1
+  Endpoint: http://localhost:91827/v1
   API Key: [salin dari dashboard]
   Model: if/kimi-k2-thinking
 ```
@@ -91,52 +91,52 @@ Konfigurasi Claude Code/Codex/Gemini CLI/OpenClaw/Cursor/Cline:
 
 **Alternatif: jalankan dari source (repo ini):**
 
-Paket repo ini bersifat privat (`9router-app`), jadi menjalankan dari source/Docker adalah jalur yang diharapkan untuk pengembangan lokal.
+Paket repo ini bersifat privat (`Rebana Router-app`), jadi menjalankan dari source/Docker adalah jalur yang diharapkan untuk pengembangan lokal.
 
 ```bash
 cp .env.example .env
 npm install
-PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+PORT=91827 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run dev
 ```
 
 Mode produksi:
 
 ```bash
 npm run build
-PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+PORT=91827 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run start
 ```
 
 URL default:
-- Dashboard: `http://localhost:20128/dashboard`
-- API kompatibel OpenAI: `http://localhost:20128/v1`
+- Dashboard: `http://localhost:91827/dashboard`
+- API kompatibel OpenAI: `http://localhost:91827/v1`
 
 ---
 
-## 🎥 Video Tutorial
+## ðŸŽ¥ Video Tutorial
 
 <div align="center">
 
-### 📺 Panduan Setup Lengkap - 9Router + Claude Code Gratis
+### 📝º Panduan Setup Lengkap - Rebana Router + Claude Code Gratis
 
-[![9Router + Claude Code Setup](https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg)](https://www.youtube.com/watch?v=raEyZPg5xE0)
+[![Rebana Router + Claude Code Setup](https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg)](https://www.youtube.com/watch?v=raEyZPg5xE0)
 
-**🎬 Tonton tutorial langkah demi langkah:**
-- ✅ Install dan setup 9Router
+**ðŸŽ¬ Tonton tutorial langkah demi langkah:**
+- ✅ Install dan setup Rebana Router
 - ✅ Konfigurasi Claude Sonnet 4.5 gratis
 - ✅ Integrasi dengan Claude Code
 - ✅ Demo live coding
 
-**⏱️ Durasi:** 20 menit | **👥 Dibuat oleh:** Developer Community
+**❌±ï¸ Durasi:** 20 menit | **👥 Dibuat oleh:** Developer Community
 
-[▶️ Tonton di YouTube](https://www.youtube.com/watch?v=o3qYCyjrFYg)
+[❌–¶ï¸ Tonton di YouTube](https://www.youtube.com/watch?v=o3qYCyjrFYg)
 
 </div>
 
 ---
 
-## 🛠️ Tool CLI yang Didukung
+## 🛠ï¸ Tool CLI yang Didukung
 
-9Router bekerja mulus dengan semua tool AI coding utama:
+Rebana Router bekerja mulus dengan semua tool AI coding utama:
 
 <div align="center">
   <table>
@@ -228,7 +228,7 @@ URL default:
   </table>
 </div>
 
-### 🆓 Provider Gratis
+### ðŸ†“ Provider Gratis
 
 <div align="center">
   <table>
@@ -349,21 +349,21 @@ URL default:
 
 | Fitur | Ringkasan | Manfaat |
 |-------|-----------|---------|
-| 🎯 **Smart Fallback 3 Tingkat** | Routing otomatis: langganan → murah → gratis | Ngoding tanpa berhenti, zero downtime |
-| 📊 **Pelacakan Kuota Real-time** | Hitungan token live + hitung mundur reset | Nilai langganan termanfaatkan maksimal |
-| 🔄 **Konversi Format** | OpenAI ↔ Claude ↔ Gemini mulus | Bekerja dengan tool CLI apa pun |
+| ðŸŽ¯ **Smart Fallback 3 Tingkat** | Routing otomatis: langganan →’ murah →’ gratis | Ngoding tanpa berhenti, zero downtime |
+| 📝Š **Pelacakan Kuota Real-time** | Hitungan token live + hitung mundur reset | Nilai langganan termanfaatkan maksimal |
+| 🔄 **Konversi Format** | OpenAI →” Claude →” Gemini mulus | Bekerja dengan tool CLI apa pun |
 | 👥 **Dukungan Multi-akun** | Beberapa akun per provider | Load balancing + redundansi |
 | 🔄 **Auto Refresh Token** | Token OAuth diperbarui otomatis | Tidak perlu login ulang manual |
 | 🎨 **Combo Kustom** | Buat kombinasi model tanpa batas | Fallback sesuai kebutuhanmu |
-| 📝 **Log Request** | Log lengkap request/response | Troubleshooting jadi mudah |
+| 📝 **Log Request** | Log lengkap request/response | Troubleshooting jadi mudah |
 | 💾 **Cloud Sync** | Sinkronkan pengaturan antar perangkat | Setup sama di mana pun |
-| 📊 **Analitik Penggunaan** | Lacak token, biaya, dan tren | Optimalkan pengeluaran |
+| 📝Š **Analitik Penggunaan** | Lacak token, biaya, dan tren | Optimalkan pengeluaran |
 | 🌐 **Deploy di Mana Saja** | Localhost, VPS, Docker, Cloudflare Workers | Opsi deployment fleksibel |
 
 <details>
 <summary><b>📖 Detail Fitur</b></summary>
 
-### 🎯 Smart Fallback 3 Tingkat
+### ðŸŽ¯ Smart Fallback 3 Tingkat
 
 Buat combo dengan fallback otomatis:
 
@@ -373,10 +373,10 @@ Combo: "my-coding-stack"
   2. glm/glm-4.7               (backup murah, $0.6/1M)
   3. if/kimi-k2-thinking       (fallback gratis)
 
-→ Otomatis beralih saat kuota habis atau terjadi error
+→’ Otomatis beralih saat kuota habis atau terjadi error
 ```
 
-### 📊 Pelacakan Kuota Real-time
+### 📝Š Pelacakan Kuota Real-time
 
 - Konsumsi token per provider
 - Hitung mundur reset (5 jam, harian, mingguan)
@@ -386,8 +386,8 @@ Combo: "my-coding-stack"
 ### 🔄 Konversi Format
 
 Konversi mulus antar format:
-- **OpenAI** ↔ **Claude** ↔ **Gemini** ↔ **OpenAI Responses**
-- Tool CLI mengirim dalam format OpenAI → 9Router mengonversi → provider menerima dalam format nativenya
+- **OpenAI** →” **Claude** →” **Gemini** →” **OpenAI Responses**
+- Tool CLI mengirim dalam format OpenAI →’ Rebana Router mengonversi →’ provider menerima dalam format nativenya
 - Bekerja dengan semua tool yang mendukung custom OpenAI endpoint
 
 ### 👥 Dukungan Multi-akun
@@ -409,7 +409,7 @@ Konversi mulus antar format:
 - Beri nama combo agar mudah diakses
 - Bagikan combo antar perangkat lewat cloud sync
 
-### 📝 Log Request
+### 📝 Log Request
 
 - Log lengkap request/response dalam mode debug
 - Lacak API call, header, dan payload
@@ -431,7 +431,7 @@ Konversi mulus antar format:
 - `NEXT_PUBLIC_BASE_URL` dan `NEXT_PUBLIC_CLOUD_URL` masih didukung untuk kompatibilitas/UI, tetapi runtime server memprioritaskan `BASE_URL`/`CLOUD_URL`.
 - Request cloud sync memakai timeout + perilaku fail-fast untuk menghindari UI menggantung saat DNS/jaringan cloud tidak tersedia.
 
-### 📊 Analitik Penggunaan
+### 📝Š Analitik Penggunaan
 
 - Lacak pemakaian token per provider dan per model
 - Estimasi biaya dan tren pengeluaran
@@ -441,18 +441,18 @@ Konversi mulus antar format:
 > **💡 PENTING - tentang biaya di dashboard:**
 >
 > "Biaya" yang ditampilkan pada analitik penggunaan **hanya untuk pelacakan dan perbandingan**.
-> 9Router sendiri **tidak menagih apa pun**. Kamu hanya membayar langsung ke provider jika memakai layanan berbayar.
+> Rebana Router sendiri **tidak menagih apa pun**. Kamu hanya membayar langsung ke provider jika memakai layanan berbayar.
 >
 > **Contoh:** jika dashboard menampilkan "Total biaya $290" untuk pemakaian model iFlow,
 > itu adalah jumlah yang seharusnya kamu bayar bila memakai API berbayar secara langsung. Biaya sebenarnya = **$0** (iFlow gratis tanpa batas).
 >
-> Anggap saja ini "pelacak penghematan" yang menunjukkan berapa banyak yang kamu hemat lewat model gratis dan routing 9Router!
+> Anggap saja ini "pelacak penghematan" yang menunjukkan berapa banyak yang kamu hemat lewat model gratis dan routing Rebana Router!
 
 ### 🌐 Deploy di Mana Saja
 
 - 💻 **Localhost** - default, jalan offline
-- ☁️ **VPS/Cloud** - berbagi antar perangkat
-- 🐳 **Docker** - deploy satu perintah
+- ❌˜ï¸ **VPS/Cloud** - berbagi antar perangkat
+- ðŸ³ **Docker** - deploy satu perintah
 - 🚀 **Cloudflare Workers** - jaringan edge global
 
 </details>
@@ -470,7 +470,7 @@ Konversi mulus antar format:
 | **💰 Murah** | GLM-4.7 | $0.6/1M | Setiap hari jam 10.00 | Backup hemat |
 | | MiniMax M2.1 | $0.2/1M | Rolling 5 jam | Opsi paling murah |
 | | Kimi K2 | $9/bulan flat | 10 juta token/bulan | Biaya yang bisa diprediksi |
-| **🆓 Gratis** | iFlow | $0 | Unlimited | 8 model gratis |
+| **ðŸ†“ Gratis** | iFlow | $0 | Unlimited | 8 model gratis |
 | | Qwen | $0 | Unlimited | 3 model gratis |
 | | Kiro | $0 | Unlimited | Claude gratis |
 
@@ -478,15 +478,15 @@ Konversi mulus antar format:
 
 ---
 
-### 📊 Tentang Biaya dan Penagihan 9Router
+### 📝Š Tentang Biaya dan Penagihan Rebana Router
 
-**Fakta soal penagihan 9Router:**
+**Fakta soal penagihan Rebana Router:**
 
-✅ **Software 9Router = gratis selamanya** (open source, tanpa tagihan)
+✅ **Software Rebana Router = gratis selamanya** (open source, tanpa tagihan)
 ✅ **"Biaya" di dashboard = tampilan/pelacakan saja** (bukan tagihan sungguhan)
 ✅ **Pembayaran langsung ke provider** (langganan atau biaya API)
 ✅ **Provider gratis tetap gratis** (iFlow, Kiro, Qwen = $0 unlimited)
-❌ **9Router tidak mengirim invoice** atau menagih kartumu
+❌Œ **Rebana Router tidak mengirim invoice** atau menagih kartumu
 
 **Cara kerja tampilan biaya:**
 
@@ -507,13 +507,13 @@ Kenyataannya:
 
 **Aturan pembayaran:**
 - **Provider langganan** (Claude Code, Codex): bayar langsung di website masing-masing
-- **Provider murah** (GLM, MiniMax): bayar langsung, 9Router hanya melakukan routing
+- **Provider murah** (GLM, MiniMax): bayar langsung, Rebana Router hanya melakukan routing
 - **Provider gratis** (iFlow, Kiro, Qwen): benar-benar gratis selamanya, tanpa biaya tersembunyi
-- **9Router**: tidak menagih apa pun
+- **Rebana Router**: tidak menagih apa pun
 
 ---
 
-## 🎯 Studi Kasus
+## ðŸŽ¯ Studi Kasus
 
 ### Kasus 1: "Saya punya langganan Claude Pro"
 
@@ -579,12 +579,12 @@ Cara akses: WhatsApp, Telegram, Slack, Discord, iMessage, Signal...
 
 ---
 
-## ❓ FAQ
+## ❌“ FAQ
 
 <details>
-<summary><b>📊 Kenapa dashboard menampilkan biaya yang besar?</b></summary>
+<summary><b>📝Š Kenapa dashboard menampilkan biaya yang besar?</b></summary>
 
-Dashboard melacak pemakaian token dan menampilkan **estimasi biaya** seandainya kamu memakai API berbayar secara langsung. Ini **bukan tagihan nyata**, melainkan acuan untuk melihat berapa banyak yang kamu hemat dengan memakai model gratis atau langganan yang sudah ada lewat 9Router.
+Dashboard melacak pemakaian token dan menampilkan **estimasi biaya** seandainya kamu memakai API berbayar secara langsung. Ini **bukan tagihan nyata**, melainkan acuan untuk melihat berapa banyak yang kamu hemat dengan memakai model gratis atau langganan yang sudah ada lewat Rebana Router.
 
 **Contoh:**
 - **Tampilan dashboard:** "Total biaya $290"
@@ -597,21 +597,21 @@ Tampilan biaya adalah "pelacak penghematan" untuk memahami pola pemakaian dan pe
 </details>
 
 <details>
-<summary><b>💳 Apakah 9Router menagih saya?</b></summary>
+<summary><b>💳 Apakah Rebana Router menagih saya?</b></summary>
 
-**Tidak.** 9Router adalah software open source gratis yang berjalan di komputermu sendiri. Tidak ada penagihan sama sekali.
+**Tidak.** Rebana Router adalah software open source gratis yang berjalan di komputermu sendiri. Tidak ada penagihan sama sekali.
 
 **Kamu membayar ke:**
-- ✅ **Provider langganan** (Claude Code $20/bulan, Codex $20-200/bulan) → bayar langsung di website masing-masing
-- ✅ **Provider murah** (GLM, MiniMax) → bayar langsung, 9Router hanya me-routing request
-- ❌ **9Router sendiri** → **tidak menagih apa pun**
+- ✅ **Provider langganan** (Claude Code $20/bulan, Codex $20-200/bulan) →’ bayar langsung di website masing-masing
+- ✅ **Provider murah** (GLM, MiniMax) →’ bayar langsung, Rebana Router hanya me-routing request
+- ❌Œ **Rebana Router sendiri** →’ **tidak menagih apa pun**
 
-9Router adalah proxy/router lokal. Ia tidak menyimpan informasi kartu kredit, tidak bisa mengirim invoice, dan tidak punya sistem penagihan. Sepenuhnya software gratis.
+Rebana Router adalah proxy/router lokal. Ia tidak menyimpan informasi kartu kredit, tidak bisa mengirim invoice, dan tidak punya sistem penagihan. Sepenuhnya software gratis.
 
 </details>
 
 <details>
-<summary><b>🆓 Apakah provider gratis benar-benar unlimited?</b></summary>
+<summary><b>ðŸ†“ Apakah provider gratis benar-benar unlimited?</b></summary>
 
 **Ya!** Provider yang ditandai gratis (iFlow, Kiro, Qwen) benar-benar unlimited dan **tanpa biaya tersembunyi**.
 
@@ -620,9 +620,9 @@ Ini adalah layanan gratis yang disediakan masing-masing perusahaan:
 - **Kiro**: model Claude gratis unlimited via AWS Builder ID
 - **Qwen**: akses gratis unlimited ke model Qwen via device authentication
 
-9Router hanya me-routing request — tidak ada "jebakan" atau tagihan di kemudian hari. Layanannya memang gratis, dan 9Router membuatnya lebih mudah dipakai dengan dukungan fallback.
+Rebana Router hanya me-routing request — tidak ada "jebakan" atau tagihan di kemudian hari. Layanannya memang gratis, dan Rebana Router membuatnya lebih mudah dipakai dengan dukungan fallback.
 
-**Catatan:** beberapa provider langganan (Antigravity, GitHub Copilot) punya masa preview gratis dan bisa jadi berbayar nanti, tetapi hal itu diumumkan secara jelas oleh provider tersebut, bukan oleh 9Router.
+**Catatan:** beberapa provider langganan (Antigravity, GitHub Copilot) punya masa preview gratis dan bisa jadi berbayar nanti, tetapi hal itu diumumkan secara jelas oleh provider tersebut, bukan oleh Rebana Router.
 
 </details>
 
@@ -647,7 +647,7 @@ Ini adalah layanan gratis yang disediakan masing-masing perusahaan:
 
 3. **Gunakan provider langganan paling akhir:**
    - Hanya jika kamu memang sudah punya
-   - 9Router memaksimalkan nilainya lewat pelacakan kuota
+   - Rebana Router memaksimalkan nilainya lewat pelacakan kuota
 
 **Hasil:** sebagian besar pengguna bisa jalan dengan $0/bulan hanya dengan tier gratis!
 
@@ -656,20 +656,20 @@ Ini adalah layanan gratis yang disediakan masing-masing perusahaan:
 <details>
 <summary><b>📈 Bagaimana kalau pemakaian tiba-tiba melonjak?</b></summary>
 
-Smart fallback 9Router mencegah tagihan tak terduga:
+Smart fallback Rebana Router mencegah tagihan tak terduga:
 
 **Skenario:** kuota habis di tengah sprint coding
 
-**Tanpa 9Router:**
-- ❌ Kena rate limit → kerja berhenti → frustrasi
-- ❌ Atau: tagihan API mahal tanpa disengaja
+**Tanpa Rebana Router:**
+- ❌Œ Kena rate limit →’ kerja berhenti →’ frustrasi
+- ❌Œ Atau: tagihan API mahal tanpa disengaja
 
-**Dengan 9Router:**
-- ✅ Langganan mencapai batas → otomatis fallback ke tier murah
-- ✅ Tier murah jadi mahal → otomatis fallback ke tier gratis
-- ✅ Ngoding tidak berhenti → biaya tetap terprediksi
+**Dengan Rebana Router:**
+- ✅ Langganan mencapai batas →’ otomatis fallback ke tier murah
+- ✅ Tier murah jadi mahal →’ otomatis fallback ke tier gratis
+- ✅ Ngoding tidak berhenti →’ biaya tetap terprediksi
 
-**Kamu yang pegang kendali:** atur batas pengeluaran per provider di dashboard, dan 9Router akan mematuhinya.
+**Kamu yang pegang kendali:** atur batas pengeluaran per provider di dashboard, dan Rebana Router akan mematuhinya.
 
 </details>
 
@@ -683,9 +683,9 @@ Smart fallback 9Router mencegah tagihan tak terduga:
 ### Claude Code (Pro/Max)
 
 ```bash
-Dashboard → Providers → hubungkan Claude Code
-→ login OAuth → refresh token otomatis
-→ pelacakan kuota 5 jam + mingguan
+Dashboard →’ Providers →’ hubungkan Claude Code
+→’ login OAuth →’ refresh token otomatis
+→’ pelacakan kuota 5 jam + mingguan
 
 Model:
   cc/claude-opus-4-6
@@ -693,14 +693,14 @@ Model:
   cc/claude-haiku-4-5-20251001
 ```
 
-**Tips pro:** pakai Opus untuk tugas kompleks, Sonnet kalau mengutamakan kecepatan. 9Router melacak kuota per model!
+**Tips pro:** pakai Opus untuk tugas kompleks, Sonnet kalau mengutamakan kecepatan. Rebana Router melacak kuota per model!
 
 ### OpenAI Codex (Plus/Pro)
 
 ```bash
-Dashboard → Providers → hubungkan Codex
-→ login OAuth (port 1455)
-→ reset 5 jam + mingguan
+Dashboard →’ Providers →’ hubungkan Codex
+→’ login OAuth (port 1455)
+→’ reset 5 jam + mingguan
 
 Model:
   cx/gpt-5.2-codex
@@ -710,9 +710,9 @@ Model:
 ### Gemini CLI (180rb request/bulan gratis!)
 
 ```bash
-Dashboard → Providers → hubungkan Gemini CLI
-→ Google OAuth
-→ 180rb/bulan + 1rb/hari
+Dashboard →’ Providers →’ hubungkan Gemini CLI
+→’ Google OAuth
+→’ 180rb/bulan + 1rb/hari
 
 Model:
   gc/gemini-3-flash-preview
@@ -724,9 +724,9 @@ Model:
 ### GitHub Copilot
 
 ```bash
-Dashboard → Providers → hubungkan GitHub
-→ OAuth via GitHub
-→ reset bulanan (tanggal 1 tiap bulan)
+Dashboard →’ Providers →’ hubungkan GitHub
+→’ OAuth via GitHub
+→’ reset bulanan (tanggal 1 tiap bulan)
 
 Model:
   gh/gpt-5
@@ -743,7 +743,7 @@ Model:
 
 1. Daftar: [Zhipu AI](https://open.bigmodel.cn/)
 2. Ambil API key dari Coding Plan
-3. Dashboard → tambahkan API key:
+3. Dashboard →’ tambahkan API key:
    - Provider: `glm`
    - API Key: `your-key`
 
@@ -755,7 +755,7 @@ Model:
 
 1. Daftar: [MiniMax](https://www.minimax.io/)
 2. Ambil API key
-3. Dashboard → tambahkan API key
+3. Dashboard →’ tambahkan API key
 
 **Pemakaian:** `minimax/MiniMax-M2.1`
 
@@ -765,7 +765,7 @@ Model:
 
 1. Berlangganan: [Moonshot AI](https://platform.moonshot.ai/)
 2. Ambil API key
-3. Dashboard → tambahkan API key
+3. Dashboard →’ tambahkan API key
 
 **Pemakaian:** `kimi/kimi-latest`
 
@@ -774,14 +774,14 @@ Model:
 </details>
 
 <details>
-<summary><b>🆓 Provider Gratis (backup darurat)</b></summary>
+<summary><b>ðŸ†“ Provider Gratis (backup darurat)</b></summary>
 
 ### iFlow (8 model gratis)
 
 ```bash
-Dashboard → hubungkan iFlow
-→ login OAuth iFlow
-→ pemakaian unlimited
+Dashboard →’ hubungkan iFlow
+→’ login OAuth iFlow
+→’ pemakaian unlimited
 
 Model:
   if/kimi-k2-thinking
@@ -794,9 +794,9 @@ Model:
 ### Qwen (3 model gratis)
 
 ```bash
-Dashboard → hubungkan Qwen
-→ autentikasi device code
-→ pemakaian unlimited
+Dashboard →’ hubungkan Qwen
+→’ autentikasi device code
+→’ pemakaian unlimited
 
 Model:
   qw/qwen3-coder-plus
@@ -806,9 +806,9 @@ Model:
 ### Kiro (Claude gratis)
 
 ```bash
-Dashboard → hubungkan Kiro
-→ AWS Builder ID atau Google/GitHub
-→ pemakaian unlimited
+Dashboard →’ hubungkan Kiro
+→’ AWS Builder ID atau Google/GitHub
+→’ pemakaian unlimited
 
 Model:
   kr/claude-sonnet-4.5
@@ -820,10 +820,10 @@ Model:
 <details>
 <summary><b>🎨 Membuat Combo</b></summary>
 
-### Contoh 1: maksimalkan langganan → backup murah
+### Contoh 1: maksimalkan langganan →’ backup murah
 
 ```
-Dashboard → Combos → buat baru
+Dashboard →’ Combos →’ buat baru
 
 Nama: premium-coding
 Model:
@@ -864,22 +864,22 @@ Biaya bulanan: $0
 
 ---
 
-## 🐳 Deployment
+## ðŸ³ Deployment
 
 <details>
 <summary><b>Docker</b></summary>
 
 ```bash
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
-  -v 9router-data:/app/data \
-  -e PORT=20128 \
-  -e BASE_URL=http://localhost:20128 \
-  ghcr.io/decolua/9router:latest
+  --name Rebana Router \
+  -p 91827:91827 \
+  -v Rebana Router-data:/app/data \
+  -e PORT=91827 \
+  -e BASE_URL=http://localhost:91827 \
+  ghcr.io/decolua/Rebana Router:latest
 ```
 
-Dashboard: `http://localhost:20128/dashboard`
+Dashboard: `http://localhost:91827/dashboard`
 
 </details>
 
@@ -887,8 +887,8 @@ Dashboard: `http://localhost:20128/dashboard`
 <summary><b>VPS / Cloud</b></summary>
 
 ```bash
-npm install -g 9router
-PORT=20128 HOSTNAME=0.0.0.0 BASE_URL=https://your-domain.com 9router
+npm install -g Rebana Router
+PORT=91827 HOSTNAME=0.0.0.0 BASE_URL=https://your-domain.com Rebana Router
 ```
 
 Disarankan menaruhnya di belakang reverse proxy (Nginx/Caddy) dengan HTTPS, dan membatasi akses hanya untuk dirimu sendiri.
@@ -909,11 +909,11 @@ Atur `BASE_URL` dan `CLOUD_URL` sebagai environment variable di dashboard Cloudf
 
 ---
 
-## 🧪 Troubleshooting
+## 🧠ª Troubleshooting
 
 | Masalah | Kemungkinan Penyebab | Solusi |
 |---------|----------------------|--------|
-| Tool CLI tidak bisa konek | Endpoint salah | Pastikan `http://localhost:20128/v1` |
+| Tool CLI tidak bisa konek | Endpoint salah | Pastikan `http://localhost:91827/v1` |
 | 401 / Unauthorized | API key salah | Salin ulang key dari dashboard |
 | Model tidak ditemukan | Prefix provider salah | Pakai format `provider/model`, mis. `if/kimi-k2-thinking` |
 | Selalu fallback ke gratis | Kuota langganan habis | Cek hitung mundur reset di dashboard |
@@ -924,7 +924,7 @@ Aktifkan mode debug di dashboard untuk melihat log lengkap request/response.
 
 ---
 
-## 🤝 Kontribusi
+## ðŸ¤ Kontribusi
 
 Kontribusi sangat diterima!
 
@@ -938,14 +938,14 @@ Kontribusi sangat diterima!
 
 ## 📄 Lisensi
 
-MIT License — lihat [LICENSE](https://github.com/decolua/9router/blob/main/LICENSE) untuk detailnya.
+MIT License — lihat [LICENSE](https://github.com/decolua/Rebana Router/blob/main/LICENSE) untuk detailnya.
 
 ---
 
 <div align="center">
 
-**Kalau 9Router membantumu, kasih ⭐ di [GitHub](https://github.com/decolua/9router)!**
+**Kalau Rebana Router membantumu, kasih ❌­ di [GitHub](https://github.com/decolua/Rebana Router)!**
 
-[🌐 Website](https://9router.com) • [📦 npm](https://www.npmjs.com/package/9router) • [🐛 Laporkan Bug](https://github.com/decolua/9router/issues)
+[🌐 Website](https://Rebana Router.com) • [📝¦ npm](https://www.npmjs.com/package/Rebana Router) • [ðŸ› Laporkan Bug](https://github.com/decolua/Rebana Router/issues)
 
 </div>

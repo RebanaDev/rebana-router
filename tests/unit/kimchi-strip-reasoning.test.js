@@ -1,7 +1,7 @@
 /**
  * Kimchi executor: strip reasoning_content echoed by clients.
  *
- * Background: when 9Router streams a thinking model (deepseek-r1,
+ * Background: when Rebana Router streams a thinking model (deepseek-r1,
  * minimax-m3) to a client, the response carries `reasoning_content`.
  * Most OpenAI-compatible SDKs echo the whole history on the next turn,
  * so Kimchi's upstream counts the scratch block as input tokens.
@@ -11,7 +11,7 @@
  * `stripReasoningContent` is intentionally conservative: it only strips
  * `reasoning_content` that is clearly a real thinking block. The 1-char
  * placeholder that `injectReasoningContent` (in `DefaultExecutor`) may
- * insert for upstream validation is preserved — stripping it would
+ * insert for upstream validation is preserved â€” stripping it would
  * re-trigger upstream complaints about missing reasoning on the next
  * turn.
  */
@@ -55,7 +55,7 @@ describe("kimchi stripReasoningContent", () => {
   });
 
   it("preserves short custom reasoning under the threshold", () => {
-    // Anything ≤8 chars is treated as a placeholder-shaped value, kept
+    // Anything â‰¤8 chars is treated as a placeholder-shaped value, kept
     // verbatim. Real thinking content from a thinking model is always
     // well above this threshold.
     const body = {

@@ -1,13 +1,13 @@
 // Acceptance suite for the Zed native-app auth fix.
 // Self-isolating: DATA_DIR points at a temp dir before the DB layer loads,
-// so criterion 3's connection save never reaches the real ~/.9router DB.
+// so criterion 3's connection save never reaches the real ~/.Rebana Router DB.
 //
 // Covers criteria:
 //   1. Zed proxy starts
 //   2. Stray callback (no params) MUST NOT kill session / stop proxy
 //   3. Real callback (user_id + access_token) MUST complete session + save connection
 //   4. RSA decrypt works (round-trip)
-//   5. systemId identical authorize → exchange → stored connection
+//   5. systemId identical authorize â†’ exchange â†’ stored connection
 //   6. register-session failure is distinguishable (backend contract)
 //   8. (backend) reopen/re-register creates a fresh session
 import { describe, it, expect, beforeAll, afterAll, beforeEach, afterEach, vi } from "vitest";
@@ -27,7 +27,7 @@ let startZedProxy, stopZedProxy, registerZedSession, getZedSessionStatus, clearZ
 let generateAuthData, exchangeTokens;
 
 beforeAll(async () => {
-  process.env.DATA_DIR = fs.mkdtempSync(path.join(os.tmpdir(), "9router-zed-auth-"));
+  process.env.DATA_DIR = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-zed-auth-"));
   vi.resetModules();
   ({ startZedProxy, stopZedProxy, registerZedSession, getZedSessionStatus, clearZedSession } =
     await import("@/lib/oauth/utils/server.js"));
@@ -43,7 +43,7 @@ afterAll(() => {
 const realFetch = globalThis.fetch;
 
 // Never hit the real network in tests: cloud.zed.dev calls are best-effort
-// (postExchange try/catch) — fail them fast and loud instead.
+// (postExchange try/catch) â€” fail them fast and loud instead.
 beforeEach(() => {
   globalThis.fetch = async (url, init) => {
     if (String(url).includes("cloud.zed.dev")) {
@@ -59,7 +59,7 @@ afterEach(async () => {
 });
 
 async function startTestProxy() {
-  const started = await startZedProxy(0); // random loopback port — parallel-safe
+  const started = await startZedProxy(0); // random loopback port â€” parallel-safe
   expect(started.success).toBe(true);
   return started;
 }
@@ -76,7 +76,7 @@ function encryptForCallback(publicKeyB64Url, plaintext) {
     .toString("base64url");
 }
 
-describe("criterion 1 — Zed proxy starts", () => {
+describe("criterion 1 â€” Zed proxy starts", () => {
   it("binds 127.0.0.1 and reports a usable callback URL", async () => {
     const started = await startTestProxy();
     expect(started.port).toBeGreaterThan(0);
@@ -84,7 +84,7 @@ describe("criterion 1 — Zed proxy starts", () => {
   });
 });
 
-describe("criterion 4 — RSA decrypt works", () => {
+describe("criterion 4 â€” RSA decrypt works", () => {
   it("round-trips OAEP-SHA256 through the verifier slot", async () => {
     const auth = createZedNativeAuthData({}, { nativeAppPort: 1 });
     const encrypted = encryptForCallback(auth.publicKey, "plaintext-token-abc");
@@ -112,7 +112,7 @@ describe("criterion 4 — RSA decrypt works", () => {
   });
 });
 
-describe("criterion 2 — stray callback MUST NOT kill session", () => {
+describe("criterion 2 â€” stray callback MUST NOT kill session", () => {
   it("bare GET / leaves session pending and proxy listening", async () => {
     const started = await startTestProxy();
     const auth = createZedNativeAuthData({}, { nativeAppPort: started.port });
@@ -123,12 +123,12 @@ describe("criterion 2 — stray callback MUST NOT kill session", () => {
     const res = await realFetch(`http://127.0.0.1:${started.port}/`);
     expect(res.status).toBe(200);
 
-    // Session must still be pending (not poisoned to error)…
+    // Session must still be pending (not poisoned to error)â€¦
     const session = getZedSessionStatus("stray-state-1");
     expect(session).not.toBeNull();
     expect(session.status).toBe("pending");
 
-    // …and the SAME server must still own the port (no silent restart).
+    // â€¦and the SAME server must still own the port (no silent restart).
     const again = await startZedProxy(0);
     expect(again.port).toBe(started.port);
 
@@ -150,8 +150,8 @@ describe("criterion 2 — stray callback MUST NOT kill session", () => {
   });
 });
 
-describe("criterion 3 — real callback completes session + saves connection", () => {
-  it("user_id + access_token → done, decrypted token persisted", async () => {
+describe("criterion 3 â€” real callback completes session + saves connection", () => {
+  it("user_id + access_token â†’ done, decrypted token persisted", async () => {
     const started = await startTestProxy();
     const auth = createZedNativeAuthData({}, { nativeAppPort: started.port });
     const state = `real-state-${Date.now()}`;
@@ -184,7 +184,7 @@ describe("criterion 3 — real callback completes session + saves connection", (
   });
 });
 
-describe("criterion 5 — systemId stable authorize → exchange → stored", () => {
+describe("criterion 5 â€” systemId stable authorize â†’ exchange â†’ stored", () => {
   it("generateAuthData exposes the systemId sent to zed.dev", async () => {
     const auth = await generateAuthData("zed", "http://127.0.0.1:59999/", {
       nativeAppPort: 59999,
@@ -216,7 +216,7 @@ describe("criterion 5 — systemId stable authorize → exchange → stored", ()
   });
 });
 
-describe("criterion 6 — register-session failure is distinguishable", () => {
+describe("criterion 6 â€” register-session failure is distinguishable", () => {
   it("route reports { success: false } when the verifier is missing", async () => {
     const { POST } = await import("@/app/api/oauth/[provider]/[action]/route.js");
     const req = new Request("http://localhost/api/oauth/zed/register-session", {
@@ -233,7 +233,7 @@ describe("criterion 6 — register-session failure is distinguishable", () => {
   });
 });
 
-describe("criterion 8 (backend) — re-register creates a fresh session", () => {
+describe("criterion 8 (backend) â€” re-register creates a fresh session", () => {
   it("a new register supersedes the old state cleanly", async () => {
     const a = createZedNativeAuthData({}, { nativeAppPort: 1 });
     const b = createZedNativeAuthData({}, { nativeAppPort: 1 });
@@ -249,8 +249,8 @@ describe("criterion 8 (backend) — re-register creates a fresh session", () => 
   });
 });
 
-describe("criterion L — decrypt failure errors the session but keeps the server", () => {
-  it("wrong-key token → session error, listener survives for the live attempt", async () => {
+describe("criterion L â€” decrypt failure errors the session but keeps the server", () => {
+  it("wrong-key token â†’ session error, listener survives for the live attempt", async () => {
     const started = await startTestProxy();
     const live = createZedNativeAuthData({}, { nativeAppPort: started.port });
     const other = createZedNativeAuthData({}, { nativeAppPort: started.port });

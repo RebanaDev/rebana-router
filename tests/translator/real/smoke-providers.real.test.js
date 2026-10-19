@@ -59,7 +59,7 @@ describe.skipIf(!RUN_REAL).concurrent("REAL provider smoke", () => {
       `${providerId}: responds to a short prompt`,
       async () => {
         const model = firstLlmModel(providerId);
-        if (!model) return expect(true).toBe(true); // no llm model → skip silently
+        if (!model) return expect(true).toBe(true); // no llm model â†’ skip silently
 
         const credentials = await getProviderCredentials(providerId, new Set(), model);
         if (!credentials || credentials.allRateLimited) {
@@ -81,7 +81,7 @@ describe.skipIf(!RUN_REAL).concurrent("REAL provider smoke", () => {
         });
 
         if (!result.success) {
-          // Account/quota/auth problems are credential issues, not translation bugs → skip.
+          // Account/quota/auth problems are credential issues, not translation bugs â†’ skip.
           const credIssue = [401, 402, 403, 429].includes(Number(result.status));
           if (credIssue) {
             console.warn(`[skip] ${providerId}: ${result.status} (credential/quota)`);
@@ -110,7 +110,7 @@ function targetProviders() {
     const path = require("path");
     const dbPath = process.env.DATA_DIR
       ? path.join(process.env.DATA_DIR, "db", "data.sqlite")
-      : path.join(os.homedir(), ".9router", "db", "data.sqlite");
+      : path.join(os.homedir(), ".Rebana Router", "db", "data.sqlite");
     const db = new Database(dbPath, { readonly: true });
     const rows = db.prepare("SELECT DISTINCT provider FROM providerConnections WHERE isActive = 1").all();
     db.close();

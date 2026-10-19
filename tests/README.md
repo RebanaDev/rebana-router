@@ -1,4 +1,4 @@
-# 9Router Embeddings Tests
+# Rebana Router Embeddings Tests
 
 Unit tests for the `/v1/embeddings` endpoint implementation.
 
@@ -47,6 +47,6 @@ npx vitest run --reporter=verbose --config ./vitest.config.js
 - Authentication: missing key, bad format, old-format key, wrong key value, valid key
 - Body validation: invalid JSON, missing model, missing input, bad model
 - Happy path: single string, array, correct delegation, CORS header, machineId override
-- Rate limiting: all accounts rate-limited → 503 + Retry-After, no credentials → 400
+- Rate limiting: all accounts rate-limited →’ 503 + Retry-After, no credentials →’ 400
 - Error propagation: non-fallback errors passed through, 429 exhausts accounts
 - machineId override: validates key, rejects wrong key

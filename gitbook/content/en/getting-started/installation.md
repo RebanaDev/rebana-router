@@ -1,6 +1,6 @@
 # Installation
 
-Detailed installation guide for 9Router with troubleshooting tips.
+Detailed installation guide for Rebana Router with troubleshooting tips.
 
 ---
 
@@ -31,37 +31,37 @@ npm --version
 
 ### Method 1: Global Installation (Recommended)
 
-Install 9Router globally to use from anywhere:
+Install Rebana Router globally to use from anywhere:
 
 ```bash
-npm install -g 9router
+npm install -g Rebana Router
 ```
 
-**Start 9Router:**
+**Start Rebana Router:**
 
 ```bash
-9router
+Rebana Router
 ```
 
 **Benefits:**
 - ✅ Run from any directory
-- ✅ Simple command: `9router`
-- ✅ Auto-updates with `npm update -g 9router`
+- ✅ Simple command: `Rebana Router`
+- ✅ Auto-updates with `npm update -g Rebana Router`
 
 ### Method 2: Local Installation
 
 Install in a specific project:
 
 ```bash
-mkdir my-9router
-cd my-9router
-npm install 9router
+mkdir my-Rebana Router
+cd my-Rebana Router
+npm install Rebana Router
 ```
 
-**Start 9Router:**
+**Start Rebana Router:**
 
 ```bash
-npx 9router
+npx Rebana Router
 ```
 
 **Benefits:**
@@ -74,8 +74,8 @@ npx 9router
 Clone and build from GitHub:
 
 ```bash
-git clone https://github.com/decolua/9router.git
-cd 9router/app
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router/app
 npm install
 npm run build
 npm start
@@ -93,13 +93,13 @@ npm start
 ### Start the Server
 
 ```bash
-9router
+Rebana Router
 ```
 
 **What happens:**
-1. Server starts on `http://localhost:20128`
+1. Server starts on `http://localhost:91827`
 2. Dashboard opens automatically in browser
-3. Data directory created at `~/.9router`
+3. Data directory created at `~/.Rebana Router`
 4. API key generated automatically
 
 ### Dashboard Login
@@ -132,7 +132,7 @@ Dashboard → Settings → API Keys
 ### Check Server Status
 
 ```bash
-curl http://localhost:20128/health
+curl http://localhost:91827/health
 ```
 
 **Expected response:**
@@ -146,7 +146,7 @@ curl http://localhost:20128/health
 ### List Available Models
 
 ```bash
-curl http://localhost:20128/v1/models \
+curl http://localhost:91827/v1/models \
   -H "Authorization: Bearer your-api-key"
 ```
 
@@ -168,7 +168,7 @@ curl http://localhost:20128/v1/models \
 ### Test Chat Completion
 
 ```bash
-curl http://localhost:20128/v1/chat/completions \
+curl http://localhost:91827/v1/chat/completions \
   -H "Authorization: Bearer your-api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -193,10 +193,10 @@ export JWT_SECRET="your-secure-secret-change-this"
 export INITIAL_PASSWORD="your-password"
 
 # Storage
-export DATA_DIR="~/.9router"
+export DATA_DIR="~/.Rebana Router"
 
 # Server
-export PORT="20128"
+export PORT="91827"
 export NODE_ENV="production"
 
 # Logging
@@ -205,11 +205,11 @@ export ENABLE_REQUEST_LOGS="false"
 
 ### Data Directory
 
-**Default location:** `~/.9router`
+**Default location:** `~/.Rebana Router`
 
 **Contents:**
 ```
-~/.9router/
+~/.Rebana Router/
   ├── db.json           # Database (providers, combos, usage)
   ├── api-keys.json     # API keys
   └── logs/             # Request logs (if enabled)
@@ -219,24 +219,24 @@ export ENABLE_REQUEST_LOGS="false"
 
 ```bash
 export DATA_DIR="/custom/path"
-9router
+Rebana Router
 ```
 
 ### Port Configuration
 
-**Default port:** `20128`
+**Default port:** `91827`
 
 **Change port:**
 
 ```bash
 export PORT="3000"
-9router
+Rebana Router
 ```
 
 **Or use command line:**
 
 ```bash
-9router --port 3000
+Rebana Router --port 3000
 ```
 
 ---
@@ -247,14 +247,14 @@ export PORT="3000"
 
 **Error:**
 ```
-Error: listen EADDRINUSE: address already in use :::20128
+Error: listen EADDRINUSE: address already in use :::91827
 ```
 
 **Solution 1: Kill existing process**
 
 ```bash
-# Find process using port 20128
-lsof -i :20128
+# Find process using port 91827
+lsof -i :91827
 
 # Kill process
 kill -9 <PID>
@@ -263,14 +263,14 @@ kill -9 <PID>
 **Solution 2: Use different port**
 
 ```bash
-9router --port 3000
+Rebana Router --port 3000
 ```
 
 ### Permission Denied
 
 **Error:**
 ```
-Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/9router'
+Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/Rebana Router'
 ```
 
 **Solution: Use sudo (not recommended) or fix npm permissions**
@@ -283,7 +283,7 @@ echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 
 # Then install again
-npm install -g 9router
+npm install -g Rebana Router
 ```
 
 ### Node.js Version Too Old
@@ -310,7 +310,7 @@ nvm use 20
 **Solution 1: Open manually**
 
 ```
-http://localhost:20128
+http://localhost:91827
 ```
 
 **Solution 2: Check firewall**
@@ -345,23 +345,23 @@ Dashboard → Provider → Disconnect → Reconnect
 
 ### High Memory Usage
 
-**Issue:** 9Router using too much RAM
+**Issue:** Rebana Router using too much RAM
 
 **Solution: Restart server**
 
 ```bash
 # Stop
-pkill -f 9router
+pkill -f Rebana Router
 
 # Start
-9router
+Rebana Router
 ```
 
 **Or use PM2 for auto-restart:**
 
 ```bash
 npm install -g pm2
-pm2 start 9router --name 9router
+pm2 start Rebana Router --name Rebana Router
 pm2 save
 ```
 
@@ -372,8 +372,8 @@ pm2 save
 ### Local Development
 
 ```bash
-npm install -g 9router
-9router
+npm install -g Rebana Router
+Rebana Router
 ```
 
 **Use case:** Personal coding, testing
@@ -382,7 +382,7 @@ npm install -g 9router
 
 ```bash
 # Install
-npm install -g 9router
+npm install -g Rebana Router
 
 # Configure
 export JWT_SECRET="your-secure-secret"
@@ -391,7 +391,7 @@ export NODE_ENV="production"
 
 # Start with PM2
 npm install -g pm2
-pm2 start 9router --name 9router
+pm2 start Rebana Router --name Rebana Router
 pm2 save
 pm2 startup
 ```
@@ -401,15 +401,15 @@ pm2 startup
 ### Docker
 
 ```bash
-docker pull 9router/9router:latest
+docker pull Rebana Router/Rebana Router:latest
 
 docker run -d \
-  -p 20128:20128 \
+  -p 91827:91827 \
   -e JWT_SECRET="your-secure-secret" \
   -e INITIAL_PASSWORD="your-password" \
-  -v 9router-data:/root/.9router \
-  --name 9router \
-  9router/9router:latest
+  -v Rebana Router-data:/root/.Rebana Router \
+  --name Rebana Router \
+  Rebana Router/Rebana Router:latest
 ```
 
 **Use case:** Containerized deployment, Kubernetes
@@ -422,7 +422,7 @@ server {
     server_name your-domain.com;
 
     location / {
-        proxy_pass http://localhost:20128;
+        proxy_pass http://localhost:91827;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -444,13 +444,13 @@ server {
 ### Remove Global Installation
 
 ```bash
-npm uninstall -g 9router
+npm uninstall -g Rebana Router
 ```
 
 ### Remove Data Directory
 
 ```bash
-rm -rf ~/.9router
+rm -rf ~/.Rebana Router
 ```
 
 ### Remove Configuration
@@ -458,7 +458,7 @@ rm -rf ~/.9router
 ```bash
 # Remove environment variables from shell config
 nano ~/.bashrc  # or ~/.zshrc
-# Delete 9router-related exports
+# Delete Rebana Router-related exports
 ```
 
 ---
@@ -473,6 +473,6 @@ nano ~/.bashrc  # or ~/.zshrc
 
 ## Need Help?
 
-- **Website**: [9router.com](https://9router.com)
-- **GitHub**: [github.com/decolua/9router](https://github.com/decolua/9router)
-- **Issues**: [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **Website**: [Rebana Router.com](https://Rebana Router.com)
+- **GitHub**: [github.com/decolua/Rebana Router](https://github.com/decolua/Rebana Router)
+- **Issues**: [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)

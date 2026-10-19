@@ -48,9 +48,9 @@ describe("kimchi registry entry", () => {
   });
 });
 
-// ── Pure-function clones of the service logic (tested in isolation so
+// â”€â”€ Pure-function clones of the service logic (tested in isolation so
 //     node --test works without resolving the Next.js Webpack "open-sse"
-//     alias that src/lib/oauth/services/kimchi.js's dependency imports). ──
+//     alias that src/lib/oauth/services/kimchi.js's dependency imports). â”€â”€
 
 function buildKimchiAuthUrl(callbackUrl, state) {
   const params = new URLSearchParams({ callback: callbackUrl, state });
@@ -97,9 +97,9 @@ describe("kimchi oauth", () => {
   });
 });
 
-// ── kimchiModels service (pure mapping logic, tested in isolation) ──
+// â”€â”€ kimchiModels service (pure mapping logic, tested in isolation) â”€â”€
 
-// Clone of the metadata→model mapper so node --test resolves without the
+// Clone of the metadataâ†’model mapper so node --test resolves without the
 // open-sse/Webpack alias chain the real module imports.
 function mapKimchiMetadata(raw) {
   if (!Array.isArray(raw)) return [];
@@ -113,7 +113,7 @@ function mapKimchiMetadata(raw) {
 }
 
 describe("kimchiModels", () => {
-  it("maps Kimchi metadata entries to 9router model shape", () => {
+  it("maps Kimchi metadata entries to Rebana Router model shape", () => {
     const raw = [{
       slug: "glm-5.2-fp8",
       display_name: "GLM 5.2",
@@ -144,7 +144,7 @@ describe("kimchiModels", () => {
   });
 });
 
-// ── validateToken logic (pure decision over a status code) ──
+// â”€â”€ validateToken logic (pure decision over a status code) â”€â”€
 
 // Mirrors the decision in KimchiService.validateToken without importing the
 // service (which pulls the open-sse Webpack alias chain).
@@ -156,26 +156,26 @@ function decideValidity(status) {
 }
 
 describe("kimchi validateToken", () => {
-  it("200 → valid", () => {
+  it("200 â†’ valid", () => {
     assert.deepEqual(decideValidity(200), { valid: true });
   });
-  it("401 → invalid, expired message", () => {
+  it("401 â†’ invalid, expired message", () => {
     const r = decideValidity(401);
     assert.equal(r.valid, false);
     assert.match(r.error, /invalid or expired/i);
   });
-  it("403 → invalid, scope message", () => {
+  it("403 â†’ invalid, scope message", () => {
     const r = decideValidity(403);
     assert.equal(r.valid, false);
     assert.match(r.error, /scope/i);
   });
-  it("unknown / network error → fail-open valid", () => {
+  it("unknown / network error â†’ fail-open valid", () => {
     assert.equal(decideValidity(500).valid, true);
     assert.equal(decideValidity(0).valid, true);
   });
 });
 
-// ── OAuth dedup logic (pure clone of connectionsRepo matcher) ──
+// â”€â”€ OAuth dedup logic (pure clone of connectionsRepo matcher) â”€â”€
 // Mimics the find() predicate in createProviderConnection for OAuth
 // connections, so we can test the IdP-collision fix in isolation.
 function findExistingOAuth(all, incoming) {

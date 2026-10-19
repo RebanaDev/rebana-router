@@ -1,11 +1,11 @@
 ---
-name: 9router-tts
-description: Text-to-speech via 9Router /v1/audio/speech using OpenAI / ElevenLabs / Deepgram / Edge TTS / Google TTS / Hyperbolic / Inworld voices. Use when the user wants to convert text to speech, generate audio, voiceover, narrate, or read text aloud.
+name: Rebana Router-tts
+description: Text-to-speech via Rebana Router /v1/audio/speech using OpenAI / ElevenLabs / Deepgram / Edge TTS / Google TTS / Hyperbolic / Inworld voices. Use when the user wants to convert text to speech, generate audio, voiceover, narrate, or read text aloud.
 ---
 
-# 9Router — Text-to-Speech
+# Rebana Router — Text-to-Speech
 
-Requires `NINEROUTER_URL` (and `NINEROUTER_KEY` if auth enabled). See https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router/SKILL.md for setup.
+Requires `NINEROUTER_URL` (and `NINEROUTER_KEY` if auth enabled). See https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router/SKILL.md for setup.
 
 ## Discover
 
@@ -50,14 +50,14 @@ import { writeFile } from "node:fs/promises";
 const r = await fetch(`${process.env.NINEROUTER_URL}/v1/audio/speech`, {
   method: "POST",
   headers: { "Authorization": `Bearer ${process.env.NINEROUTER_KEY}`, "Content-Type": "application/json" },
-  body: JSON.stringify({ model: "el/eleven_multilingual_v2", input: "Xin chào" }),
+  body: JSON.stringify({ model: "el/eleven_multilingual_v2", input: "Xin chÃ o" }),
 });
 await writeFile("speech.mp3", Buffer.from(await r.arrayBuffer()));
 ```
 
 ## Response shape
 
-Default → raw audio bytes (Content-Type `audio/mp3`).
+Default →’ raw audio bytes (Content-Type `audio/mp3`).
 
 `?response_format=json`:
 ```json

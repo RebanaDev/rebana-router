@@ -67,14 +67,14 @@ async function startTerminalUI(port) {
   // Configure API client
   api.configure({ port });
 
-  const basePath = ["9Router"];
+  const basePath = ["Rebana Router"];
 
   // Prime header cache before first render
   await refreshHeaderBg(port);
 
   // Main menu
   await showMenuWithBack({
-    title: "📡 9Router Terminal UI",
+    title: "ðŸ“¡ Rebana Router Terminal UI",
     breadcrumb: basePath,
     headerContent: () => getHeader(port),
     items: [
@@ -114,7 +114,7 @@ async function startTerminalUI(port) {
         }
       }
     ],
-    backLabel: "← Back to Interface Menu"
+    backLabel: "â† Back to Interface Menu"
   });
 }
 

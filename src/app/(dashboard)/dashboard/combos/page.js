@@ -65,6 +65,7 @@ export default function CombosPage() {
   const [presetLoading, setPresetLoading] = useState(null); // "cursor" | "claude" | null
   const [selectedIds, setSelectedIds] = useState([]);
   const [bulkBusy, setBulkBusy] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const { copied, copy } = useCopyToClipboard();
 
   useEffect(() => {
@@ -78,8 +79,21 @@ export default function CombosPage() {
   }, [combos]);
 
   const selectedCombos = combos.filter((c) => selectedIds.includes(c.id));
-  const allSelected = combos.length > 0 && selectedIds.length === combos.length;
   const someSelected = selectedIds.length > 0;
+
+  // Case-insensitive search over the combo name and its model ids, so both
+  // "deepseek" and "deepseek-v4.1-flash" find the right rows.
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const filteredCombos = normalizedQuery
+    ? combos.filter((c) => {
+        if (String(c.name || "").toLowerCase().includes(normalizedQuery)) return true;
+        return (c.models || []).some((m) => String(m).toLowerCase().includes(normalizedQuery));
+      })
+    : combos;
+
+  // Select-all follows the search: with a query active it must only reach the
+  // rows on screen, otherwise the bulk Delete would take out hidden combos.
+  const allSelected = filteredCombos.length > 0 && filteredCombos.every((c) => selectedIds.includes(c.id));
 
   const toggleSelect = (id) => {
     setSelectedIds((prev) => (
@@ -88,7 +102,7 @@ export default function CombosPage() {
   };
 
   const toggleSelectAll = () => {
-    setSelectedIds(allSelected ? [] : combos.map((c) => c.id));
+    setSelectedIds(allSelected ? [] : filteredCombos.map((c) => c.id));
   };
 
   const clearSelection = () => setSelectedIds([]);
@@ -374,11 +388,34 @@ export default function CombosPage() {
             <li><span className="font-medium text-text-main">Fusion</span> — queries all models in parallel, then a judge synthesizes one answer. Best quality, but costs the most: every request bills all panel models + the judge (N+1 calls)</li>
           </ul>
           <p className="hidden text-xs text-text-muted mt-3 max-w-2xl">
-            <span className="font-medium text-text-main">Cursor / Claude Default</span> create combos named exactly like those clients&apos; model IDs (e.g. <code className="font-mono">composer-2.5</code>, <code className="font-mono">opus</code>), seeded with the matching <code className="font-mono">cu/…</code> or <code className="font-mono">cc/…</code> route so traffic can hit 9router without the prefix.
+            <span className="font-medium text-text-main">Cursor / Claude Default</span> create combos named exactly like those clients&apos; model IDs (e.g. <code className="font-mono">composer-2.5</code>, <code className="font-mono">opus</code>), seeded with the matching <code className="font-mono">cu/…</code> or <code className="font-mono">cc/…</code> route so traffic can hit rebana-router without the prefix.
             {" "}Note: Cursor IDE itself often blocks built-in Composer / Grok from Override OpenAI Base URL (&quot;model does not support custom API&quot;); add them via Cursor&apos;s <span className="font-medium text-text-main">Add Custom Model</span> using the combo name, or pick a model Cursor allows through the custom endpoint.
           </p>
         </div>
         <div className="flex w-full flex-col gap-2 sm:w-auto sm:items-stretch">
+          <div className="relative w-full sm:w-64">
+            <span className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-text-muted">
+              search
+            </span>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search combos…"
+              aria-label="Search combos"
+              className="w-full rounded-[10px] border border-transparent bg-surface-2 py-2 pl-10 pr-9 text-sm text-text-main transition-all duration-150 ease-out placeholder-text-muted/70 focus:border-brand-500/40 focus:outline-none focus:ring-2 focus:ring-brand-500/30"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                aria-label="Clear search"
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1 text-text-muted transition-colors hover:text-text-main"
+              >
+                <span className="material-symbols-outlined text-[16px]">close</span>
+              </button>
+            )}
+          </div>
           <Button icon="add" onClick={() => setShowCreateModal(true)} className="w-full sm:w-auto whitespace-nowrap">
             Create Combo
           </Button>
@@ -440,11 +477,16 @@ export default function CombosPage() {
               <span>
                 {someSelected
                   ? `${selectedIds.length} selected`
-                  : `Select all (${combos.length})`}
+                  : `Select all (${filteredCombos.length})`}
               </span>
             </label>
 
             <div className="flex min-w-0 flex-wrap items-center gap-2">
+              {normalizedQuery && (
+                <span className="text-xs text-text-muted">
+                  {filteredCombos.length} of {combos.length} shown
+                </span>
+              )}
               {someSelected && (
                 <>
                   <div className="w-full min-w-[160px] sm:w-[200px]">
@@ -485,9 +527,19 @@ export default function CombosPage() {
           </div>
 
           <div className="flex flex-col gap-3">
-            {(() => {
+            {filteredCombos.length === 0 ? (
+              <Card>
+                <div className="text-center py-10">
+                  <p className="text-text-main font-medium mb-1">No combos match &ldquo;{searchQuery.trim()}&rdquo;</p>
+                  <p className="text-sm text-text-muted mb-4">Try a shorter query, or clear the search to see all {combos.length} combos.</p>
+                  <Button variant="secondary" onClick={() => setSearchQuery("")}>
+                    Clear search
+                  </Button>
+                </div>
+              </Card>
+            ) : (() => {
               const comboByName = Object.fromEntries(combos.map((c) => [c.name, c.models]));
-              return combos.map((combo) => (
+              return filteredCombos.map((combo) => (
                 <ComboCard
                   key={combo.id}
                   combo={combo}

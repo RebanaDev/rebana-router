@@ -8,7 +8,7 @@ const HEADROOM_DIR = path.join(DATA_DIR, "headroom");
 const PID_FILE = path.join(HEADROOM_DIR, "proxy.pid");
 const LOG_FILE = path.join(HEADROOM_DIR, "proxy.log");
 const INSTALL_LOG_FILE = path.join(HEADROOM_DIR, "install.log");
-const DEFAULT_PORT = 8787;
+const DEFAULT_PORT = 91828;
 const STARTUP_TIMEOUT_MS = 8000;
 
 function ensureDir() {
@@ -163,6 +163,35 @@ export function getHeadroomLogTail(maxLines = 200) {
 // is rejected to keep the install surface predictable. Always installs the
 // `proxy` base + whatever extras the user picked, regardless of what is
 // already present.
+export async function installHeadroomBase() {
+  const py = findPython310();
+  if (!py) {
+    const err = new Error("Python >= 3.10 not found");
+    err.code = "NO_PYTHON";
+    throw err;
+  }
+  ensureDir();
+  const outFd = fs.openSync(INSTALL_LOG_FILE, "w");
+  const child = spawn(py, ["-m", "pip", "install", "--upgrade", "headroom-ai[proxy]"], {
+    stdio: ["ignore", outFd, outFd],
+    windowsHide: true,
+    env: { ...process.env },
+  });
+  return new Promise((resolve, reject) => {
+    child.once("error", (e) => { fs.closeSync(outFd); reject(e); });
+    child.once("exit", (code) => {
+      fs.closeSync(outFd);
+      if (code === 0) {
+        resolve({ success: true });
+      } else {
+        const err = new Error(`pip install headroom-ai[proxy] exited with code=${code} — see headroom/install.log`);
+        err.code = "INSTALL_FAILED";
+        reject(err);
+      }
+    });
+  });
+}
+
 export async function installHeadroomExtras(extras = []) {
   const requested = Array.isArray(extras) ? extras.filter((e) => HEADROOM_COMPRESSION_EXTRAS.includes(e)) : [];
   const py = findPython310();
@@ -176,9 +205,6 @@ export async function installHeadroomExtras(extras = []) {
     err.code = "NOT_INSTALLED";
     throw err;
   }
-  // pip install string is built from a closed set (HEADROOM_COMPRESSION_EXTRAS),
-  // so it cannot be poisoned by caller input — the comma-list is a fixed
-  // ['proxy', ...requested]. No shell interpolation.
   const extrasList = ["proxy", ...requested].join(",");
   const spec = `headroom-ai[${extrasList}]`;
   const args = ["-m", "pip", "install", "--upgrade", spec];

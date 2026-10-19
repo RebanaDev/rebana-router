@@ -1,22 +1,22 @@
 ---
-name: 9router
-description: Entry point for 9Router — local/remote AI gateway with OpenAI-compatible REST for chat, image, TTS, embeddings, web search, web fetch. Use when the user mentions 9Router, NINEROUTER_URL, or wants AI without writing provider boilerplate. This skill covers setup + indexes capability skills; fetch the relevant capability SKILL.md from the URLs below when needed.
+name: Rebana Router
+description: Entry point for Rebana Router — local/remote AI gateway with OpenAI-compatible REST for chat, image, TTS, embeddings, web search, web fetch. Use when the user mentions Rebana Router, NINEROUTER_URL, or wants AI without writing provider boilerplate. This skill covers setup + indexes capability skills; fetch the relevant capability SKILL.md from the URLs below when needed.
 ---
 
-# 9Router
+# Rebana Router
 
 Local/remote AI gateway exposing OpenAI-compatible REST. One key, many providers, auto-fallback.
 
 ## Setup
 
 ```bash
-export NINEROUTER_URL="http://localhost:20128"      # or VPS / tunnel URL
-export NINEROUTER_KEY="sk-..."                      # from Dashboard → Keys (only if requireApiKey=true)
+export NINEROUTER_URL="http://localhost:91827"      # or VPS / tunnel URL
+export NINEROUTER_KEY="sk-..."                      # from Dashboard →’ Keys (only if requireApiKey=true)
 ```
 
 All requests: `${NINEROUTER_URL}/v1/...` with header `Authorization: Bearer ${NINEROUTER_KEY}` (omit if auth disabled).
 
-Verify: `curl $NINEROUTER_URL/api/health` → `{"ok":true}`
+Verify: `curl $NINEROUTER_URL/api/health` →’ `{"ok":true}`
 
 ## Discover models
 
@@ -46,16 +46,16 @@ When the user needs a specific capability, fetch that skill's `SKILL.md` from it
 
 | Capability | Raw URL |
 |---|---|
-| Chat / code-gen | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-chat/SKILL.md |
-| Image generation | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-image/SKILL.md |
-| Text-to-speech | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-tts/SKILL.md |
-| Speech-to-text | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-stt/SKILL.md |
-| Embeddings | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-embeddings/SKILL.md |
-| Web search | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-web-search/SKILL.md |
-| Web fetch (URL → markdown) | https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-web-fetch/SKILL.md |
+| Chat / code-gen | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-chat/SKILL.md |
+| Image generation | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-image/SKILL.md |
+| Text-to-speech | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-tts/SKILL.md |
+| Speech-to-text | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-stt/SKILL.md |
+| Embeddings | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-embeddings/SKILL.md |
+| Web search | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-web-search/SKILL.md |
+| Web fetch (URL →’ markdown) | https://raw.githubusercontent.com/decolua/Rebana Router/refs/heads/master/skills/Rebana Router-web-fetch/SKILL.md |
 
 ## Errors
 
-- 401 → set/refresh `NINEROUTER_KEY` (Dashboard → Keys)
-- 400 `Invalid model format` → check `model` exists in `/v1/models/<kind>`
-- 503 `All accounts unavailable` → wait `retry-after` or add another provider account
+- 401 →’ set/refresh `NINEROUTER_KEY` (Dashboard →’ Keys)
+- 400 `Invalid model format` →’ check `model` exists in `/v1/models/<kind>`
+- 503 `All accounts unavailable` →’ wait `retry-after` or add another provider account

@@ -32,7 +32,7 @@ Provider tier subscription là lựa chọn **chính** - bạn đã trả tiền
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard opens → Providers → Connect Claude Code
 ```
 
@@ -56,7 +56,7 @@ Model: cc/claude-opus-4-5-20251101
 | Model ID | Mô tả | Tốt nhất cho |
 |----------|-------------|----------|
 | `cc/claude-opus-4-5-20251101` | Claude 4.5 Opus | Task phức tạp, kiến trúc |
-| `cc/claude-sonnet-4-5-20250929` | Claude 4.5 Sonnet | Cân bằng tốc độ/chất lượng |
+| `cc/claude-sonnet-4-5-20250929` | Claude 4.5 Sonnet | C❌n bằng tốc độ/chất lượng |
 | `cc/claude-haiku-4-5-20251001` | Claude 4.5 Haiku | Phản hồi nhanh |
 
 ### Mẹo Pro
@@ -82,7 +82,7 @@ Model: cc/claude-opus-4-5-20251101
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect Codex
 ```
 
@@ -134,7 +134,7 @@ Model: cx/gpt-5.2-codex
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect Gemini CLI
 ```
 
@@ -186,7 +186,7 @@ Model: gc/gemini-3-flash-preview
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect GitHub
 ```
 
@@ -236,7 +236,7 @@ Model: gh/gpt-5
 **Bước 1: Kết nối qua Dashboard**
 
 ```bash
-9router
+Rebana Router
 # Dashboard → Providers → Connect Antigravity
 ```
 
@@ -291,8 +291,8 @@ Model: ag/gemini-3-pro-high
 
 ```
 Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [from 9router dashboard]
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [from Rebana Router dashboard]
   Model: cc/claude-opus-4-5-20251101
 ```
 
@@ -316,7 +316,7 @@ Use in CLI: premium-coding
 
 ## Quota Tracking
 
-9Router theo dõi quota thời gian thực:
+Rebana Router theo dõi quota thời gian thực:
 
 - **Tiêu thụ token** - Tokens input/output mỗi request
 - **Đếm ngược reset** - Thời gian đến lần reset tiếp theo
@@ -385,7 +385,7 @@ Night: Cheap/free tier
 ### "OAuth token expired"
 
 **Giải pháp:**
-- Auto-refresh bởi 9Router
+- Auto-refresh bởi Rebana Router
 - Nếu vẫn lỗi: Dashboard → Provider → Reconnect
 
 ### "Rate limiting"

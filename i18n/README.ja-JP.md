@@ -1,24 +1,24 @@
 <div align="center">
-  <img src="../images/9router.png?1" alt="9Router Dashboard" width="800"/>
+  <img src="../images/Rebana Router.png?1" alt="Rebana Router Dashboard" width="800"/>
 
-  # 9Router - 無料 AI ルーター
+  # Rebana Router - 無料 AI ルーター
 
   **コーディングを止めない。スマートフォールバックで無料＆格安AIモデルに自動ルーティング。**
 
   **すべてのAIコーディングツール（Claude Code、Cursor、Antigravity、Copilot、Codex、Gemini、OpenCode、Cline、OpenClaw...）を40以上のAIプロバイダーと100以上のモデルに接続。**
 
-  [![npm](https://img.shields.io/npm/v/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Downloads](https://img.shields.io/npm/dm/9router.svg)](https://www.npmjs.com/package/9router)
-  [![License](https://img.shields.io/npm/l/9router.svg)](https://github.com/decolua/9router/blob/main/LICENSE)
+  [![npm](https://img.shields.io/npm/v/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![Downloads](https://img.shields.io/npm/dm/Rebana Router.svg)](https://www.npmjs.com/package/Rebana Router)
+  [![License](https://img.shields.io/npm/l/Rebana Router.svg)](https://github.com/decolua/Rebana Router/blob/main/LICENSE)
 
-  [🚀 クイックスタート](#-クイックスタート) • [💡 機能](#-主な機能) • [📖 セットアップ](#-セットアップガイド) • [🌐 ウェブサイト](https://9router.com)
+  [🚀 クイックスタート](#-クイックスタート)  [💡 機能](#-主な機能)  [📖 セットアップ](#-セットアップガイド)  [🌐 ウェブサイト](https://Rebana Router.com)
 
-  [🇻🇳 Tiếng Việt](./README.vi.md) • [🇨🇳 中文](./README.zh-CN.md) • [🇯🇵 日本語](./README.ja-JP.md)
+  [🇻🇳 Tiếng Việt](./README.vi.md)  [🇨🇳 中文](./README.zh-CN.md)  [🇯🇵 日本語](./README.ja-JP.md)
 </div>
 
 ---
 
-## 🤔 なぜ9Router？
+## 🤔 なぜRebana Router？
 
 **お金の無駄遣いと制限に悩まされるのはもう終わりです：**
 
@@ -27,7 +27,7 @@
 - ❌ 高額なAPI（プロバイダーごとに月額$20〜50）
 - ❌ プロバイダー間の手動切り替え
 
-**9Routerが解決します：**
+**Rebana Routerが解決します：**
 
 - ✅ **サブスクリプションを最大化** - クオータを追跡し、リセット前にすべて使い切る
 - ✅ **自動フォールバック** - サブスクリプション → 格安 → 無料、ダウンタイムゼロ
@@ -39,40 +39,40 @@
 ## 🔄 仕組み
 
 ```
-┌─────────────┐
-│  あなたの    │  （Claude Code、Codex、Gemini CLI、OpenClaw、Cursor、Cline...）
-│   CLIツール  │
-└──────┬──────┘
-       │ http://localhost:20128/v1
-       ↓
-┌─────────────────────────────────────────┐
-│        9Router（スマートルーター）        │
-│  • フォーマット変換（OpenAI ↔ Claude）   │
-│  • クオータ追跡                          │
-│  • 自動トークンリフレッシュ               │
-└──────┬──────────────────────────────────┘
-       │
-       ├─→ [Tier 1: サブスクリプション] Claude Code、Codex、Gemini CLI
-       │   ↓ クオータ消費済み
-       ├─→ [Tier 2: 格安] GLM ($0.6/1M)、MiniMax ($0.2/1M)
-       │   ↓ 予算上限
-       └─→ [Tier 3: 無料] iFlow、Qwen、Kiro（無制限）
+❌┌❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┐
+❌│  あなたの    ❌│  （Claude Code、Codex、Gemini CLI、OpenClaw、Cursor、Cline...）
+❌│   CLIツール  ❌│
+❌└❌─❌─❌─❌─❌─❌─❌┬❌─❌─❌─❌─❌─❌─❌┘
+       ❌│ http://localhost:91827/v1
+       →
+❌┌❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┐
+❌│        Rebana Router（スマートルーター）        ❌│
+❌│   フォーマット変換（OpenAI → Claude）   ❌│
+❌│   クオータ追跡                          ❌│
+❌│   自動トークンリフレッシュ               ❌│
+❌└❌─❌─❌─❌─❌─❌─❌┬❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌─❌┘
+       ❌│
+       ❌├❌─→ [Tier 1: サブスクリプション] Claude Code、Codex、Gemini CLI
+       ❌│   → クオータ消費済み
+       ❌├❌─→ [Tier 2: 格安] GLM ($0.6/1M)、MiniMax ($0.2/1M)
+       ❌│   → 予算上限
+       ❌└❌─→ [Tier 3: 無料] iFlow、Qwen、Kiro（無制限）
 
 結果: コーディングが止まらない、最小コスト
 ```
 
 ---
 
-## ⚡ クイックスタート
+## ❌⚡ クイックスタート
 
 **1. グローバルインストール：**
 
 ```bash
-npm install -g 9router
-9router
+npm install -g Rebana Router
+Rebana Router
 ```
 
-🎉 ダッシュボードが `http://localhost:20128` で開きます
+🎉 ダッシュボードが `http://localhost:91827` で開きます
 
 **2. 無料プロバイダーを接続（サインアップ不要）：**
 
@@ -82,7 +82,7 @@ npm install -g 9router
 
 ```
 Claude Code/Codex/Gemini CLI/OpenClaw/Cursor/Clineの設定:
-  エンドポイント: http://localhost:20128/v1
+  エンドポイント: http://localhost:91827/v1
   APIキー: [ダッシュボードからコピー]
   モデル: if/kimi-k2-thinking
 ```
@@ -91,24 +91,24 @@ Claude Code/Codex/Gemini CLI/OpenClaw/Cursor/Clineの設定:
 
 **代替方法: ソースから実行（このリポジトリ）：**
 
-このリポジトリパッケージはプライベート（`9router-app`）のため、ソース/Docker実行がローカル開発の想定パスです。
+このリポジトリパッケージはプライベート（`Rebana Router-app`）のため、ソース/Docker実行がローカル開発の想定パスです。
 
 ```bash
 cp .env.example .env
 npm install
-PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+PORT=91827 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run dev
 ```
 
 本番モード：
 
 ```bash
 npm run build
-PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+PORT=91827 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run start
 ```
 
 デフォルトURL：
-- ダッシュボード: `http://localhost:20128/dashboard`
-- OpenAI互換API: `http://localhost:20128/v1`
+- ダッシュボード: `http://localhost:91827/dashboard`
+- OpenAI互換API: `http://localhost:91827/v1`
 
 ---
 
@@ -116,19 +116,19 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 <div align="center">
 
-### 📺 完全セットアップガイド - 9Router + Claude Code 無料
+### 📝 完全セットアップガイド - Rebana Router + Claude Code 無料
 
-[![9Router + Claude Code Setup](https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg)](https://www.youtube.com/watch?v=raEyZPg5xE0)
+[![Rebana Router + Claude Code Setup](https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg)](https://www.youtube.com/watch?v=raEyZPg5xE0)
 
 **🎬 ステップバイステップのチュートリアルを視聴：**
-- ✅ 9Routerのインストールとセットアップ
+- ✅ Rebana Routerのインストールとセットアップ
 - ✅ 無料Claude Sonnet 4.5の設定
 - ✅ Claude Codeとの統合
 - ✅ ライブコーディングデモ
 
-**⏱️ 所要時間:** 20分 | **👥 作成:** Developer Community
+**❌⏱️ 所要時間:** 20分 | **👥 作成:** Developer Community
 
-[▶️ YouTubeで視聴](https://www.youtube.com/watch?v=o3qYCyjrFYg)
+[❌▶️ YouTubeで視聴](https://www.youtube.com/watch?v=o3qYCyjrFYg)
 
 </div>
 
@@ -136,7 +136,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 ## 🛠️ 対応CLIツール
 
-9Routerはすべての主要AIコーディングツールとシームレスに連携します：
+Rebana Routerはすべての主要AIコーディングツールとシームレスに連携します：
 
 <div align="center">
   <table>
@@ -236,12 +236,12 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
       <td align="center" width="150">
         <img src="../public/providers/iflow.png" width="70" alt="iFlow"/><br/>
         <b>iFlow AI</b><br/>
-        <sub>8以上のモデル • 無制限</sub>
+        <sub>8以上のモデル  無制限</sub>
       </td>
       <td align="center" width="150">
         <img src="../public/providers/qwen.png" width="70" alt="Qwen"/><br/>
         <b>Qwen Code</b><br/>
-        <sub>3以上のモデル • 無制限</sub>
+        <sub>3以上のモデル  無制限</sub>
       </td>
       <td align="center" width="150">
         <img src="../public/providers/gemini-cli.png" width="70" alt="Gemini CLI"/><br/>
@@ -251,7 +251,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
       <td align="center" width="150">
         <img src="../public/providers/kiro.png" width="70" alt="Kiro"/><br/>
         <b>Kiro AI</b><br/>
-        <sub>Claude • 無制限</sub>
+        <sub>Claude  無制限</sub>
       </td>
     </tr>
   </table>
@@ -350,14 +350,14 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 | 機能 | 概要 | メリット |
 |------|------|----------|
 | 🎯 **スマート3段階フォールバック** | 自動ルーティング: サブスクリプション → 格安 → 無料 | コーディングが止まらない、ダウンタイムゼロ |
-| 📊 **リアルタイムクオータ追跡** | ライブトークン数 + リセットカウントダウン | サブスクリプション価値の最大化 |
-| 🔄 **フォーマット変換** | OpenAI ↔ Claude ↔ Gemini シームレス対応 | あらゆるCLIツールで動作 |
+| 📝 **リアルタイムクオータ追跡** | ライブトークン数 + リセットカウントダウン | サブスクリプション価値の最大化 |
+| 🔄 **フォーマット変換** | OpenAI → Claude → Gemini シームレス対応 | あらゆるCLIツールで動作 |
 | 👥 **マルチアカウント対応** | プロバイダーごとに複数アカウント | 負荷分散 + 冗長性 |
 | 🔄 **自動トークンリフレッシュ** | OAuthトークンの自動更新 | 手動再ログイン不要 |
 | 🎨 **カスタムコンボ** | 無制限のモデル組み合わせ作成 | ニーズに合わせたフォールバック |
 | 📝 **リクエストログ** | リクエスト/レスポンスの完全ログ | 問題の簡単なトラブルシューティング |
 | 💾 **クラウド同期** | デバイス間で設定を同期 | どこでも同じセットアップ |
-| 📊 **使用状況分析** | トークン、コスト、トレンドの追跡 | 支出の最適化 |
+| 📝 **使用状況分析** | トークン、コスト、トレンドの追跡 | 支出の最適化 |
 | 🌐 **どこでもデプロイ** | Localhost、VPS、Docker、Cloudflare Workers | 柔軟なデプロイオプション |
 
 <details>
@@ -376,7 +376,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 → クオータ切れやエラー発生時に自動切り替え
 ```
 
-### 📊 リアルタイムクオータ追跡
+### 📝 リアルタイムクオータ追跡
 
 - プロバイダーごとのトークン消費量
 - リセットカウントダウン（5時間、日次、週次）
@@ -386,8 +386,8 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 ### 🔄 フォーマット変換
 
 フォーマット間のシームレスな変換：
-- **OpenAI** ↔ **Claude** ↔ **Gemini** ↔ **OpenAI Responses**
-- CLIツールがOpenAIフォーマットで送信 → 9Routerが変換 → プロバイダーがネイティブフォーマットで受信
+- **OpenAI** → **Claude** → **Gemini** → **OpenAI Responses**
+- CLIツールがOpenAIフォーマットで送信 → Rebana Routerが変換 → プロバイダーがネイティブフォーマットで受信
 - カスタムOpenAIエンドポイントをサポートするすべてのツールで動作
 
 ### 👥 マルチアカウント対応
@@ -431,7 +431,7 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 - `NEXT_PUBLIC_BASE_URL` と `NEXT_PUBLIC_CLOUD_URL` は互換性/UI用にまだサポートされていますが、サーバーランタイムは `BASE_URL`/`CLOUD_URL` を優先します。
 - クラウド同期リクエストはタイムアウト + フェイルファスト動作を使用し、クラウドDNS/ネットワークが利用できない場合のUIハングを回避します。
 
-### 📊 使用状況分析
+### 📝 使用状況分析
 
 - プロバイダーおよびモデルごとのトークン使用量追跡
 - コスト見積もりと支出トレンド
@@ -441,17 +441,17 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 > **💡 重要 - ダッシュボードのコストについて：**
 >
 > 使用状況分析に表示される「コスト」は**追跡と比較目的のみ**です。
-> 9Router自体は**一切課金しません**。有料サービスを使用する場合のみ、プロバイダーに直接支払います。
+> Rebana Router自体は**一切課金しません**。有料サービスを使用する場合のみ、プロバイダーに直接支払います。
 >
 > **例:** ダッシュボードにiFlowモデルの使用で「合計コスト$290」と表示されている場合、
 > これは有料APIを直接使用した場合に支払うであろう金額を表しています。実際のコスト = **$0**（iFlowは無料無制限）。
 >
-> これは無料モデルや9Router経由のルーティングでどれだけ節約しているかを示す「節約トラッカー」と考えてください！
+> これは無料モデルやRebana Router経由のルーティングでどれだけ節約しているかを示す「節約トラッカー」と考えてください！
 
 ### 🌐 どこでもデプロイ
 
 - 💻 **ローカルホスト** - デフォルト、オフラインで動作
-- ☁️ **VPS/クラウド** - デバイス間で共有
+- ❌☁️ **VPS/クラウド** - デバイス間で共有
 - 🐳 **Docker** - ワンコマンドデプロイ
 - 🚀 **Cloudflare Workers** - グローバルエッジネットワーク
 
@@ -478,15 +478,15 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 
 ---
 
-### 📊 9Routerのコストと課金について
+### 📝 Rebana Routerのコストと課金について
 
-**9Routerの課金の実態：**
+**Rebana Routerの課金の実態：**
 
-✅ **9Routerソフトウェア = 永久無料**（オープンソース、課金なし）
+✅ **Rebana Routerソフトウェア = 永久無料**（オープンソース、課金なし）
 ✅ **ダッシュボードの「コスト」= 表示/追跡のみ**（実際の請求ではない）
 ✅ **プロバイダーに直接支払い**（サブスクリプションまたはAPI料金）
 ✅ **無料プロバイダーは無料のまま**（iFlow、Kiro、Qwen = $0 無制限）
-❌ **9Routerは請求書を送ったり**カードに課金したりしません
+❌ **Rebana Routerは請求書を送ったり**カードに課金したりしません
 
 **コスト表示の仕組み：**
 
@@ -495,21 +495,21 @@ PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run 
 **シナリオ例：**
 ```
 ダッシュボード表示:
-• 合計リクエスト: 1,662
-• 合計トークン: 4700万
-• 表示コスト: $290
+ 合計リクエスト: 1,662
+ 合計トークン: 4700万
+ 表示コスト: $290
 
 実際の確認:
-• プロバイダー: iFlow（無料無制限）
-• 実際の支払い: $0.00
-• $290の意味: 無料モデルの使用で節約した金額！
+ プロバイダー: iFlow（無料無制限）
+ 実際の支払い: $0.00
+ $290の意味: 無料モデルの使用で節約した金額！
 ```
 
 **支払いルール：**
 - **サブスクリプションプロバイダー**（Claude Code、Codex）：各ウェブサイトで直接支払い
-- **格安プロバイダー**（GLM、MiniMax）：直接支払い、9Routerはルーティングのみ
+- **格安プロバイダー**（GLM、MiniMax）：直接支払い、Rebana Routerはルーティングのみ
 - **無料プロバイダー**（iFlow、Kiro、Qwen）：本当に永久無料、隠れた料金なし
-- **9Router**：一切課金しない
+- **Rebana Router**：一切課金しない
 
 ---
 
@@ -579,12 +579,12 @@ vs. $20 + 制限に引っかかる = フラストレーション
 
 ---
 
-## ❓ よくある質問
+## ❌❓ よくある質問
 
 <details>
-<summary><b>📊 ダッシュボードに高額なコストが表示されるのはなぜ？</b></summary>
+<summary><b>📝 ダッシュボードに高額なコストが表示されるのはなぜ？</b></summary>
 
-ダッシュボードはトークン使用量を追跡し、有料APIを直接使用した場合の**推定コスト**を表示します。これは**実際の課金ではなく**、9Routerを通じて無料モデルや既存のサブスクリプションを使用することでどれだけ節約しているかを示すための参考値です。
+ダッシュボードはトークン使用量を追跡し、有料APIを直接使用した場合の**推定コスト**を表示します。これは**実際の課金ではなく**、Rebana Routerを通じて無料モデルや既存のサブスクリプションを使用することでどれだけ節約しているかを示すための参考値です。
 
 **例：**
 - **ダッシュボード表示:** 「合計コスト$290」
@@ -597,16 +597,16 @@ vs. $20 + 制限に引っかかる = フラストレーション
 </details>
 
 <details>
-<summary><b>💳 9Routerに課金されますか？</b></summary>
+<summary><b>💳 Rebana Routerに課金されますか？</b></summary>
 
-**いいえ。** 9Routerはあなたのコンピューター上で動作する無料のオープンソースソフトウェアです。一切課金しません。
+**いいえ。** Rebana Routerはあなたのコンピューター上で動作する無料のオープンソースソフトウェアです。一切課金しません。
 
 **支払い先：**
 - ✅ **サブスクリプションプロバイダー**（Claude Code $20/月、Codex $20-200/月）→ 各ウェブサイトで直接支払い
-- ✅ **格安プロバイダー**（GLM、MiniMax）→ 直接支払い、9Routerはリクエストをルーティングするだけ
-- ❌ **9Router自体** → **一切課金しない**
+- ✅ **格安プロバイダー**（GLM、MiniMax）→ 直接支払い、Rebana Routerはリクエストをルーティングするだけ
+- ❌ **Rebana Router自体** → **一切課金しない**
 
-9Routerはローカルプロキシ/ルーターです。クレジットカード情報を持たず、請求書を送信できず、課金システムもありません。完全に無料のソフトウェアです。
+Rebana Routerはローカルプロキシ/ルーターです。クレジットカード情報を持たず、請求書を送信できず、課金システムもありません。完全に無料のソフトウェアです。
 
 </details>
 
@@ -620,9 +620,9 @@ vs. $20 + 制限に引っかかる = フラストレーション
 - **Kiro**: AWS Builder ID経由で無料無制限Claudeモデル
 - **Qwen**: デバイス認証経由でQwenモデルに無料無制限アクセス
 
-9Routerはリクエストをルーティングするだけで、「罠」や将来の課金はありません。本当に無料のサービスであり、9Routerはフォールバックサポートでそれらを使いやすくしています。
+Rebana Routerはリクエストをルーティングするだけで、「罠」や将来の課金はありません。本当に無料のサービスであり、Rebana Routerはフォールバックサポートでそれらを使いやすくしています。
 
-**注意:** 一部のサブスクリプションプロバイダー（Antigravity、GitHub Copilot）には無料プレビュー期間があり、後に有料になる可能性がありますが、それは9Routerではなく各プロバイダーから明確に告知されます。
+**注意:** 一部のサブスクリプションプロバイダー（Antigravity、GitHub Copilot）には無料プレビュー期間があり、後に有料になる可能性がありますが、それはRebana Routerではなく各プロバイダーから明確に告知されます。
 
 </details>
 
@@ -647,7 +647,7 @@ vs. $20 + 制限に引っかかる = フラストレーション
 
 3. **サブスクリプションプロバイダーは最後に使用：**
    - 既にお持ちの場合のみ
-   - 9Routerがクオータ追跡で価値を最大化
+   - Rebana Routerがクオータ追跡で価値を最大化
 
 **結果:** ほとんどのユーザーは無料ティアのみで月額$0で運用可能！
 
@@ -656,20 +656,20 @@ vs. $20 + 制限に引っかかる = フラストレーション
 <details>
 <summary><b>📈 使用量が突然急増したら？</b></summary>
 
-9Routerのスマートフォールバックが予期しない課金を防止します：
+Rebana Routerのスマートフォールバックが予期しない課金を防止します：
 
 **シナリオ:** コーディングスプリント中にクオータを使い切った
 
-**9Routerなし：**
+**Rebana Routerなし：**
 - ❌ レート制限に到達 → 作業停止 → フラストレーション
 - ❌ または: 意図せず高額なAPI請求が発生
 
-**9Routerあり：**
+**Rebana Routerあり：**
 - ✅ サブスクリプションが上限に達する → 格安ティアに自動フォールバック
 - ✅ 格安ティアが高くなる → 無料ティアに自動フォールバック
 - ✅ コーディングが止まらない → 予測可能なコスト
 
-**あなたがコントロール:** ダッシュボードでプロバイダーごとの支出上限を設定し、9Routerはそれを遵守します。
+**あなたがコントロール:** ダッシュボードでプロバイダーごとの支出上限を設定し、Rebana Routerはそれを遵守します。
 
 </details>
 
@@ -693,7 +693,7 @@ vs. $20 + 制限に引っかかる = フラストレーション
   cc/claude-haiku-4-5-20251001
 ```
 
-**プロのヒント:** 複雑なタスクにはOpus、スピード重視ならSonnet。9Routerはモデルごとにクオータを追跡します！
+**プロのヒント:** 複雑なタスクにはOpus、スピード重視ならSonnet。Rebana Routerはモデルごとにクオータを追跡します！
 
 ### OpenAI Codex (Plus/Pro)
 
@@ -861,8 +861,8 @@ CLIでの使用: premium-coding
 
 ```
 設定 → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [9routerダッシュボードから]
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [Rebana Routerダッシュボードから]
   Model: cc/claude-opus-4-6
 ```
 
@@ -874,44 +874,44 @@ CLIでの使用: premium-coding
 
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key"
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-Rebana Router-api-key"
 }
 ```
 
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-Rebana Router-api-key"
 
 codex "your prompt"
 ```
 
 ### OpenClaw
 
-**オプション1 — ダッシュボード（推奨）：**
+**オプション1  ダッシュボード（推奨）：**
 
 ```
 ダッシュボード → CLI Tools → OpenClaw → モデルを選択 → 適用
 ```
 
-**オプション2 — 手動:** `~/.openclaw/openclaw.json` を編集:
+**オプション2  手動:** `~/.openclaw/openclaw.json` を編集:
 
 ```json
 {
   "agents": {
     "defaults": {
       "model": {
-        "primary": "9router/if/glm-4.7"
+        "primary": "Rebana Router/if/glm-4.7"
       }
     }
   },
   "models": {
     "providers": {
-      "9router": {
-        "baseUrl": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router",
+      "Rebana Router": {
+        "baseUrl": "http://127.0.0.1:91827/v1",
+        "apiKey": "sk_Rebana Router",
         "api": "openai-completions",
         "models": [
           {
@@ -925,13 +925,13 @@ codex "your prompt"
 }
 ```
 
-> **注意:** OpenClawはローカルの9Routerのみで動作します。IPv6解決の問題を避けるため、`localhost` ではなく `127.0.0.1` を使用してください。
+> **注意:** OpenClawはローカルのRebana Routerのみで動作します。IPv6解決の問題を避けるため、`localhost` ではなく `127.0.0.1` を使用してください。
 
 ### Cline / Continue / RooCode
 
 ```
 プロバイダー: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [ダッシュボードから]
 Model: cc/claude-opus-4-6
 ```
@@ -945,20 +945,20 @@ Model: cc/claude-opus-4-6
 
 ```bash
 # クローンとインストール
-git clone https://github.com/decolua/9router.git
-cd 9router
+git clone https://github.com/decolua/Rebana Router.git
+cd Rebana Router
 npm install
 npm run build
 
 # 設定
 export JWT_SECRET="your-secure-secret-change-this"
 export INITIAL_PASSWORD="your-password"
-export DATA_DIR="/var/lib/9router"
-export PORT="20128"
+export DATA_DIR="/var/lib/Rebana Router"
+export PORT="91827"
 export HOSTNAME="0.0.0.0"
 export NODE_ENV="production"
-export NEXT_PUBLIC_BASE_URL="http://localhost:20128"
-export NEXT_PUBLIC_CLOUD_URL="https://9router.com"
+export NEXT_PUBLIC_BASE_URL="http://localhost:91827"
+export NEXT_PUBLIC_CLOUD_URL="https://Rebana Router.com"
 export API_KEY_SECRET="endpoint-proxy-api-key-secret"
 export MACHINE_ID_SALT="endpoint-proxy-salt"
 
@@ -967,7 +967,7 @@ npm run start
 
 # またはPM2を使用
 npm install -g pm2
-pm2 start npm --name 9router -- start
+pm2 start npm --name Rebana Router -- start
 pm2 save
 pm2 startup
 ```
@@ -976,56 +976,56 @@ pm2 startup
 
 ```bash
 # イメージをビルド（リポジトリルートから）
-docker build -t 9router .
+docker build -t Rebana Router .
 
 # コンテナを実行（現在のセットアップで使用しているコマンド）
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
-  --env-file /root/dev/9router/.env \
-  -v 9router-data:/app/data \
-  -v 9router-usage:/root/.9router \
-  9router
+  --name Rebana Router \
+  -p 91827:91827 \
+  --env-file /root/dev/Rebana Router/.env \
+  -v Rebana Router-data:/app/data \
+  -v Rebana Router-usage:/root/.Rebana Router \
+  Rebana Router
 ```
 
 ポータブルコマンド（リポジトリルートにいる場合）：
 
 ```bash
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
+  --name Rebana Router \
+  -p 91827:91827 \
   --env-file ./.env \
-  -v 9router-data:/app/data \
-  -v 9router-usage:/root/.9router \
-  9router
+  -v Rebana Router-data:/app/data \
+  -v Rebana Router-usage:/root/.Rebana Router \
+  Rebana Router
 ```
 
 コンテナのデフォルト：
-- `PORT=20128`
+- `PORT=91827`
 - `HOSTNAME=0.0.0.0`
 
 便利なコマンド：
 
 ```bash
-docker logs -f 9router
-docker restart 9router
-docker stop 9router && docker rm 9router
+docker logs -f Rebana Router
+docker restart Rebana Router
+docker stop Rebana Router && docker rm Rebana Router
 ```
 
 ### 環境変数
 
 | 変数 | デフォルト | 説明 |
 |------|-----------|------|
-| `JWT_SECRET` | 自動生成（`~/.9router/jwt-secret`） | ダッシュボード認証クッキーのJWT署名シークレット（複数インスタンス間で共有する場合に設定） |
+| `JWT_SECRET` | 自動生成（`~/.Rebana Router/jwt-secret`） | ダッシュボード認証クッキーのJWT署名シークレット（複数インスタンス間で共有する場合に設定） |
 | `INITIAL_PASSWORD` | `123456` | 保存されたハッシュがない場合の初回ログインパスワード |
-| `DATA_DIR` | `~/.9router` | メインアプリのデータベース格納場所（`db.json`） |
-| `PORT` | フレームワークデフォルト | サービスポート（例では`20128`） |
+| `DATA_DIR` | `~/.Rebana Router` | メインアプリのデータベース格納場所（`db.json`） |
+| `PORT` | フレームワークデフォルト | サービスポート（例では`91827`） |
 | `HOSTNAME` | フレームワークデフォルト | バインドホスト（Dockerデフォルトは`0.0.0.0`） |
 | `NODE_ENV` | ランタイムデフォルト | デプロイ時は`production`に設定 |
-| `BASE_URL` | `http://localhost:20128` | クラウド同期ジョブで使用されるサーバーサイド内部ベースURL |
-| `CLOUD_URL` | `https://9router.com` | サーバーサイドのクラウド同期エンドポイントベースURL |
+| `BASE_URL` | `http://localhost:91827` | クラウド同期ジョブで使用されるサーバーサイド内部ベースURL |
+| `CLOUD_URL` | `https://Rebana Router.com` | サーバーサイドのクラウド同期エンドポイントベースURL |
 | `NEXT_PUBLIC_BASE_URL` | `http://localhost:3000` | 後方互換/公開ベースURL（サーバーランタイムには`BASE_URL`を推奨） |
-| `NEXT_PUBLIC_CLOUD_URL` | `https://9router.com` | 後方互換/公開クラウドURL（サーバーランタイムには`CLOUD_URL`を推奨） |
+| `NEXT_PUBLIC_CLOUD_URL` | `https://Rebana Router.com` | 後方互換/公開クラウドURL（サーバーランタイムには`CLOUD_URL`を推奨） |
 | `API_KEY_SECRET` | `endpoint-proxy-api-key-secret` | 生成されたAPIキーのHMACシークレット |
 | `MACHINE_ID_SALT` | `endpoint-proxy-salt` | 安定したマシンIDハッシュのソルト |
 | `ENABLE_REQUEST_LOGS` | `false` | `logs/` 配下のリクエスト/レスポンスログを有効化 |
@@ -1042,15 +1042,15 @@ docker stop 9router && docker rm 9router
 ### ランタイムファイルとストレージ
 
 - メインアプリ状態: `${DATA_DIR}/db.json`（プロバイダー、コンボ、エイリアス、キー、設定）、`src/lib/localDb.js` で管理。
-- 使用履歴とログ: `~/.9router/usage.json` と `~/.9router/log.txt`、`src/lib/usageDb.js` で管理。
+- 使用履歴とログ: `~/.Rebana Router/usage.json` と `~/.Rebana Router/log.txt`、`src/lib/usageDb.js` で管理。
 - オプションのリクエスト/トランスレーターログ: `ENABLE_REQUEST_LOGS=true` 時に `<repo>/logs/...`。
-- 使用状況ストレージは現在 `~/.9router` パスロジックに従い、`DATA_DIR` とは独立しています。
+- 使用状況ストレージは現在 `~/.Rebana Router` パスロジックに従い、`DATA_DIR` とは独立しています。
 
 </details>
 
 ---
 
-## 📊 利用可能なモデル
+## 📝 利用可能なモデル
 
 <details>
 <summary><b>すべての利用可能なモデルを表示</b></summary>
@@ -1106,7 +1106,7 @@ docker stop 9router && docker rm 9router
 - コンボを追加: `cc/claude-opus-4-6 → glm/glm-4.7 → if/kimi-k2-thinking`
 
 **OAuthトークンの期限切れ**
-- 9Routerが自動リフレッシュ
+- Rebana Routerが自動リフレッシュ
 - 問題が続く場合: ダッシュボード → Provider → 再接続
 
 **高コスト**
@@ -1115,7 +1115,7 @@ docker stop 9router && docker rm 9router
 - 重要でないタスクには無料ティア（Gemini CLI、iFlow）を使用
 
 **ダッシュボードが違うポートで開く**
-- `PORT=20128` と `NEXT_PUBLIC_BASE_URL=http://localhost:20128` を設定
+- `PORT=91827` と `NEXT_PUBLIC_BASE_URL=http://localhost:91827` を設定
 
 **初回ログインできない**
 - `.env` の `INITIAL_PASSWORD` を確認
@@ -1142,7 +1142,7 @@ docker stop 9router && docker rm 9router
 ### チャット補完
 
 ```bash
-POST http://localhost:20128/v1/chat/completions
+POST http://localhost:91827/v1/chat/completions
 Authorization: Bearer your-api-key
 Content-Type: application/json
 
@@ -1158,7 +1158,7 @@ Content-Type: application/json
 ### モデル一覧
 
 ```bash
-GET http://localhost:20128/v1/models
+GET http://localhost:91827/v1/models
 Authorization: Bearer your-api-key
 
 → すべてのモデル + コンボをOpenAI形式で返却
@@ -1166,35 +1166,35 @@ Authorization: Bearer your-api-key
 
 ## 📧 サポート
 
-- **ウェブサイト**: [9router.com](https://9router.com)
-- **GitHub**: [github.com/decolua/9router](https://github.com/decolua/9router)
-- **Issues**: [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **ウェブサイト**: [Rebana Router.com](https://Rebana Router.com)
+- **GitHub**: [github.com/decolua/Rebana Router](https://github.com/decolua/Rebana Router)
+- **Issues**: [github.com/decolua/Rebana Router/issues](https://github.com/decolua/Rebana Router/issues)
 
 ---
 
 ## 👥 コントリビューター
 
-9Routerの改善に貢献してくださったすべてのコントリビューターに感謝します！
+Rebana Routerの改善に貢献してくださったすべてのコントリビューターに感謝します！
 
-[![Contributors](https://contrib.rocks/image?repo=decolua/9router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/9router/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=decolua/Rebana Router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/Rebana Router/graphs/contributors)
 
 ---
 
-## 📊 スターチャート
+## 📝 スターチャート
 
-[![Star Chart](https://starchart.cc/decolua/9router.svg?variant=adaptive)](https://starchart.cc/decolua/9router)
+[![Star Chart](https://starchart.cc/decolua/Rebana Router.svg?variant=adaptive)](https://starchart.cc/decolua/Rebana Router)
 
 
 
 ## 🔀 フォーク
 
-**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — 9RouterのフルフィーチャーTypeScriptフォーク。36以上のプロバイダー、4段階自動フォールバック、マルチモーダルAPI（画像、埋め込み、音声、TTS）、サーキットブレーカー、セマンティックキャッシュ、LLM評価、洗練されたダッシュボードを追加。368以上のユニットテスト。npmとDockerで利用可能。
+**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)**  Rebana RouterのフルフィーチャーTypeScriptフォーク。36以上のプロバイダー、4段階自動フォールバック、マルチモーダルAPI（画像、埋め込み、音声、TTS）、サーキットブレーカー、セマンティックキャッシュ、LLM評価、洗練されたダッシュボードを追加。368以上のユニットテスト。npmとDockerで利用可能。
 
 ---
 
 ## 🙏 謝辞
 
-**CLIProxyAPI** に特別な感謝を — このJavaScriptポートのインスピレーションとなったオリジナルのGo実装です。
+**CLIProxyAPI** に特別な感謝を  このJavaScriptポートのインスピレーションとなったオリジナルのGo実装です。
 
 ---
 
@@ -1205,5 +1205,5 @@ MITライセンス - 詳細は [LICENSE](../LICENSE) を参照してください
 ---
 
 <div align="center">
-  <sub>24時間365日コーディングする開発者のために ❤️ で構築</sub>
+  <sub>24時間365日コーディングする開発者のために ❌❤️ で構築</sub>
 </div>

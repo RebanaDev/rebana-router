@@ -2,12 +2,12 @@
 //
 // Vertex does NOT speak the OpenAI-ish /v1/videos shape, so unlike OpenRouter
 // this adapter translates both directions:
-//   create → POST {model}:predictLongRunning  { instances[], parameters{} } → { name }
-//   poll   → POST {model}:fetchPredictOperation { operationName } → { done, response }
+//   create â†’ POST {model}:predictLongRunning  { instances[], parameters{} } â†’ { name }
+//   poll   â†’ POST {model}:fetchPredictOperation { operationName } â†’ { done, response }
 // Docs: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/veo-video-generation
 //
 // The operation name is a resource path (contains "/"), so it is base64url-encoded
-// into the job id returned to the client — GET /v1/videos/{id} stays a flat path.
+// into the job id returned to the client â€” GET /v1/videos/{id} stays a flat path.
 import { parseVertexSaJson, refreshVertexToken } from "../../services/tokenRefresh.js";
 
 const DEFAULT_LOCATION = "us-central1";
@@ -42,7 +42,7 @@ async function resolveAuth(credentials, log) {
   const location = credentials?.providerSpecificData?.location || DEFAULT_LOCATION;
 
   if (!projectId) {
-    return { error: "Vertex video requires a project_id — use Service Account JSON or set providerSpecificData.projectId" };
+    return { error: "Vertex video requires a project_id â€” use Service Account JSON or set providerSpecificData.projectId" };
   }
 
   let token = credentials?.accessToken;
@@ -56,7 +56,7 @@ async function resolveAuth(credentials, log) {
   return { token, projectId, location };
 }
 
-/** OpenAI-ish video body → Vertex predictLongRunning body. */
+/** OpenAI-ish video body â†’ Vertex predictLongRunning body. */
 function toVertexBody(body) {
   const instance = { prompt: body.prompt };
   // Image-to-video: accept the Vertex-native shape or a bare data URL / base64 string.
@@ -86,7 +86,7 @@ function toVertexBody(body) {
   return { instances: [instance], ...(Object.keys(parameters).length ? { parameters } : {}) };
 }
 
-/** Vertex operation → the async-job shape 9Router clients already poll for. */
+/** Vertex operation â†’ the async-job shape Rebana Router clients already poll for. */
 function fromVertexOperation(json) {
   if (!json?.name) return json;
   const id = encodeJobId(json.name);
@@ -143,7 +143,7 @@ export default {
       return { error: "Invalid JSON body" };
     }
     if (!body.model) return { error: "Vertex video requires a model (e.g. vertex/veo-3.1-generate-preview)" };
-    // Plain model id only — a path segment carrying "/" or ".." would rewrite the URL.
+    // Plain model id only â€” a path segment carrying "/" or ".." would rewrite the URL.
     if (!/^[A-Za-z0-9._-]+$/.test(body.model)) return { error: "Invalid Vertex video model id" };
     if (!body.prompt && !body.image && !body.image_url) return { error: "Vertex video requires a prompt or an image" };
 

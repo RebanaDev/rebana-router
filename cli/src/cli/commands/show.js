@@ -1,5 +1,5 @@
 /**
- * `9router show [tools…]` — print the 9router settings currently written in
+ * `Rebana Router show [toolsâ€¦]` â€” print the Rebana Router settings currently written in
  * each CLI tool's LOCAL config: base URL, (masked) API key and models.
  *
  * Read-only and offline: never contacts a server and never prints a full key.
@@ -9,14 +9,14 @@ const { TOOLS, TOOL_IDS, resolveTools } = require("./connectTools");
 const { __test__: { maskKey } } = require("./connect");
 
 const HELP = `
-Usage: 9router show [tool…] [options]
+Usage: Rebana Router show [toolâ€¦] [options]
 
-Show the 9router settings each CLI tool on THIS machine is currently using.
+Show the Rebana Router settings each CLI tool on THIS machine is currently using.
 Read-only: reads local config files, contacts no server.
 
-  9router show                 # every supported tool
-  9router show claude          # one tool
-  9router show claude codex    # several (or: --tools claude,codex)
+  Rebana Router show                 # every supported tool
+  Rebana Router show claude          # one tool
+  Rebana Router show claude codex    # several (or: --tools claude,codex)
 
 Tools: ${TOOL_IDS.join(", ")}, all
 
@@ -51,7 +51,7 @@ async function inspect(tool) {
     record.baseUrl = s.baseUrl || null;
     record.apiKey = s.apiKey ? maskKey(s.apiKey) : null;
     record.models = s.models || {};
-    // `active` is only reported by tools where 9router can be present but not selected.
+    // `active` is only reported by tools where Rebana Router can be present but not selected.
     if (typeof s.active === "boolean") record.active = s.active;
   } catch (err) {
     record.error = err.message;
@@ -61,20 +61,20 @@ async function inspect(tool) {
 
 function printRecord(r) {
   if (r.error) {
-    console.log(`❌ ${r.name}: ${r.error}`);
+    console.log(`âŒ ${r.name}: ${r.error}`);
     return;
   }
   if (!r.configured) {
-    console.log(`• ${r.name}: not configured for 9router (${r.files[0]})`);
+    console.log(`â€¢ ${r.name}: not configured for Rebana Router (${r.files[0]})`);
     return;
   }
-  const inactive = r.active === false ? "  \x1b[33m(9router present but not the active provider)\x1b[0m" : "";
-  console.log(`✅ ${r.name}${inactive}`);
+  const inactive = r.active === false ? "  \x1b[33m(Rebana Router present but not the active provider)\x1b[0m" : "";
+  console.log(`âœ… ${r.name}${inactive}`);
   console.log(`   File:     ${r.files.join(", ")}`);
   console.log(`   Base URL: ${r.baseUrl || "(none)"}`);
   console.log(`   API key:  ${r.apiKey || "(none)"}`);
   const entries = Object.entries(r.models);
-  if (!entries.length) console.log("   Models:   (none set — the tool's own default applies)");
+  if (!entries.length) console.log("   Models:   (none set â€” the tool's own default applies)");
   else {
     const width = Math.max(...entries.map(([k]) => k.length));
     console.log("   Models:");

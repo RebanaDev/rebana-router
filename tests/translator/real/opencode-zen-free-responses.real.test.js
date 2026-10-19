@@ -3,7 +3,7 @@
 // After the OpenCode Go subscription lapsed, the DeepSeek go-lane evidence
 // matrix could no longer be re-run. Zen's free tier keeps a responses-native
 // model (muse-spark-1.3-contributor-free) reachable at no cost, so the
-// responses 直通 path through 9router stays continuously testable: transport
+// responses ç›´é€š path through Rebana Router stays continuously testable: transport
 // selection, executor free-tier fingerprint, SSE lifecycle and input replay.
 // DeepSeek-specific semantics (thinking pass-back) still require the go lane
 // or the official API and stay in the opencode-go / deepseek real suites.
@@ -16,7 +16,7 @@
 //   OPENCODE_ZEN_KEY=oc_sk... RUN_REAL=1 npx vitest run --config tests/vitest.config.js tests/translator/real/opencode-zen-free-responses.real.test.js
 //
 // (OPENCODE_ZEN_KEY overrides credential lookup; otherwise an opencode-zen
-// connection must be configured in 9router.)
+// connection must be configured in Rebana Router.)
 import { describe, it, expect } from "vitest";
 import { getProviderCredentials } from "../../../src/sse/services/auth.js";
 import { checkAndRefreshToken } from "../../../src/sse/services/tokenRefresh.js";
@@ -99,7 +99,7 @@ const WEATHER_TOOL = {
   },
 };
 
-describe.skipIf(!RUN_REAL)(`REAL zen free responses 直通 (${MODEL})`, () => {
+describe.skipIf(!RUN_REAL)(`REAL zen free responses ç›´é€š (${MODEL})`, () => {
   it(
     "streams a full Responses SSE lifecycle through the executor fingerprint",
     async () => {
@@ -172,7 +172,7 @@ describe.skipIf(!RUN_REAL)(`REAL zen free responses 直通 (${MODEL})`, () => {
       expect(Array.isArray(output)).toBe(true);
       expect(output.length).toBeGreaterThan(0);
 
-      // Replay every output item verbatim (reasoning items included) — the
+      // Replay every output item verbatim (reasoning items included) â€” the
       // input-array pass-back path responses clients depend on.
       const turn2 = await runResponses(
         {

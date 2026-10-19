@@ -32,10 +32,10 @@ if (cleanupInterval.unref) cleanupInterval.unref();
  * Get or create a session ID for the given connection.
  *
  * The binary generates a session ID once at startup: `rs() + Date.now()`.
- * Since 9router is long-running, we simulate this "per-launch" behavior by
+ * Since Rebana Router is long-running, we simulate this "per-launch" behavior by
  * storing a generated ID in memory for each connection.
  *
- * - If 9router restarts, the ID changes (matching binary restart behavior).
+ * - If Rebana Router restarts, the ID changes (matching binary restart behavior).
  * - Within a running instance, the ID is stable for that connection.
  * - This enables prompt caching while using the EXACT random logic of the binary.
  *
@@ -199,7 +199,7 @@ function assistantTextSessionId(scope, body) {
 
 /**
  * Resolve a conversation-stable session id (generalizes Codex resolveCacheSessionId).
- * Priority: client session → accumulated-assistant-text hash → workspaceId → per-connection.
+ * Priority: client session â†’ accumulated-assistant-text hash â†’ workspaceId â†’ per-connection.
  *
  * @param {object} opts
  * @param {object} [opts.headers] - Raw client request headers (lowercase keys)

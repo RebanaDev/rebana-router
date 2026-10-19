@@ -1,20 +1,20 @@
 // REAL endpoint matrix for opencode-go DeepSeek models.
 //
 // Verifies, against the live upstream (https://opencode.ai/zen/go), that each client
-// request format actually WORKS for DeepSeek on the endpoint 9router routes it to:
+// request format actually WORKS for DeepSeek on the endpoint Rebana Router routes it to:
 //
-//   Claude (/v1/messages)          → must return a Claude-shape SSE
-//   Codex (/v1/responses)          → must return an OpenAI Responses-shape SSE
-//   OpenAI (/v1/chat/completions)  → must return an OpenAI chat-shape SSE
+//   Claude (/v1/messages)          â†’ must return a Claude-shape SSE
+//   Codex (/v1/responses)          â†’ must return an OpenAI Responses-shape SSE
+//   OpenAI (/v1/chat/completions)  â†’ must return an OpenAI chat-shape SSE
 //
 // This is the live counterpart of tests/unit/opencode-go-transport-routing.test.js
 // (which proves the routing decision offline). A cell here fails when the upstream
-// rejects the routed endpoint+model combination — exactly the 400 that #3332 reported
-// for Claude→deepseek-v4-flash on /messages.
+// rejects the routed endpoint+model combination â€” exactly the 400 that #3332 reported
+// for Claudeâ†’deepseek-v4-flash on /messages.
 //
 //   RUN_REAL=1 npx vitest run --config tests/vitest.config.js tests/translator/real/opencode-go-deepseek.real.test.js
 //
-// Requires an active opencode-go credential in the local DB (add via 9router dashboard).
+// Requires an active opencode-go credential in the local DB (add via Rebana Router dashboard).
 // Skips (pass) only on credential/quota/plan rejections, mirroring the other .real tests.
 import { describe, it, expect } from "vitest";
 import { getProviderCredentials } from "../../../src/sse/services/auth.js";
@@ -92,8 +92,8 @@ const BODIES = {
   }),
 };
 
-// Cells: (model, format). `(max)` reproduces the 9router thinking override sent by
-// Claude Code — it must land on the same endpoint as the bare id.
+// Cells: (model, format). `(max)` reproduces the Rebana Router thinking override sent by
+// Claude Code â€” it must land on the same endpoint as the bare id.
 const CELLS = [
   ["deepseek-v4-flash", "claude"],
   ["deepseek-v4-flash(max)", "claude"],
@@ -112,7 +112,7 @@ describe.skipIf(!RUN_REAL)(`REAL opencode-go DeepSeek endpoint matrix`, () => {
   });
 
   for (const [model, fmt] of CELLS) {
-    it(`${fmt}-format client → ${model} returns ${fmt}-shape SSE`, async () => {
+    it(`${fmt}-format client â†’ ${model} returns ${fmt}-shape SSE`, async () => {
       const out = await runChat(model, BODIES[fmt](), fmt);
       if (out === "skip") {
         console.warn(`[skip] ${PROVIDER}/${model} ${fmt}: credential/quota/capability`);

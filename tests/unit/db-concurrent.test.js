@@ -1,4 +1,4 @@
-// Concurrency stress test — simulate many parallel saveRequestUsage / saveRequestDetail
+// Concurrency stress test â€” simulate many parallel saveRequestUsage / saveRequestDetail
 // to verify atomic counter, no data loss, no race conditions.
 import fs from "node:fs";
 import os from "node:os";
@@ -10,7 +10,7 @@ let tempDir;
 let db;
 
 beforeAll(async () => {
-  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "9router-concurrent-"));
+  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-concurrent-"));
   process.env.DATA_DIR = tempDir;
   vi.resetModules();
   db = await import("@/lib/db/index.js");
@@ -23,8 +23,8 @@ afterAll(() => {
   else process.env.DATA_DIR = originalDataDir;
 });
 
-describe("DB Concurrency — atomic safety", () => {
-  it("100 parallel saveRequestUsage → no count loss", async () => {
+describe("DB Concurrency â€” atomic safety", () => {
+  it("100 parallel saveRequestUsage â†’ no count loss", async () => {
     const N = 100;
     const promises = [];
     for (let i = 0; i < N; i++) {
@@ -45,7 +45,7 @@ describe("DB Concurrency — atomic safety", () => {
     expect(hist.length).toBe(N);
   });
 
-  it("200 parallel saveRequestDetail → all flushed", async () => {
+  it("200 parallel saveRequestDetail â†’ all flushed", async () => {
     await db.updateSettings({ enableObservability: true, observabilityBatchSize: 10 });
 
     const N = 200;
@@ -88,7 +88,7 @@ describe("DB Concurrency — atomic safety", () => {
     expect(stats.byProvider.anthropic.requests).toBe(50);
   }, 30000);
 
-  it("updateSettings parallel → no merge loss", async () => {
+  it("updateSettings parallel â†’ no merge loss", async () => {
     const N = 50;
     await db.updateSettings({ counter: 0 });
     const promises = [];
@@ -123,7 +123,7 @@ describe("DB Concurrency — atomic safety", () => {
     expect(after.refreshToken).toBe("rt-initial"); // base preserved
   });
 
-  it("addCustomModel race: parallel duplicate adds → only 1 inserted", async () => {
+  it("addCustomModel race: parallel duplicate adds â†’ only 1 inserted", async () => {
     const N = 30;
     const promises = [];
     for (let i = 0; i < N; i++) {
@@ -136,7 +136,7 @@ describe("DB Concurrency — atomic safety", () => {
     expect(all.filter((m) => m.providerAlias === "racep" && m.id === "racemodel").length).toBe(1);
   });
 
-  it("updatePricing race: parallel adds different models → all merged", async () => {
+  it("updatePricing race: parallel adds different models â†’ all merged", async () => {
     const N = 30;
     const promises = [];
     for (let i = 0; i < N; i++) {

@@ -7,14 +7,14 @@
 //     realtimeInput frames only AFTER the server's setup-complete ack;
 //   - inputTranscription deltas accumulate into {text}; verbose_json adds
 //     segments {id,text} with NO timing keys (protocol carries none);
-//   - error frame → gateway error envelope (any 4xx/5xx, shape only);
+//   - error frame â†’ gateway error envelope (any 4xx/5xx, shape only);
 //   - system_instruction / prompt override setup instruction (substring);
 //   - client-supplied setup_timeout_ms (tiny) bounds the wait (error occurs);
 //   - response_format never reaches the session setup;
 //   - custom-model transport persists via POST /api/models/custom (whitelist)
 //     with unknown values silently dropped;
 //   - the persisted custom transport is resolved by the app layer (stt.js)
-//     and reaches engine dispatch end-to-end (handleStt → WS, not REST).
+//     and reaches engine dispatch end-to-end (handleStt â†’ WS, not REST).
 //
 // NOT pinned (unstated or implementation-only): goAway/reconnect semantics,
 // timeout clamp ceilings, specific status codes, byte-exact WS URLs (only
@@ -27,7 +27,7 @@ import path from "node:path";
 import { handleSttCore } from "open-sse/handlers/sttCore.js";
 import { PROVIDER_MODELS } from "open-sse/config/providerModels.js";
 
-// ── fixtures ──────────────────────────────────────────────────────────────
+// â”€â”€ fixtures â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const STTCFG = {
   baseUrl: "https://generativelanguage.googleapis.com/v1beta/models",
@@ -50,7 +50,7 @@ function mkFormData(extra = {}) {
   return fd;
 }
 
-// ── fake WebSocket ────────────────────────────────────────────────────────
+// â”€â”€ fake WebSocket â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 class FakeWS {
   static instances = [];
@@ -121,7 +121,7 @@ function stubFetch(handler = () => { throw new Error("REST must not be used for 
   return calls;
 }
 
-// Server drives a completed session: setup ack → transcription deltas → turn done.
+// Server drives a completed session: setup ack â†’ transcription deltas â†’ turn done.
 function serverScript(instance, texts) {
   instance.emit({ serverContent: { setupComplete: true } });
   for (const t of texts) instance.emit({ serverContent: { inputTranscription: { text: t } } });
@@ -143,12 +143,12 @@ afterEach(() => {
   FakeWS.instances.length = 0;
 });
 
-// ── S1/S2/S3: transport marker dispatch, text envelope, no REST ───────────
+// â”€â”€ S1/S2/S3: transport marker dispatch, text envelope, no REST â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 describe("Live transport dispatch via caller marker", () => {
   it("T3: transport 'gemini-live' opens a WebSocket, never REST; text = accumulated deltas", async () => {
     // REST-fallback contrast (folded from T1): a live-capability id with no
-    // transport marker falls to REST and fails cleanly — the live path is opt-in.
+    // transport marker falls to REST and fails cleanly â€” the live path is opt-in.
     stubFetch(() => ({
       ok: false,
       status: 400,
@@ -172,8 +172,8 @@ describe("Live transport dispatch via caller marker", () => {
     await expect(result.response.json()).resolves.toEqual({ text: "hello world" });
     expect(fetchCalls).toHaveLength(0);
 
-    // Registry-marker dispatch: the live entry's transport field alone — no
-    // caller transport param — routes to the WS path; id derived from the
+    // Registry-marker dispatch: the live entry's transport field alone â€” no
+    // caller transport param â€” routes to the WS path; id derived from the
     // registry, never a literal.
     const regId = (PROVIDER_MODELS.gemini || []).find(
       (m) => m && m.kind === "stt" && m.transport === "gemini-live",
@@ -223,7 +223,7 @@ describe("Live transport dispatch via caller marker", () => {
     expect(ws.url).toContain(LIVE_ID);
 
     // REST contrast (folded from T2): an ordinary gemini model still transcribes
-    // over REST generateContent — the live path is opt-in, never the default.
+    // over REST generateContent â€” the live path is opt-in, never the default.
     stubFetch(() => ({
       ok: true,
       status: 200,
@@ -252,7 +252,7 @@ describe("Live transport dispatch via caller marker", () => {
   });
 });
 
-// ── S7: client knobs (instruction overrides ride the setup frame) ─────────
+// â”€â”€ S7: client knobs (instruction overrides ride the setup frame) â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 describe("Setup frame knobs", () => {
   it("T6: client prompt overrides the setup instruction", async () => {
@@ -283,7 +283,7 @@ describe("Setup frame knobs", () => {
 
   it("T9: tiny setup_timeout_ms with no server ack errors out within the bound", async () => {
     const { pending } = await liveSession({ formData: mkFormData({ setup_timeout_ms: "5" }) });
-    // deliberately emit nothing — the client knob must end the wait
+    // deliberately emit nothing â€” the client knob must end the wait
     const result = await pending;
     expect(result.success).toBe(false);
     expect(typeof result.status).toBe("number");
@@ -292,7 +292,7 @@ describe("Setup frame knobs", () => {
   });
 });
 
-// ── S8: verbose_json shaping ──────────────────────────────────────────────
+// â”€â”€ S8: verbose_json shaping â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 describe("Response shaping", () => {
   it("T10: verbose_json adds {id,text} segments in arrival order with NO timing fields", async () => {
@@ -328,7 +328,7 @@ describe("Response shaping", () => {
   });
 });
 
-// ── S2a: registry marks the live family (data, not code) ─────────────────
+// â”€â”€ S2a: registry marks the live family (data, not code) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 describe("Registry family marking", () => {
   it("T12: gemini stt catalog includes a live-transport entry advertising the lifecycle params", () => {
@@ -344,16 +344,16 @@ describe("Registry family marking", () => {
   });
 });
 
-// ── S2b: custom-model transport persistence (route level) ─────────────────
+// â”€â”€ S2b: custom-model transport persistence (route level) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 describe("Custom-model transport persistence via POST /api/models/custom", () => {
   let tempDir;
   const originalDataDir = process.env.DATA_DIR;
 
   beforeEach(() => {
-    // paths.js freezes DATA_DIR at module load — re-evaluate the db chain per test
+    // paths.js freezes DATA_DIR at module load â€” re-evaluate the db chain per test
     vi.resetModules();
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "9router-gemini-live-"));
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "Rebana Router-gemini-live-"));
     process.env.DATA_DIR = tempDir;
     delete global._dbAdapter;
   });
@@ -391,7 +391,7 @@ describe("Custom-model transport persistence via POST /api/models/custom", () =>
     expect(row.transport).toBe("gemini-live");
   });
 
-  it("T14: unknown transport is silently dropped — prior whitelisted transport survives re-save", { timeout: 30000 }, async () => {
+  it("T14: unknown transport is silently dropped â€” prior whitelisted transport survives re-save", { timeout: 30000 }, async () => {
     const first = await postCustom({
       providerAlias: "gemini",
       id: "probe-custom-capability-10",
@@ -415,13 +415,13 @@ describe("Custom-model transport persistence via POST /api/models/custom", () =>
   });
 });
 
-// ── S2c (T15): app-layer custom-transport resolution, end-to-end ─────────
+// â”€â”€ S2c (T15): app-layer custom-transport resolution, end-to-end â”€â”€â”€â”€â”€â”€â”€â”€â”€
 //
 // Gate C M1 closure. Only handleStt (src/sse/handlers/stt.js) maps a
 // persisted custom-model transport onto the handleSttCore dispatch; T13/T14
 // stop at repo persistence. Fake model id is absent from the registry, so a
 // WebSocket opening here is observable proof the caller-supplied transport
-// marker was resolved and passed — deleting that resolution fails T15.
+// marker was resolved and passed â€” deleting that resolution fails T15.
 
 describe("App-layer custom transport resolution (stt.js)", () => {
   it("T15: persisted custom gemini-live transport reaches WS dispatch through real handleStt", async () => {
@@ -444,7 +444,7 @@ describe("App-layer custom transport resolution (stt.js)", () => {
         markAccountUnavailable: async () => ({ shouldFallback: false }),
       }));
       // getModelInfo stays REAL: "gemini/..." is a reserved-prefix passthrough,
-      // so the parse→route hop in the chain is exercised, not stubbed.
+      // so the parseâ†’route hop in the chain is exercised, not stubbed.
       const { handleStt } = await import("../../src/sse/handlers/stt.js");
 
       stubWs();
@@ -469,7 +469,7 @@ describe("App-layer custom transport resolution (stt.js)", () => {
   });
 });
 
-// ── S5/S6/S9: lifecycle gates (setup ack, turn timeout, turn completion) ──
+// â”€â”€ S5/S6/S9: lifecycle gates (setup ack, turn timeout, turn completion) â”€â”€
 
 // Setup/turn gating, graceful close, and transcript accumulation hygiene:
 // padding-only frames are dropped, and a whitespace-only run is a failure

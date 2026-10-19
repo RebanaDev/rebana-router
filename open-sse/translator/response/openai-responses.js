@@ -1,5 +1,5 @@
 /**
- * Translator: OpenAI Chat Completions → OpenAI Responses API (response)
+ * Translator: OpenAI Chat Completions â†’ OpenAI Responses API (response)
  * Converts streaming chunks from Chat Completions to Responses API events
  */
 import { register } from "../index.js";
@@ -18,7 +18,7 @@ import { ROLE, OPENAI_BLOCK, RESPONSES_ITEM, OPENAI_FINISH, MODEL_FALLBACK } fro
 // Upstream Chat Completions usage -> Responses API usage shape.
 // Without this, /v1/responses never reports usage: Responses clients (Codex CLI)
 // keep their "context used" gauge pinned at 0 and never auto-compact, so a long
-// session grows until the upstream context limit rejects it (9router issue #3432).
+// session grows until the upstream context limit rejects it (Rebana Router issue #3432).
 //
 // Note this is stored under state.responsesUsage, NOT state.usage: state.usage is
 // owned by the stream layer, which fills it with normalizeUsage()-shaped counts
@@ -165,8 +165,8 @@ export function openaiToOpenAIResponsesResponse(chunk, state) {
     //
     // That only holds on the direct openai:openai-responses route. When this converter
     // runs as the second hop of a pivot (Claude/Gemini/Kiro upstream), translateResponse()
-    // drops the terminal null chunk before reaching us — the first hop returns null for
-    // it, leaving nothing to iterate — so flushEvents() is never called and deferring
+    // drops the terminal null chunk before reaching us â€” the first hop returns null for
+    // it, leaving nothing to iterate â€” so flushEvents() is never called and deferring
     // would swallow the terminal event entirely. Keep the old behaviour there.
     const flushReachesUs = state.targetFormat === FORMATS.OPENAI;
     if (state.responsesUsage || !flushReachesUs) sendCompleted(state, emit);
@@ -542,7 +542,7 @@ export function openaiResponsesToOpenAIResponse(chunk, state) {
     state.created = Math.floor(Date.now() / 1000);
     state.toolCallIndex = 0;
     state.currentToolCallId = null;
-    // item_id → chat tool_calls index. Deltas carry item_id; keying on it (not
+    // item_id â†’ chat tool_calls index. Deltas carry item_id; keying on it (not
     // stream position) keeps parallel calls separate when upstream emits all
     // output_item.added events before any done/delta. Lazily created so callers
     // that build their own state object (stream.js) need no changes.
@@ -570,7 +570,7 @@ export function openaiResponsesToOpenAIResponse(chunk, state) {
   // Function call started (standard function_call or custom_tool_call).
   // Index is assigned here (not on done): attributing deltas by stream position
   // merges parallel calls into index 0 whenever upstream emits all addeds
-  // before dones — the client then concatenates N JSON payloads into one
+  // before dones â€” the client then concatenates N JSON payloads into one
   // tool input and fails validation. The server item id is the correlator.
   if (eventType === "response.output_item.added" && (data.item?.type === RESPONSES_ITEM.FUNCTION_CALL || data.item?.type === "custom_tool_call")) {
     const item = data.item;
@@ -579,7 +579,7 @@ export function openaiResponsesToOpenAIResponse(chunk, state) {
     const key = item.id || data.item_id || state.currentToolCallId;
     let idx;
     if (key && state.respToolChatIndex.has(key)) {
-      idx = state.respToolChatIndex.get(key); // duplicate added (retry) — reuse
+      idx = state.respToolChatIndex.get(key); // duplicate added (retry) â€” reuse
     } else {
       idx = state.toolCallIndex++;
       if (key) state.respToolChatIndex.set(key, idx);
@@ -616,7 +616,7 @@ export function openaiResponsesToOpenAIResponse(chunk, state) {
 
   // Function call done (standard or custom_tool_call variant).
   // Index was assigned at added-time; nothing to advance. Some upstreams send
-  // complete arguments only here (no deltas) — emit them once in that case.
+  // complete arguments only here (no deltas) â€” emit them once in that case.
   if (eventType === "response.output_item.done" && (data.item?.type === RESPONSES_ITEM.FUNCTION_CALL || data.item?.type === "custom_tool_call")) {
     const key = data.item?.id || data.item_id;
     const idx = (key && state.respToolChatIndex?.get(key)) ?? Math.max(0, (state.toolCallIndex || 1) - 1);
@@ -696,13 +696,13 @@ export function openaiResponsesToOpenAIResponse(chunk, state) {
   }
 
   // Each summary part is a separate thought; without a break between parts the
-  // client sees "…constraints.Applying…" as one run-on sentence.
+  // client sees "â€¦constraints.Applyingâ€¦" as one run-on sentence.
   if (eventType === "response.reasoning_summary_part.added") {
     if (state.respReasoningEmitted) state.respReasoningNeedsBreak = true;
     return null;
   }
 
-  // Reasoning summary delta → emit as reasoning_content for client thinking display
+  // Reasoning summary delta â†’ emit as reasoning_content for client thinking display
   if (eventType === "response.reasoning_summary_text.delta") {
     const delta = data.delta || "";
     if (!delta) return null;

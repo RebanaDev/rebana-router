@@ -10,7 +10,7 @@ describe("compressWithHeadroom", () => {
     global.fetch = vi.fn();
     const body = { messages: [{ role: "user", content: "hello" }] };
 
-    const stats = await compressWithHeadroom(body, { enabled: false, url: "http://localhost:8787" });
+    const stats = await compressWithHeadroom(body, { enabled: false, url: "http://localhost:91828" });
 
     expect(stats).toBeNull();
     expect(global.fetch).not.toHaveBeenCalled();
@@ -26,11 +26,11 @@ describe("compressWithHeadroom", () => {
     }), { status: 200 }));
     const body = { messages: [{ role: "user", content: "long" }] };
 
-    const stats = await compressWithHeadroom(body, { enabled: true, url: "http://headroom:8787/", model: "gpt-4o" });
+    const stats = await compressWithHeadroom(body, { enabled: true, url: "http://headroom:91828/", model: "gpt-4o" });
 
     expect(body.messages[0].content).toBe("short");
     expect(stats.tokens_saved).toBe(80);
-    expect(global.fetch).toHaveBeenCalledWith("http://headroom:8787/v1/compress", expect.objectContaining({ method: "POST" }));
+    expect(global.fetch).toHaveBeenCalledWith("http://headroom:91828/v1/compress", expect.objectContaining({ method: "POST" }));
     expect(JSON.parse(global.fetch.mock.calls[0][1].body)).toMatchObject({
       model: "gpt-4o",
       messages: [{ role: "user", content: "long" }],
@@ -56,7 +56,7 @@ describe("compressWithHeadroom", () => {
     }), { status: 200 }));
 
     const stats = await compressWithHeadroom(body, {
-      enabled: true, url: "http://localhost:8787", model: "claude-sonnet-4.5", format: "claude", diagnostics,
+      enabled: true, url: "http://localhost:91828", model: "claude-sonnet-4.5", format: "claude", diagnostics,
     });
 
     expect(body.tools).toEqual(originalTools);
@@ -85,7 +85,7 @@ describe("compressWithHeadroom", () => {
       });
 
       const stats = await compressWithHeadroom(body, {
-        enabled: true, url: "http://localhost:8787", model: "claude-sonnet-4.5", format: "claude", diagnostics,
+        enabled: true, url: "http://localhost:91828", model: "claude-sonnet-4.5", format: "claude", diagnostics,
       });
 
       expect(body.messages).toEqual([{ role: "user", content: [{ type: "text", text: "x".repeat(900) }] }]);
@@ -99,7 +99,7 @@ describe("compressWithHeadroom", () => {
     }), { status: 200 }));
     const body = { input: [{ role: "user", content: "long" }] };
 
-    await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787" });
+    await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828" });
 
     expect(body.input[0].content).toBe("short");
   });
@@ -168,7 +168,7 @@ describe("compressWithHeadroom", () => {
 
     const stats = await compressWithHeadroom(body, {
       enabled: true,
-      url: "http://localhost:8787",
+      url: "http://localhost:91828",
       model: "claude-sonnet-4.5",
       format: "kiro",
       compressUserMessages: true,
@@ -228,7 +228,7 @@ describe("compressWithHeadroom", () => {
 
     const stats = await compressWithHeadroom(body, {
       enabled: true,
-      url: "http://localhost:8787",
+      url: "http://localhost:91828",
       model: "claude-sonnet-4.5",
       format: "kiro",
       diagnostics,
@@ -243,7 +243,7 @@ describe("compressWithHeadroom", () => {
     global.fetch = vi.fn(async () => new Response(JSON.stringify({ error: "bad" }), { status: 500 }));
     const body = { messages: [{ role: "user", content: "long" }] };
 
-    const stats = await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787" });
+    const stats = await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828" });
 
     expect(stats).toBeNull();
     expect(body.messages[0].content).toBe("long");
@@ -253,7 +253,7 @@ describe("compressWithHeadroom", () => {
     global.fetch = vi.fn();
     const body = { contents: [{ parts: [{ text: "long" }] }] };
 
-    const stats = await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787" });
+    const stats = await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828" });
 
     expect(stats).toBeNull();
     expect(global.fetch).not.toHaveBeenCalled();
@@ -288,7 +288,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: 5000 });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: 5000 });
 
       expect(calls).toContain(5000);
     });
@@ -298,7 +298,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: null });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: null });
 
       expect(calls).toContain(3000);
     });
@@ -308,7 +308,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: 0 });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: 0 });
 
       expect(calls).toContain(3000);
     });
@@ -318,7 +318,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: -100 });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: -100 });
 
       expect(calls).toContain(3000);
     });
@@ -328,7 +328,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: NaN });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: NaN });
 
       expect(calls).toContain(3000);
     });
@@ -338,7 +338,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: Infinity });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: Infinity });
 
       expect(calls).toContain(3000);
     });
@@ -348,7 +348,7 @@ describe("compressWithHeadroom", () => {
       const calls = captureTimeoutCalls();
       const body = { messages: [{ role: "user", content: "hello" }] };
 
-      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:8787", timeoutMs: "5000" });
+      await compressWithHeadroom(body, { enabled: true, url: "http://localhost:91828", timeoutMs: "5000" });
 
       expect(calls).toContain(3000);
     });

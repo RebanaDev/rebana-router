@@ -20,23 +20,23 @@ import {
   removeDelegationBlock,
   removeAuxRole,
   upsertEnvVar,
-  has9RouterConfig,
+  hasRebana RouterConfig,
   isCustomBlock,
   parseSttBlock,
-  is9RouterStt,
-  upsertStt9Router,
-  removeStt9Router,
+  isRebana RouterStt,
+  upsertSttRebana Router,
+  removeSttRebana Router,
 } from "./hermesYaml.js";
 import { resolveHermesHome, listProfiles, dirExists } from "./hermesProfiles.js";
 
 const execAsync = promisify(exec);
 
-const PROVIDER_NAME = "9router";
+const PROVIDER_NAME = "Rebana Router";
 const API_KEY_ENV = "OPENAI_API_KEY";
 
 // Profile comes from ?profile= on GET (all-statuses calls GET() with no argument at all,
 // so every reader must tolerate a missing request) and from the JSON body on POST/DELETE.
-// POST/DELETE fall back to the query string — callers reach for either.
+// POST/DELETE fall back to the query string â€” callers reach for either.
 const getQueryParam = (request, key) => {
   if (!request) return null;
   try {
@@ -71,14 +71,14 @@ const readTextFile = async (file) => {
 const readConfigYaml = (home) => readTextFile(home.configPath);
 const readEnvFile = (home) => readTextFile(home.envPath);
 
-// Named profile homes are created by `hermes profile create` — never by us: a directory
+// Named profile homes are created by `hermes profile create` â€” never by us: a directory
 // without identity files is not a profile, and we must not fabricate one.
 const writeHomeConfig = async (home, yaml) => {
   if (home.isDefault) await fs.mkdir(home.dir, { recursive: true });
   await fs.writeFile(home.configPath, yaml);
 };
 
-// Only ever upserts the OPENAI_API_KEY line — per-profile .env files also carry bot tokens
+// Only ever upserts the OPENAI_API_KEY line â€” per-profile .env files also carry bot tokens
 // and messaging-channel credentials that must stay untouched.
 const writeHomeEnv = async (home, apiKey) => {
   if (!apiKey) return;
@@ -125,8 +125,8 @@ export async function GET(request) {
       installed: true,
       profile: { name: home.name, dir: home.dir, isDefault: home.isDefault },
       settings: { model, delegation, auxiliary, stt },
-      has9Router: has9RouterConfig(model) || has9RouterConfig(delegation) || Object.values(auxiliary).some(has9RouterConfig),
-      has9RouterStt: is9RouterStt(stt),
+      hasRebana Router: hasRebana RouterConfig(model) || hasRebana RouterConfig(delegation) || Object.values(auxiliary).some(hasRebana RouterConfig),
+      hasRebana RouterStt: isRebana RouterStt(stt),
       configPath: home.configPath,
     });
   } catch (error) {
@@ -135,7 +135,7 @@ export async function GET(request) {
   }
 }
 
-// Endpoint + API key across every profile: refresh the 9router blocks each profile already
+// Endpoint + API key across every profile: refresh the Rebana Router blocks each profile already
 // has (models stay per-profile), and wire up profiles that have no main model yet using the
 // model chosen in this request. Profiles on another provider are reported, never rewritten.
 const applyToAllProfiles = async ({ normalizedBaseUrl, apiKey, model }) => {
@@ -165,7 +165,7 @@ const applyToAllProfiles = async ({ normalizedBaseUrl, apiKey, model }) => {
         results.push({
           profile: profile.name,
           status: "skipped",
-          reason: `main model uses provider "${main.provider || "unknown"}" — configure this profile individually`,
+          reason: `main model uses provider "${main.provider || "unknown"}" â€” configure this profile individually`,
         });
       } else if (model) {
         yaml = upsertModelBlock(yaml, buildModelBlock(model, normalizedBaseUrl));
@@ -194,8 +194,8 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const { baseUrl, apiKey, model, selections, audio } = body;
-    // selections: [{role, model}] — "default" plus any auxiliary/delegation slots.
-    // Legacy callers (CLI quick setup) send a bare `model` → treat as default role.
+    // selections: [{role, model}] â€” "default" plus any auxiliary/delegation slots.
+    // Legacy callers (CLI quick setup) send a bare `model` â†’ treat as default role.
     const sel = Array.isArray(selections) && selections.some((s) => s?.role && s?.model)
       ? selections.filter((s) => s?.role && s?.model)
       : model ? [{ role: "default", model }] : [];
@@ -204,9 +204,9 @@ export async function POST(request) {
       return NextResponse.json({ error: "baseUrl and model are required" }, { status: 400 });
     }
 
-    // audio: { enabled, model } — wire Hermes speech-to-text through 9router's
+    // audio: { enabled, model } â€” wire Hermes speech-to-text through Rebana Router's
     // /v1/audio/transcriptions. Absent = leave the stt section untouched (legacy CLI
-    // callers). enabled:true needs a provider-qualified STT model (9router routes on it);
+    // callers). enabled:true needs a provider-qualified STT model (Rebana Router routes on it);
     // enabled:false removes exactly the wiring this endpoint writes.
     const audioEnabled = audio ? truthy(audio.enabled) : false;
     const audioModel = typeof audio?.model === "string" ? audio.model.trim() : "";
@@ -222,14 +222,14 @@ export async function POST(request) {
       return await applyToAllProfiles({ normalizedBaseUrl, apiKey, model: defaultSel?.model });
     }
 
-    // Profile target: JSON body first, then ?profile= — callers reach for either.
+    // Profile target: JSON body first, then ?profile= â€” callers reach for either.
     const { home, error } = resolveHome(body.profile ?? getProfileParam(request));
     if (error) return NextResponse.json({ error }, { status: 400 });
     if (!home.isDefault && !(await dirExists(home.dir))) {
       return NextResponse.json({ error: `Hermes profile "${home.name}" not found` }, { status: 404 });
     }
 
-    // Update config.yaml — upsert each role block, keep everything else
+    // Update config.yaml â€” upsert each role block, keep everything else
     let newYaml = await readConfigYaml(home);
     for (const { role, model: roleModel } of sel) {
       if (role === "default") {
@@ -242,23 +242,23 @@ export async function POST(request) {
     }
     if (audio) {
       if (audioEnabled) {
-        newYaml = upsertStt9Router(newYaml, audioModel, normalizedBaseUrl);
-      } else if (is9RouterStt(parseSttBlock(newYaml))) {
-        // Never remove stt wiring this endpoint did not write — a user's own STT
+        newYaml = upsertSttRebana Router(newYaml, audioModel, normalizedBaseUrl);
+      } else if (isRebana RouterStt(parseSttBlock(newYaml))) {
+        // Never remove stt wiring this endpoint did not write â€” a user's own STT
         // provider choice survives an audio-disabled Apply.
-        newYaml = removeStt9Router(newYaml);
+        newYaml = removeSttRebana Router(newYaml);
       }
     }
     await writeHomeConfig(home, newYaml);
 
-    // Update .env — upsert OPENAI_API_KEY only when caller provides one
+    // Update .env â€” upsert OPENAI_API_KEY only when caller provides one
     await writeHomeEnv(home, apiKey);
 
     return NextResponse.json({
       success: true,
       message: home.isDefault ? "Hermes settings applied successfully!" : `Hermes settings applied to profile "${home.name}"!`,
       profile: { name: home.name, dir: home.dir, isDefault: home.isDefault },
-      stt9Router: is9RouterStt(parseSttBlock(newYaml)),
+      sttRebana Router: isRebana RouterStt(parseSttBlock(newYaml)),
       configPath: home.configPath,
     });
   } catch (error) {
@@ -274,7 +274,7 @@ export async function DELETE(request) {
       try {
         body = await request.json();
       } catch {
-        body = null; // CLI reset sends an empty body → default profile
+        body = null; // CLI reset sends an empty body â†’ default profile
       }
     }
 
@@ -294,7 +294,7 @@ export async function DELETE(request) {
       throw readError;
     }
 
-    // Only drop blocks 9router wrote (custom provider) — a model/delegation/aux block owned
+    // Only drop blocks Rebana Router wrote (custom provider) â€” a model/delegation/aux block owned
     // by another provider is this profile's own configuration and must survive a reset.
     const removed = { model: false, delegation: false, auxiliary: [], stt: false };
     const kept = [];
@@ -323,11 +323,11 @@ export async function DELETE(request) {
     }
 
     const sttCfg = parseSttBlock(yaml);
-    if (sttCfg && is9RouterStt(sttCfg)) {
-      yaml = removeStt9Router(yaml);
+    if (sttCfg && isRebana RouterStt(sttCfg)) {
+      yaml = removeSttRebana Router(yaml);
       removed.stt = true;
       // User settings living inside the block (language, local, ...) survive the key
-      // removal — report the remainder as kept, like any other preserved section.
+      // removal â€” report the remainder as kept, like any other preserved section.
       if (parseSttBlock(yaml)) kept.push("stt");
     } else if (sttCfg) {
       kept.push("stt");

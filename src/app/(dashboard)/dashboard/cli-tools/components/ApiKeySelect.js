@@ -27,7 +27,7 @@ export default function ApiKeySelect({ value, onChange, apiKeys = [], cloudEnabl
     [apiKeys, savedKeys]
   );
 
-  // Derive the active option from value — no sync effects needed when the parent updates it
+  // Derive the active option from value â€” no sync effects needed when the parent updates it
   const matched = value ? options.find((o) => o.value === value || o.url === value) : null;
   const mode = matched ? matched.value : (customMode || value ? CUSTOM_VALUE : (options[0]?.value ?? CUSTOM_VALUE));
   const inputValue = customMode ? customInput : (value || "");
@@ -73,7 +73,7 @@ export default function ApiKeySelect({ value, onChange, apiKeys = [], cloudEnabl
   if (noKeys) {
     return (
       <span className={`min-w-0 rounded bg-surface/40 px-2 py-2 text-xs text-text-muted sm:py-1.5 ${className}`}>
-        {cloudEnabled ? "No API keys - Create one in Keys page" : "sk_9router (default)"}
+        {cloudEnabled ? "No API keys - Create one in Keys page" : "sk_Rebana Router (default)"}
       </span>
     );
   }

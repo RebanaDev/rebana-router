@@ -1,15 +1,15 @@
 # Smart Routing & Auto Fallback
 
-9Router tự động định tuyến request qua provider tốt nhất hiện có bằng hệ thống fallback 3 tầng. Không bao giờ ngừng code vì giới hạn quota hay rate limiting.
+Rebana Router tự động định tuyến request qua provider tốt nhất hiện có bằng hệ thống fallback 3 tầng. Không bao giờ ngừng code vì giới hạn quota hay rate limiting.
 
 ---
 
 ## Cách hoạt động
 
-9Router dùng định tuyến thông minh để tối đa hóa subscription hiện có, giảm chi phí và đảm bảo khả dụng 24/7:
+Rebana Router dùng định tuyến thông minh để tối đa hóa subscription hiện có, giảm chi phí và đảm bảo khả dụng 24/7:
 
 ```
-Request → 9Router → Check Tier 1 (Subscription)
+Request → Rebana Router → Check Tier 1 (Subscription)
                      ↓ quota exhausted
                      Check Tier 2 (Cheap)
                      ↓ budget limit
@@ -47,7 +47,7 @@ Request → 9Router → Check Tier 1 (Subscription)
 
 ## Chuyển đổi Tự động
 
-9Router giám sát quota thời gian thực và chuyển provider tự động:
+Rebana Router giám sát quota thời gian thực và chuyển provider tự động:
 
 ### Kịch bản 1: Hết Quota Subscription
 
@@ -89,11 +89,11 @@ User request → cc/claude-opus-4-5
 
 ## Logic chọn Model
 
-9Router chọn model tốt nhất dựa trên:
+Rebana Router chọn model tốt nhất dựa trên:
 
 1. **Khả dụng quota** - Kiểm tra provider còn quota không
 2. **Tier chi phí** - Ưu tiên subscription → cheap → free
-3. **Thời gian reset** - Cân nhắc khi quota reset
+3. **Thời gian reset** - C❌n nhắc khi quota reset
 4. **Sức khỏe provider** - Bỏ qua provider có lỗi
 
 ### Ví dụ Thứ tự Ưu tiên
@@ -130,7 +130,7 @@ Dashboard → Settings → Smart Routing
 - **ON** (mặc định): Chuyển tier tự động
 - **OFF**: Strict mode, trả lỗi nếu model chính không khả dụng
 
-**2. Đặt Giới hạn Ngân sách**
+**2. Đặt Giới hạn Ng❌n sách**
 
 ```
 Dashboard → Settings → Budget Control
@@ -138,7 +138,7 @@ Dashboard → Settings → Budget Control
 → Monthly limit: $50
 ```
 
-Khi đạt ngân sách, 9Router tự động chuyển sang free tier.
+Khi đạt ng❌n sách, Rebana Router tự động chuyển sang free tier.
 
 **3. Cấu hình Thứ tự Fallback**
 
@@ -191,7 +191,7 @@ Late night (all paid quota out):
 
 **Chi phí**: ~$5-10/tháng extra (chủ yếu được bao bởi subscription).
 
-### Ví dụ 2: Định tuyến theo Ngân sách
+### Ví dụ 2: Định tuyến theo Ng❌n sách
 
 **Setup:**
 ```
@@ -249,7 +249,7 @@ All requests → Free tier only
 Cost: $0 forever
 ```
 
-**Use case**: Dự án cá nhân, học tập, thử nghiệm.
+**Use case**: Dự án cá nh❌n, học tập, thử nghiệm.
 
 ---
 
@@ -382,7 +382,7 @@ Dashboard → Analytics:
 1. Kiểm tra quota tracker trong dashboard
 2. Đợi quota reset (xem countdown)
 3. Thêm free tier vào fallback chain
-4. Hoặc tăng giới hạn ngân sách
+4. Hoặc tăng giới hạn ng❌n sách
 
 **Issue: "Too many fallback switches"**
 
@@ -395,7 +395,7 @@ Dashboard → Analytics:
 
 **Giải pháp:**
 1. Dashboard → Analytics → Xem usage
-2. Đặt giới hạn ngân sách hàng ngày/tháng
+2. Đặt giới hạn ng❌n sách hàng ngày/tháng
 3. Chuyển sang free tier cho task không quan trọng
 4. Dùng combo với free fallback
 

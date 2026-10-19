@@ -1,10 +1,10 @@
 /**
  * Qoder SSE is OpenAI-shaped inside `{statusCodeValue, body}` envelopes, but
- * usage arrives on a later `choices: []` frame — after finish_reason, which
+ * usage arrives on a later `choices: []` frame â€” after finish_reason, which
  * itself often lives on `delta.finish_reason` rather than the choice.
  *
  * Downstream (Claude translator, OpenAI clients, Claude Code) look for usage
- * on the finish chunk or drop `choices: []` entirely. 9router's own dashboard
+ * on the finish chunk or drop `choices: []` entirely. Rebana Router's own dashboard
  * still sees tokens because extractUsage runs on every forwarded frame.
  *
  * Coalesce: hold empty finish + usage-only frames, then emit one OpenAI

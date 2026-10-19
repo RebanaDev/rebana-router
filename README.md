@@ -1,43 +1,43 @@
 <div align="center">
-  <img src="./images/9router.png?1" alt="9Router Dashboard" width="800"/>
+  <img src="./images/Rebana Router.png?1" alt="Rebana Router Dashboard" width="800"/>
   
-  # 9Router - FREE AI Router & Token Saver
+  # rebana-router - FREE AI Router & Token Saver
   
   **Never stop coding. Save 20-40% tokens with RTK + auto-fallback to FREE & cheap AI models.**
   
   **Connect All AI Code Tools (Claude Code, Cursor, Antigravity, Copilot, Codex, Gemini, OpenCode, Cline, OpenClaw...) to 40+ AI Providers & 100+ Models.**
   
-  [![npm](https://img.shields.io/npm/v/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Downloads](https://img.shields.io/npm/dm/9router.svg)](https://www.npmjs.com/package/9router)
-  [![Docker Pulls](https://img.shields.io/docker/pulls/decolua/9router.svg?logo=docker&label=Docker%20pulls)](https://hub.docker.com/r/decolua/9router)
-  [![GHCR](https://img.shields.io/badge/GHCR-decolua%2F9router-blue?logo=github)](https://github.com/decolua/9router/pkgs/container/9router)
-  [![License](https://img.shields.io/npm/l/9router.svg)](https://github.com/decolua/9router/blob/main/LICENSE)
+  [![npm](https://img.shields.io/npm/v/rebana-router.svg)](https://www.npmjs.com/package/rebana-router)
+  [![Downloads](https://img.shields.io/npm/dm/rebana-router.svg)](https://www.npmjs.com/package/rebana-router)
+  [![Docker Pulls](https://img.shields.io/docker/pulls/rebana-router/rebana-router.svg?logo=docker&label=Docker%20pulls)](https://hub.docker.com/r/rebana-router/rebana-router)
+  [![GHCR](https://img.shields.io/badge/GHCR-rebana-router%2Frebana-router-blue?logo=github)](https://github.com/anojndr/rebana-router/pkgs/container/rebana-router)
+  [![License](https://img.shields.io/npm/l/rebana-router.svg)](https://github.com/anojndr/rebana-router/blob/main/LICENSE)
 
-<a href="https://trendshift.io/repositories/22628" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22628" alt="decolua%2F9router | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/22628" target="_blank"><img src="https://trendshift.io/api/badge/repositories/22628" alt="rebana-router%2Frebana-router | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-[🚀 Quick Start](#-quick-start) • [💡 Features](#-key-features) • [📖 Setup](#-setup-guide) • [🌐 Website](https://9router.com)
+[🚀 Quick Start](#-quick-start) • [💡 Features](#-key-features) • [📖 Setup](#-setup-guide) • [🌐 Website](https://rebana-router.com)
 
-[🇧🇷 Português (Brasil)](./i18n/README.pt-BR.md) • [🇻🇳 Tiếng Việt](./i18n/README.vi.md) • [🇨🇳 中文](./i18n/README.zh-CN.md) • [🇯🇵 日本語](./i18n/README.ja-JP.md) • [🇷🇺 Русский](./i18n/README.ru.md) • [🇹🇭 ไทย](./i18n/README.th.md) • [🇮🇷 فارسی](./i18n/README.fa_IR.md) • [🇮🇩 Indonesia](./i18n/README.id-ID.md) • [🇪🇸 Español](./i18n/README.es.md) • [🇫🇷 Français](./i18n/README.fr.md)
+[🇧🇷 PortuguÃªs (Brasil)](./i18n/README.pt-BR.md) • [🇻🇳 Tiáº¿ng Viá»‡t](./i18n/README.vi.md) • [🇨🇳 ä¸­æ–‡](./i18n/README.zh-CN.md) • [🇯🇵 æ—¥æœ¬èªž](./i18n/README.ja-JP.md) • [🇷🇺 Ð ÑƒÑÑÐºÐ¸Ð¹](./i18n/README.ru.md) • [🇹🇭 à¹„à¸—à¸¢](./i18n/README.th.md) • [🇮🇷 ÙØ§Ø±Ø³ÛŒ](./i18n/README.fa_IR.md) • [🇮🇩 Indonesia](./i18n/README.id-ID.md) • [🇪🇸 EspaÃ±ol](./i18n/README.es.md) • [🇫🇷 FranÃ§ais](./i18n/README.fr.md)
 
 </div>
 
 ---
 
-## 🤔 Why 9Router?
+## 🤔 Why rebana-router?
 
 **Stop wasting money, tokens and hitting limits:**
 
-- ❌ Subscription quota expires unused every month
-- ❌ Rate limits stop you mid-coding
-- ❌ Tool outputs (git diff, grep, ls...) burn tokens fast
-- ❌ Expensive APIs ($20-50/month per provider)
-- ❌ Manual switching between providers
+- ❌Œ Subscription quota expires unused every month
+- ❌Œ Rate limits stop you mid-coding
+- ❌Œ Tool outputs (git diff, grep, ls...) burn tokens fast
+- ❌Œ Expensive APIs ($20-50/month per provider)
+- ❌Œ Manual switching between providers
 
-**9Router solves this:**
+**rebana-router solves this:**
 
 - ✅ **RTK Token Saver** - Auto-compress tool_result content, save 20-40% tokens per request
 - ✅ **Maximize subscriptions** - Track quota, use every bit before reset
-- ✅ **Auto fallback** - Subscription → Cheap → Free, zero downtime
+- ✅ **Auto fallback** - Subscription →’ Cheap →’ Free, zero downtime
 - ✅ **Multi-account** - Round-robin between accounts per provider
 - ✅ **Universal** - Works with Claude Code, Codex, Cursor, Cline, any CLI tool
 
@@ -46,51 +46,51 @@
 ## 🔄 How It Works
 
 ```
-┌─────────────┐
-│  Your CLI   │  (Claude Code, Codex, OpenClaw, Cursor, Cline...)
-│   Tool      │
-└──────┬──────┘
-       │ http://localhost:20128/v1
-       ↓
-┌─────────────────────────────────────────────┐
-│           9Router (Smart Router)            │
-│  • RTK Token Saver (cut tool_result tokens) │
-│  • Format translation (OpenAI ↔ Claude)     │
-│  • Quota tracking                           │
-│  • Auto token refresh                       │
-└──────┬──────────────────────────────────────┘
-       │
-       ├─→ [Tier 1: SUBSCRIPTION] Claude Code, Codex, GitHub Copilot
-       │   ↓ quota exhausted
-       ├─→ [Tier 2: CHEAP] GLM ($0.6/1M), MiniMax ($0.2/1M)
-       │   ↓ budget limit
-       └─→ [Tier 3: FREE] Kiro, OpenCode Free, Vertex ($300 credits)
+❌”Œ❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”
+❌”‚  Your CLI   ❌”‚  (Claude Code, Codex, OpenClaw, Cursor, Cline...)
+❌”‚   Tool      ❌”‚
+❌””❌”€❌”€❌”€❌”€❌”€❌”€❌”¬❌”€❌”€❌”€❌”€❌”€❌”€❌”˜
+       ❌”‚ http://localhost:91827/v1
+       →“
+❌”Œ❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”
+❌”‚           rebana-router (Smart Router)            ❌”‚
+❌”‚  • RTK Token Saver (cut tool_result tokens) ❌”‚
+❌”‚  • Format translation (OpenAI →” Claude)     ❌”‚
+❌”‚  • Quota tracking                           ❌”‚
+❌”‚  • Auto token refresh                       ❌”‚
+❌””❌”€❌”€❌”€❌”€❌”€❌”€❌”¬❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”€❌”˜
+       ❌”‚
+       ❌”œ❌”€→’ [Tier 1: SUBSCRIPTION] Claude Code, Codex, GitHub Copilot
+       ❌”‚   →“ quota exhausted
+       ❌”œ❌”€→’ [Tier 2: CHEAP] GLM ($0.6/1M), MiniMax ($0.2/1M)
+       ❌”‚   →“ budget limit
+       ❌””❌”€→’ [Tier 3: FREE] Kiro, OpenCode Free, Vertex ($300 credits)
 
 Result: Never stop coding, minimal cost + 20-40% token savings via RTK
 ```
 
 ---
 
-## ⚡ Quick Start
+## ❌š¡ Quick Start
 
 **1. Install globally:**
 
 ```bash
-npm install -g 9router
-9router
+npm install -g rebana-router
+rebana-router
 ```
 
-🎉 Dashboard opens at `http://localhost:20128`
+🎉 Dashboard opens at `http://localhost:91827`
 
 **2. Connect a FREE provider (no signup needed):**
 
-Dashboard → Providers → Connect **Kiro AI** (~50 credits/month free: Claude 4.5 + GLM-5 + MiniMax) or **OpenCode Free** (no auth) → Done!
+Dashboard →’ Providers →’ Connect **Kiro AI** (~50 credits/month free: Claude 4.5 + GLM-5 + MiniMax) or **OpenCode Free** (no auth) →’ Done!
 
 **3. Use in your CLI tool:**
 
 ```
 Claude Code/Codex/OpenClaw/Cursor/Cline Settings:
-  Endpoint: http://localhost:20128/v1
+  Endpoint: http://localhost:91827/v1
   API Key: [copy from dashboard]
   Model: kr/claude-sonnet-4.5
 ```
@@ -99,12 +99,12 @@ Claude Code/Codex/OpenClaw/Cursor/Cline Settings:
 
 **Alternative: run from source (this repository):**
 
-This repository package is private (`9router-app`), so source/Docker execution is the expected local development path.
+This repository package is private (`rebana-router-app`), so source/Docker execution is the expected local development path.
 
 ```bash
 cp .env.example .env
 npm install
-PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+PORT=91827 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run dev
 ```
 
 Production mode:
@@ -126,13 +126,13 @@ npm run build
 sudo swapoff /swapfile_temp
 sudo rm /swapfile_temp
 
-PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+PORT=91827 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:91827 npm run start
 ```
 
 Default URLs:
 
-- Dashboard: `http://localhost:20128/dashboard`
-- OpenAI-compatible API: `http://localhost:20128/v1`
+- Dashboard: `http://localhost:91827/dashboard`
+- OpenAI-compatible API: `http://localhost:91827/v1`
 
 ---
 
@@ -144,37 +144,37 @@ Default URLs:
   <tr>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=X69n5Lm06Yw">
-        <img src="https://img.youtube.com/vi/X69n5Lm06Yw/maxresdefault.jpg" alt="Tiết kiệm chi phí LLM với 9Router" width="300"/>
+        <img src="https://img.youtube.com/vi/X69n5Lm06Yw/maxresdefault.jpg" alt="Tiáº¿t kiá»‡m chi phÃ­ LLM vá»›i rebana-router" width="300"/>
       </a><br/>
-      <b>🇻🇳 Tiếng Việt</b><br/>
-      <sub>Tiết kiệm chi phí LLM cho OpenClaw với 9Router<br/>by <a href="https://www.youtube.com/c/M%C3%ACAIblog">Mì AI</a></sub>
+      <b>🇻🇳 Tiáº¿ng Viá»‡t</b><br/>
+      <sub>Tiáº¿t kiá»‡m chi phÃ­ LLM cho OpenClaw vá»›i rebana-router<br/>by <a href="https://www.youtube.com/c/M%C3%ACAIblog">MÃ¬ AI</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://youtu.be/VQAw612S27Y">
-        <img src="https://img.youtube.com/vi/VQAw612S27Y/maxresdefault.jpg" alt="9Router + Claude Code FREE Unlimited Setup" width="300"/>
+        <img src="https://img.youtube.com/vi/VQAw612S27Y/maxresdefault.jpg" alt="rebana-router + Claude Code FREE Unlimited Setup" width="300"/>
       </a><br/>
       <b>🇵🇰 اردو / हिन्दी</b><br/>
-      <sub>9Router + Claude Code FREE Unlimited Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <sub>rebana-router + Claude Code FREE Unlimited Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=raEyZPg5xE0">
-        <img src="https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg" alt="9Router Setup Tutorial" width="300"/>
+        <img src="https://img.youtube.com/vi/raEyZPg5xE0/maxresdefault.jpg" alt="rebana-router Setup Tutorial" width="300"/>
       </a><br/>
-      <b>🇺🇸 English</b><br/>
-      <sub>9Router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <b>🇬🇧 English</b><br/>
+      <sub>rebana-router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://youtu.be/3dF5GIYMrcQ?si=bAyfyiHbARJQAHj_">
-        <img src="https://img.youtube.com/vi/3dF5GIYMrcQ/hqdefault.jpg" alt="9Router Setup Tutorial" width="300"/>
+        <img src="https://img.youtube.com/vi/3dF5GIYMrcQ/hqdefault.jpg" alt="rebana-router Setup Tutorial" width="300"/>
       </a><br/>
-      <b>🇺🇸 English</b><br/>
-      <sub>9Router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
+      <b>🇬🇧 English</b><br/>
+      <sub>rebana-router + Claude Code FREE Setup<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=o3qYCyjrFYg">
         <img src="https://img.youtube.com/vi/o3qYCyjrFYg/maxresdefault.jpg" alt="Claude Code FREE Forever" width="300"/>
       </a><br/>
-      <b>🇺🇸 English</b><br/>
+      <b>🇬🇧 English</b><br/>
       <sub>Claude Code FREE Forever — Unlimited Models<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
   </tr>
@@ -183,21 +183,21 @@ Default URLs:
       <a href="https://www.youtube.com/watch?v=Ttpc26m39Dw">
         <img src="https://img.youtube.com/vi/Ttpc26m39Dw/maxresdefault.jpg" alt="Claude CLI Free Setup" width="300"/>
       </a><br/>
-      <b>🇺🇸 English</b><br/>
-      <sub>Claude CLI Free Setup with 9Router 🚀<br/>by <a href="https://www.youtube.com/@CodeVerseSoban">CodeVerse Soban</a></sub>
+      <b>🇬🇧 English</b><br/>
+      <sub>Claude CLI Free Setup with rebana-router 🚀<br/>by <a href="https://www.youtube.com/@CodeVerseSoban">CodeVerse Soban</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=G-5A_D5Pm6Y">
-        <img src="https://img.youtube.com/vi/G-5A_D5Pm6Y/maxresdefault.jpg" alt="Cài đặt OpenClaw Free A-Z" width="300"/>
+        <img src="https://img.youtube.com/vi/G-5A_D5Pm6Y/maxresdefault.jpg" alt="CÃ i Ä‘áº·t OpenClaw Free A-Z" width="300"/>
       </a><br/>
-      <b>🇻🇳 Tiếng Việt</b><br/>
-      <sub>Cài Đặt OpenClaw Free Từ A-Z + 9Router<br/>by <a href="https://www.youtube.com/@maigia">Mai Gia</a></sub>
+      <b>🇻🇳 Tiáº¿ng Viá»‡t</b><br/>
+      <sub>CÃ i Äáº·t OpenClaw Free Tá»« A-Z + rebana-router<br/>by <a href="https://www.youtube.com/@maigia">Mai Gia</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=JXmg8_gccgE">
         <img src="https://img.youtube.com/vi/JXmg8_gccgE/maxresdefault.jpg" alt="FREE OpenClaw with Claude Opus" width="300"/>
       </a><br/>
-      <b>🇺🇸 English</b><br/>
+      <b>🇬🇧 English</b><br/>
       <sub>FREE OpenClaw + Claude Opus 4.6<br/>by <a href="https://www.youtube.com/@BuildAIWithHamid">Build AI With Hamid</a></sub>
     </td>
     <td align="center" width="320">
@@ -205,38 +205,38 @@ Default URLs:
         <img src="https://img.youtube.com/vi/CkVZZUSTXAI/mqdefault.jpg" alt="Claude CLI Free Setup" width="300"/>
       </a><br/>
       <b>🇮🇩 Indonesia</b><br/>
-      <sub>Koding 24 Jam Anti Rate Limit! Hemat Token AI 65% | Tutorial Quick Setup 9Router 🚀<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
+      <sub>Koding 24 Jam Anti Rate Limit! Hemat Token AI 65% | Tutorial Quick Setup rebana-router 🚀<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=TXGv4eofe1I">
-        <img src="https://img.youtube.com/vi/TXGv4eofe1I/mqdefault.jpg" alt="Cara Deploy 9Router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB" width="300"/>
+        <img src="https://img.youtube.com/vi/TXGv4eofe1I/mqdefault.jpg" alt="Cara Deploy rebana-router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB" width="300"/>
       </a><br/>
       <b>🇮🇩 Indonesia</b><br/>
-      <sub>Cara Deploy 9Router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
+      <sub>Cara Deploy rebana-router di Hugging Face GRATIS Non-Stop! | Alternatif VPS RAM 16GB<br/>by <a href="https://www.youtube.com/@krisswuh">Krisswuh</a></sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=GyX-DLvePW8">
-        <img src="https://img.youtube.com/vi/GyX-DLvePW8/hqdefault.jpg" alt="این شکلی از هر API ای استفاده کن برای هوش مصنوعی" width="300"/>
+        <img src="https://img.youtube.com/vi/GyX-DLvePW8/hqdefault.jpg" alt="Ø§ÛŒÙ† Ø´Ú©Ù„ÛŒ Ø§Ø² Ù‡Ø± API Ø§ÛŒ Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù† Ø¨Ø±Ø§ÛŒ Ù‡ÙˆØ´ Ù…ØµÙ†ÙˆØ¹ÛŒ" width="300"/>
       </a><br/>
-      <b>🇮🇷 Persian-فارسی</b><br/>
-      <sub dir="rtl">این شکلی از هر API ای استفاده کن برای هوش مصنوعی<br/>by <a href="https://www.youtube.com/@Matin_SenPai">Matin SenPai</a></sub>
+      <b>🇮🇷 Persian-ÙØ§Ø±Ø³ÛŒ</b><br/>
+      <sub dir="rtl">Ø§ÛŒÙ† Ø´Ú©Ù„ÛŒ Ø§Ø² Ù‡Ø± API Ø§ÛŒ Ø§Ø³ØªÙØ§Ø¯Ù‡ Ú©Ù† Ø¨Ø±Ø§ÛŒ Ù‡ÙˆØ´ Ù…ØµÙ†ÙˆØ¹ÛŒ<br/>by <a href="https://www.youtube.com/@Matin_SenPai">Matin SenPai</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=hPusYX-5Pmw">
-        <img src="https://img.youtube.com/vi/hPusYX-5Pmw/maxresdefault.jpg" alt="Hướng Dẫn Setup OpenClaw + 9Router: Tạo Bot Zalo AI Tự Động Từ A-Z" width="300"/>
+        <img src="https://img.youtube.com/vi/hPusYX-5Pmw/maxresdefault.jpg" alt="HÆ°á»›ng Dáº«n Setup OpenClaw + rebana-router: Táº¡o Bot Zalo AI Tá»± Äá»™ng Tá»« A-Z" width="300"/>
       </a><br/>
-      <b>🇻🇳 Tiếng Việt</b><br/>
-      <sub>Hướng Dẫn Setup OpenClaw + 9Router: Tạo Bot Zalo AI Tự Động Từ A-Z<br/>by <a href="https://github.com/tuanminhhole">tuanminhhole</a></sub>
+      <b>🇻🇳 Tiáº¿ng Viá»‡t</b><br/>
+      <sub>HÆ°á»›ng Dáº«n Setup OpenClaw + rebana-router: Táº¡o Bot Zalo AI Tá»± Äá»™ng Tá»« A-Z<br/>by <a href="https://github.com/tuanminhhole">tuanminhhole</a></sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=hgnE7MKi3Y4">
-        <img src="https://img.youtube.com/vi/hgnE7MKi3Y4/maxresdefault.jpg" alt="Bye Limit! Cara Bikin Sistem 'AI Unlimited' 100% Gratis Dengan 9Router!
+        <img src="https://img.youtube.com/vi/hgnE7MKi3Y4/maxresdefault.jpg" alt="Bye Limit! Cara Bikin Sistem 'AI Unlimited' 100% Gratis Dengan rebana-router!
 " width="300"/>
       </a><br/>
       <b>🇮🇩 Indonesia</b><br/>
-      <sub>Bye Limit! Cara Bikin Sistem "AI Unlimited" 100% Gratis Dengan 9Router!<br/>by <a href="https://www.youtube.com/@neptiver">neptiver</a></sub>
+      <sub>Bye Limit! Cara Bikin Sistem "AI Unlimited" 100% Gratis Dengan rebana-router!<br/>by <a href="https://www.youtube.com/@neptiver">neptiver</a></sub>
     </td>
     <td align="center" width="320"></td>
     <td align="center" width="320"></td>
@@ -245,13 +245,13 @@ Default URLs:
 
 </div>
 
-> 🎬 **Made a video about 9Router?** Submit a [Pull Request](https://github.com/decolua/9router/pulls) adding your video to this section — we'll merge it!
+> 🎬 **Made a video about rebana-router?** Submit a [Pull Request](https://github.com/anojndr/rebana-router/pulls) adding your video to this section — we'll merge it!
 
 ---
 
-## 🛠️ Supported CLI Tools
+## 🛠ï¸ Supported CLI Tools
 
-9Router works seamlessly with all major AI coding tools:
+rebana-router works seamlessly with all major AI coding tools:
 
 <div align="center">
   <table>
@@ -535,22 +535,22 @@ a third party under a provider named "Self-hosted".
 
 | Feature                                                                           | What It Does                                                                             | Why It Matters                                    |
 | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| 🚀 **RTK Token Saver** ([RTK](https://github.com/rtk-ai/rtk) ⭐40K)               | Compress tool outputs (`git diff`, `grep`, `ls`, `tree`...) before sending to LLM        | Save **20-40% input tokens** per request          |
-| 🧠 **Headroom Token Saver** ([Headroom](https://github.com/chopratejas/headroom)) | Optional external `/v1/compress` proxy before provider routing                           | Save more context tokens without changing clients |
-| 🪨 **Caveman Mode** ([Caveman](https://github.com/JuliusBrussee/caveman) ⭐52K)   | Inject caveman-speak prompt → LLM replies terse, technical substance preserved           | Save **up to 65% output tokens**                  |
-| 🐴 **Ponytail** ([Ponytail](https://github.com/DietrichGebert/ponytail))          | Inject "lazy senior dev" prompt → LLM writes minimal, YAGNI-first code (Lite/Full/Ultra) | **Fewer output tokens, less refactoring**         |
-| 🎯 **Smart 3-Tier Fallback**                                                      | Auto-route: Subscription → Cheap → Free                                                  | Never stop coding, zero downtime                  |
-| 📊 **Real-Time Quota Tracking**                                                   | Live token count + reset countdown                                                       | Maximize subscription value                       |
-| 🔄 **Format Translation**                                                         | OpenAI ↔ Claude ↔ Gemini ↔ Cursor ↔ Kiro ↔ Vertex                                        | Works with any CLI tool                           |
+| 🚀 **RTK Token Saver** ([RTK](https://github.com/rtk-ai/rtk) ❌­40K)               | Compress tool outputs (`git diff`, `grep`, `ls`, `tree`...) before sending to LLM        | Save **20-40% input tokens** per request          |
+| 🧠  **Headroom Token Saver** ([Headroom](https://github.com/chopratejas/headroom)) | Optional external `/v1/compress` proxy before provider routing                           | Save more context tokens without changing clients |
+| ðŸª¨ **Caveman Mode** ([Caveman](https://github.com/JuliusBrussee/caveman) ❌­52K)   | Inject caveman-speak prompt →’ LLM replies terse, technical substance preserved           | Save **up to 65% output tokens**                  |
+| ðŸ´ **Ponytail** ([Ponytail](https://github.com/DietrichGebert/ponytail))          | Inject "lazy senior dev" prompt →’ LLM writes minimal, YAGNI-first code (Lite/Full/Ultra) | **Fewer output tokens, less refactoring**         |
+| ðŸŽ¯ **Smart 3-Tier Fallback**                                                      | Auto-route: Subscription →’ Cheap →’ Free                                                  | Never stop coding, zero downtime                  |
+| 📝Š **Real-Time Quota Tracking**                                                   | Live token count + reset countdown                                                       | Maximize subscription value                       |
+| 🔄 **Format Translation**                                                         | OpenAI →” Claude →” Gemini →” Cursor →” Kiro →” Vertex                                        | Works with any CLI tool                           |
 | 👥 **Multi-Account Support**                                                      | Multiple accounts per provider                                                           | Load balancing + redundancy                       |
 | 🔄 **Auto Token Refresh**                                                         | OAuth tokens refresh automatically                                                       | No manual re-login needed                         |
 | 🎨 **Custom Combos**                                                              | Create unlimited model combinations                                                      | Tailor fallback to your needs                     |
-| 📝 **Request Logging**                                                            | Debug mode with full request/response logs                                               | Troubleshoot issues easily                        |
+| 📝 **Request Logging**                                                            | Debug mode with full request/response logs                                               | Troubleshoot issues easily                        |
 | 💾 **Cloud Sync**                                                                 | Sync config across devices                                                               | Same setup everywhere                             |
-| 📊 **Usage Analytics**                                                            | Track tokens, cost, trends over time                                                     | Optimize spending                                 |
+| 📝Š **Usage Analytics**                                                            | Track tokens, cost, trends over time                                                     | Optimize spending                                 |
 | 🌐 **Deploy Anywhere**                                                            | Localhost, VPS, Docker, Cloudflare Workers                                               | Flexible deployment options                       |
 
-Set `X-9Router-Token-Saver: off` to bypass all token savers for one chat request.
+Set `X-rebana-router-Token-Saver: off` to bypass all token savers for one chat request.
 
 <details>
 <summary><b>📖 Feature Details</b></summary>
@@ -563,48 +563,48 @@ Tool outputs (`git diff`, `grep`, `find`, `ls`, `tree`, log dumps...) often eat 
 - **Auto-detect:** No config needed — RTK peeks the first 1KB of each `tool_result` and picks the right filter.
 - **Safe by design:** If a filter fails, throws, or makes output bigger, RTK silently keeps the original text. Errors never break your request.
 - **Universal:** Works across all formats (OpenAI, Claude, Gemini, Cursor, Kiro, OpenAI Responses) because it runs **before** any format translation.
-- **Default ON:** Toggle anytime in Dashboard → Endpoint settings.
+- **Default ON:** Toggle anytime in Dashboard →’ Endpoint settings.
 
 ```
 Without RTK: 47K tokens sent to LLM
-With RTK:    28K tokens sent to LLM   (40% saved · same context · same answer)
+With RTK:    28K tokens sent to LLM   (40% saved Â· same context Â· same answer)
 ```
 
-### 🧠 Headroom Token Saver
+### 🧠  Headroom Token Saver
 
-Headroom is optional and runs separately. 9Router calls Headroom's local `/v1/compress` endpoint, then keeps normal routing, fallback, auth, and usage tracking:
+Headroom is optional and runs separately. rebana-router calls Headroom's local `/v1/compress` endpoint, then keeps normal routing, fallback, auth, and usage tracking:
 
 ```
-Client → 9Router → Headroom /v1/compress → 9Router → provider
+Client →’ rebana-router →’ Headroom /v1/compress →’ rebana-router →’ provider
 ```
 
 Local setup:
 
 ```bash
 pip install "headroom-ai[proxy]"
-headroom proxy --port 8787
+headroom proxy --port 91828
 ```
 
-Enable in Dashboard → Endpoint → Token Saver → Headroom. Default URL: `http://localhost:8787`.
+Enable in Dashboard →’ Endpoint →’ Token Saver →’ Headroom. Default URL: `http://localhost:91828`.
 
 Docker examples:
 
 ```bash
 # Headroom service in same Docker network
-http://headroom:8787
+http://headroom:91828
 
 # Headroom running on host machine
-http://host.docker.internal:8787
+http://host.docker.internal:91828
 ```
 
-If Headroom is down or returns an error, 9Router fails open and sends the original request.
+If Headroom is down or returns an error, rebana-router fails open and sends the original request.
 
-### 🐴 Ponytail (Lazy Senior Dev)
+### ðŸ´ Ponytail (Lazy Senior Dev)
 
 Ponytail injects a _"lazy senior dev"_ system prompt into every request, biasing the LLM toward minimal, YAGNI-first code — deletion over addition, stdlib over new deps, one-liners over abstractions. Adapted from [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail).
 
 - **Lite** — Build what's asked, name the lazier alternative.
-- **Full** — YAGNI ladder enforced: stdlib → native → existing deps → one-liner → minimal code.
+- **Full** — YAGNI ladder enforced: stdlib →’ native →’ existing deps →’ one-liner →’ minimal code.
 - **Ultra** — YAGNI extremist: deletion first, ship the one-liner, challenge the rest of the requirement in the same response.
 
 ```
@@ -612,9 +612,9 @@ Without Ponytail: verbose code, extra abstractions, "just in case" scaffolding
 With Ponytail:    shortest working diff, no unrequested abstractions, fewer tokens
 ```
 
-Never trades away: input validation, error handling that prevents data loss, security, accessibility, or anything explicitly requested. Enable in Dashboard → Endpoint → Ponytail. Stacks with Caveman (output terseness) and RTK (input compression).
+Never trades away: input validation, error handling that prevents data loss, security, accessibility, or anything explicitly requested. Enable in Dashboard →’ Endpoint →’ Ponytail. Stacks with Caveman (output terseness) and RTK (input compression).
 
-### 🎯 Smart 3-Tier Fallback
+### ðŸŽ¯ Smart 3-Tier Fallback
 
 Create combos with automatic fallback:
 
@@ -624,10 +624,10 @@ Combo: "my-coding-stack"
   2. glm/glm-4.7               (cheap backup, $0.6/1M)
   3. if/kimi-k2-thinking       (free fallback)
 
-→ Auto switches when quota runs out or errors occur
+→’ Auto switches when quota runs out or errors occur
 ```
 
-### 📊 Real-Time Quota Tracking
+### 📝Š Real-Time Quota Tracking
 
 - Token consumption per provider
 - Reset countdown (5-hour, daily, weekly)
@@ -638,8 +638,8 @@ Combo: "my-coding-stack"
 
 Seamless translation between formats:
 
-- **OpenAI** ↔ **Claude** ↔ **Gemini** ↔ **Cursor** ↔ **Kiro** ↔ **Vertex** ↔ **Antigravity** ↔ **Ollama** ↔ **OpenAI Responses**
-- Your CLI tool sends OpenAI format → 9Router translates → Provider receives native format
+- **OpenAI** →” **Claude** →” **Gemini** →” **Cursor** →” **Kiro** →” **Vertex** →” **Antigravity** →” **Ollama** →” **OpenAI Responses**
+- Your CLI tool sends OpenAI format →’ rebana-router translates →’ Provider receives native format
 - Works with any tool that supports custom OpenAI endpoints
 
 ### 👥 Multi-Account Support
@@ -661,7 +661,7 @@ Seamless translation between formats:
 - Name your combos for easy access
 - Share combos across devices with Cloud Sync
 
-### 📝 Request Logging
+### 📝 Request Logging
 
 - Enable debug mode for full request/response logs
 - Track API calls, headers, and payloads
@@ -683,7 +683,7 @@ Seamless translation between formats:
 - `NEXT_PUBLIC_BASE_URL` and `NEXT_PUBLIC_CLOUD_URL` are still supported for compatibility/UI, but server runtime now prioritizes `BASE_URL`/`CLOUD_URL`.
 - Cloud sync requests now use timeout + fail-fast behavior to avoid UI hanging when cloud DNS/network is unavailable.
 
-### 📊 Usage Analytics
+### 📝Š Usage Analytics
 
 - Track token usage per provider and model
 - Cost estimation and spending trends
@@ -693,19 +693,19 @@ Seamless translation between formats:
 > **💡 IMPORTANT - Understanding Dashboard Costs:**
 >
 > The "cost" displayed in Usage Analytics is **for tracking and comparison purposes only**.
-> 9Router itself **never charges** you anything. You only pay providers directly (if using paid services).
+> rebana-router itself **never charges** you anything. You only pay providers directly (if using paid services).
 >
 > **Example:** If your dashboard shows "$290 total cost" while using Kiro free models, this represents
 > what you would have paid using paid APIs directly. Your actual cost = **$0** (Kiro free tier: ~50 credits/mo).
 >
 > Think of it as a "savings tracker" showing how much you're saving by using free models or
-> routing through 9Router!
+> routing through rebana-router!
 
 ### 🌐 Deploy Anywhere
 
 - 💻 **Localhost** - Default, works offline
-- ☁️ **VPS/Cloud** - Share across devices
-- 🐳 **Docker** - One-command deployment
+- ❌˜ï¸ **VPS/Cloud** - Share across devices
+- ðŸ³ **Docker** - One-command deployment
 - 🚀 **Cloudflare Workers** - Global edge network
 
 </details>
@@ -732,15 +732,15 @@ Seamless translation between formats:
 
 ---
 
-### 📊 Understanding 9Router Costs & Billing
+### 📝Š Understanding rebana-router Costs & Billing
 
-**9Router Billing Reality:**
+**rebana-router Billing Reality:**
 
-✅ **9Router software = FREE forever** (open source, never charges)  
+✅ **rebana-router software = FREE forever** (open source, never charges)  
 ✅ **Dashboard "costs" = Display/tracking only** (not actual bills)  
 ✅ **You pay providers directly** (subscriptions or API fees)  
 ✅ **FREE providers stay FREE** (Kiro ~50 credits/mo, OpenCode Free, Vertex $300 credits = $0 within free-tier limits) — note iFlow/Qwen/Gemini CLI free tiers were discontinued in 2026
-❌ **9Router never sends invoices** or charges your card
+❌Œ **rebana-router never sends invoices** or charges your card
 
 **How Cost Display Works:**
 
@@ -763,13 +763,13 @@ Reality Check:
 **Payment Rules:**
 
 - **Subscription providers** (Claude Code, Codex): Pay them directly via their websites
-- **Cheap providers** (GLM, MiniMax): Pay them directly, 9Router just routes
+- **Cheap providers** (GLM, MiniMax): Pay them directly, rebana-router just routes
 - **FREE providers** (iFlow, Kiro, Qwen): Genuinely free forever, no hidden charges
-- **9Router**: Never charges anything, ever
+- **rebana-router**: Never charges anything, ever
 
 ---
 
-## 🎯 Use Cases
+## ðŸŽ¯ Use Cases
 
 ### Case 1: "I have Claude Pro subscription"
 
@@ -839,12 +839,12 @@ Access via: WhatsApp, Telegram, Slack, Discord, iMessage, Signal...
 
 ---
 
-## ❓ Frequently Asked Questions
+## ❌“ Frequently Asked Questions
 
 <details>
-<summary><b>📊 Why does my dashboard show high costs?</b></summary>
+<summary><b>📝Š Why does my dashboard show high costs?</b></summary>
 
-The dashboard tracks your token usage and displays **estimated costs** as if you were using paid APIs directly. This is **not actual billing** - it's a reference to show how much you're saving by using free models or existing subscriptions through 9Router.
+The dashboard tracks your token usage and displays **estimated costs** as if you were using paid APIs directly. This is **not actual billing** - it's a reference to show how much you're saving by using free models or existing subscriptions through rebana-router.
 
 **Example:**
 
@@ -858,17 +858,17 @@ The cost display is a "savings tracker" to help you understand your usage patter
 </details>
 
 <details>
-<summary><b>💳 Will I be charged by 9Router?</b></summary>
+<summary><b>💳 Will I be charged by rebana-router?</b></summary>
 
-**No.** 9Router is free, open-source software that runs on your own computer. It never charges you anything.
+**No.** rebana-router is free, open-source software that runs on your own computer. It never charges you anything.
 
 **You only pay:**
 
-- ✅ **Subscription providers** (Claude Code $20/mo, Codex $20-200/mo) → Pay them directly on their websites
-- ✅ **Cheap providers** (GLM, MiniMax) → Pay them directly, 9Router just routes your requests
-- ❌ **9Router itself** → **Never charges anything, ever**
+- ✅ **Subscription providers** (Claude Code $20/mo, Codex $20-200/mo) →’ Pay them directly on their websites
+- ✅ **Cheap providers** (GLM, MiniMax) →’ Pay them directly, rebana-router just routes your requests
+- ❌Œ **rebana-router itself** →’ **Never charges anything, ever**
 
-9Router is a local proxy/router. It doesn't have your credit card, can't send invoices, and has no billing system. It's completely free software.
+rebana-router is a local proxy/router. It doesn't have your credit card, can't send invoices, and has no billing system. It's completely free software.
 
 </details>
 
@@ -883,13 +883,13 @@ These are free services offered by those respective companies:
 - **OpenCode Free**: No-auth passthrough proxy, models auto-fetched from `opencode.ai/zen/v1/models`. The free model list fluctuates over time (some models free only for limited promos) — subject to change without notice.
 - **Vertex AI**: $300 free credits for new Google Cloud accounts (90 days). Since Mar 2026 the Gemini API endpoint no longer consumes these credits — use the **Vertex AI Studio** endpoint instead.
 
-9Router just routes your requests to them - there's no "catch" or future billing from 9Router itself. They're truly free services, and 9Router makes them easy to use with fallback support.
+rebana-router just routes your requests to them - there's no "catch" or future billing from rebana-router itself. They're truly free services, and rebana-router makes them easy to use with fallback support.
 
 **Discontinued free tiers (no longer recommended):**
 
-- ❌ **iFlow**: Was free unlimited, now changed to paid (2026)
-- ❌ **Qwen Code**: Free OAuth tier fully discontinued by Alibaba on 2026-04-15
-- ❌ **Gemini CLI**: Service fully shut down by Google on 2026-06-18 (replaced by the closed-source Antigravity CLI). Discontinued — do not use.
+- ❌Œ **iFlow**: Was free unlimited, now changed to paid (2026)
+- ❌Œ **Qwen Code**: Free OAuth tier fully discontinued by Alibaba on 2026-04-15
+- ❌Œ **Gemini CLI**: Service fully shut down by Google on 2026-06-18 (replaced by the closed-source Antigravity CLI). Discontinued — do not use.
 
 </details>
 
@@ -918,7 +918,7 @@ These are free services offered by those respective companies:
 
 3. **Use subscription providers last:**
    - Only if you already have them
-   - 9Router helps maximize their value through quota tracking
+   - rebana-router helps maximize their value through quota tracking
 
 **Result:** Most users can operate at $0/month using only free tiers!
 
@@ -927,22 +927,22 @@ These are free services offered by those respective companies:
 <details>
 <summary><b>📈 What if my usage suddenly spikes?</b></summary>
 
-9Router's smart fallback prevents surprise charges:
+rebana-router's smart fallback prevents surprise charges:
 
 **Scenario:** You're on a coding sprint and blow through your quotas
 
-**Without 9Router:**
+**Without rebana-router:**
 
-- ❌ Hit rate limit → Work stops → Frustration
-- ❌ Or: Accidentally rack up huge API bills
+- ❌Œ Hit rate limit →’ Work stops →’ Frustration
+- ❌Œ Or: Accidentally rack up huge API bills
 
-**With 9Router:**
+**With rebana-router:**
 
-- ✅ Subscription hits limit → Auto-fallback to cheap tier
-- ✅ Cheap tier gets expensive → Auto-fallback to free tier
-- ✅ Never stop coding → Predictable costs
+- ✅ Subscription hits limit →’ Auto-fallback to cheap tier
+- ✅ Cheap tier gets expensive →’ Auto-fallback to free tier
+- ✅ Never stop coding →’ Predictable costs
 
-**You're in control:** Set spending limits per provider in dashboard, and 9Router respects them.
+**You're in control:** Set spending limits per provider in dashboard, and rebana-router respects them.
 
 </details>
 
@@ -956,9 +956,9 @@ These are free services offered by those respective companies:
 ### Claude Code (Pro/Max)
 
 ```bash
-Dashboard → Providers → Connect Claude Code
-→ OAuth login → Auto token refresh
-→ 5-hour + weekly quota tracking
+Dashboard →’ Providers →’ Connect Claude Code
+→’ OAuth login →’ Auto token refresh
+→’ 5-hour + weekly quota tracking
 
 Models:
   cc/claude-opus-4-7
@@ -967,14 +967,14 @@ Models:
   cc/claude-haiku-4-5-20251001
 ```
 
-**Pro Tip:** Use Opus for complex tasks, Sonnet for speed. 9Router tracks quota per model!
+**Pro Tip:** Use Opus for complex tasks, Sonnet for speed. rebana-router tracks quota per model!
 
 ### OpenAI Codex (Plus/Pro)
 
 ```bash
-Dashboard → Providers → Connect Codex
-→ OAuth login (port 1455)
-→ 5-hour + weekly reset
+Dashboard →’ Providers →’ Connect Codex
+→’ OAuth login (port 1455)
+→’ 5-hour + weekly reset
 
 Models:
   cx/gpt-5.5
@@ -986,9 +986,9 @@ Models:
 ### GitHub Copilot
 
 ```bash
-Dashboard → Providers → Connect GitHub
-→ OAuth via GitHub
-→ Monthly reset (1st of month)
+Dashboard →’ Providers →’ Connect GitHub
+→’ OAuth via GitHub
+→’ Monthly reset (1st of month)
 
 Models:
   gh/gpt-5.4
@@ -1001,9 +1001,9 @@ Models:
 ### Cursor IDE
 
 ```bash
-Dashboard → Providers → Connect Cursor
-→ OAuth login
-→ Monthly subscription
+Dashboard →’ Providers →’ Connect Cursor
+→’ OAuth login
+→’ Monthly subscription
 
 Models:
   cu/claude-4.6-opus-max
@@ -1020,19 +1020,19 @@ Models:
 
 1. Sign up: [Zhipu AI](https://open.bigmodel.cn/)
 2. Get API key from Coding Plan
-3. Dashboard → Add API Key:
+3. Dashboard →’ Add API Key:
    - Provider: `glm`
    - API Key: `your-key`
 
 **Use:** `glm/glm-5.1`, `glm/glm-5`, `glm/glm-4.7`
 
-**Pro Tip:** Coding Plan offers 3× quota at 1/7 cost! Reset daily 10:00 AM.
+**Pro Tip:** Coding Plan offers 3Ã— quota at 1/7 cost! Reset daily 10:00 AM.
 
 ### MiniMax M2.7 (5h reset, $0.20/1M)
 
 1. Sign up: [MiniMax](https://www.minimax.io/)
 2. Get API key
-3. Dashboard → Add API Key
+3. Dashboard →’ Add API Key
 
 **Use:** `minimax/MiniMax-M2.7`, `minimax/MiniMax-M2.5`
 
@@ -1042,7 +1042,7 @@ Models:
 
 1. Subscribe: [Moonshot AI](https://platform.moonshot.ai/)
 2. Get API key
-3. Dashboard → Add API Key
+3. Dashboard →’ Add API Key
 
 **Use:** `kimi/kimi-k2.5`, `kimi/kimi-k2.5-thinking`
 
@@ -1056,9 +1056,9 @@ Models:
 ### Kiro AI (Claude 4.5 + GLM-5 + MiniMax FREE)
 
 ```bash
-Dashboard → Connect Kiro
-→ AWS Builder ID, AWS IAM Identity Center, Google, or GitHub
-→ Unlimited usage
+Dashboard →’ Connect Kiro
+→’ AWS Builder ID, AWS IAM Identity Center, Google, or GitHub
+→’ Unlimited usage
 
 Models:
   kr/claude-sonnet-4.5
@@ -1074,9 +1074,9 @@ Models:
 ### OpenCode Free (No auth, auto-fetch models)
 
 ```bash
-Dashboard → Connect OpenCode Free
-→ No login required (passthrough proxy)
-→ Models auto-fetched from opencode.ai/zen/v1/models
+Dashboard →’ Connect OpenCode Free
+→’ No login required (passthrough proxy)
+→’ Models auto-fetched from opencode.ai/zen/v1/models
 ```
 
 **Pro Tip:** Fastest setup. Just connect and start coding.
@@ -1084,9 +1084,9 @@ Dashboard → Connect OpenCode Free
 ### Vertex AI ($300 free credits for new GCP accounts)
 
 ```bash
-Dashboard → Connect Vertex AI
-→ Upload Google Cloud Service Account JSON
-→ Enable Vertex AI API in your GCP project
+Dashboard →’ Connect Vertex AI
+→’ Upload Google Cloud Service Account JSON
+→’ Enable Vertex AI API in your GCP project
 
 Models:
   vertex/gemini-3.1-pro-preview
@@ -1124,10 +1124,10 @@ not regional locations such as `europe-west1`; see
 <details>
 <summary><b>🎨 Create Combos</b></summary>
 
-### Example 1: Maximize Subscription → Cheap Backup
+### Example 1: Maximize Subscription →’ Cheap Backup
 
 ```
-Dashboard → Combos → Create New
+Dashboard →’ Combos →’ Create New
 
 Name: premium-coding
 Models:
@@ -1164,9 +1164,9 @@ Cost: $0 forever (+ 20-40% token savings via RTK)!
 ### Cursor IDE
 
 ```
-Settings → Models → Advanced:
-  OpenAI API Base URL: http://localhost:20128/v1
-  OpenAI API Key: [from 9router dashboard]
+Settings →’ Models →’ Advanced:
+  OpenAI API Base URL: http://localhost:91827/v1
+  OpenAI API Key: [from rebana-router dashboard]
   Model: cc/claude-opus-4-7
 ```
 
@@ -1178,16 +1178,16 @@ Edit `~/.claude/config.json`:
 
 ```json
 {
-  "anthropic_api_base": "http://localhost:20128/v1",
-  "anthropic_api_key": "your-9router-api-key"
+  "anthropic_api_base": "http://localhost:91827/v1",
+  "anthropic_api_key": "your-rebana-router-api-key"
 }
 ```
 
 ### Codex CLI
 
 ```bash
-export OPENAI_BASE_URL="http://localhost:20128"
-export OPENAI_API_KEY="your-9router-api-key"
+export OPENAI_BASE_URL="http://localhost:91827"
+export OPENAI_API_KEY="your-rebana-router-api-key"
 
 codex "your prompt"
 ```
@@ -1197,7 +1197,7 @@ codex "your prompt"
 **Option 1 — Dashboard (recommended):**
 
 ```
-Dashboard → CLI Tools → OpenClaw → Select Model → Apply
+Dashboard →’ CLI Tools →’ OpenClaw →’ Select Model →’ Apply
 ```
 
 **Option 2 — Manual:** Edit `~/.openclaw/openclaw.json`:
@@ -1207,15 +1207,15 @@ Dashboard → CLI Tools → OpenClaw → Select Model → Apply
   "agents": {
     "defaults": {
       "model": {
-        "primary": "9router/kr/claude-sonnet-4.5"
+        "primary": "rebana-router/kr/claude-sonnet-4.5"
       }
     }
   },
   "models": {
     "providers": {
-      "9router": {
-        "baseUrl": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router",
+      "rebana-router": {
+        "baseUrl": "http://127.0.0.1:91827/v1",
+        "apiKey": "sk_rebana_router",
         "api": "openai-completions",
         "models": [
           {
@@ -1229,13 +1229,13 @@ Dashboard → CLI Tools → OpenClaw → Select Model → Apply
 }
 ```
 
-> **Note:** OpenClaw only works with local 9Router. Use `127.0.0.1` instead of `localhost` to avoid IPv6 resolution issues.
+> **Note:** OpenClaw only works with local rebana-router. Use `127.0.0.1` instead of `localhost` to avoid IPv6 resolution issues.
 
 ### Cline / Continue / RooCode
 
 ```
 Provider: OpenAI Compatible
-Base URL: http://localhost:20128/v1
+Base URL: http://localhost:91827/v1
 API Key: [from dashboard]
 Model: cc/claude-opus-4-7
 ```
@@ -1249,20 +1249,20 @@ Model: cc/claude-opus-4-7
 
 ```bash
 # Clone and install
-git clone https://github.com/decolua/9router.git
-cd 9router
+git clone https://github.com/anojndr/rebana-router.git
+cd rebana-router
 npm install
 npm run build
 
 # Configure
 export JWT_SECRET="your-secure-secret-change-this"
 export INITIAL_PASSWORD="your-password"
-export DATA_DIR="/var/lib/9router"
-export PORT="20128"
+export DATA_DIR="/var/lib/rebana-router"
+export PORT="91827"
 export HOSTNAME="0.0.0.0"
 export NODE_ENV="production"
-export NEXT_PUBLIC_BASE_URL="http://localhost:20128"
-export NEXT_PUBLIC_CLOUD_URL="https://9router.com"
+export NEXT_PUBLIC_BASE_URL="http://localhost:91827"
+export NEXT_PUBLIC_CLOUD_URL="https://rebana-router.com"
 export API_KEY_SECRET="endpoint-proxy-api-key-secret"
 export MACHINE_ID_SALT="endpoint-proxy-salt"
 
@@ -1271,7 +1271,7 @@ npm run start
 
 # Or use PM2
 npm install -g pm2
-pm2 start npm --name 9router -- start
+pm2 start npm --name rebana-router -- start
 pm2 save
 pm2 startup
 ```
@@ -1280,62 +1280,62 @@ pm2 startup
 
 Published images (multi-platform `linux/amd64` + `linux/arm64`):
 
-- Docker Hub: [`decolua/9router`](https://hub.docker.com/r/decolua/9router)
-- GHCR: [`ghcr.io/decolua/9router`](https://github.com/decolua/9router/pkgs/container/9router)
+- Docker Hub: [`rebana-router/rebana-router`](https://hub.docker.com/r/rebana-router/rebana-router)
+- GHCR: [`ghcr.io/rebana-router/rebana-router`](https://github.com/anojndr/rebana-router/pkgs/container/rebana-router)
 
 **Quick start (use published image):**
 
 ```bash
 docker run -d \
-  --name 9router \
-  -p 20128:20128 \
-  -v "$HOME/.9router:/app/data" \
+  --name rebana-router \
+  -p 91827:91827 \
+  -v "$HOME/.rebana-router:/app/data" \
   -e DATA_DIR=/app/data \
-  decolua/9router:latest
+  rebana-router/rebana-router:latest
 ```
 
-→ Open http://localhost:20128
+→’ Open http://localhost:91827
 
 **Build from source (dev):**
 
 ```bash
-git clone https://github.com/decolua/9router.git
-cd 9router/app
-docker build -t 9router .
-docker run -d --name 9router -p 20128:20128 \
-  -v "$HOME/.9router:/app/data" -e DATA_DIR=/app/data 9router
+git clone https://github.com/anojndr/rebana-router.git
+cd rebana-router/app
+docker build -t rebana-router .
+docker run -d --name rebana-router -p 91827:91827 \
+  -v "$HOME/.rebana-router:/app/data" -e DATA_DIR=/app/data rebana-router
 ```
 
 **Container defaults:**
 
-- `PORT=20128`
+- `PORT=91827`
 - `HOSTNAME=0.0.0.0`
 
 **Useful commands:**
 
 ```bash
-docker logs -f 9router
-docker restart 9router
-docker stop 9router && docker rm 9router
-docker pull decolua/9router:latest   # update to latest
+docker logs -f rebana-router
+docker restart rebana-router
+docker stop rebana-router && docker rm rebana-router
+docker pull rebana-router/rebana-router:latest   # update to latest
 ```
 
-**Data persistence:** `$HOME/.9router/db/data.sqlite` on host ↔ `/app/data/db/data.sqlite` in container.
+**Data persistence:** `$HOME/.rebana-router/db/data.sqlite` on host →” `/app/data/db/data.sqlite` in container.
 
 ### Environment Variables
 
 | Variable                                             | Default                                  | Description                                                                         |
 | ---------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------- |
-| `JWT_SECRET`                                         | Auto-generated (`~/.9router/jwt-secret`) | JWT signing secret for dashboard auth cookie (override to share across instances)   |
+| `JWT_SECRET`                                         | Auto-generated (`~/.rebana-router/jwt-secret`) | JWT signing secret for dashboard auth cookie (override to share across instances)   |
 | `INITIAL_PASSWORD`                                   | `123456`                                 | First login password when no saved hash exists                                      |
-| `DATA_DIR`                                           | `~/.9router`                             | Main app data location (SQLite at `$DATA_DIR/db/data.sqlite`)                       |
-| `PORT`                                               | framework default                        | Service port (`20128` in examples)                                                  |
+| `DATA_DIR`                                           | `~/.rebana-router`                             | Main app data location (SQLite at `$DATA_DIR/db/data.sqlite`)                       |
+| `PORT`                                               | framework default                        | Service port (`91827` in examples)                                                  |
 | `HOSTNAME`                                           | framework default                        | Bind host (Docker defaults to `0.0.0.0`)                                            |
 | `NODE_ENV`                                           | runtime default                          | Set `production` for deploy                                                         |
-| `BASE_URL`                                           | `http://localhost:20128`                 | Server-side internal base URL used by cloud sync jobs                               |
-| `CLOUD_URL`                                          | `https://9router.com`                    | Server-side cloud sync endpoint base URL                                            |
+| `BASE_URL`                                           | `http://localhost:91827`                 | Server-side internal base URL used by cloud sync jobs                               |
+| `CLOUD_URL`                                          | `https://rebana-router.com`                    | Server-side cloud sync endpoint base URL                                            |
 | `NEXT_PUBLIC_BASE_URL`                               | `http://localhost:3000`                  | Backward-compatible/public base URL (prefer `BASE_URL` for server runtime)          |
-| `NEXT_PUBLIC_CLOUD_URL`                              | `https://9router.com`                    | Backward-compatible/public cloud URL (prefer `CLOUD_URL` for server runtime)        |
+| `NEXT_PUBLIC_CLOUD_URL`                              | `https://rebana-router.com`                    | Backward-compatible/public cloud URL (prefer `CLOUD_URL` for server runtime)        |
 | `API_KEY_SECRET`                                     | `endpoint-proxy-api-key-secret`          | HMAC secret for generated API keys                                                  |
 | `MACHINE_ID_SALT`                                    | `endpoint-proxy-salt`                    | Salt for stable machine ID hashing                                                  |
 | `ENABLE_REQUEST_LOGS`                                | `false`                                  | Enables request/response logs under `logs/`                                         |
@@ -1356,13 +1356,13 @@ Notes:
 - Main app state: `${DATA_DIR}/db/data.sqlite` (SQLite — providers, combos, aliases, keys, settings, usage history)
 - Auto backups: `${DATA_DIR}/db/backups/`
 - Optional request/translator logs: `<repo>/logs/...` when `ENABLE_REQUEST_LOGS=true`
-- Both `${DATA_DIR}` and `~/.9router` resolve to the same location in a Docker container — the symlink `/root/.9router -> /app/data` is created at build time.
+- Both `${DATA_DIR}` and `~/.rebana-router` resolve to the same location in a Docker container — the symlink `/root/.rebana-router -> /app/data` is created at build time.
 
 </details>
 
 ---
 
-## 📊 Available Models
+## 📝Š Available Models
 
 <details>
 <summary><b>View all available models</b></summary>
@@ -1439,33 +1439,33 @@ Notes:
 
 ---
 
-## 🐛 Troubleshooting
+## ðŸ› Troubleshooting
 
 **"Language model did not provide messages"**
 
-- Provider quota exhausted → Check dashboard quota tracker
+- Provider quota exhausted →’ Check dashboard quota tracker
 - Solution: Use combo fallback or switch to cheaper tier
 
 **Rate limiting**
 
-- Subscription quota out → Fallback to GLM/MiniMax
-- Add combo: `cc/claude-opus-4-7 → glm/glm-5.1 → kr/claude-sonnet-4.5`
+- Subscription quota out →’ Fallback to GLM/MiniMax
+- Add combo: `cc/claude-opus-4-7 →’ glm/glm-5.1 →’ kr/claude-sonnet-4.5`
 
 **OAuth token expired**
 
-- Auto-refreshed by 9Router
-- If issues persist: Dashboard → Provider → Reconnect
+- Auto-refreshed by rebana-router
+- If issues persist: Dashboard →’ Provider →’ Reconnect
 
 **High costs**
 
-- Enable RTK in Dashboard → Endpoint settings (default ON, saves 20-40% tokens)
+- Enable RTK in Dashboard →’ Endpoint settings (default ON, saves 20-40% tokens)
 - Check usage stats in Dashboard
 - Switch primary model to GLM/MiniMax
 - Use free tier (Kiro, OpenCode Free, Vertex) for non-critical tasks
 
 **Dashboard opens on wrong port**
 
-- Set `PORT=20128` and `NEXT_PUBLIC_BASE_URL=http://localhost:20128`
+- Set `PORT=91827` and `NEXT_PUBLIC_BASE_URL=http://localhost:91827`
 
 **First login not working**
 
@@ -1478,7 +1478,7 @@ Notes:
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠ï¸ Tech Stack
 
 - **Runtime**: Node.js 20+
 - **Framework**: Next.js 16
@@ -1489,12 +1489,12 @@ Notes:
 
 ---
 
-## 📝 API Reference
+## 📝 API Reference
 
 ### Chat Completions
 
 ```bash
-POST http://localhost:20128/v1/chat/completions
+POST http://localhost:91827/v1/chat/completions
 Authorization: Bearer your-api-key
 Content-Type: application/json
 
@@ -1510,48 +1510,48 @@ Content-Type: application/json
 ### List Models
 
 ```bash
-GET http://localhost:20128/v1/models
+GET http://localhost:91827/v1/models
 Authorization: Bearer your-api-key
 
-→ Returns all models + combos in OpenAI format
+→’ Returns all models + combos in OpenAI format
 ```
 
 ## 📧 Support
 
-- **Website**: [9router.com](https://9router.com)
-- **GitHub**: [github.com/decolua/9router](https://github.com/decolua/9router)
-- **Issues**: [github.com/decolua/9router/issues](https://github.com/decolua/9router/issues)
+- **Website**: [rebana-router.com](https://rebana-router.com)
+- **GitHub**: [github.com/anojndr/rebana-router](https://github.com/anojndr/rebana-router)
+- **Issues**: [github.com/anojndr/rebana-router/issues](https://github.com/anojndr/rebana-router/issues)
 
 ---
 
 ## 👥 Contributors
 
-Thanks to all contributors who helped make 9Router better!
+Thanks to all contributors who helped make rebana-router better!
 
-[![Contributors](https://contrib.rocks/image?repo=decolua/9router&max=150&columns=15&anon=1&v=20260309)](https://github.com/decolua/9router/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=rebana-router/rebana-router&max=150&columns=15&anon=1&v=20260309)](https://github.com/anojndr/rebana-router/graphs/contributors)
 
 ---
 
-## 📊 Star Chart
+## 📝Š Star Chart
 
-[![Star Chart](https://starchart.cc/decolua/9router.svg?variant=adaptive)](https://starchart.cc/decolua/9router)
+[![Star Chart](https://starchart.cc/rebana-router/rebana-router.svg?variant=adaptive)](https://starchart.cc/rebana-router/rebana-router)
 
 ## 🔀 Forks
 
-**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — A full-featured TypeScript fork of 9Router. Adds 36+ providers, 4-tier auto-fallback, multi-modal APIs (images, embeddings, audio, TTS), circuit breaker, semantic cache, LLM evaluations, and a polished dashboard. 368+ unit tests. Available via npm and Docker.
+**[OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — A full-featured TypeScript fork of rebana-router. Adds 36+ providers, 4-tier auto-fallback, multi-modal APIs (images, embeddings, audio, TTS), circuit breaker, semantic cache, LLM evaluations, and a polished dashboard. 368+ unit tests. Available via npm and Docker.
 
 ---
 
-## 🙏 Acknowledgments
+## ðŸ™ Acknowledgments
 
 Built on the shoulders of giants:
 
 - **[CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)** — original Go implementation that inspired this JavaScript port.
-- **[RTK](https://github.com/rtk-ai/rtk)** ![Stars](https://img.shields.io/github/stars/rtk-ai/rtk?style=flat&color=yellow) — Rust token-saver. 9Router ports its compression pipeline to JS → **−20-40% input tokens** on every request.
-- **[Caveman](https://github.com/JuliusBrussee/caveman)** ![Stars](https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow) by **[@JuliusBrussee](https://github.com/JuliusBrussee)** — viral _"why use many token when few token do trick"_. 9Router adapts its prompt → **−65% output tokens**.
-- **[Ponytail](https://github.com/DietrichGebert/ponytail)** ![Stars](https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat&color=yellow) by **[@DietrichGebert](https://github.com/DietrichGebert)** — _"lazy senior dev"_ skill. 9Router injects its YAGNI-first ladder → **fewer tokens, less code, shorter diffs**.
+- **[RTK](https://github.com/rtk-ai/rtk)** ![Stars](https://img.shields.io/github/stars/rtk-ai/rtk?style=flat&color=yellow) — Rust token-saver. rebana-router ports its compression pipeline to JS →’ **❌ˆ’20-40% input tokens** on every request.
+- **[Caveman](https://github.com/JuliusBrussee/caveman)** ![Stars](https://img.shields.io/github/stars/JuliusBrussee/caveman?style=flat&color=yellow) by **[@JuliusBrussee](https://github.com/JuliusBrussee)** — viral _"why use many token when few token do trick"_. rebana-router adapts its prompt →’ **❌ˆ’65% output tokens**.
+- **[Ponytail](https://github.com/DietrichGebert/ponytail)** ![Stars](https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat&color=yellow) by **[@DietrichGebert](https://github.com/DietrichGebert)** — _"lazy senior dev"_ skill. rebana-router injects its YAGNI-first ladder →’ **fewer tokens, less code, shorter diffs**.
 
-Huge thanks to these authors — without their work, 9Router's token-saving features wouldn't exist. ⭐ them on GitHub!
+Huge thanks to these authors — without their work, rebana-router's token-saving features wouldn't exist. ❌­ them on GitHub!
 
 ---
 
@@ -1562,5 +1562,5 @@ MIT License - see [LICENSE](LICENSE) for details.
 ---
 
 <div align="center">
-  <sub>Built with ❤️ for developers who code 24/7</sub>
+  <sub>Built with ❌¤ï¸ for developers who code 24/7</sub>
 </div>

@@ -9,8 +9,8 @@ import { translateRequest } from "../../open-sse/translator/index.js";
 
 // oc/deepseek-v4.1-flash-free (OpenCode Zen free lane) serves exactly low|high|max.
 // The generic *deepseek-v4.* declarations (medium/xhigh) do not apply, and the
-// DeepSeek-API low/medium→high collapse must not swallow "low" — otherwise the
-// model's low tier is unreachable from 9router.
+// DeepSeek-API low/mediumâ†’high collapse must not swallow "low" â€” otherwise the
+// model's low tier is unreachable from Rebana Router.
 const MODEL = "deepseek-v4.1-flash-free";
 const PROVIDER = "opencode";
 const LEVELS = ["low", "high", "max"];
@@ -62,7 +62,7 @@ describe("oc/deepseek-v4.1-flash-free reasoning levels", () => {
     expect(effortOnWire("low", { model: "deepseek-v4-pro", provider: "deepseek" })).toBe("high");
   });
 
-  it("keeps the max→high clamp for backends that reject max", () => {
+  it("keeps the maxâ†’high clamp for backends that reject max", () => {
     expect(effortOnWire("max", { model: "mimo-v2.6-flash", provider: "opencode-go" })).toBe("high");
   });
 
@@ -70,7 +70,7 @@ describe("oc/deepseek-v4.1-flash-free reasoning levels", () => {
     const executor = new OpenCodeExecutor();
     for (const level of LEVELS) {
       // The handler strips the provider prefix before dispatch, so the executor
-      // only ever sees the bare upstream id (oc/... → keep it that way).
+      // only ever sees the bare upstream id (oc/... â†’ keep it that way).
       const body = {
         model: MODEL,
         messages: [{ role: "user", content: "Reply with the single word: ok" }],

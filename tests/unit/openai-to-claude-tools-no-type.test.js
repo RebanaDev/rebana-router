@@ -6,8 +6,8 @@
  *
  * Repro path (v0.5.20):
  *   tools: [{ function: { name: "echo", parameters: {...} } }]   // no parent type
- *   → originalName = undefined
- *   → upstream body: { name: "undefined", description: "", input_schema: {...} }
+ *   â†’ originalName = undefined
+ *   â†’ upstream body: { name: "undefined", description: "", input_schema: {...} }
  *
  * Pragmatic OpenAI clients and some library generators emit the bare
  * `function` wrapper shape; when this lands on a strict Anthropic-compatible
@@ -29,7 +29,7 @@ const baseBody = (extra = {}) => ({
   ...extra,
 });
 
-describe("openai→claude: tools shape fidelity", () => {
+describe("openaiâ†’claude: tools shape fidelity", () => {
   it("tool WITH explicit type:'function' is rewritten to Anthropic shape", () => {
     const out = openaiToClaudeRequest("claude-sonnet-4.5", baseBody({
       tools: [
@@ -74,7 +74,7 @@ describe("openai→claude: tools shape fidelity", () => {
   });
 
   it("non-function built-in tool types are passed through (cache_control tag is OK)", () => {
-    // 9router adds a `cache_control` tag to the last tool for prompt caching;
+    // Rebana Router adds a `cache_control` tag to the last tool for prompt caching;
     // the test asserts the original shape is preserved alongside it rather
     // than checking strict equality. This is the existing buildHeaders /
     // cache_control behavior unchanged by this fix.

@@ -16,7 +16,7 @@ import {
   buildAgentRunFrame,
 } from "../../open-sse/executors/cursor.js";
 
-// AgentService (agent.v1) codec tests — validate the production implementation
+// AgentService (agent.v1) codec tests â€” validate the production implementation
 // in cursorProtobuf.js + the executor's frame builders. Pure round-trip, no network.
 // Field numbers verified against Cursor's agent.proto (extracted via @oh-my-pi).
 
@@ -80,7 +80,7 @@ describe("Cursor AgentService codec (cursorProtobuf.js)", () => {
       const msg = decodeMessage(def);
       expect(Buffer.from(msg.get(1)[0].value).toString("utf8")).toBe("get_weather");
       expect(Buffer.from(msg.get(2)[0].value).toString("utf8")).toBe("Get weather");
-      expect(Buffer.from(msg.get(4)[0].value).toString("utf8")).toBe("9router");
+      expect(Buffer.from(msg.get(4)[0].value).toString("utf8")).toBe("Rebana Router");
       expect(Buffer.from(msg.get(5)[0].value).toString("utf8")).toBe("get_weather");
       expect(decodeAgentValue(msg.get(3)[0].value)).toEqual(schema);
     });
@@ -271,7 +271,7 @@ describe("Cursor AgentService executor helpers (cursor.js)", () => {
       expect(run.has(9)).toBe(true); // requested_model
       // custom_system_prompt (field 8) makes AgentService return an empty turn.
       expect(run.has(8)).toBe(false);
-      expect(run.has(3)).toBe(true); // ModelDetails — required for thinking variants
+      expect(run.has(3)).toBe(true); // ModelDetails â€” required for thinking variants
       const action = decodeMessage(run.get(2)[0].value);
       const userAction = decodeMessage(action.get(1)[0].value);
       const userMessage = decodeMessage(userAction.get(1)[0].value);
